@@ -89,7 +89,7 @@ BaseCard {
                 color: posTileTop.containsMouse ? Theme.accentDim : Theme.bgPanel
                 border.color: card.selectedPos === "top" ? Theme.accent : Theme.borderSubtle
                 border.width: card.selectedPos === "top" ? 2 : 1
-                Behavior on color { ColorAnimation { duration: 150 } }
+                Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
                 RowLayout {
                     anchors.centerIn: parent
@@ -137,7 +137,7 @@ BaseCard {
                 color: posTileBottom.containsMouse ? Theme.accentDim : Theme.bgPanel
                 border.color: card.selectedPos === "bottom" ? Theme.accent : Theme.borderSubtle
                 border.width: card.selectedPos === "bottom" ? 2 : 1
-                Behavior on color { ColorAnimation { duration: 150 } }
+                Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
                 RowLayout {
                     anchors.centerIn: parent

@@ -7,6 +7,7 @@ BaseCard {
     cardIcon:  "»"
 
     property bool sysinfoEnabled: false
+    property bool effectsEnabled: true
     property var accentColors: ["#996548", "#3590bd", "#7391a5", "#17d174", "#cb17d1", "#d1174f", "#d1ce17", "#9617d1", "#595959"]
 
     function applyAccent(color) {
@@ -91,7 +92,7 @@ BaseCard {
             color: sysinfoEnabled ? Theme.accent : Theme.borderSubtle
             Layout.alignment: Qt.AlignVCenter
 
-            Behavior on color { ColorAnimation { duration: 150 } }
+            Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
             Rectangle {
                 id: sysinfoKnob
@@ -101,7 +102,7 @@ BaseCard {
                 y: (parent.height - height) / 2
                 color: Theme.bgHeader
 
-                Behavior on x { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+                Behavior on x { NumberAnimation { duration: Theme.animNormal; easing.type: Easing.OutCubic } }
             }
 
             MouseArea {
@@ -146,11 +147,80 @@ BaseCard {
         }
     }
 
+    Item { Layout.preferredHeight: 2 }
+
+    RowLayout {
+        Layout.fillWidth: true
+        spacing: 10
+
+        Rectangle {
+            id: effectsToggleBtn
+            width: 44; height: 24
+            radius: Theme.radius
+
+            color: effectsEnabled ? Theme.accent : Theme.borderSubtle
+            Layout.alignment: Qt.AlignVCenter
+
+            Behavior on color { ColorAnimation { duration: Theme.animFast } }
+
+            Rectangle {
+                id: effectsKnob
+                width: 18; height: 18
+                radius: Math.max(2, Theme.radius)
+                x: effectsEnabled ? parent.width - width - 3 : 3
+                y: (parent.height - height) / 2
+                color: Theme.bgHeader
+
+                Behavior on x { NumberAnimation { duration: Theme.animNormal; easing.type: Easing.OutCubic } }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: effectsToggleProc.running = true
+            }
+        }
+
+        ColumnLayout {
+            spacing: 1
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
+
+            Text {
+                text: Strings.effectsTitle
+                color: Theme.fgText
+                font.pixelSize: 13
+                font.family: "monospace"
+                font.weight: Font.Medium
+            }
+
+            Text {
+                text: effectsEnabled ? Strings.effectsEnabled : Strings.effectsDisabled
+                color: effectsEnabled ? Theme.accent : Theme.danger
+                font.pixelSize: 13
+                font.family: "monospace"
+                opacity: 1
+            }
+        }
+
+        Text {
+            text: effectsEnabled ? "ON" : "OFF"
+            color: effectsEnabled ? Theme.accent : Theme.danger
+            font.pixelSize: 16
+            font.family: "monospace"
+            font.weight: Font.Bold
+            font.letterSpacing: 2
+            Layout.alignment: Qt.AlignVCenter
+        }
+    }
+
     Timer {
         interval: 3000; running: pollingActive; repeat: true; triggeredOnStart: true
         onTriggered: {
             if (!checkProc.running) checkProc.running = true
             if (!idleStatusProc.running) idleStatusProc.running = true
+            if (!effectsStatusProc.running) effectsStatusProc.running = true
         }
     }
 
@@ -187,6 +257,28 @@ BaseCard {
         command: ["sh", "-c", "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/apps/waybar-sysinfo-toggle.sh status"]
         stdout: SplitParser {
             onRead: data => sysinfoEnabled = data.trim() === "enabled"
+        }
+    }
+
+    Process {
+        id: effectsToggleProc
+        command: ["sh", "-c", "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/effects-toggle.sh toggle"]
+        stdout: SplitParser {
+            onRead: data => {
+                effectsEnabled = data.trim() === "enabled"
+                Theme.effectsState = effectsEnabled ? "enabled" : "disabled"
+            }
+        }
+    }
+
+    Process {
+        id: effectsStatusProc
+        command: ["sh", "-c", "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/effects-toggle.sh status"]
+        stdout: SplitParser {
+            onRead: data => {
+                effectsEnabled = data.trim() === "enabled"
+                Theme.effectsState = effectsEnabled ? "enabled" : "disabled"
+            }
         }
     }
 

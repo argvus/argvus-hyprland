@@ -103,7 +103,7 @@ BaseCard {
         }
         border.width: 1
 
-        Behavior on color { ColorAnimation { duration: 150 } }
+        Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
         ColumnLayout {
             anchors.centerIn: parent

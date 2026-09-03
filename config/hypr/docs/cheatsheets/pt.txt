@@ -39,30 +39,31 @@ ATALHO                            DESCRIÇÃO
 28 - SUPER + Shift + w          = Configura a localização do clima
 29 - SUPER + Shift + b          = Abre o seletor de brilho
 30 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
-31 - SUPER + L                  = Bloquear sistema
-32 - SUPER + Shift + m          = Desligar/Ligar monitor (não é suspender)
-33 - SUPER + Esc                = Sair do sistema
-34 - SUPER + Shift + r          = Recarregar Hyprland
-35 - SUPER + Alt + ↑/↓          = Mover barra de tarefas para topo/inferior
+31 - SUPER + F6                 = Ativa/Desativa efeitos visuais
+32 - SUPER + L                  = Bloquear sistema
+33 - SUPER + Shift + m          = Desligar/Ligar monitor (não é suspender)
+34 - SUPER + Esc                = Sair do sistema
+35 - SUPER + Shift + r          = Recarregar Hyprland
+36 - SUPER + Alt + ↑/↓          = Mover barra de tarefas para topo/inferior
 
 Atalhos de software »
 ------------------------------------------------
 ATALHO                                 DESCRIÇÃO
 
-36 - SUPER + Enter              = Terminal
-37 - SUPER + Space              = Gerenciador de arquivos
-38 - SUPER + Shift + s          = Menu de dispositivos removíveis
-39 - SUPER + b                  = Navegador padrão
-40 - SUPER + d                  = Lançador de programas
-41 - SUPER + c                  = Calculadora
-42 - SUPER + Ctrl + /           = Cheatsheets do Kitty
-43 - SUPER + Shift + /          = Cheatsheets do Hyprland
-44 - SUPER + h                  = Histórico no Clipboard
-45 - SUPER + Shift + h          = Apagar histórico do Clipboard
-46 - SUPER + p                  = Seletor de cores (Color Picker)
-47 - SUPER + .                  = Emoji Picker
-48 - ALT + SHIFT                = Altera teclado entre "pt-br (abnt2)" e "us"
-49 - SUPER + Alt + P            = Seletor de aplicativos padrão (argvus-default-apps)
+37 - SUPER + Enter              = Terminal
+38 - SUPER + Space              = Gerenciador de arquivos
+39 - SUPER + Shift + s          = Menu de dispositivos removíveis
+40 - SUPER + b                  = Navegador padrão
+41 - SUPER + d                  = Lançador de programas
+42 - SUPER + c                  = Calculadora
+43 - SUPER + Ctrl + /           = Cheatsheets do Kitty
+44 - SUPER + Shift + /          = Cheatsheets do Hyprland
+45 - SUPER + h                  = Histórico no Clipboard
+46 - SUPER + Shift + h          = Apagar histórico do Clipboard
+47 - SUPER + p                  = Seletor de cores (Color Picker)
+48 - SUPER + .                  = Emoji Picker
+49 - ALT + SHIFT                = Altera teclado entre "pt-br (abnt2)" e "us"
+50 - SUPER + Alt + P            = Seletor de aplicativos padrão (argvus-default-apps)
 
 
 Diretórios »

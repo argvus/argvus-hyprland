@@ -84,7 +84,7 @@ BaseCard {
                     width: track.width * (muted ? 0 : volume)
                     height: 4; radius: 2
                     color: muted ? Theme.dangerDim : Theme.accent
-                    Behavior on width { NumberAnimation { duration: 80 } }
+                    Behavior on width { NumberAnimation { duration: Theme.animFast } }
                 }
             }
 

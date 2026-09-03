@@ -109,7 +109,7 @@ BaseCard {
         border.color: ma.containsMouse ? Theme.accent : Theme.borderSubtle
         border.width: 1
 
-        Behavior on color { ColorAnimation { duration: 150 } }
+        Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
         Text {
             anchors.centerIn: parent

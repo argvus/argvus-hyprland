@@ -17,6 +17,8 @@ BaseCard {
     property string statusName: "unavailable"
     readonly property string script: "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bluetooth-control.sh"
 
+    visible: available
+
     function parseStatus(text) {
         var lines = text.trim().split("\n")
         var obj = {}
@@ -53,7 +55,7 @@ BaseCard {
             color: powered ? Theme.accent : Theme.borderSubtle
             Layout.alignment: Qt.AlignVCenter
 
-            Behavior on color { ColorAnimation { duration: 150 } }
+            Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
             Rectangle {
                 width: 18; height: 18
@@ -62,7 +64,7 @@ BaseCard {
                 y: (parent.height - height) / 2
                 color: Theme.bgHeader
 
-                Behavior on x { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+                Behavior on x { NumberAnimation { duration: Theme.animNormal; easing.type: Easing.OutCubic } }
             }
 
             MouseArea {

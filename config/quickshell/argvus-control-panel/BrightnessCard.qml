@@ -94,7 +94,7 @@ BaseCard {
                     width: track.width * brightness
                     height: 4; radius: 2
                     color: Theme.accent
-                    Behavior on width { NumberAnimation { duration: 80 } }
+                    Behavior on width { NumberAnimation { duration: Theme.animFast } }
                 }
             }
 

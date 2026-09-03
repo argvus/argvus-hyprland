@@ -9,6 +9,7 @@ Singleton {
 
     property string themeName: "argvus-dark-aether"
     property string gtkMode: "dark"
+    property string effectsState: "enabled"
     readonly property string configHome: StandardPaths.writableLocation(StandardPaths.GenericConfigLocation)
     readonly property string generatedConfig: configHome + "/argvus/generated"
     FileView {
@@ -26,6 +27,15 @@ Singleton {
         onTextChanged: {
             var m = text().trim()
             if (m === "light" || m === "dark") root.gtkMode = m
+        }
+    }
+
+    FileView {
+        id: effectsStateFile
+        path: root.configHome + "/argvus/state/effects"
+        onTextChanged: {
+            var s = text().trim()
+            root.effectsState = s === "disabled" ? "disabled" : "enabled"
         }
     }
 
@@ -89,6 +99,7 @@ Singleton {
         onTriggered: {
             themeNameFile.reload()
             gtkModeFile.reload()
+            effectsStateFile.reload()
             waybarMarginFile.reload()
         }
     }
@@ -134,8 +145,9 @@ Singleton {
     readonly property int radius:            modeColors ? modeColors.radius          : (themeObj ? themeObj.radius         : 8)
     readonly property int radiusPill:        modeColors ? modeColors.radiusPill      : (themeObj ? themeObj.radiusPill     : 18)
     readonly property int radiusSmall:       modeColors ? modeColors.radiusSmall     : (themeObj ? themeObj.radiusSmall    : 4)
-    readonly property int animFast:          modeColors ? modeColors.animFast        : (themeObj ? themeObj.animFast       : 150)
-    readonly property int animNormal:        modeColors ? modeColors.animNormal      : (themeObj ? themeObj.animNormal     : 220)
+    readonly property bool effectsEnabled:   effectsState !== "disabled"
+    readonly property int animFast:          effectsEnabled ? (modeColors ? modeColors.animFast        : (themeObj ? themeObj.animFast       : 150)) : 0
+    readonly property int animNormal:        effectsEnabled ? (modeColors ? modeColors.animNormal      : (themeObj ? themeObj.animNormal     : 220)) : 0
     property int _waybarMarginRight: 0
     readonly property int waybarMarginRight: _waybarMarginRight
     readonly property int marginTop:         modeColors ? modeColors.marginTop       : (themeObj ? themeObj.marginTop      : 15)

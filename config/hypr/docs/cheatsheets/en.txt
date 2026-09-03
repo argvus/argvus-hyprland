@@ -39,30 +39,31 @@ SHORTCUT                               DESCRIPTION
 28 - SUPER + Shift + w          = Configures the weather location
 29 - SUPER + Shift + b          = Opens the brightness selector
 30 - SUPER + F5                 = Toggles between GTK Dark and Light themes
-31 - SUPER + L                  = Lock system
-32 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)
-33 - SUPER + Esc                = Exit system
-34 - SUPER + Shift + r          = Reload Hyprland
-35 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
+31 - SUPER + F6                 = Toggle visual effects
+32 - SUPER + L                  = Lock system
+33 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)
+34 - SUPER + Esc                = Exit system
+35 - SUPER + Shift + r          = Reload Hyprland
+36 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
 
 Software Shortcuts »
 --------------------------------------------------
 SHORTCUT                               DESCRIPTION
 
-36 - SUPER + Enter              = Terminal
-37 - SUPER + Space              = File Manager
-38 - SUPER + Shift + s          = Removable storage menu
-39 - SUPER + b                  = Default Browser
-40 - SUPER + d                  = Program Launcher
-41 - SUPER + c                  = Calculator
-42 - SUPER + Ctrl + /           = Kitty Cheatsheets
-43 - SUPER + Shift + /          = Hyprland Cheatsheets
-44 - SUPER + h                  = Clipboard History
-45 - SUPER + Shift + h          = Clear Clipboard History
-46 - SUPER + p                  = Color Picker
-47 - SUPER + .                  = Emoji Picker
-48 - ALT + SHIFT                = Switch keyboard between "pt-br (abnt2)" and "us"
-49 - SUPER + Alt + P            = Default apps selector (argvus-default-apps)
+37 - SUPER + Enter              = Terminal
+38 - SUPER + Space              = File Manager
+39 - SUPER + Shift + s          = Removable storage menu
+40 - SUPER + b                  = Default Browser
+41 - SUPER + d                  = Program Launcher
+42 - SUPER + c                  = Calculator
+43 - SUPER + Ctrl + /           = Kitty Cheatsheets
+44 - SUPER + Shift + /          = Hyprland Cheatsheets
+45 - SUPER + h                  = Clipboard History
+46 - SUPER + Shift + h          = Clear Clipboard History
+47 - SUPER + p                  = Color Picker
+48 - SUPER + .                  = Emoji Picker
+49 - ALT + SHIFT                = Switch keyboard between "pt-br (abnt2)" and "us"
+50 - SUPER + Alt + P            = Default apps selector (argvus-default-apps)
 
 Directories »
 -----------------------------------------------

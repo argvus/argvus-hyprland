@@ -84,7 +84,7 @@ BaseCard {
             color: lockDpms ? Theme.accent : Theme.borderSubtle
             Layout.alignment: Qt.AlignVCenter
 
-            Behavior on color { ColorAnimation { duration: 150 } }
+            Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
             Rectangle {
                 id: lockDpmsKnob
@@ -94,7 +94,7 @@ BaseCard {
                 y: (parent.height - height) / 2
                 color: Theme.bgHeader
 
-                Behavior on x { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+                Behavior on x { NumberAnimation { duration: Theme.animNormal; easing.type: Easing.OutCubic } }
             }
 
             MouseArea {

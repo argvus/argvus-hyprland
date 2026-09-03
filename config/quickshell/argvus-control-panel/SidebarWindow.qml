@@ -36,7 +36,7 @@ PanelWindow {
     implicitWidth: sidebarVisible ? Theme.sidebarWidth : 0
 
     Behavior on implicitWidth {
-        NumberAnimation { duration: 70; easing.type: Easing.OutBounce }
+        NumberAnimation { duration: Theme.effectsEnabled ? 70 : 0; easing.type: Easing.OutBounce }
     }
 
     color: "transparent"
@@ -123,7 +123,7 @@ PanelWindow {
                 VolumeCard        { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 BrightnessCard    { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 NetworkCard       { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
-                BluetoothCard     { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
+                BluetoothCard     { id: bluetoothCard; visible: bluetoothCard.available; pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 SystemCard        { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 KeyboardCard      { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 AppearanceCard    { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
@@ -176,7 +176,7 @@ PanelWindow {
                           ? Qt.rgba(1, 1, 1, 0.75)
                           : Theme.scrollbarFg
 
-                Behavior on color { ColorAnimation { duration: 150 } }
+                Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
                 MouseArea {
                     id: thumbMa

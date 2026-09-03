@@ -95,6 +95,7 @@ window#waybar.empty #window {
 #memory,
 #network,
 #bluetooth,
+#custom-bluetooth,
 #clock,
 #custom-expand-icon,
 #custom-storage,
@@ -144,6 +145,7 @@ tooltip label {
 #clock.time,
 #network,
 #bluetooth,
+#custom-bluetooth,
 #memory,
 #custom-settings,
 #custom-search,
@@ -171,6 +173,7 @@ tooltip label {
 #power-profiles-daemon,
 #network,
 #bluetooth,
+#custom-bluetooth,
 #memory,
 #cpu,
 #clock,
@@ -241,6 +244,7 @@ tooltip label {
 #custom-update:hover,
 #network:hover,
 #bluetooth:hover,
+#custom-bluetooth:hover,
 #pulseaudio:hover,
 #custom-settings:hover,
 #custom-power:hover,
@@ -254,18 +258,22 @@ tooltip label {
   min-width: 30px;
 }
 
-#bluetooth {
+#bluetooth,
+#custom-bluetooth {
   color: @th-foreground;
 }
 
 #bluetooth.connected,
-#bluetooth.on {
+#bluetooth.on,
+#custom-bluetooth.bluetooth-connected,
+#custom-bluetooth.bluetooth-on {
   color: @th-foreground;
 }
 
 #bluetooth.off,
 #bluetooth.disabled,
-#bluetooth.no-controller {
+#bluetooth.no-controller,
+#custom-bluetooth.bluetooth-off {
   color: @th-danger;
   opacity: 0.85;
 }
