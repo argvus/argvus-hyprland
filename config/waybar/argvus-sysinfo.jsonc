@@ -3,13 +3,12 @@
 // =============================================================================
 {
     "layer": "bottom",
-    "mode": "overlay",
     "position": "left",
     "width": 380,
     "height": 0,
     "spacing": 0,
     "exclusive": false,
-    "passthrough": true,
+    "passthrough": false,
     "margin-top": 1,
     "margin-left": 1,
     "margin-bottom": 1,
