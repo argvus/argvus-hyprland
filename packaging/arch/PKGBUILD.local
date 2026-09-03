@@ -1,0 +1,60 @@
+# Maintainer: William C. Canin
+pkgname=argvus-shell
+pkgver=0.1.0
+pkgrel=4
+pkgdesc="Quickshell control panel, Waybar taskbar and shell UI for the ARGVUS desktop."
+arch=('any')
+url="https://github.com/argvus/argvus-shell"
+license=('GPL-3.0-only')
+depends=(
+  'argvus-session'
+  'argvus-accounts'
+  'argvus-app-profiles'
+  'argvus-appearance'
+  'argvus-default-apps'
+  'argvus-display'
+  'argvus-network'
+  'argvus-notifications'
+  'argvus-power'
+  'argvus-waybar'
+  'bash'
+  'bottom'
+  'btop'
+  'curl'
+  'fastfetch'
+  'gpu-screen-recorder'
+  'hyprland'
+  'hyprshot'
+  'jq'
+  'libnotify'
+  'libqalculate'
+  'lm_sensors'
+  'networkmanager'
+  'otf-font-awesome'
+  'pamixer'
+  'pciutils'
+  'playerctl'
+  'power-profiles-daemon'
+  'procps-ng'
+  'qt6-declarative'
+  'quickshell'
+  'rofi'
+  'rofi-calc'
+  'rofimoji'
+  'satty'
+  'wireplumber'
+  'wofi'
+  'xdg-user-dirs'
+)
+optdepends=(
+  'kdialog: avatar image picker from the user card'
+  'nvidia-utils: NVIDIA GPU readout in the system card'
+)
+options=('!debug')
+source=("${pkgname}-${pkgver}.tar.gz")
+sha256sums=("SKIP")
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" PREFIX=/usr install
+}
