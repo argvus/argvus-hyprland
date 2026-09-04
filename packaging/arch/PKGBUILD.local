@@ -1,7 +1,7 @@
 # Maintainer: William C. Canin
 pkgname=argvus-shell
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Quickshell control panel, Waybar taskbar and shell UI for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-shell"

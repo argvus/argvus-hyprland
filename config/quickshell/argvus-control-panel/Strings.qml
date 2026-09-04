@@ -46,7 +46,7 @@ QtObject {
     readonly property string displayBrightness:  isPortuguese ? "Brilho" : "Brightness"
     readonly property string displayPowerOn:     isPortuguese ? "Ligar monitor" : "Turn on"
     readonly property string displayPowerOff:    isPortuguese ? "Desligar monitor" : "Turn off"
-    readonly property string displayAdvanced:    isPortuguese ? "Ajuste Avançado" : "Advanced Settings"
+    readonly property string displayAdvanced:    isPortuguese ? "Abrir Gerenciador" : "Open Manager"
 
     // ── SpacesCard ──
     readonly property string spacesWaybar:           isPortuguese ? "Waybar" : "Waybar"
