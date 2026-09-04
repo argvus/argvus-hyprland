@@ -24,7 +24,7 @@ BaseCard {
             color: Theme.fgSubtle
             font.pixelSize: 16
             font.weight: Font.Medium
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             horizontalAlignment: Text.AlignHCenter
         }
 
@@ -44,7 +44,7 @@ BaseCard {
                 text: modelData
                 color: Theme.accent
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 horizontalAlignment: Text.AlignHCenter
                 opacity: 1
             }
@@ -75,7 +75,7 @@ BaseCard {
                     text: modelData.day > 0 ? modelData.day : ""
                     color: isToday ? Theme.bg : (inMonth ? Theme.fgText : Theme.borderSubtle)
                     font.pixelSize: 13
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     font.weight: isToday ? Font.Bold : Font.Normal
                 }
             }

@@ -67,7 +67,7 @@ BaseCard {
         text: Strings.daHint
         color: Theme.fgDim
         font.pixelSize: 10
-        font.family: "monospace"
+        font.family: "Terminus (TTF)"
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
     }
@@ -95,7 +95,7 @@ BaseCard {
                     text: modelData.label
                     color: Theme.fgText
                     font.pixelSize: 11
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     Layout.minimumWidth: 110
                 }
 
@@ -105,7 +105,7 @@ BaseCard {
                     text: card.ready ? (card.entries[modelData.key] || "—") : "…"
                     color: (card.ready && card.entries[modelData.key]) ? Theme.fgText : Theme.fgSubtle
                     font.pixelSize: 11
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     font.bold: true
                     elide: Text.ElideRight
                     Layout.maximumWidth: 110

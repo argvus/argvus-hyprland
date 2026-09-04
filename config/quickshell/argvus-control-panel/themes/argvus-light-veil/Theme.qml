@@ -43,7 +43,7 @@ QtObject {
     readonly property color ok:              "#2f6f49"
 
     // Tipography --------------------------------------------------------------
-    readonly property string fontMono:       "monospace"
+    readonly property string fontMono:       "Terminus (TTF)"
     readonly property string fontIcon:       "Font Awesome 7 Free"
 
     // Form --------------------------------------------------------------------

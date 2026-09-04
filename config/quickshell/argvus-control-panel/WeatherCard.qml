@@ -114,7 +114,7 @@ BaseCard {
         visible: loading
         Layout.fillWidth: true
         text: Strings.weatherLoading
-        color: Theme.accent; font.pixelSize: 16; font.family: "monospace"
+        color: Theme.accent; font.pixelSize: 16; font.family: "Terminus (TTF)"
         opacity: 1; horizontalAlignment: Text.AlignHCenter
     }
 
@@ -123,7 +123,7 @@ BaseCard {
         visible: !loading && hasError
         Layout.fillWidth: true
         text: Strings.weatherError
-        color: Theme.danger; font.pixelSize: 16; font.family: "monospace"
+        color: Theme.danger; font.pixelSize: 16; font.family: "Terminus (TTF)"
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -136,7 +136,7 @@ BaseCard {
         // Cidade
         Text {
             text: cityName
-            color: Theme.fgDim; font.pixelSize: 13; font.family: "monospace"
+            color: Theme.fgDim; font.pixelSize: 13; font.family: "Terminus (TTF)"
             Layout.fillWidth: true; elide: Text.ElideRight
             opacity: 1
         }
@@ -161,13 +161,13 @@ BaseCard {
                     color: Theme.fgSubtle
                     font.pixelSize: 26
                     font.weight: Font.Light
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                 }
                 Text {
                     text: condition
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     opacity: 1
                 }
             }
@@ -196,12 +196,12 @@ BaseCard {
                     spacing: 4
                     Text {
                         text: modelData.label
-                        color: Theme.accent; font.pixelSize: 16; font.family: "monospace"
+                        color: Theme.accent; font.pixelSize: 16; font.family: "Terminus (TTF)"
                         opacity: 1; Layout.alignment: Qt.AlignHCenter
                     }
                     Text {
                         text: modelData.value
-                        color: Theme.fgText; font.pixelSize: 16; font.family: "monospace"
+                        color: Theme.fgText; font.pixelSize: 16; font.family: "Terminus (TTF)"
                         Layout.alignment: Qt.AlignHCenter
                     }
                 }

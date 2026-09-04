@@ -8,6 +8,7 @@ NotificationCard  1.0 NotificationCard.qml
 CalendarCard      1.0 CalendarCard.qml
 WeatherCard       1.0 WeatherCard.qml
 SystemCard        1.0 SystemCard.qml
+AboutCard         1.0 AboutCard.qml
 KeyboardCard      1.0 KeyboardCard.qml
 UserCard          1.0 UserCard.qml
 PowerCard         1.0 PowerCard.qml

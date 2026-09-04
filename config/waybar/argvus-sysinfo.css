@@ -4,7 +4,7 @@
 /*  Waybar — Painel vertical (Sysinfo)  */
 
 * {
-    font-family: "JetBrainsMono Nerd Font", "Terminus (TTF)", "Symbols Nerd Font Mono";
+    font-family: "Terminus (TTF)", "Symbols Nerd Font Mono", monospace;
     font-size: 11px;
     border: none;
     border-radius: 0;

@@ -153,7 +153,7 @@ BaseCard {
                 text: Strings.netTitle
                 color: Theme.fgText
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 font.weight: Font.Medium
             }
 
@@ -169,7 +169,7 @@ BaseCard {
                     return Theme.danger
                 }
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 opacity: 1
             }
         }
@@ -178,7 +178,7 @@ BaseCard {
             text: networkingEnabled ? "ON" : "OFF"
             color: networkingEnabled ? Theme.accent : Theme.danger
             font.pixelSize: 16
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             font.weight: Font.Bold
             font.letterSpacing: 2
             Layout.alignment: Qt.AlignVCenter
@@ -203,14 +203,14 @@ BaseCard {
             text: ip
             color: Theme.fgText
             font.pixelSize: 16
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             Layout.fillWidth: true
         }
         Text {
             text: iface
             color: Theme.accent
             font.pixelSize: 13
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             opacity: 1
         }
     }
@@ -223,20 +223,20 @@ BaseCard {
 
         RowLayout {
             spacing: 4
-            Text { text: "↓"; color: Theme.fgText; font.pixelSize: 13; font.family: "monospace" }
+            Text { text: "↓"; color: Theme.fgText; font.pixelSize: 13; font.family: "Terminus (TTF)" }
             Text {
                 text: downSpeed
-                color: Theme.fgText; font.pixelSize: 16; font.family: "monospace"
+                color: Theme.fgText; font.pixelSize: 16; font.family: "Terminus (TTF)"
                 Layout.preferredWidth: 80
             }
         }
 
         RowLayout {
             spacing: 4
-            Text { text: "↑"; color: Theme.fgText; font.pixelSize: 13; font.family: "monospace" }
+            Text { text: "↑"; color: Theme.fgText; font.pixelSize: 13; font.family: "Terminus (TTF)" }
             Text {
                 text: upSpeed
-                color: Theme.fgText; font.pixelSize: 16; font.family: "monospace"
+                color: Theme.fgText; font.pixelSize: 16; font.family: "Terminus (TTF)"
             }
         }
     }

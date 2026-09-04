@@ -22,6 +22,13 @@ QtObject {
     readonly property string cardTitlePower:         isPortuguese ? "ENERGIA" : "POWER"
     readonly property string cardTitleDisplay:       isPortuguese ? "MONITOR" : "DISPLAY"
     readonly property string cardTitleDefaultApps:   isPortuguese ? "APPS PADRAO" : "DEFAULT APPS"
+    readonly property string cardTitleAbout:         isPortuguese ? "SOBRE" : "ABOUT"
+
+    // ── AboutCard ──
+    readonly property string aboutHint: isPortuguese
+        ? "Veja informações do sistema, módulos, créditos e licença."
+        : "View system information, modules, credits and license."
+    readonly property string aboutOpen: isPortuguese ? "Abrir Sobre" : "Open About"
 
     // ── DefaultAppsCard ──
     readonly property string daHint: isPortuguese

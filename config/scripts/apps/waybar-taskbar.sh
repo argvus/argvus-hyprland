@@ -74,20 +74,7 @@ term() {
 term_exec() {
   _class="$1"
   shift
-  case "${TERM##*/}" in
-    kitty)
-      kitty --class "$_class" -e "$@"
-      ;;
-    foot|footclient)
-      "$TERM" --app-id "$_class" -e "$@"
-      ;;
-    alacritty)
-      alacritty --class "$_class" -e "$@"
-      ;;
-    *)
-      "$TERM" -e "$@"
-      ;;
-  esac
+  exec argvus-tui-terminal --class "$_class" -- "$@"
 }
 
 sidebar_toggle() {

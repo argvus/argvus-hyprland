@@ -7,6 +7,7 @@ arch=('any')
 url="https://github.com/argvus/argvus-shell"
 license=('GPL-3.0-only')
 depends=(
+  'argvus-about'
   'argvus-session'
   'argvus-accounts'
   'argvus-app-profiles'

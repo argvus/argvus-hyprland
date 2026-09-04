@@ -123,7 +123,7 @@ BaseCard {
                 text: Strings.sysinfoTitle
                 color: Theme.fgText
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 font.weight: Font.Medium
             }
 
@@ -131,7 +131,7 @@ BaseCard {
                 text: sysinfoEnabled ? Strings.sysinfoEnabled : Strings.sysinfoDisabled
                 color: sysinfoEnabled ? Theme.accent : Theme.danger
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 opacity: 1
             }
         }
@@ -140,7 +140,7 @@ BaseCard {
             text: sysinfoEnabled ? "ON" : "OFF"
             color: sysinfoEnabled ? Theme.accent : Theme.danger
             font.pixelSize: 16
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             font.weight: Font.Bold
             font.letterSpacing: 2
             Layout.alignment: Qt.AlignVCenter
@@ -191,7 +191,7 @@ BaseCard {
                 text: Strings.effectsTitle
                 color: Theme.fgText
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 font.weight: Font.Medium
             }
 
@@ -199,7 +199,7 @@ BaseCard {
                 text: effectsEnabled ? Strings.effectsEnabled : Strings.effectsDisabled
                 color: effectsEnabled ? Theme.accent : Theme.danger
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 opacity: 1
             }
         }
@@ -208,7 +208,7 @@ BaseCard {
             text: effectsEnabled ? "ON" : "OFF"
             color: effectsEnabled ? Theme.accent : Theme.danger
             font.pixelSize: 16
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             font.weight: Font.Bold
             font.letterSpacing: 2
             Layout.alignment: Qt.AlignVCenter

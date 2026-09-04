@@ -67,7 +67,7 @@ BaseCard {
             text: unreadCount > 0 ? unreadCount + " " + Strings.notifRecent : Strings.notifNone
             color: Theme.fgText
             font.pixelSize: 16
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             Layout.fillWidth: true
         }
 
@@ -85,7 +85,7 @@ BaseCard {
                 text: (currentPage + 1) + "/" + pageCount
                 color: Theme.accent
                 font.pixelSize: 13
-                font.family: "monospace"
+                font.family: "Terminus (TTF)"
                 horizontalAlignment: Text.AlignHCenter
                 Layout.preferredWidth: 28
             }
@@ -140,7 +140,7 @@ BaseCard {
                         text: modelData.app
                         color: Theme.accent
                         font.pixelSize: 13
-                        font.family: "monospace"
+                        font.family: "Terminus (TTF)"
                         opacity: 1
                         Layout.fillWidth: true
                         elide: Text.ElideRight
@@ -152,7 +152,7 @@ BaseCard {
                     text: modelData.summary
                     color: Theme.fgText
                     font.pixelSize: 16
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     font.weight: Font.Medium
                     wrapMode: Text.WordWrap
                     visible: modelData.summary !== ""
@@ -163,7 +163,7 @@ BaseCard {
                     text: modelData.body
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "monospace"
+                    font.family: "Terminus (TTF)"
                     wrapMode: Text.WordWrap
                     visible: modelData.body !== ""
                     maximumLineCount: 2
@@ -179,7 +179,7 @@ BaseCard {
         Layout.fillWidth: true
         text: "\uf00d  " + Strings.notifAllClear
         font.pixelSize: 16
-        font.family: "monospace"
+        font.family: "Terminus (TTF)"
         color: Theme.accent
         opacity: 1
         horizontalAlignment: Text.AlignHCenter

@@ -120,7 +120,7 @@ BaseCard {
             text: Math.round(brightness * 100) + "%"
             color: Theme.fgDim
             font.pixelSize: 10
-            font.family: "monospace"
+            font.family: "Terminus (TTF)"
             Layout.preferredWidth: 32
             horizontalAlignment: Text.AlignRight
         }

@@ -1,7 +1,7 @@
 @theme "/usr/share/argvus/rofi/theme.rasi"
 
 configuration {
-    font: "JetBrainsMono Nerd Font 12";
+    font: "Terminus (TTF) 12";
     show-icons: false;
     sort: true;
     case-sensitive: false;
