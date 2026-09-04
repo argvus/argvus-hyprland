@@ -68,14 +68,7 @@ power_menu() {
 
 term() {
   require_session
-  case "$XDG_SESSION_DESKTOP" in
-  Hyprland)
-    "$TERM" -e argvus --btm -C "$(paths_config "bottom/$1.toml")" && hyprctl dispatch "hl.dsp.focus({ workspace = $CURRENT_WS })"
-    ;;
-  sway)
-    "$TERM" -e argvus --btm -C "$(paths_config "bottom/$1.toml")"
-    ;;
-  esac
+  term_exec "argvus-taskbar-$1" argvus --btm -C "$(paths_config "bottom/$1.toml")"
 }
 
 term_exec() {
@@ -115,14 +108,10 @@ case $1 in
     argvus-calendar toggle
     ;;
   --mem)
-    go_workspace 9
     term "mem"
-    go_workspace "$CURRENT_WS"
     ;;
   --cpu)
-    go_workspace 9
     term "cpu"
-    go_workspace "$CURRENT_WS"
     ;;
   --cpu-temp)
     if sh "$(paths_config scripts/argvus/sysinfo/cpu-temp.sh)" --available; then
