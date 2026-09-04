@@ -238,7 +238,7 @@
   // Removable storage (UDisks2). Compact Font Awesome icon near recording/sound;
   // left = choose device and open, right = full context menu.
   "custom/storage": {
-    "exec": "argvus-storage watch",
+    "exec": "argvus --storage watch",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,

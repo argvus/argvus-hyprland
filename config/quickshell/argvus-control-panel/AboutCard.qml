@@ -8,7 +8,7 @@ BaseCard {
 
     Process {
         id: aboutProc
-        command: ["sh", "-c", "command -v argvus-about >/dev/null 2>&1 && argvus-about"]
+        command: ["argvus", "--about"]
     }
 
     Text {

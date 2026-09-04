@@ -92,7 +92,7 @@ sidebar_toggle() {
 case $1 in
   --cal)
     # Compatibility fallback for calendar packages without the launcher.
-    argvus-calendar toggle
+    argvus --calendar
     ;;
   --mem)
     term "mem"

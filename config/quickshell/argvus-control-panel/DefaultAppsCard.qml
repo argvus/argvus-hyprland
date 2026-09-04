@@ -11,7 +11,7 @@ BaseCard {
     property bool ready: false
 
     // Command that opens the argvus-default-apps graphical selector.
-    readonly property string showCmd: "sh ${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/default_apps_show.sh"
+    readonly property string showCmd: "argvus --default-apps"
 
     // Category order for display (matches argvus-default-apps).
     readonly property var cats: [
@@ -36,7 +36,7 @@ BaseCard {
     Process {
         id: getProc
         command: ["sh", "-c",
-            "command -v argvus-default-apps >/dev/null 2>&1 && argvus-default-apps get || " +
+            "command -v argvus >/dev/null 2>&1 && argvus --default-apps get || " +
             "sh ${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/get-default.sh terminal"]
         stdout: SplitParser {
             onRead: data => {
