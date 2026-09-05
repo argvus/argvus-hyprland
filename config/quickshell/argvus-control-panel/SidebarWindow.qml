@@ -131,7 +131,7 @@ PanelWindow {
                 DisplayCard       { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 TaskbarCard       { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 SpacesCard        { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
-                DefaultAppsCard   { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
+                SettingsCard      { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 PowerCard         { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 AboutCard         { pollingActive: root.sidebarVisible; Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
 

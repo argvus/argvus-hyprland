@@ -21,7 +21,7 @@ QtObject {
     readonly property string cardTitleTaskbar:       isPortuguese ? "BARRA DE TAREFAS" : "TASKBAR"
     readonly property string cardTitlePower:         isPortuguese ? "ENERGIA" : "POWER"
     readonly property string cardTitleDisplay:       isPortuguese ? "MONITOR" : "DISPLAY"
-    readonly property string cardTitleDefaultApps:   isPortuguese ? "APPS PADRAO" : "DEFAULT APPS"
+    readonly property string cardTitleSettings:      isPortuguese ? "CONFIGURAÇÕES" : "SETTINGS"
     readonly property string cardTitleAbout:         isPortuguese ? "SOBRE" : "ABOUT"
 
     // ── AboutCard ──
@@ -30,23 +30,13 @@ QtObject {
         : "View system information, modules, credits and license."
     readonly property string aboutOpen: isPortuguese ? "Abrir Sobre" : "Open About"
 
-    // ── DefaultAppsCard ──
-    readonly property string daHint: isPortuguese
-        ? "Defina os programas usados pelos atalhos do sistema."
-        : "Set the programs used by the system shortcuts."
-    readonly property string daOpen:  isPortuguese ? "Abrir seletor" : "Open selector"
-    readonly property string daTerminal:        isPortuguese ? "Terminal" : "Terminal"
-    readonly property string daFileManager:     isPortuguese ? "Arquivos" : "File Manager"
-    readonly property string daTextEditor:      isPortuguese ? "Editor de texto" : "Text Editor"
-    readonly property string daTerminalEditor:  isPortuguese ? "Editor no terminal" : "Terminal Editor"
-    readonly property string daBrowser:         isPortuguese ? "Navegador" : "Browser"
-    readonly property string daImageViewer:     isPortuguese ? "Ver imagens" : "Image Viewer"
-    readonly property string daPdfViewer:       isPortuguese ? "Ler PDF" : "PDF Viewer"
-    readonly property string daVideoPlayer:     isPortuguese ? "Videos" : "Video Player"
-    readonly property string daAudioPlayer:     isPortuguese ? "Audio" : "Audio Player"
-    readonly property string daArchive:         isPortuguese ? "Arquivos compactados" : "Archive"
-    readonly property string daLauncher:        isPortuguese ? "Iniciador" : "Launcher"
-
+    // ── SettingsCard ──
+    readonly property string settingsHint: isPortuguese
+        ? "Ajuste fontes e aplicativos padrão do ARGVUS."
+        : "Adjust ARGVUS fonts and default applications."
+    readonly property string settingsOpen:  isPortuguese ? "Abrir Configurações" : "Open Settings"
+    readonly property string settingsFonts: isPortuguese ? "Fontes" : "Fonts"
+    readonly property string settingsApps:  isPortuguese ? "Aplicativos padrão" : "Default Apps"
     // ── DisplayCard ──
     readonly property string displayScale:       isPortuguese ? "Escala" : "Scale"
     readonly property string displayDpi:         "DPI"
