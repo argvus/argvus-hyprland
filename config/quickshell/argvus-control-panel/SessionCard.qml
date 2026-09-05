@@ -29,7 +29,7 @@ BaseCard {
         Text {
             text: Strings.idleLockTitle
             color: Theme.fgText
-            font.pixelSize: 13
+            font.pixelSize: Theme.scaledFont(13)
             font.family: Theme.fontFamily
             font.weight: Font.Medium
         }
@@ -55,7 +55,7 @@ BaseCard {
                         text: parent.modelData.label
                         color: idleTimeout === parent.modelData.seconds ? Theme.accent : Theme.fgSubtle
                         font.family: Theme.fontFamily
-                        font.pixelSize: 16
+                        font.pixelSize: Theme.scaledFont(16)
                         font.weight: Font.Bold
                     }
 
@@ -114,7 +114,7 @@ BaseCard {
             Text {
                 text: Strings.lockDpmsTitle
                 color: Theme.fgText
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 font.weight: Font.Medium
             }
@@ -122,7 +122,7 @@ BaseCard {
             Text {
                 text: lockDpms ? Strings.lockDpmsEnabled : Strings.lockDpmsDisabled
                 color: lockDpms ? Theme.accent : Theme.danger
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 opacity: 1
             }
@@ -131,7 +131,7 @@ BaseCard {
         Text {
             text: lockDpms ? "ON" : "OFF"
             color: lockDpms ? Theme.accent : Theme.danger
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             font.weight: Font.Bold
             font.letterSpacing: 2

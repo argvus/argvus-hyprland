@@ -36,7 +36,7 @@ Rectangle {
             Text {
                 text: "\uf054"
                 font.family: "Font Awesome 7 Free"
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.weight: Font.Black
                 color: Theme.accent
                 opacity: 0.9
@@ -45,7 +45,7 @@ Rectangle {
             Text {
                 text: root.cardTitle
                 color: Theme.accentLight          // teal um pouco mais claro para realçar
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.weight: Font.Bold
                 font.letterSpacing: 1.5
                 font.family: Theme.fontFamily

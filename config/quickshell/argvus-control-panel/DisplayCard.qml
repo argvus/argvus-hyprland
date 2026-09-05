@@ -109,7 +109,7 @@ BaseCard {
                 text: Strings.displayBrightness
                 color: Theme.fgText
                 font.family: Theme.fontFamily
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 Layout.alignment: Qt.AlignVCenter
             }
             Slider {
@@ -125,7 +125,7 @@ BaseCard {
                 text: Math.round(card.brightness * 100) + "%"
                 color: Theme.fgText
                 font.family: Theme.fontFamily
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 Layout.preferredWidth: 32
                 Layout.alignment: Qt.AlignVCenter
             }
@@ -145,21 +145,21 @@ BaseCard {
                         text: modelData.name
                         color: Theme.accent
                         font.family: Theme.fontFamily
-                        font.pixelSize: 12
+                        font.pixelSize: Theme.scaledFont(12)
                         font.weight: Font.Bold
                     }
                     Text {
                         text: modelData.res
                         color: Theme.fgDim
                         font.family: Theme.fontFamily
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                     }
                     Item { Layout.fillWidth: true }
                     Text {
                         text: modelData.power === "off" ? "\uf06e" : "\uf070"
                         color: modelData.power === "off" ? Theme.danger : Theme.fgSubtle
                         font.family: "Font Awesome 7 Free"
-                        font.pixelSize: 13
+                        font.pixelSize: Theme.scaledFont(13)
                     }
                 }
 
@@ -171,7 +171,7 @@ BaseCard {
                         text: Strings.displayScale
                         color: Theme.fgText
                         font.family: Theme.fontFamily
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         Layout.alignment: Qt.AlignVCenter
                     }
                     Slider {
@@ -189,7 +189,7 @@ BaseCard {
                         text: modelData.scale
                         color: Theme.fgText
                         font.family: Theme.fontFamily
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         Layout.preferredWidth: 30
                         Layout.alignment: Qt.AlignVCenter
                     }
@@ -203,7 +203,7 @@ BaseCard {
                         text: Strings.displayDpi
                         color: Theme.fgText
                         font.family: Theme.fontFamily
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         Layout.alignment: Qt.AlignVCenter
                     }
                     Slider {
@@ -221,7 +221,7 @@ BaseCard {
                         text: modelData.dpi || 96
                         color: Theme.fgText
                         font.family: Theme.fontFamily
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         Layout.preferredWidth: 30
                         Layout.alignment: Qt.AlignVCenter
                     }

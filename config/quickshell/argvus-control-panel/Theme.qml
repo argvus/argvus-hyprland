@@ -12,8 +12,8 @@ Singleton {
     property string effectsState: "enabled"
     property string fontFamily: "Terminus (TTF)"
     property string monoFontFamily: "Terminus (TTF)"
-    property int fontSize: 11
-    property int monoFontSize: 11
+    property int fontSize: 15
+    property int monoFontSize: 15
     readonly property string configHome: StandardPaths.writableLocation(StandardPaths.GenericConfigLocation)
     readonly property string generatedConfig: configHome + "/argvus/generated"
     FileView {
@@ -118,12 +118,17 @@ Singleton {
     }
 
     function loadFonts(contents) {
-        root.fontFamily = fontValue(contents, "default_family", "Terminus (TTF)")
-        root.monoFontFamily = fontValue(contents, "monospace_family", root.fontFamily)
-        root.fontSize = parseInt(fontValue(contents, "default_size", "11"), 10)
-        root.monoFontSize = parseInt(fontValue(contents, "monospace_size", "11"), 10)
-        if (isNaN(root.fontSize) || root.fontSize < 8) root.fontSize = 11
+        root.fontFamily = fontValue(contents, "control_panel_family", fontValue(contents, "default_family", "Terminus (TTF)"))
+        root.monoFontFamily = fontValue(contents, "control_panel_family", fontValue(contents, "monospace_family", root.fontFamily))
+        root.fontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "default_size", "15")), 10)
+        root.monoFontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "monospace_size", "15")), 10)
+        if (isNaN(root.fontSize) || root.fontSize < 8) root.fontSize = 15
         if (isNaN(root.monoFontSize) || root.monoFontSize < 8) root.monoFontSize = root.fontSize
+    }
+
+    function scaledFont(baseSize) {
+        var scale = Math.max(0.7, Math.min(1.8, root.fontSize / 13.0))
+        return Math.max(8, Math.round(baseSize * scale))
     }
 
     Timer {

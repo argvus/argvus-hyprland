@@ -69,7 +69,7 @@ BaseCard {
             }
         }
         color: Theme.accent
-        font.pixelSize: 16
+        font.pixelSize: Theme.scaledFont(16)
         font.family: Theme.fontFamily
         opacity: 1
         horizontalAlignment: Text.AlignHCenter

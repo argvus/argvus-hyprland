@@ -15,7 +15,7 @@ BaseCard {
         Layout.fillWidth: true
         text: Strings.settingsHint
         color: Theme.fgDim
-        font.pixelSize: 10
+        font.pixelSize: Theme.scaledFont(10)
         font.family: Theme.fontFamily
         wrapMode: Text.WordWrap
     }
@@ -38,7 +38,7 @@ BaseCard {
                     text: modelData.icon
                     color: Theme.accent
                     font.family: "Font Awesome 7 Free"
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.weight: Font.Black
                     Layout.preferredWidth: 20
                 }
@@ -47,7 +47,7 @@ BaseCard {
                     Layout.fillWidth: true
                     text: modelData.label
                     color: Theme.fgText
-                    font.pixelSize: 11
+                    font.pixelSize: Theme.scaledFont(11)
                     font.family: Theme.fontFamily
                     elide: Text.ElideRight
                 }

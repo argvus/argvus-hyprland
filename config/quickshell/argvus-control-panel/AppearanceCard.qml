@@ -122,7 +122,7 @@ BaseCard {
             Text {
                 text: Strings.sysinfoTitle
                 color: Theme.fgText
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 font.weight: Font.Medium
             }
@@ -130,7 +130,7 @@ BaseCard {
             Text {
                 text: sysinfoEnabled ? Strings.sysinfoEnabled : Strings.sysinfoDisabled
                 color: sysinfoEnabled ? Theme.accent : Theme.danger
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 opacity: 1
             }
@@ -139,7 +139,7 @@ BaseCard {
         Text {
             text: sysinfoEnabled ? "ON" : "OFF"
             color: sysinfoEnabled ? Theme.accent : Theme.danger
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             font.weight: Font.Bold
             font.letterSpacing: 2
@@ -190,7 +190,7 @@ BaseCard {
             Text {
                 text: Strings.effectsTitle
                 color: Theme.fgText
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 font.weight: Font.Medium
             }
@@ -198,7 +198,7 @@ BaseCard {
             Text {
                 text: effectsEnabled ? Strings.effectsEnabled : Strings.effectsDisabled
                 color: effectsEnabled ? Theme.accent : Theme.danger
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 opacity: 1
             }
@@ -207,7 +207,7 @@ BaseCard {
         Text {
             text: effectsEnabled ? "ON" : "OFF"
             color: effectsEnabled ? Theme.accent : Theme.danger
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             font.weight: Font.Bold
             font.letterSpacing: 2

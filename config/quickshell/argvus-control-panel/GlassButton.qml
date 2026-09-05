@@ -38,7 +38,7 @@ Rectangle {
             text: iconText
             color: active || ma.containsMouse ? accentColor : Theme.fgSubtle
             font.family: "Font Awesome 7 Free"
-            font.pixelSize: 15
+            font.pixelSize: Theme.scaledFont(15)
             font.weight: Font.Black
         }
 
@@ -46,7 +46,7 @@ Rectangle {
             visible: label !== ""
             text: label
             color: active ? accentColor : (ma.containsMouse ? accentColor : Theme.fgSubtle)
-            font.pixelSize: 11
+            font.pixelSize: Theme.scaledFont(11)
             font.family: Theme.fontFamily
             font.weight: active ? Font.Medium : Font.Normal
         }
@@ -62,7 +62,7 @@ Rectangle {
             text: iconText
             color: active || ma.containsMouse ? accentColor : Theme.fgSubtle
             font.family: "Font Awesome 7 Free"
-            font.pixelSize: 15
+            font.pixelSize: Theme.scaledFont(15)
             font.weight: Font.Black
             Layout.alignment: Qt.AlignHCenter
         }
@@ -71,7 +71,7 @@ Rectangle {
             visible: label !== ""
             text: label
             color: active ? accentColor : (ma.containsMouse ? accentColor : Theme.fgSubtle)
-            font.pixelSize: 11
+            font.pixelSize: Theme.scaledFont(11)
             font.family: Theme.fontFamily
             font.weight: active ? Font.Medium : Font.Normal
             Layout.alignment: Qt.AlignHCenter

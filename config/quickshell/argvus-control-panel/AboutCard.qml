@@ -15,7 +15,7 @@ BaseCard {
         Layout.fillWidth: true
         text: Strings.aboutHint
         color: Theme.fgDim
-        font.pixelSize: 10
+        font.pixelSize: Theme.scaledFont(10)
         font.family: Theme.fontFamily
         wrapMode: Text.WordWrap
     }

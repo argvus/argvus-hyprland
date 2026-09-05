@@ -114,7 +114,7 @@ BaseCard {
         visible: loading
         Layout.fillWidth: true
         text: Strings.weatherLoading
-        color: Theme.accent; font.pixelSize: 16; font.family: Theme.fontFamily
+        color: Theme.accent; font.pixelSize: Theme.scaledFont(16); font.family: Theme.fontFamily
         opacity: 1; horizontalAlignment: Text.AlignHCenter
     }
 
@@ -123,7 +123,7 @@ BaseCard {
         visible: !loading && hasError
         Layout.fillWidth: true
         text: Strings.weatherError
-        color: Theme.danger; font.pixelSize: 16; font.family: Theme.fontFamily
+        color: Theme.danger; font.pixelSize: Theme.scaledFont(16); font.family: Theme.fontFamily
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -136,7 +136,7 @@ BaseCard {
         // Cidade
         Text {
             text: cityName
-            color: Theme.fgDim; font.pixelSize: 13; font.family: Theme.fontFamily
+            color: Theme.fgDim; font.pixelSize: Theme.scaledFont(13); font.family: Theme.fontFamily
             Layout.fillWidth: true; elide: Text.ElideRight
             opacity: 1
         }
@@ -151,7 +151,7 @@ BaseCard {
                 font.family: "Font Awesome 7 Free"
                 font.weight: Font.Black
                 color: Theme.fgText
-                font.pixelSize: 30
+                font.pixelSize: Theme.scaledFont(30)
             }
 
             ColumnLayout {
@@ -159,14 +159,14 @@ BaseCard {
                 Text {
                     text: tempC + "°C"
                     color: Theme.fgSubtle
-                    font.pixelSize: 26
+                    font.pixelSize: Theme.scaledFont(26)
                     font.weight: Font.Light
                     font.family: Theme.fontFamily
                 }
                 Text {
                     text: condition
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     opacity: 1
                 }
@@ -196,12 +196,12 @@ BaseCard {
                     spacing: 4
                     Text {
                         text: modelData.label
-                        color: Theme.accent; font.pixelSize: 16; font.family: Theme.fontFamily
+                        color: Theme.accent; font.pixelSize: Theme.scaledFont(16); font.family: Theme.fontFamily
                         opacity: 1; Layout.alignment: Qt.AlignHCenter
                     }
                     Text {
                         text: modelData.value
-                        color: Theme.fgText; font.pixelSize: 16; font.family: Theme.fontFamily
+                        color: Theme.fgText; font.pixelSize: Theme.scaledFont(16); font.family: Theme.fontFamily
                         Layout.alignment: Qt.AlignHCenter
                     }
                 }

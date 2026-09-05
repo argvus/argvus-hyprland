@@ -75,7 +75,7 @@ BaseCard {
             text: "\uf185"
             color: brightness > 0.5 ? Theme.accent : Theme.fgDim
             font.family: "Font Awesome 7 Free"
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.weight: Font.Black
         }
 
@@ -119,7 +119,7 @@ BaseCard {
         Text {
             text: Math.round(brightness * 100) + "%"
             color: Theme.fgDim
-            font.pixelSize: 10
+            font.pixelSize: Theme.scaledFont(10)
             font.family: Theme.fontFamily
             Layout.preferredWidth: 32
             horizontalAlignment: Text.AlignRight

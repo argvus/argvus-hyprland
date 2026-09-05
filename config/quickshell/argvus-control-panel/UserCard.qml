@@ -293,7 +293,7 @@ BaseCard {
                 anchors.centerIn: parent
                 text: userIcon
                 font.family: "Font Awesome 7 Free"
-                font.pixelSize: 22
+                font.pixelSize: Theme.scaledFont(22)
                 font.weight: Font.Black
                 color: Theme.accent
                 visible: avatarPath.length === 0 || parent.children[0].status !== Image.Ready
@@ -307,7 +307,7 @@ BaseCard {
             Text {
                 text: fullName && fullName !== userName ? fullName : userName
                 color: Theme.fgText
-                font.pixelSize: 15
+                font.pixelSize: Theme.scaledFont(15)
                 font.weight: Font.Bold
                 font.family: Theme.fontFamily
                 elide: Text.ElideRight
@@ -316,7 +316,7 @@ BaseCard {
             Text {
                 text: userName + "@" + hostName
                 color: Theme.fgDim
-                font.pixelSize: 12
+                font.pixelSize: Theme.scaledFont(12)
                 font.family: Theme.fontFamily
                 elide: Text.ElideRight
             }
@@ -335,7 +335,7 @@ BaseCard {
                 anchors.centerIn: parent
                 text: editing ? "\uf00d" : "\uf303"
                 font.family: "Font Awesome 7 Free"
-                font.pixelSize: 14
+                font.pixelSize: Theme.scaledFont(14)
                 font.weight: Font.Black
                 color: editing ? Theme.accent : Theme.fgSubtle
             }
@@ -387,14 +387,14 @@ BaseCard {
                         Text {
                             text: tabIcons[index]
                             font.family: "Font Awesome 7 Free"
-                            font.pixelSize: 12
+                            font.pixelSize: Theme.scaledFont(12)
                             font.weight: Font.Black
                             color: activeTab === index ? Theme.accent : Theme.fgSubtle
                         }
 
                         Text {
                             text: tabLabels[index]
-                            font.pixelSize: 11
+                            font.pixelSize: Theme.scaledFont(11)
                             font.family: Theme.fontFamily
                             font.weight: Font.Bold
                             color: activeTab === index ? Theme.accent : Theme.fgSubtle
@@ -450,7 +450,7 @@ BaseCard {
                     anchors.centerIn: parent
                     text: "\uf007"
                     font.family: "Font Awesome 7 Free"
-                    font.pixelSize: 32
+                    font.pixelSize: Theme.scaledFont(32)
                     font.weight: Font.Black
                     color: Theme.accent
                     visible: avatarPath.length === 0 || parent.children[0].status !== Image.Ready
@@ -461,7 +461,7 @@ BaseCard {
                 Layout.fillWidth: true
                 text: avatarPath.length > 0 ? Strings.userAvatarActive : Strings.userAvatarNone
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
                 horizontalAlignment: Text.AlignHCenter
             }
@@ -498,7 +498,7 @@ BaseCard {
             Text {
                 text: Strings.user_name_label
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
             }
 
@@ -515,7 +515,7 @@ BaseCard {
                     anchors.fill: parent
                     anchors.margins: 8
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
@@ -529,7 +529,7 @@ BaseCard {
             Text {
                 text: Strings.user_name_hint
                 color: Theme.fgFaint
-                font.pixelSize: 10
+                font.pixelSize: Theme.scaledFont(10)
                 font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
@@ -560,7 +560,7 @@ BaseCard {
             Text {
                 text: Strings.userPasswordDesc
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
@@ -570,7 +570,7 @@ BaseCard {
             Text {
                 text: Strings.userPasswordCurrent
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
             }
 
@@ -587,7 +587,7 @@ BaseCard {
                     anchors.fill: parent
                     anchors.margins: 8
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
@@ -600,7 +600,7 @@ BaseCard {
             Text {
                 text: Strings.userPasswordNew
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
             }
 
@@ -617,7 +617,7 @@ BaseCard {
                     anchors.fill: parent
                     anchors.margins: 8
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
@@ -630,7 +630,7 @@ BaseCard {
             Text {
                 text: Strings.userPasswordConfirm
                 color: Theme.fgDim
-                font.pixelSize: 11
+                font.pixelSize: Theme.scaledFont(11)
                 font.family: Theme.fontFamily
             }
 
@@ -647,7 +647,7 @@ BaseCard {
                     anchors.fill: parent
                     anchors.margins: 8
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
@@ -661,7 +661,7 @@ BaseCard {
                 visible: confirmPassField.text.length > 0 && newPassField.text !== confirmPassField.text
                 text: Strings.userPasswordMismatch
                 color: Theme.danger
-                font.pixelSize: 10
+                font.pixelSize: Theme.scaledFont(10)
                 font.family: Theme.fontFamily
                 Layout.fillWidth: true
             }
@@ -689,7 +689,7 @@ BaseCard {
             Text {
                 text: Strings.userPasswordHint
                 color: Theme.fgFaint
-                font.pixelSize: 10
+                font.pixelSize: Theme.scaledFont(10)
                 font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
@@ -702,7 +702,7 @@ BaseCard {
             Layout.fillWidth: true
             text: editStatus
             color: editStatusColor
-            font.pixelSize: 11
+            font.pixelSize: Theme.scaledFont(11)
             font.family: Theme.fontFamily
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap

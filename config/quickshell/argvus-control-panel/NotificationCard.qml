@@ -66,7 +66,7 @@ BaseCard {
         Text {
             text: unreadCount > 0 ? unreadCount + " " + Strings.notifRecent : Strings.notifNone
             color: Theme.fgText
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             Layout.fillWidth: true
         }
@@ -84,7 +84,7 @@ BaseCard {
             Text {
                 text: (currentPage + 1) + "/" + pageCount
                 color: Theme.accent
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 horizontalAlignment: Text.AlignHCenter
                 Layout.preferredWidth: 28
@@ -131,7 +131,7 @@ BaseCard {
                     Text {
                         text: "\uf192"
                         font.family: "Font Awesome 7 Free"
-                        font.pixelSize: 16
+                        font.pixelSize: Theme.scaledFont(16)
                         font.weight: Font.Black
                         color: Theme.accent
                         opacity: 1
@@ -139,7 +139,7 @@ BaseCard {
                     Text {
                         text: modelData.app
                         color: Theme.accent
-                        font.pixelSize: 13
+                        font.pixelSize: Theme.scaledFont(13)
                         font.family: Theme.fontFamily
                         opacity: 1
                         Layout.fillWidth: true
@@ -151,7 +151,7 @@ BaseCard {
                     Layout.fillWidth: true
                     text: modelData.summary
                     color: Theme.fgText
-                    font.pixelSize: 16
+                    font.pixelSize: Theme.scaledFont(16)
                     font.family: Theme.fontFamily
                     font.weight: Font.Medium
                     wrapMode: Text.WordWrap
@@ -162,7 +162,7 @@ BaseCard {
                     Layout.fillWidth: true
                     text: modelData.body
                     color: Theme.fgText
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.scaledFont(13)
                     font.family: Theme.fontFamily
                     wrapMode: Text.WordWrap
                     visible: modelData.body !== ""
@@ -178,7 +178,7 @@ BaseCard {
         visible: notifications.length === 0
         Layout.fillWidth: true
         text: "\uf00d  " + Strings.notifAllClear
-        font.pixelSize: 16
+        font.pixelSize: Theme.scaledFont(16)
         font.family: Theme.fontFamily
         color: Theme.accent
         opacity: 1
@@ -201,7 +201,7 @@ BaseCard {
             text: parent.text
             color: parent.enabled ? (ma.containsMouse ? Theme.accent : Theme.fgSubtle) : Theme.borderSubtle
             font.family: "Font Awesome 7 Free"
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.weight: Font.Black
         }
 

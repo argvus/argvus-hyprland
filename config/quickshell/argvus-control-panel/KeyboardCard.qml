@@ -58,7 +58,7 @@ BaseCard {
         Text {
             text: "\uf11c"
             font.family: "Font Awesome 7 Free"
-            font.pixelSize: 18
+            font.pixelSize: Theme.scaledFont(18)
             font.weight: Font.Black
             color: Theme.accent
             opacity: 1
@@ -111,14 +111,14 @@ BaseCard {
 
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: flag; font.pixelSize: 18
+                text: flag; font.pixelSize: Theme.scaledFont(18)
             }
 
             Text {
                 Layout.alignment: Qt.AlignHCenter
                 text: label
                 color: active ? Theme.accent : (ma.containsMouse ? Theme.accent : Theme.fgSubtle)
-                font.pixelSize: 9
+                font.pixelSize: Theme.scaledFont(9)
                 font.family: Theme.fontFamily
                 font.weight: active ? Font.Medium : Font.Normal
             }

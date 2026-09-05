@@ -109,7 +109,7 @@ BaseCard {
         Text {
             text: muted ? "mut" : Math.round(volume * 100) + "%"
             color: muted ? Theme.danger : Theme.fgDim
-            font.pixelSize: 16
+            font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             Layout.preferredWidth: 32
             horizontalAlignment: Text.AlignRight

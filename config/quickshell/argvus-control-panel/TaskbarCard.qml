@@ -73,7 +73,7 @@ BaseCard {
             text: Strings.taskbarPositionLabel
             color: Theme.fgText
             font.family: Theme.fontFamily
-            font.pixelSize: 11
+            font.pixelSize: Theme.scaledFont(11)
             Layout.alignment: Qt.AlignLeft
         }
 
@@ -109,13 +109,13 @@ BaseCard {
                         text: "\uf077"
                         color: card.selectedPos === "top" ? Theme.accent : Theme.fgSubtle
                         font.family: "Font Awesome 7 Free"
-                        font.pixelSize: 14
+                        font.pixelSize: Theme.scaledFont(14)
                         font.weight: Font.Black
                     }
                     Text {
                         text: Strings.taskbarTop
                         color: card.selectedPos === "top" ? Theme.accent : Theme.fgText
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         font.family: Theme.fontFamily
                         font.weight: card.selectedPos === "top" ? Font.Medium : Font.Normal
                     }
@@ -157,13 +157,13 @@ BaseCard {
                         text: "\uf078"
                         color: card.selectedPos === "bottom" ? Theme.accent : Theme.fgSubtle
                         font.family: "Font Awesome 7 Free"
-                        font.pixelSize: 14
+                        font.pixelSize: Theme.scaledFont(14)
                         font.weight: Font.Black
                     }
                     Text {
                         text: Strings.taskbarBottom
                         color: card.selectedPos === "bottom" ? Theme.accent : Theme.fgText
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         font.family: Theme.fontFamily
                         font.weight: card.selectedPos === "bottom" ? Font.Medium : Font.Normal
                     }

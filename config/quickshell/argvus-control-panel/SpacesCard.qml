@@ -85,14 +85,14 @@ BaseCard {
                     text: "\uf065"
                     color: Theme.accent
                     font.family: "Font Awesome 7 Free"
-                    font.pixelSize: 16
+                    font.pixelSize: Theme.scaledFont(16)
                     font.weight: Font.Black
                 }
 
                 Text {
                     text: modelData.label
                     color: Theme.fgText
-                    font.pixelSize: 11
+                    font.pixelSize: Theme.scaledFont(11)
                     font.family: Theme.fontFamily
                     font.weight: Font.Medium
                     Layout.alignment: Qt.AlignVCenter
@@ -111,7 +111,7 @@ BaseCard {
                         anchors.centerIn: parent
                         text: "−"
                         color: minusArea.containsMouse ? Theme.accent : Theme.fgSubtle
-                        font.pixelSize: 14; font.family: Theme.fontFamily; font.bold: true
+                        font.pixelSize: Theme.scaledFont(14); font.family: Theme.fontFamily; font.bold: true
                     }
 
                     MouseArea {
@@ -141,7 +141,7 @@ BaseCard {
                         horizontalAlignment: TextInput.AlignHCenter
                         verticalAlignment: TextInput.AlignVCenter
                         color: Theme.fgText
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.scaledFont(11)
                         font.family: Theme.fontFamily
                         font.bold: true
                         inputMethodHints: Qt.ImhDigitsOnly
@@ -193,7 +193,7 @@ BaseCard {
                         anchors.centerIn: parent
                         text: "+"
                         color: plusArea.containsMouse ? Theme.accent : Theme.fgSubtle
-                        font.pixelSize: 14; font.family: Theme.fontFamily; font.bold: true
+                        font.pixelSize: Theme.scaledFont(14); font.family: Theme.fontFamily; font.bold: true
                     }
 
                     MouseArea {

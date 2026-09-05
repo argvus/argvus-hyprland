@@ -86,7 +86,7 @@ BaseCard {
             Text {
                 text: Strings.btTitle
                 color: Theme.fgText
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontMono
                 font.weight: Font.Medium
             }
@@ -99,7 +99,7 @@ BaseCard {
                     return powered ? Strings.btEnabled : Strings.btDisabled
                 }
                 color: powered ? Theme.accent : Theme.danger
-                font.pixelSize: 13
+                font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontMono
             }
         }
@@ -108,7 +108,7 @@ BaseCard {
             text: powered ? "\uf294" : "\uf05e"
             color: powered ? Theme.accent : Theme.danger
             font.family: Theme.fontIcon
-            font.pixelSize: 18
+            font.pixelSize: Theme.scaledFont(18)
             font.weight: Font.Black
             Layout.alignment: Qt.AlignVCenter
         }
@@ -123,14 +123,14 @@ BaseCard {
             text: "\uf2db"
             color: Theme.accent
             font.family: Theme.fontIcon
-            font.pixelSize: 14
+            font.pixelSize: Theme.scaledFont(14)
             font.weight: Font.Black
         }
 
         Text {
             text: adapter !== "" ? adapter : "Controller"
             color: Theme.fgText
-            font.pixelSize: 13
+            font.pixelSize: Theme.scaledFont(13)
             font.family: Theme.fontMono
             elide: Text.ElideRight
             Layout.fillWidth: true
@@ -142,7 +142,7 @@ BaseCard {
         visible: powered && connectedCount > 0
         text: devices
         color: Theme.fgDim
-        font.pixelSize: 12
+        font.pixelSize: Theme.scaledFont(12)
         font.family: Theme.fontMono
         wrapMode: Text.Wrap
     }
