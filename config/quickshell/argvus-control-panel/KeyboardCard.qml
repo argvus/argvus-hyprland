@@ -119,7 +119,7 @@ BaseCard {
                 text: label
                 color: active ? Theme.accent : (ma.containsMouse ? Theme.accent : Theme.fgSubtle)
                 font.pixelSize: 9
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 font.weight: active ? Font.Medium : Font.Normal
             }
         }

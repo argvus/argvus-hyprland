@@ -70,7 +70,7 @@ BaseCard {
         }
         color: Theme.accent
         font.pixelSize: 16
-        font.family: "Terminus (TTF)"
+        font.family: Theme.fontFamily
         opacity: 1
         horizontalAlignment: Text.AlignHCenter
     }

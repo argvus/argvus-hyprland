@@ -16,7 +16,7 @@ BaseCard {
         text: Strings.aboutHint
         color: Theme.fgDim
         font.pixelSize: 10
-        font.family: "Terminus (TTF)"
+        font.family: Theme.fontFamily
         wrapMode: Text.WordWrap
     }
 

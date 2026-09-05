@@ -30,7 +30,7 @@ BaseCard {
             text: Strings.idleLockTitle
             color: Theme.fgText
             font.pixelSize: 13
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             font.weight: Font.Medium
         }
 
@@ -54,7 +54,7 @@ BaseCard {
                         anchors.centerIn: parent
                         text: parent.modelData.label
                         color: idleTimeout === parent.modelData.seconds ? Theme.accent : Theme.fgSubtle
-                        font.family: "Terminus (TTF)"
+                        font.family: Theme.fontFamily
                         font.pixelSize: 16
                         font.weight: Font.Bold
                     }
@@ -115,7 +115,7 @@ BaseCard {
                 text: Strings.lockDpmsTitle
                 color: Theme.fgText
                 font.pixelSize: 13
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 font.weight: Font.Medium
             }
 
@@ -123,7 +123,7 @@ BaseCard {
                 text: lockDpms ? Strings.lockDpmsEnabled : Strings.lockDpmsDisabled
                 color: lockDpms ? Theme.accent : Theme.danger
                 font.pixelSize: 13
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 opacity: 1
             }
         }
@@ -132,7 +132,7 @@ BaseCard {
             text: lockDpms ? "ON" : "OFF"
             color: lockDpms ? Theme.accent : Theme.danger
             font.pixelSize: 16
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             font.weight: Font.Bold
             font.letterSpacing: 2
             Layout.alignment: Qt.AlignVCenter

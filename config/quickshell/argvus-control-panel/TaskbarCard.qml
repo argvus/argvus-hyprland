@@ -72,7 +72,7 @@ BaseCard {
         Text {
             text: Strings.taskbarPositionLabel
             color: Theme.fgText
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             font.pixelSize: 11
             Layout.alignment: Qt.AlignLeft
         }
@@ -116,7 +116,7 @@ BaseCard {
                         text: Strings.taskbarTop
                         color: card.selectedPos === "top" ? Theme.accent : Theme.fgText
                         font.pixelSize: 11
-                        font.family: "Terminus (TTF)"
+                        font.family: Theme.fontFamily
                         font.weight: card.selectedPos === "top" ? Font.Medium : Font.Normal
                     }
                 }
@@ -164,7 +164,7 @@ BaseCard {
                         text: Strings.taskbarBottom
                         color: card.selectedPos === "bottom" ? Theme.accent : Theme.fgText
                         font.pixelSize: 11
-                        font.family: "Terminus (TTF)"
+                        font.family: Theme.fontFamily
                         font.weight: card.selectedPos === "bottom" ? Font.Medium : Font.Normal
                     }
                 }

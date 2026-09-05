@@ -10,6 +10,10 @@ Singleton {
     property string themeName: "argvus-dark-aether"
     property string gtkMode: "dark"
     property string effectsState: "enabled"
+    property string fontFamily: "Terminus (TTF)"
+    property string monoFontFamily: "Terminus (TTF)"
+    property int fontSize: 11
+    property int monoFontSize: 11
     readonly property string configHome: StandardPaths.writableLocation(StandardPaths.GenericConfigLocation)
     readonly property string generatedConfig: configHome + "/argvus/generated"
     FileView {
@@ -37,6 +41,12 @@ Singleton {
             var s = text().trim()
             root.effectsState = s === "disabled" ? "disabled" : "enabled"
         }
+    }
+
+    FileView {
+        id: fontsFile
+        path: root.configHome + "/argvus/fonts.conf"
+        onTextChanged: root.loadFonts(text())
     }
 
     // Mirrors the top waybar's horizontal margin so the sidebar stays
@@ -92,6 +102,30 @@ Singleton {
 
     function reloadAccent() { themeFile.reload() }
 
+    function fontValue(contents, key, fallback) {
+        var lines = contents.split("\n")
+        for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim()
+            if (line === "" || line[0] === "#") continue
+            var eq = line.indexOf("=")
+            if (eq <= 0) continue
+            if (line.substring(0, eq).trim() === key) {
+                var value = line.substring(eq + 1).trim()
+                return value === "" ? fallback : value
+            }
+        }
+        return fallback
+    }
+
+    function loadFonts(contents) {
+        root.fontFamily = fontValue(contents, "default_family", "Terminus (TTF)")
+        root.monoFontFamily = fontValue(contents, "monospace_family", root.fontFamily)
+        root.fontSize = parseInt(fontValue(contents, "default_size", "11"), 10)
+        root.monoFontSize = parseInt(fontValue(contents, "monospace_size", "11"), 10)
+        if (isNaN(root.fontSize) || root.fontSize < 8) root.fontSize = 11
+        if (isNaN(root.monoFontSize) || root.monoFontSize < 8) root.monoFontSize = root.fontSize
+    }
+
     Timer {
         interval: 10000
         running: true
@@ -100,12 +134,16 @@ Singleton {
             themeNameFile.reload()
             gtkModeFile.reload()
             effectsStateFile.reload()
+            fontsFile.reload()
             waybarMarginFile.reload()
         }
     }
 
     onThemeNameChanged: loadTheme()
-    Component.onCompleted: loadTheme()
+    Component.onCompleted: {
+        loadTheme()
+        fontsFile.reload()
+    }
 
     // modeColors — non-null when theme declares a `light` QtObject and gtkMode is "light"
     readonly property var modeColors: gtkMode === "light" && themeObj && themeObj.light
@@ -140,7 +178,7 @@ Singleton {
     readonly property color dangerDim:       modeColors ? modeColors.dangerDim       : (themeObj ? themeObj.dangerDim      : "#f38ba866")
     readonly property color warn:            modeColors ? modeColors.warn            : (themeObj ? themeObj.warn           : "#f9e2af")
     readonly property color ok:              modeColors ? modeColors.ok              : (themeObj ? themeObj.ok             : "#a6e3a1")
-    readonly property string fontMono:       modeColors ? modeColors.fontMono        : (themeObj ? themeObj.fontMono       : "Terminus (TTF)")
+    readonly property string fontMono:       monoFontFamily
     readonly property string fontIcon:       modeColors ? modeColors.fontIcon        : (themeObj ? themeObj.fontIcon       : "Font Awesome 7 Free")
     readonly property int radius:            modeColors ? modeColors.radius          : (themeObj ? themeObj.radius         : 8)
     readonly property int radiusPill:        modeColors ? modeColors.radiusPill      : (themeObj ? themeObj.radiusPill     : 18)

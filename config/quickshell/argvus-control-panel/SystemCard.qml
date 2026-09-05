@@ -110,9 +110,9 @@ BaseCard {
 
             RowLayout {
                 Layout.fillWidth: true
-                Text { text: label; color: Theme.accent; font.pixelSize: 16; font.family: "Terminus (TTF)"; Layout.preferredWidth: 36 }
+                Text { text: label; color: Theme.accent; font.pixelSize: 16; font.family: Theme.fontFamily; Layout.preferredWidth: 36 }
                 Item { Layout.fillWidth: true }
-                Text { text: value; color: Theme.fgDim; font.pixelSize: 16; font.family: "Terminus (TTF)" }
+                Text { text: value; color: Theme.fgDim; font.pixelSize: 16; font.family: Theme.fontFamily }
             }
 
             Rectangle {

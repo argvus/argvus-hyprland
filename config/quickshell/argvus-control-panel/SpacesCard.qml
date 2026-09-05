@@ -93,7 +93,7 @@ BaseCard {
                     text: modelData.label
                     color: Theme.fgText
                     font.pixelSize: 11
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     font.weight: Font.Medium
                     Layout.alignment: Qt.AlignVCenter
                 }
@@ -111,7 +111,7 @@ BaseCard {
                         anchors.centerIn: parent
                         text: "−"
                         color: minusArea.containsMouse ? Theme.accent : Theme.fgSubtle
-                        font.pixelSize: 14; font.family: "Terminus (TTF)"; font.bold: true
+                        font.pixelSize: 14; font.family: Theme.fontFamily; font.bold: true
                     }
 
                     MouseArea {
@@ -142,7 +142,7 @@ BaseCard {
                         verticalAlignment: TextInput.AlignVCenter
                         color: Theme.fgText
                         font.pixelSize: 11
-                        font.family: "Terminus (TTF)"
+                        font.family: Theme.fontFamily
                         font.bold: true
                         inputMethodHints: Qt.ImhDigitsOnly
                         validator: IntValidator { bottom: modelData.minDef; top: modelData.max }
@@ -193,7 +193,7 @@ BaseCard {
                         anchors.centerIn: parent
                         text: "+"
                         color: plusArea.containsMouse ? Theme.accent : Theme.fgSubtle
-                        font.pixelSize: 14; font.family: "Terminus (TTF)"; font.bold: true
+                        font.pixelSize: 14; font.family: Theme.fontFamily; font.bold: true
                     }
 
                     MouseArea {

@@ -309,7 +309,7 @@ BaseCard {
                 color: Theme.fgText
                 font.pixelSize: 15
                 font.weight: Font.Bold
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 elide: Text.ElideRight
             }
 
@@ -317,7 +317,7 @@ BaseCard {
                 text: userName + "@" + hostName
                 color: Theme.fgDim
                 font.pixelSize: 12
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 elide: Text.ElideRight
             }
         }
@@ -395,7 +395,7 @@ BaseCard {
                         Text {
                             text: tabLabels[index]
                             font.pixelSize: 11
-                            font.family: "Terminus (TTF)"
+                            font.family: Theme.fontFamily
                             font.weight: Font.Bold
                             color: activeTab === index ? Theme.accent : Theme.fgSubtle
                         }
@@ -462,7 +462,7 @@ BaseCard {
                 text: avatarPath.length > 0 ? Strings.userAvatarActive : Strings.userAvatarNone
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 horizontalAlignment: Text.AlignHCenter
             }
 
@@ -499,7 +499,7 @@ BaseCard {
                 text: Strings.user_name_label
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
             }
 
             Rectangle {
@@ -516,7 +516,7 @@ BaseCard {
                     anchors.margins: 8
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
                     text: editNameValue
@@ -530,7 +530,7 @@ BaseCard {
                 text: Strings.user_name_hint
                 color: Theme.fgFaint
                 font.pixelSize: 10
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -561,7 +561,7 @@ BaseCard {
                 text: Strings.userPasswordDesc
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -571,7 +571,7 @@ BaseCard {
                 text: Strings.userPasswordCurrent
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
             }
 
             Rectangle {
@@ -588,7 +588,7 @@ BaseCard {
                     anchors.margins: 8
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
                     echoMode: TextInput.Password
@@ -601,7 +601,7 @@ BaseCard {
                 text: Strings.userPasswordNew
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
             }
 
             Rectangle {
@@ -618,7 +618,7 @@ BaseCard {
                     anchors.margins: 8
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
                     echoMode: TextInput.Password
@@ -631,7 +631,7 @@ BaseCard {
                 text: Strings.userPasswordConfirm
                 color: Theme.fgDim
                 font.pixelSize: 11
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
             }
 
             Rectangle {
@@ -648,7 +648,7 @@ BaseCard {
                     anchors.margins: 8
                     color: Theme.fgText
                     font.pixelSize: 13
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     clip: true
                     verticalAlignment: Text.AlignVCenter
                     echoMode: TextInput.Password
@@ -662,7 +662,7 @@ BaseCard {
                 text: Strings.userPasswordMismatch
                 color: Theme.danger
                 font.pixelSize: 10
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 Layout.fillWidth: true
             }
 
@@ -690,7 +690,7 @@ BaseCard {
                 text: Strings.userPasswordHint
                 color: Theme.fgFaint
                 font.pixelSize: 10
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -703,7 +703,7 @@ BaseCard {
             text: editStatus
             color: editStatusColor
             font.pixelSize: 11
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
         }

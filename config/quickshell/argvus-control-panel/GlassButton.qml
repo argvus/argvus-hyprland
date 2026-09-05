@@ -47,7 +47,7 @@ Rectangle {
             text: label
             color: active ? accentColor : (ma.containsMouse ? accentColor : Theme.fgSubtle)
             font.pixelSize: 11
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             font.weight: active ? Font.Medium : Font.Normal
         }
     }
@@ -72,7 +72,7 @@ Rectangle {
             text: label
             color: active ? accentColor : (ma.containsMouse ? accentColor : Theme.fgSubtle)
             font.pixelSize: 11
-            font.family: "Terminus (TTF)"
+            font.family: Theme.fontFamily
             font.weight: active ? Font.Medium : Font.Normal
             Layout.alignment: Qt.AlignHCenter
         }

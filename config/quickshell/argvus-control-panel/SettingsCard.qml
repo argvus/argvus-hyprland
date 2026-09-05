@@ -16,7 +16,7 @@ BaseCard {
         text: Strings.settingsHint
         color: Theme.fgDim
         font.pixelSize: 10
-        font.family: "Terminus (TTF)"
+        font.family: Theme.fontFamily
         wrapMode: Text.WordWrap
     }
 
@@ -48,7 +48,7 @@ BaseCard {
                     text: modelData.label
                     color: Theme.fgText
                     font.pixelSize: 11
-                    font.family: "Terminus (TTF)"
+                    font.family: Theme.fontFamily
                     elide: Text.ElideRight
                 }
             }

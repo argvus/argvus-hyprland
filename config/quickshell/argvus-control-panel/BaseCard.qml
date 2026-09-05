@@ -48,7 +48,7 @@ Rectangle {
                 font.pixelSize: 11
                 font.weight: Font.Bold
                 font.letterSpacing: 1.5
-                font.family: "Terminus (TTF)"
+                font.family: Theme.fontFamily
             }
 
             Item { Layout.fillWidth: true }
