@@ -18,6 +18,7 @@ BaseCard {
     property string weatherIcon: "~"
     property bool   loading:     true
     property bool   hasError:    false
+    property bool   hasData:     false
     property bool   refreshPending: false
 
     function refreshWeather() {
@@ -58,7 +59,7 @@ BaseCard {
             ? "https://wttr.in/" + encodeURIComponent(root.location) + "?format=j1"
             : "https://wttr.in/?format=j1"
         command: ["curl", "-sf", "--max-time", "10", url]
-        onStarted: { loading = true; hasError = false }
+        onStarted: { if (!hasData) loading = true; hasError = false }
         stdout: StdioCollector {
             onStreamFinished: {
                 loading = false
@@ -84,15 +85,16 @@ BaseCard {
                     else if (code >= 386 && code <= 395)            weatherIcon = "\uf0e7"
                     else                                            weatherIcon = "\uf185"
 
+                    hasData = true
                     hasError = false
                 } catch(e) {
-                    hasError = true
+                    if (!hasData) hasError = true
                 }
             }
         }
         onExited: function(code) {
             loading = false
-            if (code !== 0) hasError = true
+            if (code !== 0 && !hasData) hasError = true
             if (root.refreshPending) {
                 root.refreshPending = false
                 deferredRefresh.restart()
