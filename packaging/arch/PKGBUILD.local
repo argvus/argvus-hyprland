@@ -16,6 +16,7 @@ depends=(
   'argvus-notifications'
   'argvus-power'
   'argvus-settings'
+  'argvus-terminal'
   'argvus-waybar'
   'bash'
   'bottom'

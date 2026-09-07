@@ -14,7 +14,7 @@ help:
 
 install:
 	install -dm755 "$(DESTDIR)$(PREFIX)/share/argvus"
-	cp -a config/. "$(DESTDIR)$(PREFIX)/share/argvus/"
+	cp -R --no-preserve=ownership config/. "$(DESTDIR)$(PREFIX)/share/argvus/"
 	find "$(DESTDIR)$(PREFIX)/share/argvus/scripts" -type f -name '*.sh' -exec chmod 755 {} \; 2>/dev/null || true
 	install -Dm644 LICENSE "$(DESTDIR)$(PREFIX)/share/licenses/argvus-shell/LICENSE"
 

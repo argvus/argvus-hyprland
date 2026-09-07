@@ -10,10 +10,18 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 APP="${1:-hypr}"
 
 if locale_is_pt; then
-  CHEAT_FILE="$(paths_config "$APP/docs/cheatsheets/pt.txt")"
+  if [ "$APP" = "kitty" ]; then
+    CHEAT_FILE="/usr/share/argvus-terminal/kitty/docs/cheatsheets/pt.txt"
+  else
+    CHEAT_FILE="$(paths_config "$APP/docs/cheatsheets/pt.txt")"
+  fi
   PROMPT="Procurar"
 else
-  CHEAT_FILE="$(paths_config "$APP/docs/cheatsheets/en.txt")"
+  if [ "$APP" = "kitty" ]; then
+    CHEAT_FILE="/usr/share/argvus-terminal/kitty/docs/cheatsheets/en.txt"
+  else
+    CHEAT_FILE="$(paths_config "$APP/docs/cheatsheets/en.txt")"
+  fi
   PROMPT="Search"
 fi
 
