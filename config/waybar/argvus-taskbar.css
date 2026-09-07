@@ -34,7 +34,7 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  padding: 0px 10px 0px 10px;
+  padding: 0px 4px;
 }
 
 #workspaces button {
@@ -45,8 +45,8 @@ window#waybar.empty #window {
   border: none;
   font-weight: bold;
   border-radius: 0px;
-  margin: 4px 2px 4px 2px;
-  padding: 0px 8px;
+  margin: 4px 1px;
+  padding: 0px 4px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -59,8 +59,8 @@ window#waybar.empty #window {
   box-shadow: none;
   border: none;
   border-radius: 0px;
-  margin: 4px 2px 4px 2px;
-  padding: 0px 8px;
+  margin: 4px 1px;
+  padding: 0px 4px;
   color: @th-background;
   opacity: 0.85;
 }
