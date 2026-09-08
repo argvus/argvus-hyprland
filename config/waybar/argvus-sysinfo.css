@@ -4,8 +4,8 @@
 /*  Waybar — Painel vertical (Sysinfo)  */
 
 * {
-    font-family: "Terminus (TTF)", "Symbols Nerd Font Mono", monospace;
-    font-size: 15px;
+    font-family: "IBM Plex Mono", "Symbols Nerd Font Mono", monospace;
+    font-size: 14px;
     border: none;
     border-radius: 0;
     min-height: 0;

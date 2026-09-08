@@ -10,10 +10,10 @@ Singleton {
     property string themeName: "argvus-dark-aether"
     property string gtkMode: "dark"
     property string effectsState: "enabled"
-    property string fontFamily: "Terminus (TTF)"
-    property string monoFontFamily: "Terminus (TTF)"
-    property int fontSize: 15
-    property int monoFontSize: 15
+    property string fontFamily: "IBM Plex Mono"
+    property string monoFontFamily: "IBM Plex Mono"
+    property int fontSize: 14
+    property int monoFontSize: 14
     readonly property string configHome: StandardPaths.writableLocation(StandardPaths.GenericConfigLocation)
     readonly property string generatedConfig: configHome + "/argvus/generated"
     FileView {
@@ -118,11 +118,11 @@ Singleton {
     }
 
     function loadFonts(contents) {
-        root.fontFamily = fontValue(contents, "control_panel_family", fontValue(contents, "default_family", "Terminus (TTF)"))
+        root.fontFamily = fontValue(contents, "control_panel_family", fontValue(contents, "default_family", "IBM Plex Mono"))
         root.monoFontFamily = fontValue(contents, "control_panel_family", fontValue(contents, "monospace_family", root.fontFamily))
-        root.fontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "default_size", "15")), 10)
-        root.monoFontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "monospace_size", "15")), 10)
-        if (isNaN(root.fontSize) || root.fontSize < 8) root.fontSize = 15
+        root.fontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "default_size", "14")), 10)
+        root.monoFontSize = parseInt(fontValue(contents, "control_panel_size", fontValue(contents, "monospace_size", "14")), 10)
+        if (isNaN(root.fontSize) || root.fontSize < 8) root.fontSize = 14
         if (isNaN(root.monoFontSize) || root.monoFontSize < 8) root.monoFontSize = root.fontSize
     }
 
