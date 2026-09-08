@@ -21,7 +21,7 @@ QtObject {
     readonly property string cardTitleTaskbar:       isPortuguese ? "BARRA DE TAREFAS" : "TASKBAR"
     readonly property string cardTitlePower:         isPortuguese ? "ENERGIA" : "POWER"
     readonly property string cardTitleDisplay:       isPortuguese ? "MONITOR" : "DISPLAY"
-    readonly property string cardTitleSettings:      isPortuguese ? "CONFIGURAÇÕES" : "SETTINGS"
+    readonly property string cardTitleSettings:      isPortuguese ? "CENTRAL DE CONTROLE" : "CONTROL CENTER"
     readonly property string cardTitleAbout:         isPortuguese ? "SOBRE" : "ABOUT"
 
     // ── AboutCard ──
@@ -34,7 +34,7 @@ QtObject {
     readonly property string settingsHint: isPortuguese
         ? "Ajuste fontes e aplicativos padrão do ARGVUS."
         : "Adjust ARGVUS fonts and default applications."
-    readonly property string settingsOpen:  isPortuguese ? "Abrir Configurações" : "Open Settings"
+    readonly property string settingsOpen:  isPortuguese ? "Abrir Central de Controle" : "Open Control Center"
     readonly property string settingsFonts: isPortuguese ? "Fontes" : "Fonts"
     readonly property string settingsApps:  isPortuguese ? "Aplicativos padrão" : "Default Apps"
     // ── DisplayCard ──

@@ -8,7 +8,7 @@ BaseCard {
 
     Process {
         id: settingsProc
-        command: ["argvus", "--settings"]
+        command: ["argvus", "--control-center"]
     }
 
     Text {

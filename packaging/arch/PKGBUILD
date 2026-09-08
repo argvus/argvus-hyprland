@@ -15,7 +15,7 @@ depends=(
   'argvus-network'
   'argvus-notifications'
   'argvus-power'
-  'argvus-settings'
+  'argvus-control-center'
   'argvus-system-monitor'
   'argvus-terminal'
   'argvus-waybar'
@@ -48,7 +48,7 @@ depends=(
   'xdg-user-dirs'
 )
 optdepends=(
-  'argvus: built-in argvus-about binary used by the About card in a full desktop install'
+  'argvus: dispatcher used by the control panel cards in a full desktop install'
   'kdialog: avatar image picker from the user card'
   'nvidia-utils: NVIDIA GPU readout in the system card'
 )
