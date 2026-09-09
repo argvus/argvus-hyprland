@@ -20,7 +20,6 @@ install:
 
 uninstall:
 	rm -rf "$(DESTDIR)$(PREFIX)/share/argvus/quickshell/argvus-control-panel"
-	rm -rf "$(DESTDIR)$(PREFIX)/share/argvus/waybar"
 	rm -rf "$(DESTDIR)$(PREFIX)/share/argvus/rofi"
 	rm -rf "$(DESTDIR)$(PREFIX)/share/argvus/wofi"
 	rm -f "$(DESTDIR)$(PREFIX)/share/argvus/scripts/argvus/toggle-sidebar.sh"
@@ -43,7 +42,8 @@ validate:
 	else \
 		echo "no QML files found"; \
 	fi
-	@test -f config/waybar/argvus-taskbar.jsonc
+	@test ! -e config/waybar
+	@test ! -e config/scripts/argvus/sysinfo
 	@test -f config/rofi/config.rasi
 	@echo "argvus-shell validation ok"
 

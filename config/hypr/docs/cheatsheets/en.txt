@@ -36,35 +36,36 @@ SHORTCUT                               DESCRIPTION
 25 - SUPER + y                  = Opens the selector to change the wallpaper
 26 - SUPER + Shift + t          = Opens the selector themes
 27 - SUPER + Shift + a          = Opens the accent color selector
-28 - SUPER + Shift + w          = Configures the weather location
-29 - SUPER + Shift + b          = Opens the brightness selector
-30 - SUPER + F5                 = Toggles between GTK Dark and Light themes
-31 - SUPER + F6                 = Toggle visual effects
-32 - SUPER + F1                 = Open About ARGVUS
-33 - SUPER + L                  = Lock system
-34 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)
-35 - SUPER + Esc                = Exit system
-36 - SUPER + Shift + r          = Reload Hyprland
-37 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
+28 - SUPER + Shift + l          = Choose the inactivity lock timeout
+29 - SUPER + Shift + w          = Configures the weather location
+30 - SUPER + Shift + b          = Opens the brightness selector
+31 - SUPER + F5                 = Toggles between GTK Dark and Light themes
+32 - SUPER + F6                 = Toggle visual effects
+33 - SUPER + F1                 = Open About ARGVUS
+34 - SUPER + L                  = Lock system
+35 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)
+36 - SUPER + Esc                = Exit system
+37 - SUPER + Shift + r          = Reload Hyprland
+38 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
 
 Software Shortcuts »
 --------------------------------------------------
 SHORTCUT                               DESCRIPTION
 
-38 - SUPER + Enter              = Terminal
-39 - SUPER + Space              = File Manager
-40 - SUPER + Shift + s          = Removable storage menu
-41 - SUPER + b                  = Default Browser
-42 - SUPER + d                  = Program Launcher
-43 - SUPER + c                  = Calculator
-44 - SUPER + Ctrl + /           = Kitty Cheatsheets
-45 - SUPER + Shift + /          = Hyprland Cheatsheets
-46 - SUPER + h                  = Clipboard History
-47 - SUPER + Shift + h          = Clear Clipboard History
-48 - SUPER + p                  = Color Picker
-49 - SUPER + .                  = Emoji Picker
-50 - ALT + SHIFT                = Switch keyboard between "pt-br (abnt2)" and "us"
-51 - SUPER + Alt + P            = Default apps selector (argvus-default-apps)
+39 - SUPER + Enter              = Terminal
+40 - SUPER + Space              = File Manager
+41 - SUPER + Shift + s          = Removable storage menu
+42 - SUPER + b                  = Default Browser
+43 - SUPER + d                  = Program Launcher
+44 - SUPER + c                  = Calculator
+45 - SUPER + Ctrl + /           = Kitty Cheatsheets
+46 - SUPER + Shift + /          = Hyprland Cheatsheets
+47 - SUPER + h                  = Clipboard History
+48 - SUPER + Shift + h          = Clear Clipboard History
+49 - SUPER + p                  = Color Picker
+50 - SUPER + .                  = Emoji Picker
+51 - ALT + SHIFT                = Cycle through the configured keyboard layouts
+52 - SUPER + Alt + P            = Default apps selector (argvus-default-apps)
 
 Directories »
 -----------------------------------------------

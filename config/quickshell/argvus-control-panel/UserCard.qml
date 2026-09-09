@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtCore
 import Quickshell.Io
 
 BaseCard {
@@ -16,7 +17,7 @@ BaseCard {
     property string userName: ""
     property string hostName: ""
     property string userIcon: "\uf007"
-    property string avatarPath: ""
+    property string avatarPath: StandardPaths.writableLocation(StandardPaths.HomeLocation) + "/.face"
     property int avatarVersion: 0
 
     // Caminho absoluto de `argvus-accounts`, resolvido via shell de login.
@@ -98,7 +99,7 @@ BaseCard {
     }
 
     Timer {
-        interval: 3000; running: pollingActive; repeat: true
+        interval: 3000; running: pollingActive; repeat: true; triggeredOnStart: true
         onTriggered: if (!avatarCheckProc.running) avatarCheckProc.running = true
     }
 
@@ -286,7 +287,10 @@ BaseCard {
                 fillMode: Image.PreserveAspectCrop
                 visible: status === Image.Ready
                 smooth: true
-                asynchronous: true
+                asynchronous: false
+                cache: true
+                sourceSize.width: 80
+                sourceSize.height: 80
             }
 
             Text {

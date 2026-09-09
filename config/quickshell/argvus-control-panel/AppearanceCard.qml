@@ -6,7 +6,7 @@ BaseCard {
     cardTitle: Strings.cardTitleAppearance
     cardIcon:  "»"
 
-    property bool sysinfoEnabled: false
+    property bool widgetTelemetryEnabled: false
     property bool effectsEnabled: true
     property var accentColors: ["#996548", "#3590bd", "#7391a5", "#17d174", "#cb17d1", "#d1174f", "#d1ce17", "#9617d1", "#595959"]
 
@@ -85,20 +85,20 @@ BaseCard {
         spacing: 10
 
         Rectangle {
-            id: sysinfoToggleBtn
+            id: widgetTelemetryToggleBtn
             width: 44; height: 24
             radius: Theme.radius
 
-            color: sysinfoEnabled ? Theme.accent : Theme.borderSubtle
+            color: widgetTelemetryEnabled ? Theme.accent : Theme.borderSubtle
             Layout.alignment: Qt.AlignVCenter
 
             Behavior on color { ColorAnimation { duration: Theme.animFast } }
 
             Rectangle {
-                id: sysinfoKnob
+                id: widgetTelemetryKnob
                 width: 18; height: 18
                 radius: Math.max(2, Theme.radius)
-                x: sysinfoEnabled ? parent.width - width - 3 : 3
+                x: widgetTelemetryEnabled ? parent.width - width - 3 : 3
                 y: (parent.height - height) / 2
                 color: Theme.bgHeader
 
@@ -106,7 +106,7 @@ BaseCard {
             }
 
             MouseArea {
-                id: sysinfoToggleArea
+                id: widgetTelemetryToggleArea
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
@@ -120,7 +120,7 @@ BaseCard {
             Layout.alignment: Qt.AlignVCenter
 
             Text {
-                text: Strings.sysinfoTitle
+                text: Strings.widgetTelemetryTitle
                 color: Theme.fgText
                 font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
@@ -128,8 +128,8 @@ BaseCard {
             }
 
             Text {
-                text: sysinfoEnabled ? Strings.sysinfoEnabled : Strings.sysinfoDisabled
-                color: sysinfoEnabled ? Theme.accent : Theme.danger
+                text: widgetTelemetryEnabled ? Strings.widgetTelemetryEnabled : Strings.widgetTelemetryDisabled
+                color: widgetTelemetryEnabled ? Theme.accent : Theme.danger
                 font.pixelSize: Theme.scaledFont(13)
                 font.family: Theme.fontFamily
                 opacity: 1
@@ -137,8 +137,8 @@ BaseCard {
         }
 
         Text {
-            text: sysinfoEnabled ? "ON" : "OFF"
-            color: sysinfoEnabled ? Theme.accent : Theme.danger
+            text: widgetTelemetryEnabled ? "ON" : "OFF"
+            color: widgetTelemetryEnabled ? Theme.accent : Theme.danger
             font.pixelSize: Theme.scaledFont(16)
             font.family: Theme.fontFamily
             font.weight: Font.Bold
@@ -246,17 +246,17 @@ BaseCard {
 
     Process {
         id: toggleProc
-        command: ["sh", "-c", "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/apps/waybar-sysinfo-toggle.sh toggle"]
+        command: ["argvus-widget-telemetry-toggle", "toggle"]
         stdout: SplitParser {
-            onRead: data => sysinfoEnabled = data.trim() === "enabled"
+            onRead: data => widgetTelemetryEnabled = data.trim() === "enabled"
         }
     }
 
     Process {
         id: checkProc
-        command: ["sh", "-c", "${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/apps/waybar-sysinfo-toggle.sh status"]
+        command: ["argvus-widget-telemetry-toggle", "status"]
         stdout: SplitParser {
-            onRead: data => sysinfoEnabled = data.trim() === "enabled"
+            onRead: data => widgetTelemetryEnabled = data.trim() === "enabled"
         }
     }
 

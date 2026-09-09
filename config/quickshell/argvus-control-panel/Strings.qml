@@ -93,9 +93,9 @@ QtObject {
     readonly property string btnAccent:         isPortuguese
         ? "Cores (SUPER + SHIFT + A)"
         : "Colors (SUPER + SHIFT + A)"
-    readonly property string sysinfoTitle:      isPortuguese ? "PAINEL INFO" : "INFO PANEL"
-    readonly property string sysinfoEnabled:    isPortuguese ? "Painel esquerdo ativo" : "Left panel active"
-    readonly property string sysinfoDisabled:   isPortuguese ? "Painel esquerdo inativo" : "Left panel inactive"
+    readonly property string widgetTelemetryTitle:      isPortuguese ? "WIDGET TELEMETRIA" : "TELEMETRY WIDGET"
+    readonly property string widgetTelemetryEnabled:    isPortuguese ? "Widget esquerdo ativo" : "Left widget active"
+    readonly property string widgetTelemetryDisabled:   isPortuguese ? "Widget esquerdo inativo" : "Left widget inactive"
     readonly property string effectsTitle:      isPortuguese ? "EFEITOS" : "EFFECTS"
     readonly property string effectsEnabled:    isPortuguese ? "Animações e blur ativos" : "Animations and blur active"
     readonly property string effectsDisabled:   isPortuguese ? "Animações e blur inativos" : "Animations and blur inactive"

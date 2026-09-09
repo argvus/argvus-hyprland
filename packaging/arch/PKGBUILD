@@ -2,7 +2,7 @@
 pkgname=argvus-shell
 pkgver=0.1.0
 pkgrel=1
-pkgdesc="Quickshell control panel, Waybar taskbar and shell UI for the ARGVUS desktop."
+pkgdesc="Quickshell control panel and shell UI for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-shell"
 license=('GPL-3.0-only')
@@ -16,11 +16,8 @@ depends=(
   'argvus-notifications'
   'argvus-power'
   'argvus-control-center'
-  'argvus-system-monitor'
   'argvus-terminal'
-  'argvus-waybar'
   'bash'
-  'bottom'
   'curl'
   'fastfetch'
   'gpu-screen-recorder'
@@ -29,12 +26,8 @@ depends=(
   'jq'
   'libnotify'
   'libqalculate'
-  'lm_sensors'
   'networkmanager'
   'otf-font-awesome'
-  'pamixer'
-  'pciutils'
-  'playerctl'
   'power-profiles-daemon'
   'procps-ng'
   'qt6-declarative'
@@ -49,6 +42,8 @@ depends=(
 )
 optdepends=(
   'argvus: dispatcher used by the control panel cards in a full desktop install'
+  'argvus-widget-telemetry: optional widget telemetry panel controlled by the appearance card'
+  'argvus-taskbar: Waybar top panel aligned with the control panel'
   'kdialog: avatar image picker from the user card'
   'nvidia-utils: NVIDIA GPU readout in the system card'
 )
