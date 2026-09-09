@@ -19,6 +19,7 @@ depends=(
   'libnotify'
   'procps-ng'
   'satty'
+  'systemd'
   'xdg-user-dirs'
 )
 provides=('argvus-shell')

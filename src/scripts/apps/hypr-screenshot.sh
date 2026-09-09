@@ -18,6 +18,7 @@ case "$LANG" in
     MSG_RECORDING_RESUMED="Gravação retomada"
     MSG_RECORDING_STOPED="Gravação salva"
     MSG_NO_RECORDING="Sem gravação"
+    MSG_RECORDING_FAILED="Não foi possível iniciar a gravação"
     ;;
   *)
     FOLDER_IMAGES="Screenshots"
@@ -29,6 +30,7 @@ case "$LANG" in
     MSG_RECORDING_RESUMED="Recording resumed"
     MSG_RECORDING_STOPED="Recording saved"
     MSG_NO_RECORDING="No recording"
+    MSG_RECORDING_FAILED="Could not start recording"
     ;;
 esac
 
@@ -38,8 +40,26 @@ PATH_IMAGES="$PICTURES/$FOLDER_IMAGES"
 FILENAME_IMAGE_DATETIME="$FILENAME_IMAGE $(date +%Y-%m-%d_%H-%M-%S).png"
 PATH_VIDEOS="$VIDEOS/$FOLDER_VIDEOS"
 FILENAME_VIDEO_DATETIME="$FILENAME_VIDEO $(date +%Y-%m-%d_%H-%M-%S).mkv"
-PID_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.pid"
 STATE_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.state"
+OUTPUT_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.output"
+RECORDING_UNIT="argvus-screen-recorder.service"
+
+recording_active() {
+  systemctl --user is-active --quiet "$RECORDING_UNIT" 2>/dev/null
+}
+
+recording_signal() {
+  systemctl --user kill --kill-whom=main --signal="$1" "$RECORDING_UNIT" >/dev/null 2>&1
+}
+
+recording_name() {
+  _recording_path=$(cat "$OUTPUT_FILE" 2>/dev/null || true)
+  if [ -n "$_recording_path" ]; then
+    basename "$_recording_path"
+  else
+    printf '%s\n' "$FILENAME_VIDEO_DATETIME"
+  fi
+}
 
 for OLD_NAME in "Capturas de tela" "Screenshots"; do
   [ "$OLD_NAME" = "$FOLDER_IMAGES" ] && continue
@@ -84,53 +104,70 @@ case "$1" in
 
   # Options video
   --video-full)
-    if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+    if recording_active; then
       STATE=$(cat "$STATE_FILE" 2>/dev/null)
 
       # Recording paused
       if [ "$STATE" = "recording" ]; then
-        pkill -SIGUSR2 -f "^gpu-screen-recorder"
+        recording_signal SIGUSR2
         echo paused > "$STATE_FILE"
-        notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_RECORDING_PAUSED"
+        notify-send "$(recording_name)" "$MSG_RECORDING_PAUSED"
 
       # Recording resumed
       elif [ "$STATE" = "paused" ]; then
-        pkill -SIGUSR2 -f "^gpu-screen-recorder"
+        recording_signal SIGUSR2
         echo recording > "$STATE_FILE"
-        notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_RECORDING_RESUMED"
+        notify-send "$(recording_name)" "$MSG_RECORDING_RESUMED"
       fi
 
     # Recording started
     else
-      gpu-screen-recorder \
-        -w screen \
+      CAPTURE_OUTPUT=$(hyprctl monitors -j 2>/dev/null | jq -r \
+        '(map(select(.focused == true))[0].name // .[0].name // empty)')
+      if [ -z "$CAPTURE_OUTPUT" ]; then
+        notify-send "ARGVUS" "$MSG_RECORDING_FAILED"
+        exit 1
+      fi
+
+      VIDEO_PATH="$PATH_VIDEOS/$FILENAME_VIDEO_DATETIME"
+      systemctl --user reset-failed "$RECORDING_UNIT" >/dev/null 2>&1 || true
+      if ! systemd-run --user --quiet --collect \
+        --unit="$RECORDING_UNIT" \
+        --property=Type=exec \
+        -- gpu-screen-recorder \
+        -w "$CAPTURE_OUTPUT" \
         -f 60 \
         -a default_output \
         -a default_input \
-        -o "$PATH_VIDEOS/$FILENAME_VIDEO_DATETIME" &
+        -o "$VIDEO_PATH"; then
+        rm -f "$STATE_FILE" "$OUTPUT_FILE"
+        notify-send "ARGVUS" "$MSG_RECORDING_FAILED"
+        exit 1
+      fi
 
-      echo $! > "$PID_FILE"
+      echo "$VIDEO_PATH" > "$OUTPUT_FILE"
       echo recording > "$STATE_FILE"
       notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_RECORDING_STARTED"
     fi
     ;;
 
   --video-full-stop)
-    if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
-      pkill -SIGINT -f "^gpu-screen-recorder"
-      rm -f "$PID_FILE" "$STATE_FILE"
-      notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_RECORDING_STOPED"
+    if recording_active; then
+      RECORDING_NAME=$(recording_name)
+      recording_signal SIGINT
+      rm -f "$STATE_FILE" "$OUTPUT_FILE"
+      notify-send "$RECORDING_NAME" "$MSG_RECORDING_STOPED"
     else
-      rm -f "$PID_FILE" "$STATE_FILE"
+      rm -f "$STATE_FILE" "$OUTPUT_FILE"
       notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_NO_RECORDING"
     fi
     ;;
 --video-full-status)
-  if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+  if recording_active; then
     STATE=$(cat "$STATE_FILE" 2>/dev/null)
 
     if [ "$STATE" = "paused" ]; then
-      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
+      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
     else
       echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
     fi
