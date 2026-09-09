@@ -130,12 +130,12 @@ case "$1" in
     STATE=$(cat "$STATE_FILE" 2>/dev/null)
 
     if [ "$STATE" = "paused" ]; then
-      echo "{\"text\":\"\uf04c\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
+      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
     else
-      echo "{\"text\":\"\uf03d\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
+      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
     fi
   else
-    echo "{\"text\":\"\uf4e2\",\"tooltip\":\"$MSG_NO_RECORDING\",\"class\":\"stopped\"}"
+    echo "{\"text\":\"\",\"tooltip\":\"$MSG_NO_RECORDING\",\"class\":\"stopped\"}"
   fi
   ;;
 esac
