@@ -17,6 +17,7 @@ depends=(
   'hyprshot'
   'jq'
   'libnotify'
+  'libpulse'
   'procps-ng'
   'satty'
   'systemd'

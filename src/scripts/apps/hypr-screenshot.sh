@@ -61,6 +61,28 @@ recording_name() {
   fi
 }
 
+microphone_available_and_unmuted() {
+  command -v pactl >/dev/null 2>&1 || return 1
+
+  _microphone=$(pactl get-default-source 2>/dev/null) || return 1
+  [ -n "$_microphone" ] || return 1
+  case "$_microphone" in
+    *.monitor) return 1 ;;
+  esac
+
+  pactl list short sources 2>/dev/null | awk -v source="$_microphone" '$2 == source { found = 1 } END { exit !found }' || return 1
+  LC_ALL=C pactl get-source-mute "$_microphone" 2>/dev/null | grep -Eq ':[[:space:]]*no[[:space:]]*$'
+}
+
+wait_until_recording_is_stable() {
+  _attempt=0
+  while [ "$_attempt" -lt 20 ]; do
+    recording_active || return 1
+    sleep 0.1
+    _attempt=$((_attempt + 1))
+  done
+}
+
 for OLD_NAME in "Capturas de tela" "Screenshots"; do
   [ "$OLD_NAME" = "$FOLDER_IMAGES" ] && continue
   OLD_DIR="$PICTURES/$OLD_NAME"
@@ -130,16 +152,22 @@ case "$1" in
       fi
 
       VIDEO_PATH="$PATH_VIDEOS/$FILENAME_VIDEO_DATETIME"
+      set -- gpu-screen-recorder \
+        -w "$CAPTURE_OUTPUT" \
+        -f 60 \
+        -a default_output
+      if microphone_available_and_unmuted; then
+        set -- "$@" -a default_input
+      fi
+      set -- "$@" \
+        -fallback-cpu-encoding yes \
+        -o "$VIDEO_PATH"
+
       systemctl --user reset-failed "$RECORDING_UNIT" >/dev/null 2>&1 || true
       if ! systemd-run --user --quiet --collect \
         --unit="$RECORDING_UNIT" \
         --property=Type=exec \
-        -- gpu-screen-recorder \
-        -w "$CAPTURE_OUTPUT" \
-        -f 60 \
-        -a default_output \
-        -a default_input \
-        -o "$VIDEO_PATH"; then
+        -- "$@"; then
         rm -f "$STATE_FILE" "$OUTPUT_FILE"
         notify-send "ARGVUS" "$MSG_RECORDING_FAILED"
         exit 1
@@ -147,6 +175,11 @@ case "$1" in
 
       echo "$VIDEO_PATH" > "$OUTPUT_FILE"
       echo recording > "$STATE_FILE"
+      if ! wait_until_recording_is_stable; then
+        rm -f "$STATE_FILE" "$OUTPUT_FILE"
+        notify-send "ARGVUS" "$MSG_RECORDING_FAILED"
+        exit 1
+      fi
       notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_RECORDING_STARTED"
     fi
     ;;
@@ -167,12 +200,12 @@ case "$1" in
     STATE=$(cat "$STATE_FILE" 2>/dev/null)
 
     if [ "$STATE" = "paused" ]; then
-      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
+      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
     else
-      echo "{\"text\":\"\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
+      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
     fi
   else
-    echo "{\"text\":\"\",\"tooltip\":\"$MSG_NO_RECORDING\",\"class\":\"stopped\"}"
+    echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_NO_RECORDING\",\"class\":\"stopped\"}"
   fi
   ;;
 esac
