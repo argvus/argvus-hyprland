@@ -1,14 +1,15 @@
 # Maintainer: William C. Canin
-pkgname=argvus-shell
+pkgname=argvus-hyprland
 pkgver=0.1.0
 pkgrel=1
-pkgdesc="Rofi, Wofi and shell integration utilities for the ARGVUS desktop."
+pkgdesc="Hyprland configuration and shell scripts for the ARGVUS desktop."
 arch=('any')
-url="https://github.com/argvus/argvus-shell"
+url="https://github.com/argvus/argvus-hyprland"
 license=('GPL-3.0-only')
 depends=(
   'argvus-session'
   'argvus-appearance'
+  'argvus-launcher'
   'argvus-terminal'
   'bash'
   'gpu-screen-recorder'
@@ -17,19 +18,15 @@ depends=(
   'jq'
   'libnotify'
   'procps-ng'
-  'rofi'
-  'rofi-calc'
-  'rofimoji'
   'satty'
-  'wofi'
   'xdg-user-dirs'
 )
-optdepends=(
-  'fuzzel: optional application launcher'
-)
+provides=('argvus-shell')
+conflicts=('argvus-shell')
+replaces=('argvus-shell')
 options=('!debug')
-source=("${pkgname}-${pkgver}.tar.gz")
-sha256sums=("SKIP")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('SKIP')
 
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
