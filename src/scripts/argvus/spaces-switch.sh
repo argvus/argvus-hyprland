@@ -2,7 +2,7 @@
 # spaces-switch - customize window gaps and waybar spacing.
 # Usage: spaces-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--reset [key]|--apply-static|--apply]
 # Keys: gaps_in, gaps_out, waybar (margin for both bars).
-# Values are clamped to a minimum of the active theme's defaults.
+# Values are user-controlled from 0 to 100, independently of the active theme.
 # shellcheck disable=SC1091
 
 set -u
@@ -123,11 +123,15 @@ apply_waybar_margins() {
 
   # Sysinfo (left, vertical) bar margins stay unchanged regardless of the
   # top/bottom choice — only the main status bar moves.
-  sed -i \
-    -e "s|\"margin-top\": [0-9-]*|\"margin-top\": $WAYBAR|" \
-    -e "s|\"margin-left\": [0-9-]*|\"margin-left\": $WAYBAR|" \
-    -e "s|\"margin-bottom\": [0-9-]*|\"margin-bottom\": $WAYBAR|" \
-    "$WAYBAR_SYSINFO"
+  if [ -f "$WAYBAR_SYSINFO" ]; then
+    sed -i \
+      -e "s|\"margin-top\": [0-9-]*|\"margin-top\": $WAYBAR|" \
+      -e "s|\"margin-left\": [0-9-]*|\"margin-left\": $WAYBAR|" \
+      -e "s|\"margin-bottom\": [0-9-]*|\"margin-bottom\": $WAYBAR|" \
+      "$WAYBAR_SYSINFO"
+  fi
+
+  [ -f "$WAYBAR_CFG" ] || return 0
 
   if [ "$WAYBAR_POS" = "bottom" ]; then
     sed -i \
@@ -196,10 +200,7 @@ set_key() {
   case "$_value" in
     *[!0-9]*|'') printf 'Invalid value: %s\n' "$_value" >&2; return 1 ;;
   esac
-  [ "$_value" -ge "$_default" ] || {
-    printf 'Value %s is below the theme minimum %s for %s.\n' "$_value" "$_default" "$_key" >&2
-    return 1
-  }
+  # Spacing is deliberately independent from theme defaults, including 0.
   [ "$_value" -le "$MAX_VALUE" ] || {
     printf 'Value %s exceeds maximum %s.\n' "$_value" "$MAX_VALUE" >&2
     return 1
@@ -291,18 +292,8 @@ case "${1:-}" in
     reset_key "${2:-all}"
     ;;
   --apply-static)
-    if is_float_theme; then
-      clamp_to_defaults
-      effective_values
-      apply_waybar_margins
-    else
-      # Non-float theme: apply theme defaults without mutating user state.
-      compute_defaults
-      WAYBAR="$WAYBAR_DEF"
-      GAPS_IN="$GAPS_IN_DEF"
-      GAPS_OUT="$GAPS_OUT_DEF"
-      apply_waybar_margins
-    fi
+    effective_values
+    apply_waybar_margins
     ;;
   --apply)
     apply_all
