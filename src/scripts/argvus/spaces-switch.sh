@@ -156,7 +156,17 @@ apply_gaps_runtime() {
   [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ] && return 0
   command -v hyprctl >/dev/null 2>&1 || return 0
   [ -n "${GAPS_IN:-}" ] && hyprctl keyword general:gaps_in "$GAPS_IN" >/dev/null 2>&1
-  [ -n "${GAPS_OUT:-}" ] && hyprctl keyword general:gaps_out "$GAPS_OUT" >/dev/null 2>&1
+  [ -n "${GAPS_OUT:-}" ] || return 0
+
+  # Waybar's layer-shell exclusive zone reserves its height, but not the
+  # user-configured margin around the bar. Add that margin to every side of
+  # Hyprland's outer gap so windows keep the same visual separation from the
+  # taskbar and from the monitor edges.
+  _bar_margin="${WAYBAR:-0}"
+  _effective_gap=$((GAPS_OUT + _bar_margin))
+  hyprctl keyword general:gaps_out \
+    "$_effective_gap $_effective_gap $_effective_gap $_effective_gap" \
+    >/dev/null 2>&1
 }
 
 restart_waybar() {
