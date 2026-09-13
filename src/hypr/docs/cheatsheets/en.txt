@@ -54,7 +54,7 @@ SHORTCUT                               DESCRIPTION
 
 39 - SUPER + Enter              = Terminal
 40 - SUPER + Space              = File Manager
-41 - SUPER + Shift + s          = Removable storage menu
+41 - SUPER + Shift + d          = Removable devices menu
 42 - SUPER + b                  = Default Browser
 43 - SUPER + d                  = Program Launcher
 44 - SUPER + c                  = Calculator

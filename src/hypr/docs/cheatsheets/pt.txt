@@ -54,7 +54,7 @@ ATALHO                                 DESCRIÇÃO
 
 39 - SUPER + Enter              = Terminal
 40 - SUPER + Space              = Gerenciador de arquivos
-41 - SUPER + Shift + s          = Menu de dispositivos removíveis
+41 - SUPER + Shift + d          = Menu de dispositivos removíveis
 42 - SUPER + b                  = Navegador padrão
 43 - SUPER + d                  = Lançador de programas
 44 - SUPER + c                  = Calculadora
