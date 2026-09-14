@@ -1,13 +1,12 @@
 # Maintainer: William C. Canin
 pkgname=argvus-hyprland
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Hyprland configuration and shell scripts for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-hyprland"
 license=('GPL-3.0-only')
 depends=(
-  'argvus-session'
   'argvus-appearance'
   'argvus-launcher'
   'argvus-terminal'
@@ -23,6 +22,7 @@ depends=(
   'systemd'
   'xdg-user-dirs'
 )
+optdepends=('argvus-session: session lifecycle controller used by reload keybindings and spaces-switch')
 provides=('argvus-shell')
 conflicts=('argvus-shell')
 replaces=('argvus-shell')

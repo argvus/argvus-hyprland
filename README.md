@@ -1,46 +1,41 @@
-# argvus-shell
+# argvus-hyprland
 
-Quickshell control panel, Waybar taskbar/sysinfo, rofi/wofi shell menus,
-sidebar, cards and QML themes for ARGVUS.
+Hyprland configuration and Hyprland-specific scripts for ARGVUS.
 
-This package owns the frontend shell files currently used by `argvus-sessionctl run shell`:
+This package owns `/usr/share/argvus/hypr/hyprland.lua` and the Hyprland
+integration scripts. Session lifecycle remains owned by `argvus-session` and
+is controlled through `argvus-sessionctl`.
 
-- `/usr/share/argvus/quickshell/argvus-control-panel`
-- `/usr/share/argvus/waybar`
-- `/usr/share/argvus/rofi`
-- `/usr/share/argvus/wofi`
-- `/usr/share/argvus/scripts/argvus/toggle-sidebar.sh`
+This package owns the Hyprland-specific assets:
+
+- `/usr/share/argvus/hypr/hyprland.lua`
+- `/usr/share/argvus/hypr/docs`
+- `/usr/share/argvus/scripts/argvus/spaces-switch.sh`
+- `/usr/share/argvus/scripts/apps/hypr-screenshot.sh`
+- `/usr/share/argvus/scripts/apps/cheatsheets.sh`
 
 The package intentionally keeps compatibility with `/usr/share/argvus` while the ARGVUS desktop is split into smaller component packages.
 
 ## Runtime Boundary
 
-`argvus-shell` is a frontend package. It owns the ARGVUS taskbar config, but
-`argvus-waybar` owns the patched Waybar binary/package. It may expose controls
-for appearance, Bluetooth, display, notifications, power, default apps and
-session actions, but the domain logic for those controls belongs to the matching
-ARGVUS component package. Long-lived runtime lifecycle continues to flow through
-`argvus-sessionctl` and `argvus-shell.service` from `argvus-session`.
+The shared `/usr/share/argvus` namespace is intentional. `argvus-session` owns
+the session launcher, lifecycle controller and systemd user units; its
+`argvus-start` command consumes the packaged Lua configuration from this
+package. Runtime reloads continue through `argvus-sessionctl` when the session
+package is installed, but the compositor configuration itself does not depend
+on the session manager.
 
 ## Install
 
 ```sh
-make DESTDIR=/tmp/argvus-shell-dest PREFIX=/usr install
+make DESTDIR=/tmp/argvus-hyprland-dest PREFIX=/usr install
 ```
 
-This installs shell UI assets under:
+This installs Hyprland assets under:
 
 ```text
-/tmp/argvus-shell-dest/usr/share/argvus/quickshell/argvus-control-panel
-/tmp/argvus-shell-dest/usr/share/argvus/waybar
-/tmp/argvus-shell-dest/usr/share/argvus/rofi
-/tmp/argvus-shell-dest/usr/share/argvus/wofi
-```
-
-and the sidebar toggle compatibility helper under:
-
-```text
-/tmp/argvus-shell-dest/usr/share/argvus/scripts/argvus/toggle-sidebar.sh
+/tmp/argvus-hyprland-dest/usr/share/argvus/hypr/hyprland.lua
+/tmp/argvus-hyprland-dest/usr/share/argvus/scripts/argvus/spaces-switch.sh
 ```
 
 ## Validate
