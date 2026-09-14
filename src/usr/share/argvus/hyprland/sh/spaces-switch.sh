@@ -7,16 +7,16 @@
 
 set -u
 
-ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
 ARGVUS_MUTABLE_CONFIG=1
 
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
 SPACES_FILE="${STATE_DIR}/.spaces"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
-WAYBAR_CFG="$(paths_config waybar/argvus-taskbar.jsonc)"
-WAYBAR_SYSINFO="$(paths_config waybar/argvus-widget-telemetry.jsonc)"
-THEMES_DIR="$(paths_config hypr/themes)"
+WAYBAR_CFG="$(paths_config taskbar/config/argvus-taskbar.jsonc)"
+WAYBAR_SYSINFO="$(paths_config widget-telemetry/config/argvus-widget-telemetry.jsonc)"
+THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
 DEFAULT_THEME="argvus-dark-aether"
 MAX_VALUE=100
 

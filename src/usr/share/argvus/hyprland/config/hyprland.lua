@@ -163,7 +163,9 @@ end
 
 local _theme_path = _first_existing({
   _config_home .. "/hypr/themes/" .. _theme_name .. "/theme.lua",
-  _system_config .. "/hypr/themes/" .. _theme_name .. "/theme.lua",
+  _config_home .. "/argvus/hypr/themes/" .. _theme_name .. "/theme.lua",
+  _generated_config .. "/hypr/themes/" .. _theme_name .. "/theme.lua",
+  _system_config .. "/appearance/config/hypr/themes/" .. _theme_name .. "/theme.lua",
 })
 local theme = dofile(_theme_path)
 
@@ -280,14 +282,26 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("XDG_CONFIG_DIRS", _system_config .. ":" .. (os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg"))
+hl.env("XDG_CONFIG_DIRS", table.concat({
+  _system_config .. "/portal/config",
+  _system_config .. "/appearance/config",
+  _system_config .. "/app-profiles/config",
+  _system_config .. "/terminal/config",
+  _system_config .. "/launcher/config",
+  _system_config .. "/notifications/config",
+  _system_config .. "/network/config",
+  _system_config .. "/control-panel/config",
+  _system_config .. "/taskbar/config",
+  _system_config,
+  os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg",
+}, ":"))
 local _active_theme_for_yazi = _read_first_line({
   _config_home .. "/argvus/.active-theme",
   _system_config .. "/argvus/.active-theme",
 }) or "argvus-dark-aether"
 local _native_yazi_config = _config_home .. "/yazi"
 local _argvus_yazi_config = _config_home .. "/argvus/yazi"
-local _yazi_config_home = _system_config .. "/yazi"
+local _yazi_config_home = _system_config .. "/app-profiles/config/yazi"
 if _path_exists(_native_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
   _yazi_config_home = _native_yazi_config
 elseif _path_exists(_argvus_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
@@ -303,7 +317,7 @@ local mod = "SUPER"
 local foot_config = string.format("%q", _first_existing({
   _config_home .. "/argvus/foot/foot.ini",
   _generated_config .. "/foot/foot.ini",
-  _system_config .. "/foot/foot.ini",
+  _system_config .. "/app-profiles/config/foot/foot.ini",
 }))
 local _terminal_bin = _get_default("terminal")
 -- Keep explicit config paths for terminals that do not read Argvus' per-user tree.
@@ -337,7 +351,7 @@ if _tui_file_managers[_file_manager_cmd] then
 else
   file_manager = _file_manager_cmd
 end
-local rofi_config = string.format("%q", _config_path("rofi/config.rasi"))
+local rofi_config = string.format("%q", _config_path("launcher/config/config.rasi"))
 
 -- Global configuration ----------------------------------------------------------------------------
 hl.config({
@@ -626,10 +640,10 @@ hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/cheatsheets.sh")) .. " hypr"))
+hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/cheatsheets.sh")) .. " hypr"))
 
 -- Cheatsheets Kitty -------------------------------------------------------------------------------
-hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus-launcher/cheatsheets.sh")) .. " kitty"))
+hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/cheatsheets.sh")) .. " kitty"))
 
 -- About ARGVUS ------------------------------------------------------------------------------------
 hl.bind(mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
@@ -644,35 +658,35 @@ hl.bind(mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 hl.bind(mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
 
 -- Sidebar Settings --------------------------------------------------------------------------------
-hl.bind(mod .. " + comma", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/toggle-sidebar.sh"))))
-hl.bind("mouse:274", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/toggle-sidebar.sh"))))
+hl.bind(mod .. " + comma", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
+hl.bind("mouse:274", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
 
 -- Toggle Waybar top -------------------------------------------------------------------------------
 hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service"))
 
 -- Wallpaper Picker --------------------------------------------------------------------------------
-hl.bind(mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-wallpaper-pick.sh"))))
+hl.bind(mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/hypr-wallpaper-pick.sh"))))
 
 -- Theme switcher ----------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/theme-switch.sh"))))
+hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
 
 -- Accent color ------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/accent-switch.sh"))))
+hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/accent-switch.sh"))))
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/idle-timeout.sh"))))
+hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
 
 -- Brightness --------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/brightness-switch.sh"))))
+hl.bind(mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/brightness-switch.sh"))))
 
 -- Weather location --------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/weather-location.sh"))))
+hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/weather-location.sh"))))
 
 -- GTK Theme Dark/Light ----------------------------------------------------------------------------
-hl.bind(mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/toggle-mode.sh"))))
+hl.bind(mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
 
 -- Visual effects ----------------------------------------------------------------------------------
-hl.bind(mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus/effects-toggle.sh")) .. " toggle"))
+hl.bind(mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " toggle"))
 
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
@@ -908,17 +922,17 @@ end
 hl.bind(mod .. " + B", hl.dsp.exec_cmd(_browser_cmd))
 
 -- Screen recording --------------------------------------------------------------------------------
-hl.bind(mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-screenshot.sh")) .. " --video-full"))
-hl.bind(mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-screenshot.sh")) .. " --video-full-stop"))
+hl.bind(mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full"))
+hl.bind(mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
 hl.bind(mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p Clipboard | cliphist decode | wl-copy"))
 hl.bind(mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "Clipboard" "History erased!"'))
 
 -- Screenshot / Print ------------------------------------------------------------------------------
-hl.bind("Print", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-screenshot.sh")) .. " --image-region"))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-screenshot.sh")) .. " --image-window"))
-hl.bind(mod .. " + SHIFT + Print", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-screenshot.sh")) .. " --image-full"))
+hl.bind("Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))
+hl.bind(mod .. " + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-window"))
+hl.bind(mod .. " + SHIFT + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-full"))
 
 -- Mode Resize Window (keyboard) -------------------------------------------------------------------
 local _in_resize = false
@@ -973,7 +987,7 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Emoji picker ------------------------------------------------------------------------------------
-hl.bind(mod .. " + period", hl.dsp.exec_cmd(_sh(_config_path("scripts/argvus-launcher/emoji-picker.sh"))))
+hl.bind(mod .. " + period", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/emoji-picker.sh"))))
 
 -- Color Picker ------------------------------------------------------------------------------------
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
@@ -982,10 +996,10 @@ hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mod .. " + C", hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort"))
 
 -- Exit Hyprland -----------------------------------------------------------------------------------
-hl.bind(mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-power-menu.sh"))))
+hl.bind(mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh"))))
 
 -- Lock session ------------------------------------------------------------------------------------
-hl.bind(mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("scripts/apps/hypr-power-menu.sh")) .. " --lock"))
+hl.bind(mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh")) .. " --lock"))
 
 -- Reload Hyprland ---------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus-sessionctl reload"))
@@ -993,8 +1007,8 @@ hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus-sessionctl reload"))
 -- Move the waybar status bar to the top/bottom ----------------------------------------------------
 -- Use absolute paths so the bind works even when hyprland's env is minimal.
 -- Bind arrow keys to move the waybar; keep a single binding per direction
-hl.bind(mod .. " + ALT + up",   hl.dsp.exec_cmd("sh /usr/share/argvus/scripts/argvus/spaces-switch.sh --set waybar_pos top"))
-hl.bind(mod .. " + ALT + down", hl.dsp.exec_cmd("sh /usr/share/argvus/scripts/argvus/spaces-switch.sh --set waybar_pos bottom"))
+hl.bind(mod .. " + ALT + up",   hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos top"))
+hl.bind(mod .. " + ALT + down", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos bottom"))
 
 -- User overrides ----------------------------------------------------------------------------------
 -- monitors.lua: generated state loaded above, then user override takes precedence.

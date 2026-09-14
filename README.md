@@ -2,17 +2,17 @@
 
 Hyprland configuration and Hyprland-specific scripts for ARGVUS.
 
-This package owns `/usr/share/argvus/hypr/hyprland.lua` and the Hyprland
+This package owns `/usr/share/argvus/hyprland/config/hyprland.lua` and the Hyprland
 integration scripts. Session lifecycle remains owned by `argvus-session` and
 is controlled through `argvus-sessionctl`.
 
 This package owns the Hyprland-specific assets:
 
-- `/usr/share/argvus/hypr/hyprland.lua`
-- `/usr/share/argvus/hypr/docs`
-- `/usr/share/argvus/scripts/argvus/spaces-switch.sh`
-- `/usr/share/argvus/scripts/apps/hypr-screenshot.sh`
-- `/usr/share/argvus/scripts/apps/cheatsheets.sh`
+- `/usr/share/argvus/hyprland/config/hyprland.lua`
+- `/usr/share/argvus/hyprland/docs`
+- `/usr/share/argvus/hyprland/sh/spaces-switch.sh`
+- `/usr/share/argvus/hyprland/sh/hypr-screenshot.sh`
+- `/usr/share/argvus/launcher/sh/cheatsheets.sh`
 
 The package intentionally keeps compatibility with `/usr/share/argvus` while the ARGVUS desktop is split into smaller component packages.
 
@@ -34,8 +34,8 @@ make DESTDIR=/tmp/argvus-hyprland-dest PREFIX=/usr install
 This installs Hyprland assets under:
 
 ```text
-/tmp/argvus-hyprland-dest/usr/share/argvus/hypr/hyprland.lua
-/tmp/argvus-hyprland-dest/usr/share/argvus/scripts/argvus/spaces-switch.sh
+/tmp/argvus-hyprland-dest/usr/share/argvus/hyprland/config/hyprland.lua
+/tmp/argvus-hyprland-dest/usr/share/argvus/hyprland/sh/spaces-switch.sh
 ```
 
 ## Validate
