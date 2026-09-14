@@ -216,7 +216,14 @@ end
 -- monitor edge, including after a Hyprland reload.
 if _spaces_waybar > 0 then
   local _outer_gap = theme.gaps_out + _spaces_waybar
-  theme.gaps_out = string.format("%d %d %d %d", _outer_gap, _outer_gap, _outer_gap, _outer_gap)
+  -- Hyprland's Lua API does not accept the space-separated string syntax
+  -- used by `hyprctl keyword`; it requires an integer or an edge table.
+  theme.gaps_out = {
+    top = _outer_gap,
+    right = _outer_gap,
+    bottom = _outer_gap,
+    left = _outer_gap,
+  }
 end
 
 -- Virtual machine compatibility -------------------------------------------------------------------
