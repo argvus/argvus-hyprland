@@ -41,6 +41,22 @@ local function _config_path(relative_path)
   })
 end
 
+-- Rofi themes are mutable ARGVUS config, not native ~/.config/launcher files.
+-- Keep every Hyprland-launched Rofi action on the same precedence used by
+-- paths_config: native legacy override, ARGVUS user copy, generated copy,
+-- then the packaged launcher config.
+local function _rofi_config_path()
+  return _first_existing({
+    _config_home .. "/rofi/config.rasi",
+    _config_home .. "/argvus/rofi/config.rasi",
+    _config_home .. "/argvus/generated/rofi/config.rasi",
+    _config_home .. "/launcher/config/config.rasi",
+    _config_home .. "/argvus/launcher/config/config.rasi",
+    _generated_config .. "/launcher/config/config.rasi",
+    _system_config .. "/launcher/config/config.rasi",
+  })
+end
+
 local function _load_user_override(relative_path)
   local path = _config_home .. "/argvus/hypr/" .. relative_path
   if _path_exists(path) then
@@ -358,7 +374,7 @@ if _tui_file_managers[_file_manager_cmd] then
 else
   file_manager = _file_manager_cmd
 end
-local rofi_config = string.format("%q", _config_path("launcher/config/config.rasi"))
+local rofi_config = string.format("%q", _rofi_config_path())
 
 -- Global configuration ----------------------------------------------------------------------------
 hl.config({
