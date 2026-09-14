@@ -32,10 +32,17 @@ local function _first_existing(paths)
   return paths[1]
 end
 
-local function _config_path(relative_path)
+local function _config_path(relative_path, legacy_path)
+  if not legacy_path then
+    local script = relative_path:match("/sh/([^/]+)$")
+    legacy_path = script and ("scripts/argvus/" .. script) or relative_path
+  end
   return _first_existing({
+    _config_home .. "/" .. legacy_path,
     _config_home .. "/" .. relative_path,
+    _config_home .. "/argvus/" .. legacy_path,
     _config_home .. "/argvus/" .. relative_path,
+    _generated_config .. "/" .. legacy_path,
     _generated_config .. "/" .. relative_path,
     _system_config .. "/" .. relative_path,
   })
@@ -46,15 +53,7 @@ end
 -- paths_config: native legacy override, ARGVUS user copy, generated copy,
 -- then the packaged launcher config.
 local function _rofi_config_path()
-  return _first_existing({
-    _config_home .. "/rofi/config.rasi",
-    _config_home .. "/argvus/rofi/config.rasi",
-    _config_home .. "/argvus/generated/rofi/config.rasi",
-    _config_home .. "/launcher/config/config.rasi",
-    _config_home .. "/argvus/launcher/config/config.rasi",
-    _generated_config .. "/launcher/config/config.rasi",
-    _system_config .. "/launcher/config/config.rasi",
-  })
+  return _config_path("launcher/config/config.rasi", "rofi/config.rasi")
 end
 
 local function _load_user_override(relative_path)

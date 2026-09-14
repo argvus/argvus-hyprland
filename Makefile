@@ -23,7 +23,9 @@ uninstall:
 	rm -f "$(DESTDIR)$(PREFIX)/share/licenses/argvus-hyprland/LICENSE"
 
 validate:
-	@command -v luac >/dev/null 2>&1 && luac -p src/usr/share/argvus/hyprland/config/hyprland.lua || { echo "luac not found; skipping Lua syntax check"; }
+	@if command -v luac >/dev/null 2>&1; then \
+		luac -p src/usr/share/argvus/hyprland/config/hyprland.lua; \
+	else echo "luac not found; skipping Lua syntax check"; fi
 	@if find src -name '*.sh' | grep -q .; then \
 		for script in $$(find src -name '*.sh'); do sh -n "$$script"; done; \
 		if command -v shellcheck >/dev/null 2>&1; then for script in $$(find src -name '*.sh'); do shellcheck -e SC1090 -e SC2034 "$$script"; done; else echo "shellcheck not found; skipping shell lint"; fi; \
