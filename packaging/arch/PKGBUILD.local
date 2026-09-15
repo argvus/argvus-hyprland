@@ -8,6 +8,7 @@ url="https://github.com/argvus/argvus-hyprland"
 license=('GPL-3.0-only')
 depends=(
   'argvus-appearance'
+  'argvus-i18n'
   'argvus-launcher'
   'argvus-terminal'
   'bash'

@@ -948,8 +948,8 @@ hl.bind(mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screen
 hl.bind(mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
-hl.bind(mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p Clipboard | cliphist decode | wl-copy"))
-hl.bind(mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "Clipboard" "History erased!"'))
+hl.bind(mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus-i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
+hl.bind(mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus-i18n get hyprland clipboard.title)" "$(argvus-i18n get hyprland clipboard.history_erased)"'))
 
 -- Screenshot / Print ------------------------------------------------------------------------------
 hl.bind("Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))

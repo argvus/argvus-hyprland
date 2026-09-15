@@ -7,32 +7,16 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 PICTURES=$(xdg-user-dir PICTURES)
 VIDEOS=$(xdg-user-dir VIDEOS)
 
-case "$LANG" in
-  pt_*)
-    FOLDER_IMAGES="Capturas de tela"
-    FILENAME_IMAGE="Captura de tela de"
-    FOLDER_VIDEOS="Gravações de tela"
-    FILENAME_VIDEO="Gravação de tela de"
-    MSG_RECORDING_STARTED="Gravação iniciada"
-    MSG_RECORDING_PAUSED="Gravação pausada"
-    MSG_RECORDING_RESUMED="Gravação retomada"
-    MSG_RECORDING_STOPED="Gravação salva"
-    MSG_NO_RECORDING="Sem gravação"
-    MSG_RECORDING_FAILED="Não foi possível iniciar a gravação"
-    ;;
-  *)
-    FOLDER_IMAGES="Screenshots"
-    FILENAME_IMAGE="Screenshot"
-    FOLDER_VIDEOS="Screen recordings"
-    FILENAME_VIDEO="Screen recording"
-    MSG_RECORDING_STARTED="Recording started"
-    MSG_RECORDING_PAUSED="Recording paused"
-    MSG_RECORDING_RESUMED="Recording resumed"
-    MSG_RECORDING_STOPED="Recording saved"
-    MSG_NO_RECORDING="No recording"
-    MSG_RECORDING_FAILED="Could not start recording"
-    ;;
-esac
+FOLDER_IMAGES="$(argvus_tr hyprland screenshot.folder.images)"
+FILENAME_IMAGE="$(argvus_tr hyprland screenshot.filename.image)"
+FOLDER_VIDEOS="$(argvus_tr hyprland screenshot.folder.videos)"
+FILENAME_VIDEO="$(argvus_tr hyprland screenshot.filename.video)"
+MSG_RECORDING_STARTED="$(argvus_tr hyprland screenshot.recording.started)"
+MSG_RECORDING_PAUSED="$(argvus_tr hyprland screenshot.recording.paused)"
+MSG_RECORDING_RESUMED="$(argvus_tr hyprland screenshot.recording.resumed)"
+MSG_RECORDING_STOPED="$(argvus_tr hyprland screenshot.recording.saved)"
+MSG_NO_RECORDING="$(argvus_tr hyprland screenshot.recording.none)"
+MSG_RECORDING_FAILED="$(argvus_tr hyprland screenshot.recording.failed)"
 
 mkdir -p "$PICTURES/$FOLDER_IMAGES" "$VIDEOS/$FOLDER_VIDEOS"
 

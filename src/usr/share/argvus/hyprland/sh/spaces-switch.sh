@@ -193,7 +193,7 @@ set_key() {
           return 0
           ;;
         *)
-          printf 'Invalid value: %s (use top|bottom)\n' "$_value" >&2
+          argvus_tr hyprland spaces.invalid_value_position "value=$_value" >&2
           return 1
           ;;
       esac
@@ -204,15 +204,15 @@ set_key() {
     gaps_in)  _default="$GAPS_IN_DEF" ;;
     gaps_out) _default="$GAPS_OUT_DEF" ;;
     waybar)   _default="$WAYBAR_DEF" ;;
-    *) printf 'Invalid key: %s\n' "$_key" >&2; return 1 ;;
+    *) argvus_tr hyprland spaces.invalid_key "key=$_key" >&2; return 1 ;;
   esac
 
   case "$_value" in
-    *[!0-9]*|'') printf 'Invalid value: %s\n' "$_value" >&2; return 1 ;;
+    *[!0-9]*|'') argvus_tr hyprland spaces.invalid_value "value=$_value" >&2; return 1 ;;
   esac
   # Spacing is deliberately independent from theme defaults, including 0.
   [ "$_value" -le "$MAX_VALUE" ] || {
-    printf 'Value %s exceeds maximum %s.\n' "$_value" "$MAX_VALUE" >&2
+    argvus_tr hyprland spaces.value_exceeds_maximum "value=$_value" "maximum=$MAX_VALUE" >&2
     return 1
   }
 
@@ -237,7 +237,7 @@ reset_key() {
     gaps_out) GAPS_OUT="" ;;
     waybar)   WAYBAR="" ;;
     waybar_pos) WAYBAR_POS="" ;;
-    *) printf 'Invalid key: %s\n' "$_key" >&2; return 1 ;;
+    *) argvus_tr hyprland spaces.invalid_key "key=$_key" >&2; return 1 ;;
   esac
   write_spaces
   compute_defaults
@@ -284,18 +284,18 @@ case "${1:-}" in
     print_pairs
     ;;
   --get)
-    [ -n "${2:-}" ] || { printf 'Missing key\n' >&2; exit 1; }
+    [ -n "${2:-}" ] || { argvus_tr hyprland spaces.missing_key >&2; exit 1; }
     effective_values
     case "$2" in
       gaps_in)    printf '%s\n' "$GAPS_IN" ;;
       gaps_out)   printf '%s\n' "$GAPS_OUT" ;;
       waybar)     printf '%s\n' "$WAYBAR" ;;
       waybar_pos) printf '%s\n' "$WAYBAR_POS" ;;
-      *) printf 'Invalid key: %s\n' "$2" >&2; exit 1 ;;
+      *) argvus_tr hyprland spaces.invalid_key "key=$2" >&2; exit 1 ;;
     esac
     ;;
   --set)
-    [ -n "${2:-}" ] && [ -n "${3:-}" ] || { printf 'Missing key/value\n' >&2; exit 1; }
+    [ -n "${2:-}" ] && [ -n "${3:-}" ] || { argvus_tr hyprland spaces.missing_key_value >&2; exit 1; }
     set_key "$2" "$3"
     ;;
   --reset)
@@ -310,7 +310,7 @@ case "${1:-}" in
     ;;
   *)
     effective_values
-    printf 'Usage: spaces-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--reset [key]|--apply-static|--apply]\n' >&2
+    argvus_tr hyprland spaces.usage >&2
     printf 'Current: gaps_in=%s gaps_out=%s waybar=%s waybar_pos=%s\n' \
       "$GAPS_IN" "$GAPS_OUT" "$WAYBAR" "$WAYBAR_POS"
     ;;
