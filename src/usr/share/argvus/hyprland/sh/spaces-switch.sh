@@ -78,7 +78,7 @@ compute_defaults() {
 
   case "$_theme" in
     *-float) WAYBAR_DEF=20 ;;
-    *)       WAYBAR_DEF=0  ;;
+  *)       WAYBAR_DEF=1  ;;
   esac
 }
 
@@ -115,11 +115,11 @@ apply_waybar_margins() {
   # Resolve the position (default top) without re-reading WAYBAR.
   resolve_pos
 
-  # The "float" look (WAYBAR > 0) uses a subtle negative offset on the far
-  # edge; "normal" (WAYBAR = 0) is flush with the monitor edge. The main bar is
+  # The "float" look uses a subtle negative offset on the far
+  # edge; "normal" (WAYBAR = 1) keeps a minimal monitor-edge margin. The main bar is
   # mirrored when it sits at the bottom so both top and bottom respect
   # the current float/normal mode.
-  if [ "$WAYBAR" -gt 0 ] 2>/dev/null; then _edge_gap="-8"; else _edge_gap="0"; fi
+  if is_float_theme; then _edge_gap="-8"; else _edge_gap="0"; fi
 
   # Sysinfo (left, vertical) bar margins stay unchanged regardless of the
   # top/bottom choice — only the main status bar moves.

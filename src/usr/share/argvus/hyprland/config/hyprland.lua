@@ -215,7 +215,7 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar = _theme_name:match("%-float$") and 20 or 0
+local _spaces_waybar = _theme_name:match("%-float$") and 20 or 1
 if _spaces_file then
   for _line in _spaces_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
