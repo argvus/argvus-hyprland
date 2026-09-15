@@ -369,7 +369,7 @@ local _file_manager_bin = _get_default("file_manager")
 local _file_manager_cmd = _argvus_file_manager_wrappers[_file_manager_bin] or _file_manager_bin
 local file_manager
 if _tui_file_managers[_file_manager_cmd] then
-  file_manager = "argvus-tui-terminal --class argvus-file-manager -- " .. _file_manager_cmd
+  file_manager = "argvus-tui-terminal --class argvus-file-manager --term foot -- " .. _file_manager_cmd
 else
   file_manager = _file_manager_cmd
 end
