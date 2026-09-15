@@ -78,4 +78,4 @@ Logs do Hyprland:       $HOME/.local/state/hyprland/
 Configs do Kitty:       $HOME/.config/argvus/kitty/
 Configs da Waybar:      $HOME/.config/argvus/waybar/
 Configs do Quickshell:  $HOME/.config/argvus/quickshell/
-Argvus Storage:         $HOME/.config/argvus-storage/
+Argvus Storage:         $HOME/.config/argvus-removable-devices/
