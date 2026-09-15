@@ -127,6 +127,17 @@ if _generated_input then
   end
 end
 
+local _argvus_input_settings = _load_generated_table("hypr/input-settings.lua") or {}
+local _argvus_touchpad_settings = _argvus_input_settings.touchpad or {}
+
+local function _input_bool(table, key, fallback)
+  local value = table[key]
+  if type(value) == "boolean" then
+    return value
+  end
+  return fallback
+end
+
 -- Default applications (written by ARGVUS Control Center Apps) --------------------------------------
 local _defaults_fallback = {
   terminal = "argvus-terminal",
@@ -491,13 +502,19 @@ hl.config({
     numlock_by_default = true,
     follow_mouse = 1,
     -- Mouse acceleration (disable)
-    sensitivity = 0,
-    accel_profile = "flat",
+    sensitivity = _argvus_input_settings.sensitivity or 0,
+    accel_profile = _argvus_input_settings.accel_profile or "flat",
+    natural_scroll = _argvus_input_settings.natural_scroll or false,
+    scroll_factor = _argvus_input_settings.scroll_factor or 1,
+    left_handed = _argvus_input_settings.left_handed or false,
     --
     touchpad = {
-      natural_scroll = false,
-      tap_to_click = true,
-      disable_while_typing = true,
+      sensitivity = _argvus_touchpad_settings.sensitivity or 0,
+      natural_scroll = _input_bool(_argvus_touchpad_settings, "natural_scroll", false),
+      tap_to_click = _input_bool(_argvus_touchpad_settings, "tap_to_click", true),
+      tap_and_drag = _input_bool(_argvus_touchpad_settings, "tap_and_drag", true),
+      clickfinger_behavior = _input_bool(_argvus_touchpad_settings, "clickfinger_behavior", false),
+      disable_while_typing = _input_bool(_argvus_touchpad_settings, "disable_while_typing", true),
       middle_button_emulation = true,
       drag_lock = true,
     },
