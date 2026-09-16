@@ -509,7 +509,6 @@ hl.config({
     left_handed = _argvus_input_settings.left_handed or false,
     --
     touchpad = {
-      sensitivity = _argvus_touchpad_settings.sensitivity or 0,
       natural_scroll = _input_bool(_argvus_touchpad_settings, "natural_scroll", false),
       tap_to_click = _input_bool(_argvus_touchpad_settings, "tap_to_click", true),
       tap_and_drag = _input_bool(_argvus_touchpad_settings, "tap_and_drag", true),
