@@ -283,22 +283,45 @@ if _spaces_gaps_out_legacy then
   if not _spaces_gaps_out_bottom_set then _spaces_gaps_out_bottom = _spaces_gaps_out_legacy end
 end
 
--- Waybar margins and Hyprland outer gaps are independent settings. The edge
--- occupied by the taskbar is owned by its margin, so Hyprland must not add a
--- second gap on that edge during startup/reload.
-local _spaces_effective_top = _spaces_gaps_out_top
-local _spaces_effective_bottom = _spaces_gaps_out_bottom
-if _spaces_waybar_pos == "top" then
-  _spaces_effective_top = 0
-elseif _spaces_waybar_pos == "bottom" then
-  _spaces_effective_bottom = 0
+-- spaces-switch.sh materializes this derived file before startup/reload. Lua
+-- consumes it so startup and Apply use exactly the same effective geometry.
+local _effective_spaces_path = _config_home .. "/argvus/generated/spaces-effective.conf"
+local _effective_spaces_file = io.open(_effective_spaces_path)
+local _spaces_effective_top
+local _spaces_effective_right
+local _spaces_effective_bottom
+local _spaces_effective_left
+if _effective_spaces_file then
+  for _line in _effective_spaces_file:lines() do
+    local _key, _val = _line:match("^([%w_]+)=(%d+)$")
+    if _key == "effective_top" then _spaces_effective_top = tonumber(_val) end
+    if _key == "effective_right" then _spaces_effective_right = tonumber(_val) end
+    if _key == "effective_bottom" then _spaces_effective_bottom = tonumber(_val) end
+    if _key == "effective_left" then _spaces_effective_left = tonumber(_val) end
+  end
+  _effective_spaces_file:close()
+end
+
+-- Bootstrap normally creates the generated file. Keep a deterministic
+-- fallback for a direct compositor start before the first session prepare.
+if not _spaces_effective_top or not _spaces_effective_right or
+   not _spaces_effective_bottom or not _spaces_effective_left then
+  _spaces_effective_top = _spaces_gaps_out_top
+  _spaces_effective_right = _spaces_gaps_out_right
+  _spaces_effective_bottom = _spaces_gaps_out_bottom
+  _spaces_effective_left = _spaces_gaps_out_left
+  if _spaces_waybar_pos == "top" then
+    _spaces_effective_top = math.max(0, _spaces_gaps_out_top - _spaces_waybar_bottom)
+  elseif _spaces_waybar_pos == "bottom" then
+    _spaces_effective_bottom = math.max(0, _spaces_gaps_out_bottom - _spaces_waybar_top)
+  end
 end
 
 theme.gaps_out = {
   top = _spaces_effective_top,
-  right = _spaces_gaps_out_right,
+  right = _spaces_effective_right,
   bottom = _spaces_effective_bottom,
-  left = _spaces_gaps_out_left,
+  left = _spaces_effective_left,
 }
 
 local _borders_path = _first_existing({

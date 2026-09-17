@@ -14,6 +14,7 @@ ARGVUS_MUTABLE_CONFIG=1
 
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
 SPACES_FILE="${STATE_DIR}/.spaces"
+EFFECTIVE_FILE="$(paths_generated_config spaces-effective.conf)"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
 WAYBAR_CFG="$(paths_config taskbar/config/argvus-taskbar.jsonc)"
 WAYBAR_SYSINFO="$(paths_config widget-telemetry/config/argvus-widget-telemetry.jsonc)"
@@ -134,16 +135,57 @@ effective_values() {
   [ -n "$WAYBAR_POS" ] || WAYBAR_POS="top"
 }
 
+calculate_effective_geometry() {
+  EFFECTIVE_TOP="$GAPS_OUT_TOP"
+  EFFECTIVE_RIGHT="$GAPS_OUT_RIGHT"
+  EFFECTIVE_BOTTOM="$GAPS_OUT_BOTTOM"
+  EFFECTIVE_LEFT="$GAPS_OUT_LEFT"
+
+  case "$WAYBAR_POS" in
+    top)
+      EFFECTIVE_TOP=$((GAPS_OUT_TOP - WAYBAR_BOTTOM))
+      [ "$EFFECTIVE_TOP" -ge 0 ] || EFFECTIVE_TOP=0
+      ;;
+    bottom)
+      EFFECTIVE_BOTTOM=$((GAPS_OUT_BOTTOM - WAYBAR_TOP))
+      [ "$EFFECTIVE_BOTTOM" -ge 0 ] || EFFECTIVE_BOTTOM=0
+      ;;
+  esac
+}
+
+write_effective_geometry() {
+  calculate_effective_geometry
+  _effective_dir="${EFFECTIVE_FILE%/*}"
+  _effective_tmp="${EFFECTIVE_FILE}.$$"
+  mkdir -p "$_effective_dir" || return 1
+  umask 077
+  if {
+    printf 'effective_top=%s\n' "$EFFECTIVE_TOP"
+    printf 'effective_right=%s\n' "$EFFECTIVE_RIGHT"
+    printf 'effective_bottom=%s\n' "$EFFECTIVE_BOTTOM"
+    printf 'effective_left=%s\n' "$EFFECTIVE_LEFT"
+  } >"$_effective_tmp"; then
+    if mv -f "$_effective_tmp" "$EFFECTIVE_FILE"; then
+      return 0
+    fi
+  else
+    :
+  fi
+  rm -f "$_effective_tmp"
+  return 1
+}
+
 apply_waybar_margins() {
   [ -n "${WAYBAR_TOP:-}" ] || return 0
   [ -n "${WAYBAR_POS:-}" ] || WAYBAR_POS="top"
+  calculate_effective_geometry
 
   # The vertical telemetry bar follows the matching three monitor edges.
   if [ -f "$WAYBAR_SYSINFO" ]; then
     sed -i \
-      -e "s|\"margin-top\": [0-9-]*|\"margin-top\": $WAYBAR_TOP|" \
-      -e "s|\"margin-left\": [0-9-]*|\"margin-left\": $WAYBAR_LEFT|" \
-      -e "s|\"margin-bottom\": [0-9-]*|\"margin-bottom\": $WAYBAR_BOTTOM|" \
+      -e "s|\"margin-top\": [0-9-]*|\"margin-top\": $EFFECTIVE_TOP|" \
+      -e "s|\"margin-left\": [0-9-]*|\"margin-left\": $EFFECTIVE_LEFT|" \
+      -e "s|\"margin-bottom\": [0-9-]*|\"margin-bottom\": $EFFECTIVE_BOTTOM|" \
       "$WAYBAR_SYSINFO"
   fi
 
@@ -163,18 +205,10 @@ apply_gaps_runtime() {
   [ -n "${GAPS_IN:-}" ] && hyprctl keyword general:gaps_in "$GAPS_IN" >/dev/null 2>&1
   [ -n "${GAPS_OUT_TOP:-}" ] || return 0
 
-  # The taskbar-facing margin is the physical separation between the taskbar
-  # and windows. Do not add Hyprland's outer gap on that same edge: doing so
-  # makes a taskbar bottom of 10 plus a window top gap of 20 render as 30.
-  _effective_top="$GAPS_OUT_TOP"
-  _effective_bottom="$GAPS_OUT_BOTTOM"
-  case "$WAYBAR_POS" in
-    top) _effective_top=0 ;;
-    bottom) _effective_bottom=0 ;;
-  esac
+  calculate_effective_geometry
 
   hyprctl keyword general:gaps_out \
-    "$_effective_top $GAPS_OUT_RIGHT $_effective_bottom $GAPS_OUT_LEFT" \
+    "$EFFECTIVE_TOP $EFFECTIVE_RIGHT $EFFECTIVE_BOTTOM $EFFECTIVE_LEFT" \
     >/dev/null 2>&1
 }
 
@@ -275,6 +309,7 @@ reset_key() {
   esac
   write_spaces
   effective_values
+  write_effective_geometry || return $?
   apply_gaps_runtime
   apply_waybar_margins
   restart_waybar
@@ -282,6 +317,7 @@ reset_key() {
 
 apply_all() {
   effective_values
+  write_effective_geometry || return $?
   apply_gaps_runtime
   apply_waybar_margins
   restart_waybar
@@ -342,7 +378,7 @@ case "${1:-}" in
     set_key "$2" "$3"
     ;;
   --reset) reset_key "${2:-all}" ;;
-  --apply-static) effective_values; apply_waybar_margins ;;
+  --apply-static) effective_values; write_effective_geometry || exit $?; apply_waybar_margins ;;
   --apply) apply_all ;;
   *)
     effective_values
