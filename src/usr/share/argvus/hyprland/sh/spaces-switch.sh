@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 # spaces-switch - customize window gaps and Waybar spacing.
-# Usage: spaces-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--reset [key]|--apply-static|--apply]
-# Keys: gaps_in, gaps_out, waybar_top, waybar_left, waybar_right, waybar_bottom.
+# Usage: spaces-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--set-persist <key> <value>|--reset [key]|--apply-static|--apply]
+# Keys: gaps_in, gaps_out_top, gaps_out_left, gaps_out_right, gaps_out_bottom,
+# waybar_top, waybar_left, waybar_right, waybar_bottom.
 # Values are user-controlled from 0 to 100 after each theme applies its mode reset.
 # shellcheck disable=SC1090,SC1091,SC2034
 
@@ -19,6 +20,7 @@ WAYBAR_SYSINFO="$(paths_config widget-telemetry/config/argvus-widget-telemetry.j
 THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
 DEFAULT_THEME="argvus-dark-aether"
 MAX_VALUE=100
+SET_PERSIST=0
 
 read_state() {
   _file="$1"
@@ -32,7 +34,11 @@ read_state() {
 
 read_state_values() {
   GAPS_IN=""
-  GAPS_OUT=""
+  GAPS_OUT_TOP=""
+  GAPS_OUT_LEFT=""
+  GAPS_OUT_RIGHT=""
+  GAPS_OUT_BOTTOM=""
+  GAPS_OUT_LEGACY=""
   WAYBAR_TOP=""
   WAYBAR_LEFT=""
   WAYBAR_RIGHT=""
@@ -46,7 +52,11 @@ read_state_values() {
     _rs_val="${_rs_line#*=}"
     case "$_rs_key" in
       gaps_in)       GAPS_IN="$_rs_val" ;;
-      gaps_out)      GAPS_OUT="$_rs_val" ;;
+      gaps_out)      GAPS_OUT_LEGACY="$_rs_val" ;;
+      gaps_out_top)  GAPS_OUT_TOP="$_rs_val" ;;
+      gaps_out_left) GAPS_OUT_LEFT="$_rs_val" ;;
+      gaps_out_right) GAPS_OUT_RIGHT="$_rs_val" ;;
+      gaps_out_bottom) GAPS_OUT_BOTTOM="$_rs_val" ;;
       waybar)        WAYBAR_LEGACY="$_rs_val" ;;
       waybar_top)    WAYBAR_TOP="$_rs_val" ;;
       waybar_left)   WAYBAR_LEFT="$_rs_val" ;;
@@ -63,13 +73,25 @@ read_state_values() {
     [ -n "$WAYBAR_RIGHT" ] || WAYBAR_RIGHT="$WAYBAR_LEGACY"
     [ -n "$WAYBAR_BOTTOM" ] || WAYBAR_BOTTOM="$WAYBAR_LEGACY"
   fi
+
+  # Migrate the old single Hyprland outer-gap preference without coupling the
+  # four new edges.
+  if [ -n "$GAPS_OUT_LEGACY" ]; then
+    [ -n "$GAPS_OUT_TOP" ] || GAPS_OUT_TOP="$GAPS_OUT_LEGACY"
+    [ -n "$GAPS_OUT_LEFT" ] || GAPS_OUT_LEFT="$GAPS_OUT_LEGACY"
+    [ -n "$GAPS_OUT_RIGHT" ] || GAPS_OUT_RIGHT="$GAPS_OUT_LEGACY"
+    [ -n "$GAPS_OUT_BOTTOM" ] || GAPS_OUT_BOTTOM="$GAPS_OUT_LEGACY"
+  fi
 }
 
 write_spaces() {
   mkdir -p "$STATE_DIR"
   {
     [ -n "$GAPS_IN" ] && printf 'gaps_in=%s\n' "$GAPS_IN"
-    [ -n "$GAPS_OUT" ] && printf 'gaps_out=%s\n' "$GAPS_OUT"
+    [ -n "$GAPS_OUT_TOP" ] && printf 'gaps_out_top=%s\n' "$GAPS_OUT_TOP"
+    [ -n "$GAPS_OUT_LEFT" ] && printf 'gaps_out_left=%s\n' "$GAPS_OUT_LEFT"
+    [ -n "$GAPS_OUT_RIGHT" ] && printf 'gaps_out_right=%s\n' "$GAPS_OUT_RIGHT"
+    [ -n "$GAPS_OUT_BOTTOM" ] && printf 'gaps_out_bottom=%s\n' "$GAPS_OUT_BOTTOM"
     [ -n "$WAYBAR_TOP" ] && printf 'waybar_top=%s\n' "$WAYBAR_TOP"
     [ -n "$WAYBAR_LEFT" ] && printf 'waybar_left=%s\n' "$WAYBAR_LEFT"
     [ -n "$WAYBAR_RIGHT" ] && printf 'waybar_right=%s\n' "$WAYBAR_RIGHT"
@@ -82,14 +104,16 @@ write_spaces() {
 compute_defaults() {
   _theme="$(read_state "$ACTIVE_FILE" "$DEFAULT_THEME")"
   # Window spacing is a mode reset, not a theme-specific value.
-  GAPS_IN_DEF=3
-  GAPS_OUT_DEF=1
 
   case "$_theme" in
     *-float)
-      WAYBAR_TOP_DEF=20; WAYBAR_LEFT_DEF=20; WAYBAR_RIGHT_DEF=20; WAYBAR_BOTTOM_DEF=1
+      GAPS_IN_DEF=8
+      GAPS_OUT_TOP_DEF=8; GAPS_OUT_LEFT_DEF=8; GAPS_OUT_RIGHT_DEF=8; GAPS_OUT_BOTTOM_DEF=8
+      WAYBAR_TOP_DEF=16; WAYBAR_LEFT_DEF=16; WAYBAR_RIGHT_DEF=16; WAYBAR_BOTTOM_DEF=0
       ;;
     *)
+      GAPS_IN_DEF=1
+      GAPS_OUT_TOP_DEF=1; GAPS_OUT_LEFT_DEF=1; GAPS_OUT_RIGHT_DEF=1; GAPS_OUT_BOTTOM_DEF=1
       WAYBAR_TOP_DEF=0; WAYBAR_LEFT_DEF=0; WAYBAR_RIGHT_DEF=0; WAYBAR_BOTTOM_DEF=0
       ;;
   esac
@@ -99,7 +123,10 @@ effective_values() {
   compute_defaults
   read_state_values
   [ -n "$GAPS_IN" ] || GAPS_IN="$GAPS_IN_DEF"
-  [ -n "$GAPS_OUT" ] || GAPS_OUT="$GAPS_OUT_DEF"
+  [ -n "$GAPS_OUT_TOP" ] || GAPS_OUT_TOP="$GAPS_OUT_TOP_DEF"
+  [ -n "$GAPS_OUT_LEFT" ] || GAPS_OUT_LEFT="$GAPS_OUT_LEFT_DEF"
+  [ -n "$GAPS_OUT_RIGHT" ] || GAPS_OUT_RIGHT="$GAPS_OUT_RIGHT_DEF"
+  [ -n "$GAPS_OUT_BOTTOM" ] || GAPS_OUT_BOTTOM="$GAPS_OUT_BOTTOM_DEF"
   [ -n "$WAYBAR_TOP" ] || WAYBAR_TOP="$WAYBAR_TOP_DEF"
   [ -n "$WAYBAR_LEFT" ] || WAYBAR_LEFT="$WAYBAR_LEFT_DEF"
   [ -n "$WAYBAR_RIGHT" ] || WAYBAR_RIGHT="$WAYBAR_RIGHT_DEF"
@@ -134,29 +161,12 @@ apply_gaps_runtime() {
   [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ] && return 0
   command -v hyprctl >/dev/null 2>&1 || return 0
   [ -n "${GAPS_IN:-}" ] && hyprctl keyword general:gaps_in "$GAPS_IN" >/dev/null 2>&1
-  [ -n "${GAPS_OUT:-}" ] || return 0
+  [ -n "${GAPS_OUT_TOP:-}" ] || return 0
 
-  # Preserve the visual separation created by each independently configured
-  # taskbar edge when applying Hyprland's outer window gaps.
-  _effective_top=$((GAPS_OUT + WAYBAR_TOP))
-  _effective_right=$((GAPS_OUT + WAYBAR_RIGHT))
-  _effective_left=$((GAPS_OUT + WAYBAR_LEFT))
-  case "$WAYBAR_POS" in
-    top)
-      # For a top taskbar, only its bottom margin separates it from windows.
-      _effective_top=$((GAPS_OUT + WAYBAR_BOTTOM))
-      _effective_bottom=$GAPS_OUT
-      ;;
-    bottom)
-      _effective_top=$GAPS_OUT
-      _effective_bottom=$((GAPS_OUT + WAYBAR_TOP))
-      ;;
-    *)
-      _effective_bottom=$((GAPS_OUT + WAYBAR_BOTTOM))
-      ;;
-  esac
+  # Hyprland receives the four user-configured outer gaps directly. Taskbar
+  # margins are independent Waybar values and must never be added here.
   hyprctl keyword general:gaps_out \
-    "$_effective_top $_effective_right $_effective_bottom $_effective_left" \
+    "$GAPS_OUT_TOP $GAPS_OUT_RIGHT $GAPS_OUT_BOTTOM $GAPS_OUT_LEFT" \
     >/dev/null 2>&1
 }
 
@@ -178,6 +188,7 @@ set_key() {
         top|bottom)
           WAYBAR_POS="$_value"
           write_spaces
+          [ "$SET_PERSIST" -eq 1 ] && return 0
           effective_values
           apply_waybar_margins
           apply_gaps_runtime
@@ -190,7 +201,7 @@ set_key() {
   esac
 
   case "$_key" in
-    gaps_in|gaps_out|waybar|waybar_top|waybar_left|waybar_right|waybar_bottom) ;;
+    gaps_in|gaps_out|gaps_out_top|gaps_out_left|gaps_out_right|gaps_out_bottom|waybar|waybar_top|waybar_left|waybar_right|waybar_bottom) ;;
     *) argvus_tr hyprland spaces.invalid_key "key=$_key" >&2; return 1 ;;
   esac
 
@@ -204,7 +215,13 @@ set_key() {
 
   case "$_key" in
     gaps_in) GAPS_IN="$_value" ;;
-    gaps_out) GAPS_OUT="$_value" ;;
+    gaps_out)
+      GAPS_OUT_TOP="$_value"; GAPS_OUT_LEFT="$_value"; GAPS_OUT_RIGHT="$_value"; GAPS_OUT_BOTTOM="$_value"
+      ;;
+    gaps_out_top) GAPS_OUT_TOP="$_value" ;;
+    gaps_out_left) GAPS_OUT_LEFT="$_value" ;;
+    gaps_out_right) GAPS_OUT_RIGHT="$_value" ;;
+    gaps_out_bottom) GAPS_OUT_BOTTOM="$_value" ;;
     waybar)
       WAYBAR_TOP="$_value"; WAYBAR_LEFT="$_value"; WAYBAR_RIGHT="$_value"; WAYBAR_BOTTOM="$_value"
       ;;
@@ -221,12 +238,21 @@ reset_key() {
   read_state_values
   case "$_key" in
     all)
-      GAPS_IN=""; GAPS_OUT=""
+      GAPS_IN=""
+      GAPS_OUT_TOP=""; GAPS_OUT_LEFT=""; GAPS_OUT_RIGHT=""; GAPS_OUT_BOTTOM=""
       WAYBAR_TOP=""; WAYBAR_LEFT=""; WAYBAR_RIGHT=""; WAYBAR_BOTTOM=""
       WAYBAR_POS=""
       ;;
     gaps_in) GAPS_IN="" ;;
-    gaps_out) GAPS_OUT="" ;;
+    gaps_out|gaps_out_top|gaps_out_left|gaps_out_right|gaps_out_bottom)
+      case "$_key" in
+        gaps_out) GAPS_OUT_TOP=""; GAPS_OUT_LEFT=""; GAPS_OUT_RIGHT=""; GAPS_OUT_BOTTOM="" ;;
+        gaps_out_top) GAPS_OUT_TOP="" ;;
+        gaps_out_left) GAPS_OUT_LEFT="" ;;
+        gaps_out_right) GAPS_OUT_RIGHT="" ;;
+        gaps_out_bottom) GAPS_OUT_BOTTOM="" ;;
+      esac
+      ;;
     waybar|waybar_top|waybar_left|waybar_right|waybar_bottom)
       case "$_key" in
         waybar) WAYBAR_TOP=""; WAYBAR_LEFT=""; WAYBAR_RIGHT=""; WAYBAR_BOTTOM="" ;;
@@ -260,7 +286,13 @@ print_pairs() {
   printf 'waybar_bottom=%s\n' "$WAYBAR_BOTTOM"
   printf 'waybar_pos=%s\n' "$WAYBAR_POS"
   printf 'gaps_in=%s\n' "$GAPS_IN"
-  printf 'gaps_out=%s\n' "$GAPS_OUT"
+  printf 'gaps_out_top=%s\n' "$GAPS_OUT_TOP"
+  printf 'gaps_out_left=%s\n' "$GAPS_OUT_LEFT"
+  printf 'gaps_out_right=%s\n' "$GAPS_OUT_RIGHT"
+  printf 'gaps_out_bottom=%s\n' "$GAPS_OUT_BOTTOM"
+  # Keep the legacy aggregate status line for older TUI consumers. New
+  # consumers must use the four edge-specific keys above.
+  printf 'gaps_out=%s\n' "$GAPS_OUT_TOP"
 }
 
 case "${1:-}" in
@@ -272,7 +304,9 @@ case "${1:-}" in
     compute_defaults
     WAYBAR_TOP="$WAYBAR_TOP_DEF"; WAYBAR_LEFT="$WAYBAR_LEFT_DEF"
     WAYBAR_RIGHT="$WAYBAR_RIGHT_DEF"; WAYBAR_BOTTOM="$WAYBAR_BOTTOM_DEF"
-    WAYBAR_POS="top"; GAPS_IN="$GAPS_IN_DEF"; GAPS_OUT="$GAPS_OUT_DEF"
+    WAYBAR_POS="top"; GAPS_IN="$GAPS_IN_DEF"
+    GAPS_OUT_TOP="$GAPS_OUT_TOP_DEF"; GAPS_OUT_LEFT="$GAPS_OUT_LEFT_DEF"
+    GAPS_OUT_RIGHT="$GAPS_OUT_RIGHT_DEF"; GAPS_OUT_BOTTOM="$GAPS_OUT_BOTTOM_DEF"
     print_pairs
     ;;
   --get)
@@ -280,7 +314,11 @@ case "${1:-}" in
     effective_values
     case "$2" in
       gaps_in) printf '%s\n' "$GAPS_IN" ;;
-      gaps_out) printf '%s\n' "$GAPS_OUT" ;;
+      gaps_out) printf '%s\n' "$GAPS_OUT_TOP" ;;
+      gaps_out_top) printf '%s\n' "$GAPS_OUT_TOP" ;;
+      gaps_out_left) printf '%s\n' "$GAPS_OUT_LEFT" ;;
+      gaps_out_right) printf '%s\n' "$GAPS_OUT_RIGHT" ;;
+      gaps_out_bottom) printf '%s\n' "$GAPS_OUT_BOTTOM" ;;
       waybar) printf '%s\n' "$WAYBAR_TOP" ;;
       waybar_top) printf '%s\n' "$WAYBAR_TOP" ;;
       waybar_left) printf '%s\n' "$WAYBAR_LEFT" ;;
@@ -290,8 +328,9 @@ case "${1:-}" in
       *) argvus_tr hyprland spaces.invalid_key "key=$2" >&2; exit 1 ;;
     esac
     ;;
-  --set)
+  --set|--set-persist)
     [ -n "${2:-}" ] && [ -n "${3:-}" ] || { argvus_tr hyprland spaces.missing_key_value >&2; exit 1; }
+    [ "$1" = "--set-persist" ] && SET_PERSIST=1
     set_key "$2" "$3"
     ;;
   --reset) reset_key "${2:-all}" ;;
@@ -300,7 +339,7 @@ case "${1:-}" in
   *)
     effective_values
     argvus_tr hyprland spaces.usage >&2
-    printf 'Current: gaps_in=%s gaps_out=%s waybar_top=%s waybar_left=%s waybar_right=%s waybar_bottom=%s waybar_pos=%s\n' \
-      "$GAPS_IN" "$GAPS_OUT" "$WAYBAR_TOP" "$WAYBAR_LEFT" "$WAYBAR_RIGHT" "$WAYBAR_BOTTOM" "$WAYBAR_POS"
+    printf 'Current: gaps_in=%s gaps_out_top=%s gaps_out_left=%s gaps_out_right=%s gaps_out_bottom=%s waybar_top=%s waybar_left=%s waybar_right=%s waybar_bottom=%s waybar_pos=%s\n' \
+      "$GAPS_IN" "$GAPS_OUT_TOP" "$GAPS_OUT_LEFT" "$GAPS_OUT_RIGHT" "$GAPS_OUT_BOTTOM" "$WAYBAR_TOP" "$WAYBAR_LEFT" "$WAYBAR_RIGHT" "$WAYBAR_BOTTOM" "$WAYBAR_POS"
     ;;
 esac

@@ -196,9 +196,8 @@ local _theme_path = _first_existing({
 local theme = dofile(_theme_path)
 
 -- Window spacing is also a mode reset. A theme may declare another value,
--- but Normal and Float both start from the ARGVUS 3/1 contract.
-theme.gaps_in = 3
-theme.gaps_out = 1
+-- but Normal and Float both start from the ARGVUS mode contract.
+theme.gaps_in = _theme_name:match("%-float$") and 8 or 1
 
 local _accent = "3590bd"
 local _allowed_accents = {
@@ -231,21 +230,34 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar_top = _theme_name:match("%-float$") and 20 or 0
+local _spaces_waybar_top = _theme_name:match("%-float$") and 16 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = _theme_name:match("%-float$") and 1 or 0
+local _spaces_waybar_bottom = 0
 local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
+local _spaces_gaps_out_top = _theme_name:match("%-float$") and 8 or 1
+local _spaces_gaps_out_left = _spaces_gaps_out_top
+local _spaces_gaps_out_right = _spaces_gaps_out_top
+local _spaces_gaps_out_bottom = _spaces_gaps_out_top
+local _spaces_gaps_out_legacy
 local _spaces_waybar_top_set = false
 local _spaces_waybar_left_set = false
 local _spaces_waybar_right_set = false
 local _spaces_waybar_bottom_set = false
+local _spaces_gaps_out_top_set = false
+local _spaces_gaps_out_left_set = false
+local _spaces_gaps_out_right_set = false
+local _spaces_gaps_out_bottom_set = false
 if _spaces_file then
   for _line in _spaces_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
     if _key == "gaps_in" then theme.gaps_in = tonumber(_val) end
-    if _key == "gaps_out" then theme.gaps_out = tonumber(_val) end
+    if _key == "gaps_out" then _spaces_gaps_out_legacy = tonumber(_val) end
+    if _key == "gaps_out_top" then _spaces_gaps_out_top = tonumber(_val); _spaces_gaps_out_top_set = true end
+    if _key == "gaps_out_left" then _spaces_gaps_out_left = tonumber(_val); _spaces_gaps_out_left_set = true end
+    if _key == "gaps_out_right" then _spaces_gaps_out_right = tonumber(_val); _spaces_gaps_out_right_set = true end
+    if _key == "gaps_out_bottom" then _spaces_gaps_out_bottom = tonumber(_val); _spaces_gaps_out_bottom_set = true end
     if _key == "waybar" then _spaces_waybar_legacy = tonumber(_val) end
     if _key == "waybar_top" then _spaces_waybar_top = tonumber(_val); _spaces_waybar_top_set = true end
     if _key == "waybar_left" then _spaces_waybar_left = tonumber(_val); _spaces_waybar_left_set = true end
@@ -264,24 +276,20 @@ if _spaces_waybar_legacy then
   if not _spaces_waybar_bottom_set then _spaces_waybar_bottom = _spaces_waybar_legacy end
 end
 
--- Waybar reserves its own height, but its configurable margin is outside
--- that exclusive zone. Keep tiled windows away from each configured edge,
--- including after a Hyprland reload.
-local _spaces_window_top = _spaces_waybar_top
-local _spaces_window_bottom = _spaces_waybar_bottom
-if _spaces_waybar_pos == "top" then
-  -- The bottom margin of a top taskbar is the gap below the taskbar.
-  _spaces_window_top = _spaces_waybar_bottom
-  _spaces_window_bottom = 0
-elseif _spaces_waybar_pos == "bottom" then
-  _spaces_window_top = 0
-  _spaces_window_bottom = _spaces_waybar_top
+if _spaces_gaps_out_legacy then
+  if not _spaces_gaps_out_top_set then _spaces_gaps_out_top = _spaces_gaps_out_legacy end
+  if not _spaces_gaps_out_left_set then _spaces_gaps_out_left = _spaces_gaps_out_legacy end
+  if not _spaces_gaps_out_right_set then _spaces_gaps_out_right = _spaces_gaps_out_legacy end
+  if not _spaces_gaps_out_bottom_set then _spaces_gaps_out_bottom = _spaces_gaps_out_legacy end
 end
+
+-- Waybar margins and Hyprland outer gaps are independent settings. The
+-- configured taskbar edge must never be added to a window gap.
 theme.gaps_out = {
-  top = theme.gaps_out + _spaces_window_top,
-  right = theme.gaps_out + _spaces_waybar_right,
-  bottom = theme.gaps_out + _spaces_window_bottom,
-  left = theme.gaps_out + _spaces_waybar_left,
+  top = _spaces_gaps_out_top,
+  right = _spaces_gaps_out_right,
+  bottom = _spaces_gaps_out_bottom,
+  left = _spaces_gaps_out_left,
 }
 
 local _borders_path = _first_existing({
