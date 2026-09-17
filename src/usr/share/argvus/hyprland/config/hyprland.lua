@@ -196,7 +196,7 @@ local _theme_path = _first_existing({
 local theme = dofile(_theme_path)
 
 -- Window spacing is also a mode reset. A theme may declare another value,
--- but Normal and Float both start from the ARGVUS mode contract.
+-- but Sticky and Float both start from the ARGVUS mode contract.
 theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
 
 local _accent = "3590bd"
