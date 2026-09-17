@@ -140,8 +140,21 @@ apply_gaps_runtime() {
   # taskbar edge when applying Hyprland's outer window gaps.
   _effective_top=$((GAPS_OUT + WAYBAR_TOP))
   _effective_right=$((GAPS_OUT + WAYBAR_RIGHT))
-  _effective_bottom=$((GAPS_OUT + WAYBAR_BOTTOM))
   _effective_left=$((GAPS_OUT + WAYBAR_LEFT))
+  case "$WAYBAR_POS" in
+    top)
+      # For a top taskbar, only its bottom margin separates it from windows.
+      _effective_top=$((GAPS_OUT + WAYBAR_BOTTOM))
+      _effective_bottom=$GAPS_OUT
+      ;;
+    bottom)
+      _effective_top=$GAPS_OUT
+      _effective_bottom=$((GAPS_OUT + WAYBAR_TOP))
+      ;;
+    *)
+      _effective_bottom=$((GAPS_OUT + WAYBAR_BOTTOM))
+      ;;
+  esac
   hyprctl keyword general:gaps_out \
     "$_effective_top $_effective_right $_effective_bottom $_effective_left" \
     >/dev/null 2>&1

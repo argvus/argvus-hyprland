@@ -14,6 +14,8 @@ BORDERS_FILE="${STATE_DIR}/.borders"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
 THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
 WAYBAR_CSS="$(paths_config taskbar/config/argvus-taskbar.css)"
+WAYBAR_SYSINFO_CSS="$(paths_config widget-telemetry/config/argvus-widget-telemetry.css)"
+ROFI_THEME="$(paths_config launcher/config/theme.rasi)"
 DEFAULT_THEME="argvus-dark-aether"
 MIN_ROUNDING=2
 MAX_ROUNDING=10
@@ -72,11 +74,18 @@ effective_values() {
   [ -n "$ROUNDING" ] || ROUNDING="$ROUNDING_DEF"
 }
 
-apply_waybar_rounding() {
-  [ -f "$WAYBAR_CSS" ] || return 0
+apply_file_rounding() {
+  _rounding_file="$1"
+  [ -f "$_rounding_file" ] || return 0
   _waybar_rounding="$ROUNDING"
   [ "$ROUNDED" = 1 ] || _waybar_rounding=0
-  sed -i -E "s|border-radius: [0-9]+px;|border-radius: ${_waybar_rounding}px;|g" "$WAYBAR_CSS"
+  sed -i -E "s|border-radius: [0-9]+(px)?;|border-radius: ${_waybar_rounding}px;|g" "$_rounding_file"
+}
+
+apply_waybar_rounding() {
+  apply_file_rounding "$WAYBAR_CSS"
+  apply_file_rounding "$WAYBAR_SYSINFO_CSS"
+  apply_file_rounding "$ROFI_THEME"
 }
 
 apply_runtime() {

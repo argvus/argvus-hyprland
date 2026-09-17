@@ -235,6 +235,7 @@ local _spaces_waybar_top = _theme_name:match("%-float$") and 20 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
 local _spaces_waybar_bottom = _theme_name:match("%-float$") and 1 or 0
+local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
 local _spaces_waybar_top_set = false
 local _spaces_waybar_left_set = false
@@ -250,6 +251,8 @@ if _spaces_file then
     if _key == "waybar_left" then _spaces_waybar_left = tonumber(_val); _spaces_waybar_left_set = true end
     if _key == "waybar_right" then _spaces_waybar_right = tonumber(_val); _spaces_waybar_right_set = true end
     if _key == "waybar_bottom" then _spaces_waybar_bottom = tonumber(_val); _spaces_waybar_bottom_set = true end
+    local _pos_key, _pos_val = _line:match("^([%w_]+)=([%a]+)$")
+    if _pos_key == "waybar_pos" and (_pos_val == "top" or _pos_val == "bottom") then _spaces_waybar_pos = _pos_val end
   end
   _spaces_file:close()
 end
@@ -264,10 +267,20 @@ end
 -- Waybar reserves its own height, but its configurable margin is outside
 -- that exclusive zone. Keep tiled windows away from each configured edge,
 -- including after a Hyprland reload.
+local _spaces_window_top = _spaces_waybar_top
+local _spaces_window_bottom = _spaces_waybar_bottom
+if _spaces_waybar_pos == "top" then
+  -- The bottom margin of a top taskbar is the gap below the taskbar.
+  _spaces_window_top = _spaces_waybar_bottom
+  _spaces_window_bottom = 0
+elseif _spaces_waybar_pos == "bottom" then
+  _spaces_window_top = 0
+  _spaces_window_bottom = _spaces_waybar_top
+end
 theme.gaps_out = {
-  top = theme.gaps_out + _spaces_waybar_top,
+  top = theme.gaps_out + _spaces_window_top,
   right = theme.gaps_out + _spaces_waybar_right,
-  bottom = theme.gaps_out + _spaces_waybar_bottom,
+  bottom = theme.gaps_out + _spaces_window_bottom,
   left = theme.gaps_out + _spaces_waybar_left,
 }
 
