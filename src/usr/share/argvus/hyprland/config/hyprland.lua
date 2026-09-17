@@ -197,7 +197,7 @@ local theme = dofile(_theme_path)
 
 -- Window spacing is also a mode reset. A theme may declare another value,
 -- but Normal and Float both start from the ARGVUS mode contract.
-theme.gaps_in = _theme_name:match("%-float$") and 8 or 1
+theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
 
 local _accent = "3590bd"
 local _allowed_accents = {
@@ -230,13 +230,13 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar_top = _theme_name:match("%-float$") and 16 or 0
+local _spaces_waybar_top = _theme_name:match("%-float$") and 18 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = 0
+local _spaces_waybar_bottom = _theme_name:match("%-float$") and 18 or 2
 local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
-local _spaces_gaps_out_top = _theme_name:match("%-float$") and 8 or 1
+local _spaces_gaps_out_top = _theme_name:match("%-float$") and 18 or 0
 local _spaces_gaps_out_left = _spaces_gaps_out_top
 local _spaces_gaps_out_right = _spaces_gaps_out_top
 local _spaces_gaps_out_bottom = _spaces_gaps_out_top
@@ -331,11 +331,13 @@ local _borders_path = _first_existing({
 local _borders_file = io.open(_borders_path)
 local _borders_rounded = _theme_name:match("%-float$") and 1 or 0
 local _borders_rounding = _theme_name:match("%-float$") and 4 or 0
+local _borders_thickness = 1
 if _borders_file then
   for _line in _borders_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
     if _key == "rounded" then _borders_rounded = tonumber(_val) end
     if _key == "rounding" then _borders_rounding = tonumber(_val) end
+    if _key == "thickness" then _borders_thickness = tonumber(_val) end
   end
   _borders_file:close()
 end
@@ -347,6 +349,7 @@ if _borders_rounded == 1 then
 else
   theme.rounding = 0
 end
+theme.border_size = math.min(math.max(_borders_thickness, 0), 10)
 
 -- Virtual machine compatibility -------------------------------------------------------------------
 local function _is_virtual_machine()

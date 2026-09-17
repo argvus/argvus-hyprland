@@ -19,6 +19,8 @@ ROFI_THEME="$(paths_config launcher/config/theme.rasi)"
 DEFAULT_THEME="argvus-dark-aether"
 MIN_ROUNDING=2
 MAX_ROUNDING=10
+MIN_THICKNESS=0
+MAX_THICKNESS=10
 SET_PERSIST=0
 
 read_state() {
@@ -37,10 +39,12 @@ compute_defaults() {
     *-float)
       ROUNDED_DEF=1
       ROUNDING_DEF=4
+      THICKNESS_DEF=1
       ;;
     *)
       ROUNDED_DEF=0
       ROUNDING_DEF=0
+      THICKNESS_DEF=1
       ;;
   esac
 }
@@ -48,6 +52,7 @@ compute_defaults() {
 read_state_values() {
   ROUNDED=""
   ROUNDING=""
+  THICKNESS=""
   [ -f "$BORDERS_FILE" ] || return 0
   while IFS= read -r _line; do
     _border_key="${_line%%=*}"
@@ -55,6 +60,7 @@ read_state_values() {
     case "$_border_key" in
       rounded) ROUNDED="$_border_value" ;;
       rounding) ROUNDING="$_border_value" ;;
+      thickness) THICKNESS="$_border_value" ;;
     esac
   done < "$BORDERS_FILE"
 }
@@ -64,6 +70,7 @@ write_state() {
   {
     [ -n "$ROUNDED" ] && printf 'rounded=%s\n' "$ROUNDED"
     [ -n "$ROUNDING" ] && printf 'rounding=%s\n' "$ROUNDING"
+    [ -n "$THICKNESS" ] && printf 'thickness=%s\n' "$THICKNESS"
   } > "$BORDERS_FILE"
   return 0
 }
@@ -73,6 +80,7 @@ effective_values() {
   read_state_values
   [ -n "$ROUNDED" ] || ROUNDED="$ROUNDED_DEF"
   [ -n "$ROUNDING" ] || ROUNDING="$ROUNDING_DEF"
+  [ -n "$THICKNESS" ] || THICKNESS="$THICKNESS_DEF"
 }
 
 apply_file_rounding() {
@@ -94,6 +102,7 @@ apply_runtime() {
   command -v hyprctl >/dev/null 2>&1 || return 0
   _applied_rounding="$ROUNDING"
   [ "$ROUNDED" = 1 ] || _applied_rounding=0
+  hyprctl keyword general:border_size "$THICKNESS" >/dev/null 2>&1
   hyprctl keyword decoration:rounding "$_applied_rounding" >/dev/null 2>&1
 }
 
@@ -125,6 +134,16 @@ set_key() {
       }
       ROUNDING="$_value"
       ;;
+    thickness)
+      case "$_value" in
+        *[!0-9]*|'') argvus_tr hyprland borders.invalid_thickness "value=$_value" >&2; return 1 ;;
+      esac
+      [ "$_value" -ge "$MIN_THICKNESS" ] && [ "$_value" -le "$MAX_THICKNESS" ] || {
+        argvus_tr hyprland borders.thickness_range "minimum=$MIN_THICKNESS" "maximum=$MAX_THICKNESS" >&2
+        return 1
+      }
+      THICKNESS="$_value"
+      ;;
     *) argvus_tr hyprland borders.invalid_key "key=$_key" >&2; return 1 ;;
   esac
   write_state
@@ -135,6 +154,7 @@ set_key() {
 reset_state() {
   ROUNDED=""
   ROUNDING=""
+  THICKNESS=""
   write_state
   effective_values
   apply_waybar_rounding
@@ -144,6 +164,7 @@ reset_state() {
 print_pairs() {
   printf 'rounded=%s\n' "$ROUNDED"
   printf 'rounding=%s\n' "$ROUNDING"
+  printf 'thickness=%s\n' "$THICKNESS"
 }
 
 case "${1:-}" in
@@ -152,6 +173,7 @@ case "${1:-}" in
     compute_defaults
     ROUNDED="$ROUNDED_DEF"
     ROUNDING="$ROUNDING_DEF"
+    THICKNESS="$THICKNESS_DEF"
     print_pairs
     ;;
   --get)
@@ -160,6 +182,7 @@ case "${1:-}" in
     case "$2" in
       rounded) printf '%s\n' "$ROUNDED" ;;
       rounding) printf '%s\n' "$ROUNDING" ;;
+      thickness) printf '%s\n' "$THICKNESS" ;;
       *) argvus_tr hyprland borders.invalid_key "key=$2" >&2; exit 1 ;;
     esac
     ;;
