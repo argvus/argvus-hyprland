@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # borders-switch - customize window and taskbar corner rounding.
-# Usage: borders-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--reset|--apply]
+# Usage: borders-switch.sh [--status|--defaults|--get <key>|--set <key> <value>|--set-persist <key> <value>|--reset|--apply]
 # shellcheck disable=SC1090,SC1091,SC2034
 
 set -u
@@ -19,6 +19,7 @@ ROFI_THEME="$(paths_config launcher/config/theme.rasi)"
 DEFAULT_THEME="argvus-dark-aether"
 MIN_ROUNDING=2
 MAX_ROUNDING=10
+SET_PERSIST=0
 
 read_state() {
   _file="$1"
@@ -127,6 +128,7 @@ set_key() {
     *) argvus_tr hyprland borders.invalid_key "key=$_key" >&2; return 1 ;;
   esac
   write_state
+  [ "$SET_PERSIST" -eq 1 ] && return 0
   apply_waybar_rounding
 }
 
@@ -163,6 +165,11 @@ case "${1:-}" in
     ;;
   --set)
     [ -n "${2:-}" ] && [ -n "${3:-}" ] || { argvus_tr hyprland borders.missing_key_value >&2; exit 1; }
+    set_key "$2" "$3"
+    ;;
+  --set-persist)
+    [ -n "${2:-}" ] && [ -n "${3:-}" ] || { argvus_tr hyprland borders.missing_key_value >&2; exit 1; }
+    SET_PERSIST=1
     set_key "$2" "$3"
     ;;
   --reset) reset_state ;;

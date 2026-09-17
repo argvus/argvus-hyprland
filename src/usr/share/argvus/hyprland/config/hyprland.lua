@@ -283,12 +283,21 @@ if _spaces_gaps_out_legacy then
   if not _spaces_gaps_out_bottom_set then _spaces_gaps_out_bottom = _spaces_gaps_out_legacy end
 end
 
--- Waybar margins and Hyprland outer gaps are independent settings. The
--- configured taskbar edge must never be added to a window gap.
+-- Waybar margins and Hyprland outer gaps are independent settings. The edge
+-- occupied by the taskbar is owned by its margin, so Hyprland must not add a
+-- second gap on that edge during startup/reload.
+local _spaces_effective_top = _spaces_gaps_out_top
+local _spaces_effective_bottom = _spaces_gaps_out_bottom
+if _spaces_waybar_pos == "top" then
+  _spaces_effective_top = 0
+elseif _spaces_waybar_pos == "bottom" then
+  _spaces_effective_bottom = 0
+end
+
 theme.gaps_out = {
-  top = _spaces_gaps_out_top,
+  top = _spaces_effective_top,
   right = _spaces_gaps_out_right,
-  bottom = _spaces_gaps_out_bottom,
+  bottom = _spaces_effective_bottom,
   left = _spaces_gaps_out_left,
 }
 

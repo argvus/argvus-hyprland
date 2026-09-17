@@ -163,10 +163,18 @@ apply_gaps_runtime() {
   [ -n "${GAPS_IN:-}" ] && hyprctl keyword general:gaps_in "$GAPS_IN" >/dev/null 2>&1
   [ -n "${GAPS_OUT_TOP:-}" ] || return 0
 
-  # Hyprland receives the four user-configured outer gaps directly. Taskbar
-  # margins are independent Waybar values and must never be added here.
+  # The taskbar-facing margin is the physical separation between the taskbar
+  # and windows. Do not add Hyprland's outer gap on that same edge: doing so
+  # makes a taskbar bottom of 10 plus a window top gap of 20 render as 30.
+  _effective_top="$GAPS_OUT_TOP"
+  _effective_bottom="$GAPS_OUT_BOTTOM"
+  case "$WAYBAR_POS" in
+    top) _effective_top=0 ;;
+    bottom) _effective_bottom=0 ;;
+  esac
+
   hyprctl keyword general:gaps_out \
-    "$GAPS_OUT_TOP $GAPS_OUT_RIGHT $GAPS_OUT_BOTTOM $GAPS_OUT_LEFT" \
+    "$_effective_top $GAPS_OUT_RIGHT $_effective_bottom $GAPS_OUT_LEFT" \
     >/dev/null 2>&1
 }
 
