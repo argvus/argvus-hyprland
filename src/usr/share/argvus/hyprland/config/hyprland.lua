@@ -195,6 +195,11 @@ local _theme_path = _first_existing({
 })
 local theme = dofile(_theme_path)
 
+-- Window spacing is also a mode reset. A theme may declare another value,
+-- but Normal and Float both start from the ARGVUS 3/1 contract.
+theme.gaps_in = 3
+theme.gaps_out = 1
+
 local _accent = "3590bd"
 local _allowed_accents = {
   ["996548"] = true,
@@ -226,30 +231,68 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar = _theme_name:match("%-float$") and 20 or 1
+local _spaces_waybar_top = _theme_name:match("%-float$") and 20 or 0
+local _spaces_waybar_left = _spaces_waybar_top
+local _spaces_waybar_right = _spaces_waybar_top
+local _spaces_waybar_bottom = _theme_name:match("%-float$") and 1 or 0
+local _spaces_waybar_legacy
+local _spaces_waybar_top_set = false
+local _spaces_waybar_left_set = false
+local _spaces_waybar_right_set = false
+local _spaces_waybar_bottom_set = false
 if _spaces_file then
   for _line in _spaces_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
     if _key == "gaps_in" then theme.gaps_in = tonumber(_val) end
     if _key == "gaps_out" then theme.gaps_out = tonumber(_val) end
-    if _key == "waybar" then _spaces_waybar = tonumber(_val) end
+    if _key == "waybar" then _spaces_waybar_legacy = tonumber(_val) end
+    if _key == "waybar_top" then _spaces_waybar_top = tonumber(_val); _spaces_waybar_top_set = true end
+    if _key == "waybar_left" then _spaces_waybar_left = tonumber(_val); _spaces_waybar_left_set = true end
+    if _key == "waybar_right" then _spaces_waybar_right = tonumber(_val); _spaces_waybar_right_set = true end
+    if _key == "waybar_bottom" then _spaces_waybar_bottom = tonumber(_val); _spaces_waybar_bottom_set = true end
   end
   _spaces_file:close()
 end
 
+if _spaces_waybar_legacy then
+  if not _spaces_waybar_top_set then _spaces_waybar_top = _spaces_waybar_legacy end
+  if not _spaces_waybar_left_set then _spaces_waybar_left = _spaces_waybar_legacy end
+  if not _spaces_waybar_right_set then _spaces_waybar_right = _spaces_waybar_legacy end
+  if not _spaces_waybar_bottom_set then _spaces_waybar_bottom = _spaces_waybar_legacy end
+end
+
 -- Waybar reserves its own height, but its configurable margin is outside
--- that exclusive zone. Keep tiled windows away from the same margin on every
--- monitor edge, including after a Hyprland reload.
-if _spaces_waybar > 0 then
-  local _outer_gap = theme.gaps_out + _spaces_waybar
-  -- Hyprland's Lua API does not accept the space-separated string syntax
-  -- used by `hyprctl keyword`; it requires an integer or an edge table.
-  theme.gaps_out = {
-    top = _outer_gap,
-    right = _outer_gap,
-    bottom = _outer_gap,
-    left = _outer_gap,
-  }
+-- that exclusive zone. Keep tiled windows away from each configured edge,
+-- including after a Hyprland reload.
+theme.gaps_out = {
+  top = theme.gaps_out + _spaces_waybar_top,
+  right = theme.gaps_out + _spaces_waybar_right,
+  bottom = theme.gaps_out + _spaces_waybar_bottom,
+  left = theme.gaps_out + _spaces_waybar_left,
+}
+
+local _borders_path = _first_existing({
+  _state_home .. "/.borders",
+  _config_home .. "/.borders",
+})
+local _borders_file = io.open(_borders_path)
+local _borders_rounded = _theme_name:match("%-float$") and 1 or 0
+local _borders_rounding = _theme_name:match("%-float$") and 4 or 0
+if _borders_file then
+  for _line in _borders_file:lines() do
+    local _key, _val = _line:match("^([%w_]+)=(%d+)$")
+    if _key == "rounded" then _borders_rounded = tonumber(_val) end
+    if _key == "rounding" then _borders_rounding = tonumber(_val) end
+  end
+  _borders_file:close()
+end
+
+-- A disabled Rounded switch deliberately makes window corners straight. The
+-- configured value is retained so enabling it again restores that value.
+if _borders_rounded == 1 then
+  theme.rounding = math.min(math.max(_borders_rounding, 2), 10)
+else
+  theme.rounding = 0
 end
 
 -- Virtual machine compatibility -------------------------------------------------------------------
