@@ -67,6 +67,7 @@
     {"id":"widget.waybar_bottom","category":"widgets","description_key":"keybindings.action.waybar_bottom","keys":"SUPER + ALT + down","action":"waybar-bottom"},
     {"id":"appearance.brightness","category":"appearance","description_key":"keybindings.action.brightness","keys":"SUPER + SHIFT + B","action":"brightness-switch"},
     {"id":"session.idle_timeout","category":"session","description_key":"keybindings.action.idle_timeout","keys":"SUPER + SHIFT + L","action":"idle-timeout"},
+    {"id":"session.keep_awake","category":"session","description_key":"keybindings.action.keep_awake","keys":"SUPER + ALT + W","action":"keep-awake toggle"},
     {"id":"workspace.next_mouse","category":"workspaces","description_key":"keybindings.action.workspace_next","keys":"mouse:276","action":"workspace-next","input":"mouse_wheel"},
     {"id":"workspace.previous_mouse","category":"workspaces","description_key":"keybindings.action.workspace_previous","keys":"mouse:275","action":"workspace-previous","input":"mouse_wheel"},
     {"id":"window.drag_mouse","category":"windows","description_key":"keybindings.action.drag_window","keys":"SUPER + mouse:272","action":"dispatcher:drag","input":"mouse_button"},

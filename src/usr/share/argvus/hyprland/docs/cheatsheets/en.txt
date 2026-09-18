@@ -37,6 +37,7 @@ SHORTCUT                               DESCRIPTION
 26 - SUPER + Shift + t          = Opens the selector themes
 27 - SUPER + Shift + a          = Opens the accent color selector
 28 - SUPER + Shift + l          = Choose the inactivity lock timeout
+29 - SUPER + Alt + w            = Toggle Keep Awake
 29 - SUPER + Shift + w          = Configures the weather location
 30 - SUPER + Shift + b          = Opens the brightness selector
 31 - SUPER + F5                 = Toggles between GTK Dark and Light themes

@@ -825,6 +825,7 @@ _argvus_bind("appearance.accent", mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_co
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
 _argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
+_argvus_bind("session.keep_awake", mod .. " + ALT + W", hl.dsp.exec_cmd(_sh(_config_path("power/sh/keep-awake.sh")) .. " toggle"))
 
 -- Brightness --------------------------------------------------------------------------------------
 _argvus_bind("appearance.brightness", mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/brightness-switch.sh"))))

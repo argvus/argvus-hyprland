@@ -37,6 +37,7 @@ ATALHO                            DESCRIÇÃO
 26 - SUPER + Shift + t          = Abre o seletor de temas
 27 - SUPER + Shift + a          = Abre o seletor de cores de destaque
 28 - SUPER + Shift + l          = Escolhe o tempo de bloqueio por inatividade
+29 - SUPER + Alt + w            = Ativa/Desativa manter acordado
 29 - SUPER + Shift + w          = Configura a localização do clima
 30 - SUPER + Shift + b          = Abre o seletor de brilho
 31 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
