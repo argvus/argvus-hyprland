@@ -65,7 +65,7 @@ ATALHO                                 DESCRIÇÃO
 49 - SUPER + p                  = Seletor de cores (Color Picker)
 50 - SUPER + .                  = Emoji Picker
 51 - ALT + SHIFT                = Alterna entre os layouts de teclado configurados
-52 - SUPER + Alt + P            = Seletor de aplicativos padrão (argvus-default-apps)
+52 - SUPER + Alt + C            = Abre o ARGVUS Control Center
 
 
 Diretórios »

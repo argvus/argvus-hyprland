@@ -65,7 +65,7 @@ SHORTCUT                               DESCRIPTION
 49 - SUPER + p                  = Color Picker
 50 - SUPER + .                  = Emoji Picker
 51 - ALT + SHIFT                = Cycle through the configured keyboard layouts
-52 - SUPER + Alt + P            = Default apps selector (argvus-default-apps)
+52 - SUPER + Alt + C            = Open ARGVUS Control Center
 
 Directories »
 -----------------------------------------------

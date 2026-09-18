@@ -94,6 +94,19 @@ local function _load_generated_table(relative_path)
   return nil
 end
 
+-- Keybinding overrides are intentionally sparse: the packaged calls below are
+-- the defaults, while this table contains only user differences. Invalid or
+-- missing generated state therefore leaves the packaged defaults untouched.
+local _keybinding_overrides = _load_generated_table("hypr/keybindings.lua") or {}
+local function _argvus_bind(id, default_keys, action, options)
+  local override = _keybinding_overrides[id]
+  if override and override.enabled == false then
+    return
+  end
+  local keys = (override and type(override.keys) == "string" and override.keys) or default_keys
+  hl.bind(keys, action, options)
+end
+
 local function _font_state_value(key, fallback)
   local file = io.open(_state_home .. "/fonts.conf", "r")
   if file then
@@ -773,57 +786,57 @@ hl.window_rule({ match = { class = "Alacritty" }, opacity = theme.term_opacity }
 -- ================ Keybindings ================
 
 -- Moving between windows (Using: snappy-switcher) -------------------------------------------------
-hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
-hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
+_argvus_bind("navigation.alt_tab_next", "ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
+_argvus_bind("navigation.alt_tab_previous", "ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/cheatsheets.sh")) .. " hypr"))
+_argvus_bind("system.hyprland_cheatsheet", mod .. " + SHIFT + slash", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/cheatsheets.sh")) .. " hypr"))
 
 -- Cheatsheets Kitty -------------------------------------------------------------------------------
-hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/cheatsheets.sh")) .. " kitty"))
+_argvus_bind("system.kitty_cheatsheet", mod .. " + CTRL + slash", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/cheatsheets.sh")) .. " kitty"))
 
 -- About ARGVUS ------------------------------------------------------------------------------------
-hl.bind(mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
+_argvus_bind("system.about", mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
 
 -- Open Terminal -----------------------------------------------------------------------------------
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
+_argvus_bind("app.terminal", mod .. " + Return", hl.dsp.exec_cmd(terminal))
 
 -- File Manager ------------------------------------------------------------------------------------
-hl.bind(mod .. " + Space", hl.dsp.exec_cmd(file_manager))
+_argvus_bind("app.file_manager", mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 
 -- Removable storage -------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
+_argvus_bind("app.removable_devices", mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
 
 -- Sidebar Settings --------------------------------------------------------------------------------
-hl.bind(mod .. " + comma", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
-hl.bind("mouse:274", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
+_argvus_bind("widget.sidebar", mod .. " + comma", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
+_argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))), { mouse = true })
 
 -- Toggle Waybar top -------------------------------------------------------------------------------
-hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service"))
+_argvus_bind("widget.taskbar_toggle", mod .. " + BackSpace", hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service"))
 
 -- Wallpaper Picker --------------------------------------------------------------------------------
-hl.bind(mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/hypr-wallpaper-pick.sh"))))
+_argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/hypr-wallpaper-pick.sh"))))
 
 -- Theme switcher ----------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
+_argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
 
 -- Accent color ------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/accent-switch.sh"))))
+_argvus_bind("appearance.accent", mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/accent-switch.sh"))))
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
+_argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
 
 -- Brightness --------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/brightness-switch.sh"))))
+_argvus_bind("appearance.brightness", mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/brightness-switch.sh"))))
 
 -- Weather location --------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/weather-location.sh"))))
+_argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/weather-location.sh"))))
 
 -- GTK Theme Dark/Light ----------------------------------------------------------------------------
-hl.bind(mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
+_argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
 
 -- Visual effects ----------------------------------------------------------------------------------
-hl.bind(mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " toggle"))
+_argvus_bind("appearance.effects", mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " toggle"))
 
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
@@ -833,19 +846,19 @@ if _launcher_bin == "rofi" or _launcher_bin == "" then
 else
   _launcher_cmd = _launcher_bin .. " --show drun"
 end
-hl.bind(mod .. " + D", hl.dsp.exec_cmd(_launcher_cmd))
+_argvus_bind("app.launcher", mod .. " + D", hl.dsp.exec_cmd(_launcher_cmd))
 
 -- ARGVUS Control Center ----------------------------------------------------------------------------
-hl.bind(mod .. " + ALT + P", hl.dsp.exec_cmd("argvus --control-center"))
+_argvus_bind("system.control_center", mod .. " + ALT + C", hl.dsp.exec_cmd("argvus --control-center"))
 
 -- Maximize Window ---------------------------------------------------------------------------------
-hl.bind(mod .. " + S", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+_argvus_bind("window.maximize", mod .. " + S", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 -- Closed Window -----------------------------------------------------------------------------------
-hl.bind(mod .. " + Q", hl.dsp.window.close())
+_argvus_bind("window.close", mod .. " + Q", hl.dsp.window.close())
 
 -- Enable/Disable Floating Window ------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + space", function()
+_argvus_bind("window.toggle_floating", mod .. " + SHIFT + space", function()
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
   hl.exec_scheduled_prop_refresh_immediately()
 
@@ -862,14 +875,14 @@ hl.bind(mod .. " + SHIFT + space", function()
 end)
 
 -- Window fullscreen -------------------------------------------------------------------------------
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
+_argvus_bind("window.fullscreen", mod .. " + F", hl.dsp.window.fullscreen())
 
 -- Split vertical/horizontal -----------------------------------------------------------------------
-hl.bind(mod .. " + E", hl.dsp.layout("togglesplit"))
+_argvus_bind("window.toggle_split", mod .. " + E", hl.dsp.layout("togglesplit"))
 
 -- Tabbed windows ----------------------------------------------------------------------------------
 -- Groups all windows in the current workspace into tabs.
-hl.bind(mod .. " + W", function()
+_argvus_bind("window.group_tabs", mod .. " + W", function()
   local active = hl.get_active_window()
   if not active then
     return
@@ -901,16 +914,16 @@ hl.bind(mod .. " + W", function()
 end)
 
 -- Navigate between tabs ---------------------------------------------------------------------------
-hl.bind(mod .. " + Tab", hl.dsp.group.next())
+_argvus_bind("window.next_tab", mod .. " + Tab", hl.dsp.group.next())
 
 -- Navigate between windows ------------------------------------------------------------------------
-hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + down", hl.dsp.focus({ direction = "down" }))
+_argvus_bind("focus.left", mod .. " + left", hl.dsp.focus({ direction = "left" }))
+_argvus_bind("focus.right", mod .. " + right", hl.dsp.focus({ direction = "right" }))
+_argvus_bind("focus.up", mod .. " + up", hl.dsp.focus({ direction = "up" }))
+_argvus_bind("focus.down", mod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Cycle focus between all windows in current workspace (including floating) -----------------------
-hl.bind(mod .. " + CTRL + right", function()
+_argvus_bind("focus.cycle_right", mod .. " + CTRL + right", function()
   local wins = hl.get_windows()
   local active = hl.get_active_window()
   if not active then
@@ -934,7 +947,7 @@ hl.bind(mod .. " + CTRL + right", function()
   end
 end)
 
-hl.bind(mod .. " + CTRL + left", function()
+_argvus_bind("focus.cycle_left", mod .. " + CTRL + left", function()
   local wins = hl.get_windows()
   local active = hl.get_active_window()
   if not active then
@@ -1004,49 +1017,45 @@ local function workspace_prev()
   cycle_workspace(-1)
 end
 
-hl.bind("CTRL + ALT + right", workspace_next)
-hl.bind("CTRL + ALT + left", workspace_prev)
-hl.bind("mouse:276", workspace_next)
-hl.bind("mouse:275", workspace_prev)
+_argvus_bind("workspace.next", "CTRL + ALT + right", workspace_next)
+_argvus_bind("workspace.previous", "CTRL + ALT + left", workspace_prev)
+_argvus_bind("workspace.next_mouse", "mouse:276", workspace_next, { mouse = true })
+_argvus_bind("workspace.previous_mouse", "mouse:275", workspace_prev, { mouse = true })
 
 -- Move window float -------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
+_argvus_bind("window.move_left", mod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
+_argvus_bind("window.move_right", mod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+_argvus_bind("window.move_up", mod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
+_argvus_bind("window.move_down", mod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
 
 -- Workspaces 1–9 ----------------------------------------------------------------------------------
 for i = 1, 9 do
-  hl.bind(mod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-  hl.bind(mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+  _argvus_bind("workspace.switch." .. i, mod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+  _argvus_bind("workspace.move." .. i, mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Volume ------------------------------------------------------------------------------------------
-hl.bind(
+_argvus_bind("session.volume_up",
   "XF86AudioRaiseVolume",
   hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
   { locked = true, repeating = true }
 )
-hl.bind(
-  "XF86AudioLowerVolume",
-  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-  { locked = true, repeating = true }
-)
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+-- Keep the remaining media defaults in the same override contract.
+_argvus_bind("session.volume_down", "XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+_argvus_bind("session.mute", "XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 
 -- Brightness --------------------------------------------------------------------------------------
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
+_argvus_bind("session.brightness_up", "XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locked = true, repeating = true })
+_argvus_bind("session.brightness_down", "XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
 
 -- Multimidia --------------------------------------------------------------------------------------
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl pause"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
+_argvus_bind("session.play_pause", "XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
+_argvus_bind("session.next_track", "XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
+_argvus_bind("session.previous_track", "XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+_argvus_bind("session.stop_track", "XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 -- Turn the monitor off/on -------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + M", hl.dsp.dpms({ action = "toggle" }))
+_argvus_bind("session.dpms", mod .. " + SHIFT + M", hl.dsp.dpms({ action = "toggle" }))
 
 -- Default browser ---------------------------------------------------------------------------------
 local _browser_bin = _get_default("browser")
@@ -1056,25 +1065,25 @@ if _browser_bin == "xdg-open" or _browser_bin == "" then
 else
   _browser_cmd = _browser_bin .. " https://"
 end
-hl.bind(mod .. " + B", hl.dsp.exec_cmd(_browser_cmd))
+_argvus_bind("app.browser", mod .. " + B", hl.dsp.exec_cmd(_browser_cmd))
 
 -- Screen recording --------------------------------------------------------------------------------
-hl.bind(mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full"))
-hl.bind(mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
+_argvus_bind("record.toggle", mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full"))
+_argvus_bind("record.stop", mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
-hl.bind(mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus-i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
-hl.bind(mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus-i18n get hyprland clipboard.title)" "$(argvus-i18n get hyprland clipboard.history_erased)"'))
+_argvus_bind("system.clipboard", mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus-i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
+_argvus_bind("system.clipboard_clear", mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus-i18n get hyprland clipboard.title)" "$(argvus-i18n get hyprland clipboard.history_erased)"'))
 
 -- Screenshot / Print ------------------------------------------------------------------------------
-hl.bind("Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-window"))
-hl.bind(mod .. " + SHIFT + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-full"))
+_argvus_bind("screenshot.region", "Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))
+_argvus_bind("screenshot.window", mod .. " + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-window"))
+_argvus_bind("screenshot.fullscreen", mod .. " + SHIFT + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-full"))
 
 -- Mode Resize Window (keyboard) -------------------------------------------------------------------
 local _in_resize = false
 
-hl.bind(mod .. " + R", function()
+_argvus_bind("resize.enter", mod .. " + R", function()
   local w = hl.get_active_window()
   if w == nil then
     return
@@ -1097,55 +1106,55 @@ hl.bind(mod .. " + R", function()
 end)
 
 hl.define_submap("resize", function()
-  hl.bind("right", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
-  hl.bind("left", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
-  hl.bind("down", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
-  hl.bind("up", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+  _argvus_bind("resize.right", "right", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+  _argvus_bind("resize.left", "left", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+  _argvus_bind("resize.down", "down", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+  _argvus_bind("resize.up", "up", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
 
   -- Move window
-  hl.bind("SHIFT + right", hl.dsp.window.move({ x = 20, y = 0, relative = true }), { repeating = true })
-  hl.bind("SHIFT + left", hl.dsp.window.move({ x = -20, y = 0, relative = true }), { repeating = true })
-  hl.bind("SHIFT + down", hl.dsp.window.move({ x = 0, y = 20, relative = true }), { repeating = true })
-  hl.bind("SHIFT + up", hl.dsp.window.move({ x = 0, y = -20, relative = true }), { repeating = true })
+  _argvus_bind("resize.move_right", "SHIFT + right", hl.dsp.window.move({ x = 20, y = 0, relative = true }), { repeating = true })
+  _argvus_bind("resize.move_left", "SHIFT + left", hl.dsp.window.move({ x = -20, y = 0, relative = true }), { repeating = true })
+  _argvus_bind("resize.move_down", "SHIFT + down", hl.dsp.window.move({ x = 0, y = 20, relative = true }), { repeating = true })
+  _argvus_bind("resize.move_up", "SHIFT + up", hl.dsp.window.move({ x = 0, y = -20, relative = true }), { repeating = true })
 
   -- Escape/Return: exits submap
-  hl.bind("escape", function()
+  _argvus_bind("resize.cancel_escape", "escape", function()
     _in_resize = false
     hl.dispatch(hl.dsp.submap("reset"))
   end)
-  hl.bind("Return", function()
+  _argvus_bind("resize.cancel_return", "Return", function()
     _in_resize = false
     hl.dispatch(hl.dsp.submap("reset"))
   end)
 end)
 
 -- Mode Resize Window (witch mouse) ----------------------------------------------------------------
-hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+_argvus_bind("window.drag_mouse", mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+_argvus_bind("window.resize_mouse", mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Emoji picker ------------------------------------------------------------------------------------
-hl.bind(mod .. " + period", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/emoji-picker.sh"))))
+_argvus_bind("system.emoji_picker", mod .. " + period", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/emoji-picker.sh"))))
 
 -- Color Picker ------------------------------------------------------------------------------------
-hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
+_argvus_bind("system.color_picker", mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Calculator --------------------------------------------------------------------------------------
-hl.bind(mod .. " + C", hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort"))
+_argvus_bind("app.calculator", mod .. " + C", hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort"))
 
 -- Exit Hyprland -----------------------------------------------------------------------------------
-hl.bind(mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh"))))
+_argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh"))))
 
 -- Lock session ------------------------------------------------------------------------------------
-hl.bind(mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh")) .. " --lock"))
+_argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh")) .. " --lock"))
 
 -- Reload Hyprland ---------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus-sessionctl reload"))
+_argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus-sessionctl reload"))
 
 -- Move the waybar status bar to the top/bottom ----------------------------------------------------
 -- Use absolute paths so the bind works even when hyprland's env is minimal.
 -- Bind arrow keys to move the waybar; keep a single binding per direction
-hl.bind(mod .. " + ALT + up",   hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos top"))
-hl.bind(mod .. " + ALT + down", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos bottom"))
+_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos top"))
+_argvus_bind("widget.waybar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos bottom"))
 
 -- User overrides ----------------------------------------------------------------------------------
 -- monitors.lua: generated state loaded above, then user override takes precedence.
