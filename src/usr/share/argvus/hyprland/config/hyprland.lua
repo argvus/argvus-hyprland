@@ -585,6 +585,9 @@ hl.config({
     force_default_wallpaper = 0,
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
+    -- The default splash fallback is #101218. Dynamic theme colors are drawn
+    -- by the layer-shell client once its first frame arrives.
+    background_color = "rgb(16, 18, 24)",
     font_family = _argvus_font_family,
     splash_font_family = _argvus_font_family,
   },
