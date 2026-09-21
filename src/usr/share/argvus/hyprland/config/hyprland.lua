@@ -213,27 +213,15 @@ local theme = dofile(_theme_path)
 theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
 
 local _accent = "3590bd"
-local _allowed_accents = {
-  ["996548"] = true,
-  ["3590bd"] = true,
-  ["181818"] = true,
-  ["7391a5"] = true,
-  ["17d174"] = true,
-  ["cb17d1"] = true,
-  ["d1174f"] = true,
-  ["d1ce17"] = true,
-  ["9617d1"] = true,
-  ["595959"] = true,
-  ["d3d3d3"] = true,
-  ["eeeeee"] = true,
-}
 local _accent_line = _read_first_line({
   _state_home .. "/.accent-color",
   _config_home .. "/.accent-color",
 })
 if _accent_line then
-  local _line = _accent_line:lower():gsub("#", "")
-  if _allowed_accents[_line] then _accent = _line end
+  local _line = _accent_line:lower():gsub("^%s+", ""):gsub("%s+$", ""):gsub("#", "")
+  if _line:match("^[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]$") then
+    _accent = _line
+  end
 end
 theme.border_active = "rgba(" .. _accent .. "ff)"
 theme.groupbar_active = "rgba(" .. _accent .. "ff)"
