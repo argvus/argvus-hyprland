@@ -373,6 +373,9 @@ local _effects_state = _read_first_line({
 })
 local _effects_enabled = _effects_state == "enabled"
   or (_effects_state ~= "disabled" and not _low_power_session)
+-- Theme opacity is intended to work together with blur. With effects off,
+-- keep application surfaces opaque instead of exposing the wallpaper.
+local _window_opacity = _effects_enabled and nil or "1 1"
 
 if _is_vm then
   hl.env("LIBGL_ALWAYS_SOFTWARE", "1")
@@ -683,22 +686,32 @@ if _effects_enabled then
   hl.layer_rule({ match = { namespace = "quickshell" }, blur = true })
   hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
   hl.layer_rule({ match = { namespace = "dunst" }, blur = true })
+else
+  -- Hyprland 0.56 does not support opacity in layer rules. The individual
+  -- consumers apply their solid surface colors when effects are disabled.
 end
 
 -- Window Rules  -----------------------------------------------------------------------------------
+-- Applications that expose a compositor-controlled alpha must also become
+-- opaque with effects disabled. Layer surfaces are handled by their own CSS:
+-- Hyprland 0.56 does not accept opacity in layer rules.
+if not _effects_enabled then
+  hl.window_rule({ match = { class = ".*" }, opacity = "1 1" })
+end
+
 hl.window_rule({
   match = { class = "org.gnome.Nautilus" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = theme.file_manager_opacity,
+  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = "hyprfm" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = theme.file_manager_opacity,
+  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
@@ -718,7 +731,7 @@ hl.window_rule({
 })
 hl.window_rule({
   match = { class = "kitty", title = ".*nvim.*" },
-  opacity = theme.term_opacity,
+  opacity = _window_opacity or theme.term_opacity,
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "nwg-displays" }, float = true, size = "1100 768", center = true })
@@ -770,9 +783,9 @@ hl.window_rule({
 })
 
 -- Transparency at the terminals -------------------------------------------------------------------
-hl.window_rule({ match = { class = "kitty" }, opacity = theme.term_opacity })
-hl.window_rule({ match = { class = "foot" }, opacity = theme.term_opacity })
-hl.window_rule({ match = { class = "Alacritty" }, opacity = theme.term_opacity })
+hl.window_rule({ match = { class = "kitty" }, opacity = _window_opacity or theme.term_opacity })
+hl.window_rule({ match = { class = "foot" }, opacity = _window_opacity or theme.term_opacity })
+hl.window_rule({ match = { class = "Alacritty" }, opacity = _window_opacity or theme.term_opacity })
 
 -- ================ Keybindings ================
 
