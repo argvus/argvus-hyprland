@@ -824,9 +824,6 @@ _argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_
 -- Theme switcher ----------------------------------------------------------------------------------
 _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
 
--- Accent color ------------------------------------------------------------------------------------
-_argvus_bind("appearance.accent", mod .. " + SHIFT + A", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/accent-switch.sh"))))
-
 -- Inactivity lock timeout -------------------------------------------------------------------------
 _argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
 _argvus_bind("session.keep_awake", mod .. " + ALT + W", hl.dsp.exec_cmd(_sh(_config_path("power/sh/keep-awake.sh")) .. " toggle"))

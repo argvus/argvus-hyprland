@@ -50,7 +50,6 @@
     {"id":"record.stop","category":"screenshots","description_key":"keybindings.action.record_stop","keys":"SUPER + SHIFT + G","action":"hypr-screenshot --video-full-stop"},
     {"id":"appearance.wallpaper","category":"appearance","description_key":"keybindings.action.wallpaper","keys":"SUPER + Y","action":"hypr-wallpaper-pick"},
     {"id":"appearance.theme","category":"appearance","description_key":"keybindings.action.theme","keys":"SUPER + SHIFT + T","action":"theme-switch"},
-    {"id":"appearance.accent","category":"appearance","description_key":"keybindings.action.accent","keys":"SUPER + SHIFT + A","action":"accent-switch"},
     {"id":"appearance.mode","category":"appearance","description_key":"keybindings.action.mode","keys":"SUPER + F5","action":"toggle-mode"},
     {"id":"appearance.effects","category":"appearance","description_key":"keybindings.action.effects","keys":"SUPER + F6","action":"effects-toggle toggle"},
     {"id":"system.control_center","category":"system","description_key":"keybindings.action.control_center","keys":"SUPER + ALT + C","action":"argvus --control-center"},
