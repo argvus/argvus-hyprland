@@ -40,7 +40,7 @@ SHORTCUT                               DESCRIPTION
 29 - SUPER + Shift + w          = Configures the weather location
 30 - SUPER + Shift + b          = Opens the brightness selector
 31 - SUPER + F5                 = Toggles between GTK Dark and Light themes
-32 - SUPER + F6                 = Toggle visual effects
+32 - SUPER + F6                 = Toggle animations
 33 - SUPER + F1                 = Open About ARGVUS
 34 - SUPER + L                  = Lock system
 35 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)

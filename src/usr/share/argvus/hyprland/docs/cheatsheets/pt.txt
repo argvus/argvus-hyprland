@@ -40,7 +40,7 @@ ATALHO                            DESCRIÇÃO
 29 - SUPER + Shift + w          = Configura a localização do clima
 30 - SUPER + Shift + b          = Abre o seletor de brilho
 31 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
-32 - SUPER + F6                 = Ativa/Desativa efeitos visuais
+32 - SUPER + F6                 = Ativa/Desativa animações
 33 - SUPER + F1                 = Abrir Sobre o ARGVUS
 34 - SUPER + L                  = Bloquear sistema
 35 - SUPER + Shift + m          = Desligar/Ligar monitor (não é suspender)

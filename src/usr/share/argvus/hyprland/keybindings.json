@@ -51,7 +51,7 @@
     {"id":"appearance.wallpaper","category":"appearance","description_key":"keybindings.action.wallpaper","keys":"SUPER + Y","action":"hypr-wallpaper-pick"},
     {"id":"appearance.theme","category":"appearance","description_key":"keybindings.action.theme","keys":"SUPER + SHIFT + T","action":"theme-switch"},
     {"id":"appearance.mode","category":"appearance","description_key":"keybindings.action.mode","keys":"SUPER + F5","action":"toggle-mode"},
-    {"id":"appearance.effects","category":"appearance","description_key":"keybindings.action.effects","keys":"SUPER + F6","action":"effects-toggle toggle"},
+    {"id":"appearance.animations","category":"appearance","description_key":"keybindings.action.animations","keys":"SUPER + F6","action":"effects-toggle animations toggle"},
     {"id":"system.control_center","category":"system","description_key":"keybindings.action.control_center","keys":"SUPER + ALT + C","action":"argvus --control-center"},
     {"id":"system.color_picker","category":"system","description_key":"keybindings.action.color_picker","keys":"SUPER + P","action":"hyprpicker -a"},
     {"id":"system.emoji_picker","category":"system","description_key":"keybindings.action.emoji_picker","keys":"SUPER + period","action":"emoji-picker"},

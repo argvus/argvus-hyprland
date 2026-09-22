@@ -367,15 +367,22 @@ end
 
 local _is_vm = _is_virtual_machine()
 local _low_power_session = os.getenv("ARGVUS_LOW_POWER") == "1" or _is_vm
-local _effects_state = _read_first_line({
+local _legacy_effects_state = _read_first_line({
   _state_home .. "/state/effects",
   _state_home .. "/effects",
 })
-local _effects_enabled = _effects_state == "enabled"
-  or (_effects_state ~= "disabled" and not _low_power_session)
--- Theme opacity is intended to work together with blur. With effects off,
--- keep application surfaces opaque instead of exposing the wallpaper.
-local _window_opacity = _effects_enabled and nil or "1 1"
+local function _component_enabled(component)
+  local state = _read_first_line({
+    _state_home .. "/state/" .. component,
+    _state_home .. "/" .. component,
+  }) or _legacy_effects_state
+  return state == "enabled" or (state ~= "disabled" and not _low_power_session)
+end
+local _animations_enabled = _component_enabled("animations")
+local _transparency_enabled = _component_enabled("transparency")
+-- Theme opacity is intended to work together with blur. With transparency
+-- off, keep application surfaces opaque instead of exposing the wallpaper.
+local _window_opacity = _transparency_enabled and nil or "1 1"
 
 if _is_vm then
   hl.env("LIBGL_ALWAYS_SOFTWARE", "1")
@@ -538,15 +545,15 @@ hl.config({
     dim_strength = 0.08,
 
     shadow = {
-      enabled = _effects_enabled,
-      range = _effects_enabled and 6 or 0,
+      enabled = _transparency_enabled,
+      range = _transparency_enabled and 6 or 0,
       render_power = 2,
       color = theme.shadow_color,
       color_inactive = theme.shadow_color_inactive,
     },
 
     blur = {
-      enabled = _effects_enabled,
+      enabled = _transparency_enabled,
       size = 3,
       passes = 1,
       new_optimizations = true,
@@ -561,7 +568,7 @@ hl.config({
   },
 
   animations = {
-    enabled = _effects_enabled,
+    enabled = _animations_enabled,
   },
 
   dwindle = {
@@ -643,45 +650,45 @@ hl.curve("smoothOut", { type = "bezier", points = { { 0.36, 0 }, { 0.66, -0.56 }
 hl.curve("smoothIn", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 
-hl.animation({ leaf = "global", enabled = _effects_enabled, speed = 1, bezier = "default" })
+hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 1, bezier = "default" })
 hl.animation({
   leaf = "windows",
-  enabled = _effects_enabled,
+  enabled = _animations_enabled,
   speed = 5,
   bezier = "myBezier",
 })
 hl.animation({
   leaf = "windowsIn",
-  enabled = _effects_enabled,
+  enabled = _animations_enabled,
   speed = 5,
   bezier = "myBezier",
   style = "popin 80%",
 })
 hl.animation({
   leaf = "windowsOut",
-  enabled = _effects_enabled,
+  enabled = _animations_enabled,
   speed = 4,
   bezier = "smoothOut",
   style = "popin 80%",
 })
-hl.animation({ leaf = "border", enabled = _effects_enabled, speed = 10, bezier = "default" })
-hl.animation({ leaf = "fade", enabled = _effects_enabled, speed = 5, bezier = "smoothIn" })
+hl.animation({ leaf = "border", enabled = _animations_enabled, speed = 10, bezier = "default" })
+hl.animation({ leaf = "fade", enabled = _animations_enabled, speed = 5, bezier = "smoothIn" })
 hl.animation({
   leaf = "fadeOut",
-  enabled = _effects_enabled,
+  enabled = _animations_enabled,
   speed = 4,
   bezier = "smoothOut",
 })
 hl.animation({
   leaf = "workspaces",
-  enabled = _effects_enabled,
+  enabled = _animations_enabled,
   speed = 5,
   bezier = "myBezier",
   style = "slide",
 })
 
 -- Blur --------------------------------------------------------------------------------------------
-if _effects_enabled then
+if _transparency_enabled then
   hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
   hl.layer_rule({ match = { namespace = "quickshell" }, blur = true })
   hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
@@ -695,7 +702,7 @@ end
 -- Applications that expose a compositor-controlled alpha must also become
 -- opaque with effects disabled. Layer surfaces are handled by their own CSS:
 -- Hyprland 0.56 does not accept opacity in layer rules.
-if not _effects_enabled then
+if not _transparency_enabled then
   hl.window_rule({ match = { class = ".*" }, opacity = "1 1" })
 end
 
@@ -838,7 +845,7 @@ _argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_confi
 _argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
 
 -- Visual effects ----------------------------------------------------------------------------------
-_argvus_bind("appearance.effects", mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " toggle"))
+_argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " animations toggle"))
 
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
