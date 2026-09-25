@@ -51,6 +51,7 @@ arch_package_hyprland_payload() {
 	install -dm755 "${pkgdir}/usr/share/argvus/hyprland"
 	cp -a "${source_root}/src/usr/share/argvus/hyprland/." \
 		"${pkgdir}/usr/share/argvus/hyprland/"
+	find "${pkgdir}/usr/share/argvus/hyprland" -type f -name '*.sh' -exec chmod 755 {} +
 	install -Dm644 "${source_root}/LICENSE" \
 		"${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
