@@ -825,8 +825,8 @@ _argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd(_sh(_config_pa
 -- Toggle Waybar top -------------------------------------------------------------------------------
 _argvus_bind("widget.taskbar_toggle", mod .. " + BackSpace", hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service"))
 
--- Wallpaper Picker --------------------------------------------------------------------------------
-_argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/hypr-wallpaper-pick.sh"))))
+-- Wallpaper settings ------------------------------------------------------------------------------
+_argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd("argvus --control-center appearance wallpapers"))
 
 -- Theme switcher ----------------------------------------------------------------------------------
 _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))

@@ -33,7 +33,7 @@ ATALHO                            DESCRIÇÃO
 22 - SUPER + Shift + g          = Parar e salvar gravação de tela
 23 - SUPER + ,                  = Abre/Fecha sidebar de notificações
 24 - SUPER + BackSpace          = Oculta/Mostra Waybar top
-25 - SUPER + y                  = Abre seletor para trocar wallpaper
+25 - SUPER + y                  = Abre Control Center > Appearance > Wallpapers
 26 - SUPER + Shift + t          = Abre o seletor de temas
 27 - SUPER + Shift + l          = Escolhe o tempo de bloqueio por inatividade
 28 - SUPER + Alt + w            = Ativa/Desativa manter acordado

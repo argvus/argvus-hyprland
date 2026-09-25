@@ -33,7 +33,7 @@ SHORTCUT                               DESCRIPTION
 22 - SUPER + Shift + g          = Stop and save screen recording
 23 - SUPER + ,                  = Open/Close notification sidebar
 24 - SUPER + BackSpace          = Toggle Waybar top
-25 - SUPER + y                  = Opens the selector to change the wallpaper
+25 - SUPER + y                  = Opens Control Center > Appearance > Wallpapers
 26 - SUPER + Shift + t          = Opens the selector themes
 27 - SUPER + Shift + l          = Choose the inactivity lock timeout
 28 - SUPER + Alt + w            = Toggle Keep Awake
