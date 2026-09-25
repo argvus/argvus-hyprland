@@ -19,7 +19,7 @@ ACTIVE_FILE="${STATE_DIR}/.active-theme"
 WAYBAR_CFG="$(paths_config taskbar/config/argvus-taskbar.jsonc)"
 WAYBAR_SYSINFO="$(paths_config widget-telemetry/config/argvus-widget-telemetry.jsonc)"
 THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
-DEFAULT_THEME="argvus-dark-aether"
+DEFAULT_THEME="argvus-dark"
 MAX_VALUE=100
 SET_PERSIST=0
 

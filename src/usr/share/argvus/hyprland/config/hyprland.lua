@@ -191,7 +191,7 @@ local function _get_default(category)
   return _default_values[category] or _defaults_fallback[category]
 end
 
-local _theme_name = "argvus-dark-aether"
+local _theme_name = "argvus-dark"
 local _active_theme = _read_first_line({
   _state_home .. "/.active-theme",
   _config_home .. "/.active-theme",
@@ -441,7 +441,7 @@ hl.env("XDG_CONFIG_DIRS", table.concat({
 local _active_theme_for_yazi = _read_first_line({
   _config_home .. "/argvus/.active-theme",
   _system_config .. "/argvus/.active-theme",
-}) or "argvus-dark-aether"
+}) or "argvus-dark"
 local _native_yazi_config = _config_home .. "/yazi"
 local _argvus_yazi_config = _config_home .. "/argvus/yazi"
 local _yazi_config_home = _system_config .. "/app-profiles/config/yazi"
