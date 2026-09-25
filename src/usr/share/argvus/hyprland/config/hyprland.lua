@@ -380,6 +380,52 @@ local function _component_enabled(component)
 end
 local _animations_enabled = _component_enabled("animations")
 local _transparency_enabled = _component_enabled("transparency")
+local _blur_enabled = _component_enabled("blur")
+
+local _theme_effects_path = _state_home .. "/state/effects/" .. _theme_name .. ".conf"
+local function _theme_effect_value(key, fallback)
+  local file = io.open(_theme_effects_path, "r")
+  if not file then
+    return fallback
+  end
+  local value = fallback
+  for line in file:lines() do
+    local candidate, raw = line:match("^([%w%-]+%.[%w%-]+)=(%d+)$")
+    if candidate == key then
+      local parsed = tonumber(raw)
+      if parsed then
+        value = math.min(math.max(parsed, 0), 100)
+      end
+    end
+  end
+  file:close()
+  return value
+end
+
+local function _theme_effect_enabled(key, fallback)
+  local file = io.open(_theme_effects_path, "r")
+  if not file then return fallback end
+  for line in file:lines() do
+    local name, value = line:match("^([^=]+)=(%S+)$")
+    if name == key .. ".enabled" then
+      file:close()
+      return value == "enabled"
+    end
+  end
+  file:close()
+  return fallback
+end
+
+local _taskbar_blur = _theme_effect_value("taskbar.blur", 50)
+local _control_panel_blur = _theme_effect_value("control-panel.blur", 50)
+local _widget_telemetry_blur = _theme_effect_value("widget-telemetry.blur", 50)
+local _taskbar_blur_enabled = _theme_effect_enabled("taskbar.blur", true)
+local _control_panel_blur_enabled = _theme_effect_enabled("control-panel.blur", true)
+local _widget_telemetry_blur_enabled = _theme_effect_enabled("widget-telemetry.blur", true)
+local _surface_blur_active =
+  (_taskbar_blur_enabled and _taskbar_blur > 0) or
+  (_control_panel_blur_enabled and _control_panel_blur > 0) or
+  (_widget_telemetry_blur_enabled and _widget_telemetry_blur > 0)
 -- Theme opacity is intended to work together with blur. With transparency
 -- off, keep application surfaces opaque instead of exposing the wallpaper.
 local _window_opacity = _transparency_enabled and nil or "1 1"
@@ -553,7 +599,7 @@ hl.config({
     },
 
     blur = {
-      enabled = _transparency_enabled,
+      enabled = _blur_enabled or _surface_blur_active,
       size = 3,
       passes = 1,
       new_optimizations = true,
@@ -688,9 +734,22 @@ hl.animation({
 })
 
 -- Blur --------------------------------------------------------------------------------------------
-if _transparency_enabled then
-  hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
-  hl.layer_rule({ match = { namespace = "quickshell" }, blur = true })
+local function _surface_blur(namespace, participation, enabled)
+  if enabled and participation > 0 then
+    hl.layer_rule({
+      match = { namespace = namespace },
+      blur = true,
+      ignore_alpha = math.max(0, math.min(1, 1 - (participation / 100))),
+    })
+  end
+end
+
+if _surface_blur_active then
+  _surface_blur("argvus-taskbar", _taskbar_blur, _taskbar_blur_enabled)
+  _surface_blur("quickshell", _control_panel_blur, _control_panel_blur_enabled)
+  _surface_blur("argvus-widget-telemetry", _widget_telemetry_blur, _widget_telemetry_blur_enabled)
+end
+if _blur_enabled then
   hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
   hl.layer_rule({ match = { namespace = "dunst" }, blur = true })
 else
