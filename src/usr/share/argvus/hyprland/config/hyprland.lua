@@ -12,7 +12,7 @@ local _system_config = os.getenv("ARGVUS_SYSTEM_CONFIG") or "/usr/share/argvus"
 local _debug_session = os.getenv("ARGVUS_DEBUG") == "1"
 local _state_home = _config_home .. "/argvus"
 local _xdg_state_home = os.getenv("XDG_STATE_HOME") or (_home .. "/.local/state")
-local _generated_config = _config_home .. "/argvus/generated"
+local _generated_config = _state_home .. "/data/generated"
 
 local function _path_exists(path)
   local file = io.open(path, "r")
@@ -107,8 +107,14 @@ local function _argvus_bind(id, default_keys, action, options)
   hl.bind(keys, action, options)
 end
 
-local function _font_state_value(key, fallback)
-  local file = io.open(_state_home .. "/fonts.conf", "r")
+-- Font state is a config.json projection. Keep the legacy root fallback only
+-- for profiles that have not run argvus-config migration yet.
+local _font_state_path = _first_existing({
+  _state_home .. "/data/generated/fonts.conf",
+  _state_home .. "/fonts.conf",
+})
+local function _projected_font_state_value(key, fallback)
+  local file = io.open(_font_state_path, "r")
   if file then
     for line in file:lines() do
       local candidate_key, value = line:match("^%s*([^=#]+)%s*=%s*(.-)%s*$")
@@ -122,8 +128,8 @@ local function _font_state_value(key, fallback)
   return fallback
 end
 
-local _argvus_font_family = _font_state_value("system_family", _font_state_value("default_family", "IBM Plex Mono"))
-local _argvus_font_size = tonumber(_font_state_value("system_size", _font_state_value("default_size", "13"))) or 13
+local _argvus_font_family = _projected_font_state_value("system_family", _projected_font_state_value("default_family", "IBM Plex Mono"))
+local _argvus_font_size = tonumber(_projected_font_state_value("system_size", _projected_font_state_value("default_size", "13"))) or 13
 
 local _argvus_input = {
   kb_layout = "br,us",
@@ -173,6 +179,7 @@ local function _get_default(category)
   if not _reads_defaults then
     _reads_defaults = true
     local path = _first_existing({
+      _state_home .. "/data/control-center/defaults.json",
       _config_home .. "/argvus/defaults.json",
       _xdg_state_home .. "/argvus/defaults.json",
       _system_config .. "/defaults.json",
@@ -295,7 +302,7 @@ end
 
 -- spaces-switch.sh materializes this derived file before startup/reload. Lua
 -- consumes it so startup and Apply use exactly the same effective geometry.
-local _effective_spaces_path = _config_home .. "/argvus/generated/spaces-effective.conf"
+local _effective_spaces_path = _generated_config .. "/spaces-effective.conf"
 local _effective_spaces_file = io.open(_effective_spaces_path)
 local _spaces_effective_top
 local _spaces_effective_right
