@@ -217,7 +217,7 @@ local theme = dofile(_theme_path)
 
 -- Window spacing is also a mode reset. A theme may declare another value,
 -- but Sticky and Float both start from the ARGVUS mode contract.
-theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
+theme.gaps_in = _theme_name:match("%-float$") and 4 or 2
 
 -- Theme files own the active border color. A manual accent is the only
 -- exception, and is opt-in in canonical config.json; the legacy accent file
