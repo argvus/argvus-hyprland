@@ -362,7 +362,17 @@ end
 theme.border_size = math.min(math.max(_borders_thickness, 0), 10)
 
 -- Virtual machine compatibility -------------------------------------------------------------------
+-- ARGVUS_VIRTUALIZATION is published by argvus-start and is the authoritative
+-- answer for the running session. Only probe systemd-detect-virt when it is
+-- absent. Both report the literal "none" on a physical machine, so that string
+-- must never be treated as a VM: doing so silently turned every effect off
+-- (animations, transparency, blur, shadows) and forced software rendering.
 local function _is_virtual_machine()
+  local published = os.getenv("ARGVUS_VIRTUALIZATION")
+  if published and published ~= "" then
+    return published ~= "none"
+  end
+
   local pipe = io.popen("systemd-detect-virt --vm 2>/dev/null")
   if not pipe then
     return false
@@ -371,7 +381,11 @@ local function _is_virtual_machine()
   local virt = pipe:read("*l")
   pipe:close()
 
-  return virt ~= nil and virt ~= ""
+  if not virt or virt == "" or virt == "none" then
+    return false
+  end
+
+  return true
 end
 
 local _is_vm = _is_virtual_machine()
@@ -389,7 +403,18 @@ local function _component_enabled(component)
 end
 local _animations_enabled = _component_enabled("animations")
 local _transparency_enabled = _component_enabled("transparency")
-local _blur_enabled = _component_enabled("blur")
+local function _canonical_value(pointer)
+  local pipe = io.popen("argvus-config get " .. pointer .. " --effective --raw 2>/dev/null")
+  if not pipe then return nil end
+  local value = pipe:read("*l")
+  pipe:close()
+  return value
+end
+local _global_blur_enabled = _canonical_value("/effects/blur_global_enabled")
+  ~= "false"
+local _global_blur_value = tonumber(_canonical_value("/effects/blur_global_value")) or 50
+_global_blur_value = math.min(math.max(_global_blur_value, 0), 100)
+local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
 local _theme_effects_path = _state_home .. "/state/effects/" .. _theme_name .. ".conf"
 local function _theme_effect_value(key, fallback)
@@ -425,19 +450,15 @@ local function _theme_effect_enabled(key, fallback)
   return fallback
 end
 
-local _taskbar_blur = _theme_effect_value("taskbar.blur", 50)
-local _control_panel_blur = _theme_effect_value("control-panel.blur", 50)
-local _widget_telemetry_blur = _theme_effect_value("widget-telemetry.blur", 50)
-local _taskbar_blur_enabled = _theme_effect_enabled("taskbar.blur", true)
-local _control_panel_blur_enabled = _theme_effect_enabled("control-panel.blur", true)
-local _widget_telemetry_blur_enabled = _theme_effect_enabled("widget-telemetry.blur", true)
-local _surface_blur_active =
-  (_taskbar_blur_enabled and _taskbar_blur > 0) or
-  (_control_panel_blur_enabled and _control_panel_blur > 0) or
-  (_widget_telemetry_blur_enabled and _widget_telemetry_blur > 0)
--- Theme opacity is intended to work together with blur. With transparency
--- off, keep application surfaces opaque instead of exposing the wallpaper.
-local _window_opacity = _transparency_enabled and nil or "1 1"
+-- ARGVUS never applies compositor opacity. Dimming is produced by exactly two
+-- mechanisms: transparency, where the client renders its own background with
+-- alpha derived from /effects/transparency_*, and blur, where the compositor
+-- blurs whatever sits behind the surface. Hyprland opacity multipliers scale
+-- the whole surface including its content, which is a different visual and
+-- makes the Control Center settings disagree with what is actually rendered.
+-- The terminal follows the same contract: argvus-terminal reads
+-- /effects/transparency_terminal_* and writes the Kitty background_opacity
+-- itself, so the compositor has nothing to dim there.
 
 if _is_vm then
   hl.env("LIBGL_ALWAYS_SOFTWARE", "1")
@@ -591,11 +612,8 @@ hl.config({
   },
 
   decoration = {
-    active_opacity = 1.0,
-    inactive_opacity = 1.0,
     rounding = theme.rounding,
     rounding_power = theme.rounding_power,
-    fullscreen_opacity = 1.0,
     dim_inactive = false,
     dim_strength = 0.08,
 
@@ -608,8 +626,8 @@ hl.config({
     },
 
     blur = {
-      enabled = _blur_enabled or _surface_blur_active,
-      size = 3,
+      enabled = _blur_enabled and _global_blur_value > 0,
+      size = math.max(1, math.floor(_global_blur_value / 10)),
       passes = 1,
       new_optimizations = true,
       xray = false,
@@ -743,50 +761,55 @@ hl.animation({
 })
 
 -- Blur --------------------------------------------------------------------------------------------
-local function _surface_blur(namespace, participation, enabled)
-  if enabled and participation > 0 then
-    hl.layer_rule({
-      match = { namespace = namespace },
-      blur = true,
-      ignore_alpha = math.max(0, math.min(1, 1 - (participation / 100))),
-    })
+-- Hyprland runs a single global blur pass. Layer rules only opt individual layer
+-- surfaces in; translucent toplevels such as argvus-terminal take part as soon
+-- as the global pass is on, because their background alpha is the surface.
+-- Hyprland 0.56 has no positive per-window blur effect, so the terminal is never
+-- listed here: adding a window rule could only ever subtract from the global
+-- pass. Its blurred backdrop comes from the background alpha that
+-- argvus-terminal derives from /effects/transparency_terminal_*.
+--
+-- The per-surface switches below come from the theme effects state written by
+-- the Control Center, so the compositor and the UI never disagree about which
+-- ARGVUS surfaces are blurred. A surface without a switch follows the global
+-- blur state.
+local _blur_layer_surfaces = {
+  { namespace = "argvus-taskbar", surface = "taskbar" },
+  -- SidebarWindow pins argvus-control-panel. Older builds fall back to the
+  -- Quickshell default namespace, so keep matching that too.
+  { namespace = "argvus-control-panel|quickshell", surface = "control-panel" },
+  { namespace = "argvus-widget-telemetry", surface = "widget-telemetry" },
+  { namespace = "argvus-launcher|rofi", surface = "launcher" },
+  { namespace = "dunst" },
+}
+
+if _blur_enabled then
+  local _blur_default = _component_enabled("blur")
+  for _, layer in ipairs(_blur_layer_surfaces) do
+    local surface = layer.surface
+    if surface == nil or _theme_effect_enabled(surface .. ".blur", _blur_default) then
+      hl.layer_rule({ match = { namespace = layer.namespace }, blur = true })
+    end
   end
 end
 
-if _surface_blur_active then
-  _surface_blur("argvus-taskbar", _taskbar_blur, _taskbar_blur_enabled)
-  _surface_blur("quickshell", _control_panel_blur, _control_panel_blur_enabled)
-  _surface_blur("argvus-widget-telemetry", _widget_telemetry_blur, _widget_telemetry_blur_enabled)
-end
-if _blur_enabled then
-  hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
-  hl.layer_rule({ match = { namespace = "dunst" }, blur = true })
-else
-  -- Hyprland 0.56 does not support opacity in layer rules. The individual
-  -- consumers apply their solid surface colors when effects are disabled.
-end
-
 -- Window Rules  -----------------------------------------------------------------------------------
--- Applications that expose a compositor-controlled alpha must also become
--- opaque with effects disabled. Layer surfaces are handled by their own CSS:
--- Hyprland 0.56 does not accept opacity in layer rules.
-if not _transparency_enabled then
-  hl.window_rule({ match = { class = ".*" }, opacity = "1 1" })
-end
+-- Transparency is a client-side contract: any surface that wants the wallpaper
+-- visible behind it renders its own background with alpha from the
+-- /effects/transparency_* pointers. The compositor only contributes blur, so no
+-- rule below sets opacity. Layer surfaces are handled by their own CSS.
 
 hl.window_rule({
   match = { class = "org.gnome.Nautilus" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = "hyprfm" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
@@ -803,10 +826,6 @@ hl.window_rule({
   float = true,
   size = "900 900",
   center = true,
-})
-hl.window_rule({
-  match = { class = "kitty", title = ".*nvim.*" },
-  opacity = _window_opacity or theme.term_opacity,
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "nwg-displays" }, float = true, size = "1100 768", center = true })
@@ -856,11 +875,6 @@ hl.window_rule({
   pin = true,
   size = "420 260",
 })
-
--- Transparency at the terminals -------------------------------------------------------------------
-hl.window_rule({ match = { class = "kitty" }, opacity = _window_opacity or theme.term_opacity })
-hl.window_rule({ match = { class = "foot" }, opacity = _window_opacity or theme.term_opacity })
-hl.window_rule({ match = { class = "Alacritty" }, opacity = _window_opacity or theme.term_opacity })
 
 -- ================ Keybindings ================
 
