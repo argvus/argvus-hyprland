@@ -533,11 +533,6 @@ hl.env("YAZI_CONFIG_HOME", _yazi_config_home)
 
 -- Variables ---------------------------------------------------------------------------------------
 local mod = "SUPER"
-local foot_config = string.format("%q", _first_existing({
-  _config_home .. "/argvus/foot/foot.ini",
-  _generated_config .. "/foot/foot.ini",
-  _system_config .. "/app-profiles/config/foot/foot.ini",
-}))
 local _terminal_bin = _get_default("terminal")
 -- Keep explicit config paths for terminals that do not read Argvus' per-user tree.
 local terminal
@@ -546,7 +541,9 @@ if _terminal_bin == "kitty" then
 elseif _terminal_bin == "argvus-terminal" then
   terminal = "argvus-terminal"
 elseif _terminal_bin == "foot" then
-  terminal = "foot -c " .. foot_config
+  -- Legacy sessions may still select foot, which ARGVUS no longer ships.
+  -- Map it to kitty so the binding does not target a missing binary.
+  terminal = "kitty"
 else
   terminal = _terminal_bin
 end
