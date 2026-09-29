@@ -104,6 +104,13 @@ write_spaces() {
 
 compute_defaults() {
   _theme="$(read_state "$ACTIVE_FILE" "$DEFAULT_THEME")"
+  if command -v argvus-config >/dev/null 2>&1; then
+    _variant="$(argvus-config get /layout/variant --raw 2>/dev/null || true)"
+    case "$_variant" in
+      sticky) _theme="$DEFAULT_THEME" ;;
+      float) _theme="${DEFAULT_THEME}-float" ;;
+    esac
+  fi
   # Window spacing is a mode reset, not a theme-specific value.
 
   case "$_theme" in

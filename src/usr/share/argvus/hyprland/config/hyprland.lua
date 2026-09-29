@@ -212,19 +212,28 @@ local theme = dofile(_theme_path)
 -- but Sticky and Float both start from the ARGVUS mode contract.
 theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
 
-local _accent = "3590bd"
-local _accent_line = _read_first_line({
-  _state_home .. "/.accent-color",
-  _config_home .. "/.accent-color",
-})
-if _accent_line then
-  local _line = _accent_line:lower():gsub("^%s+", ""):gsub("%s+$", ""):gsub("#", "")
-  if _line:match("^[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]$") then
-    _accent = _line
+-- Theme files own the active border color. A manual accent is the only
+-- exception, and is opt-in in canonical config.json; the legacy accent file
+-- is not enough to distinguish a theme default from a user override.
+local _accent_custom = false
+local _config_bin = io.popen("argvus-config get /appearance/accent_custom --raw 2>/dev/null")
+if _config_bin then
+  _accent_custom = (_config_bin:read("*l") or "") == "true"
+  _config_bin:close()
+end
+if _accent_custom then
+  local _accent_line = _read_first_line({
+    _state_home .. "/.accent-color",
+    _config_home .. "/.accent-color",
+  })
+  if _accent_line then
+    local _line = _accent_line:lower():gsub("^%s+", ""):gsub("%s+$", ""):gsub("#", "")
+    if _line:match("^[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]$") then
+      theme.border_active = "rgba(" .. _line .. "ff)"
+      theme.groupbar_active = "rgba(" .. _line .. "ff)"
+    end
   end
 end
-theme.border_active = "rgba(" .. _accent .. "ff)"
-theme.groupbar_active = "rgba(" .. _accent .. "ff)"
 
 local _spaces_path = _first_existing({
   _state_home .. "/.spaces",
