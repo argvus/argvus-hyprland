@@ -12,7 +12,7 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 . "$ARGVUS_BOOTSTRAP"
 ARGVUS_MUTABLE_CONFIG=1
 
-STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
+STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 SPACES_FILE="${STATE_DIR}/.spaces"
 EFFECTIVE_FILE="$(paths_generated_config spaces-effective.conf)"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"

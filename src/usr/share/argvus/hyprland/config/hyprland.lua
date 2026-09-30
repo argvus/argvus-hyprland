@@ -11,8 +11,9 @@ local _config_home = os.getenv("ARGVUS_CONFIG_HOME")
 local _system_config = os.getenv("ARGVUS_SYSTEM_CONFIG") or "/usr/share/argvus"
 local _debug_session = os.getenv("ARGVUS_DEBUG") == "1"
 local _state_home = _config_home .. "/argvus"
+local _data_home = _state_home .. "/data"
 local _xdg_state_home = os.getenv("XDG_STATE_HOME") or (_home .. "/.local/state")
-local _generated_config = _state_home .. "/data/generated"
+local _generated_config = _data_home .. "/generated"
 
 local function _path_exists(path)
   local file = io.open(path, "r")
@@ -40,8 +41,10 @@ local function _config_path(relative_path, legacy_path)
   return _first_existing({
     _config_home .. "/" .. legacy_path,
     _config_home .. "/" .. relative_path,
-    _config_home .. "/argvus/" .. legacy_path,
-    _config_home .. "/argvus/" .. relative_path,
+    _data_home .. "/" .. legacy_path,
+    _data_home .. "/" .. relative_path,
+    _state_home .. "/" .. legacy_path,
+    _state_home .. "/" .. relative_path,
     _generated_config .. "/" .. legacy_path,
     _generated_config .. "/" .. relative_path,
     _system_config .. "/" .. relative_path,
@@ -57,7 +60,7 @@ local function _rofi_config_path()
 end
 
 local function _load_user_override(relative_path)
-  local path = _config_home .. "/argvus/hypr/" .. relative_path
+  local path = _data_home .. "/hypr/" .. relative_path
   if _path_exists(path) then
     dofile(path)
   end
@@ -110,7 +113,7 @@ end
 -- Font state is a config.json projection. Keep the legacy root fallback only
 -- for profiles that have not run argvus-config migration yet.
 local _font_state_path = _first_existing({
-  _state_home .. "/data/generated/fonts.conf",
+  _generated_config .. "/fonts.conf",
   _state_home .. "/fonts.conf",
 })
 local function _projected_font_state_value(key, fallback)
@@ -198,8 +201,14 @@ local function _get_default(category)
   return _default_values[category] or _defaults_fallback[category]
 end
 
+-- The active theme is a config.json projection that lives under `data/`. Every
+-- writer (theme-switch.sh, argvus-config project) emits `data/`, so reading the
+-- legacy root first made this file resolve Sticky for every session that had
+-- run the migration. Keep the root as a read-only fallback for profiles that
+-- have not migrated yet.
 local _theme_name = "argvus-dark"
 local _active_theme = _read_first_line({
+  _data_home .. "/.active-theme",
   _state_home .. "/.active-theme",
   _config_home .. "/.active-theme",
 })
@@ -230,6 +239,7 @@ if _config_bin then
 end
 if _accent_custom then
   local _accent_line = _read_first_line({
+    _data_home .. "/.accent-color",
     _state_home .. "/.accent-color",
     _config_home .. "/.accent-color",
   })
@@ -242,7 +252,11 @@ if _accent_custom then
   end
 end
 
+-- Window spacing is projected from /layout into data/.spaces by
+-- argvus-config project. Prefer that copy so a manual layout.json edit reaches
+-- the compositor instead of silently falling back to the mode heuristic.
 local _spaces_path = _first_existing({
+  _data_home .. "/.spaces",
   _state_home .. "/.spaces",
   _config_home .. "/.spaces",
 })
@@ -341,7 +355,10 @@ theme.gaps_out = {
   left = _spaces_effective_left,
 }
 
+-- Border rounding/thickness follow /layout through data/.borders for the same
+-- reason as .spaces: the projection is authoritative, not the theme suffix.
 local _borders_path = _first_existing({
+  _data_home .. "/.borders",
   _state_home .. "/.borders",
   _config_home .. "/.borders",
 })
@@ -398,11 +415,13 @@ end
 local _is_vm = _is_virtual_machine()
 local _low_power_session = os.getenv("ARGVUS_LOW_POWER") == "1" or _is_vm
 local _legacy_effects_state = _read_first_line({
+  _data_home .. "/state/effects",
   _state_home .. "/state/effects",
   _state_home .. "/effects",
 })
 local function _component_enabled(component)
   local state = _read_first_line({
+    _data_home .. "/state/" .. component,
     _state_home .. "/state/" .. component,
     _state_home .. "/" .. component,
   }) or _legacy_effects_state
@@ -423,7 +442,10 @@ local _global_blur_value = tonumber(_canonical_value("/effects/blur_global_value
 _global_blur_value = math.min(math.max(_global_blur_value, 0), 100)
 local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
-local _theme_effects_path = _state_home .. "/state/effects/" .. _theme_name .. ".conf"
+local _theme_effects_path = _first_existing({
+  _data_home .. "/state/effects/" .. _theme_name .. ".conf",
+  _state_home .. "/state/effects/" .. _theme_name .. ".conf",
+})
 local function _theme_effect_value(key, fallback)
   local file = io.open(_theme_effects_path, "r")
   if not file then
@@ -522,16 +544,17 @@ hl.env("XDG_CONFIG_DIRS", table.concat({
   os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg",
 }, ":"))
 local _active_theme_for_yazi = _read_first_line({
-  _config_home .. "/argvus/.active-theme",
+  _data_home .. "/.active-theme",
+  _state_home .. "/.active-theme",
   _system_config .. "/argvus/.active-theme",
 }) or "argvus-dark"
 local _native_yazi_config = _config_home .. "/yazi"
-local _argvus_yazi_config = _config_home .. "/argvus/yazi"
+local _argvus_yazi_config = _data_home .. "/yazi"
 local _yazi_config_home = _system_config .. "/app-profiles/config/yazi"
 if _path_exists(_native_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
   _yazi_config_home = _native_yazi_config
 elseif _path_exists(_argvus_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
-  _yazi_config_home = _config_home .. "/argvus/yazi"
+  _yazi_config_home = _data_home .. "/yazi"
 end
 hl.env("YAZI_CONFIG_HOME", _yazi_config_home)
 -- Theme
