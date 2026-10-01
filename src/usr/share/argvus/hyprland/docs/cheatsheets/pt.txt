@@ -43,7 +43,7 @@ ATALHO                            DESCRIÇÃO
 32 - SUPER + F6                 = Ativa/Desativa animações
 33 - SUPER + F1                 = Abrir Sobre o ARGVUS
 34 - SUPER + L                  = Bloquear sistema
-35 - SUPER + Shift + m          = Desligar/Ligar monitor (não é suspender)
+35 - SUPER + Shift + s          = Desligar/Ligar monitor (não é suspender)
 36 - SUPER + Esc                = Sair do sistema
 37 - SUPER + Shift + r          = Recarregar Hyprland
 38 - SUPER + Alt + ↑/↓          = Mover barra de tarefas para topo/inferior

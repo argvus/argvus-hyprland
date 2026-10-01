@@ -43,7 +43,7 @@ SHORTCUT                               DESCRIPTION
 32 - SUPER + F6                 = Toggle animations
 33 - SUPER + F1                 = Open About ARGVUS
 34 - SUPER + L                  = Lock system
-35 - SUPER + Shift + m          = Turn monitor off/on (not suspend system)
+35 - SUPER + Shift + s          = Turn monitor off/on (not suspend system)
 36 - SUPER + Esc                = Exit system
 37 - SUPER + Shift + r          = Reload Hyprland
 38 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom

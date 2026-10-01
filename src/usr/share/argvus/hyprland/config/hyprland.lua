@@ -976,7 +976,7 @@ _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_con
 -- Sticky/Float layout mode (independent of theme) --------------------------------------------------
 -- Named "layout_mode" rather than "mode" to avoid colliding with the
 -- pre-existing "appearance.mode" id, which toggles GTK light/dark.
-_argvus_bind("appearance.layout_mode", mod .. " + SHIFT + K", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/layout-mode-menu.sh"))))
+_argvus_bind("appearance.layout_mode", mod .. " + SHIFT + M", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/layout-mode-menu.sh"))))
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
 _argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
@@ -1211,7 +1211,7 @@ _argvus_bind("session.previous_track", "XF86AudioPrev", hl.dsp.exec_cmd("playerc
 _argvus_bind("session.stop_track", "XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 -- Turn the monitor off/on -------------------------------------------------------------------------
-_argvus_bind("session.dpms", mod .. " + SHIFT + M", hl.dsp.dpms({ action = "toggle" }))
+_argvus_bind("session.dpms", mod .. " + SHIFT + S", hl.dsp.dpms({ action = "toggle" }))
 
 -- Default browser ---------------------------------------------------------------------------------
 local _browser_bin = _get_default("browser")
