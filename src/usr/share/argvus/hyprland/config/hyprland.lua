@@ -11,8 +11,9 @@ local _config_home = os.getenv("ARGVUS_CONFIG_HOME")
 local _system_config = os.getenv("ARGVUS_SYSTEM_CONFIG") or "/usr/share/argvus"
 local _debug_session = os.getenv("ARGVUS_DEBUG") == "1"
 local _state_home = _config_home .. "/argvus"
+local _data_home = _state_home .. "/data"
 local _xdg_state_home = os.getenv("XDG_STATE_HOME") or (_home .. "/.local/state")
-local _generated_config = _config_home .. "/argvus/generated"
+local _generated_config = _data_home .. "/generated"
 
 local function _path_exists(path)
   local file = io.open(path, "r")
@@ -40,8 +41,10 @@ local function _config_path(relative_path, legacy_path)
   return _first_existing({
     _config_home .. "/" .. legacy_path,
     _config_home .. "/" .. relative_path,
-    _config_home .. "/argvus/" .. legacy_path,
-    _config_home .. "/argvus/" .. relative_path,
+    _data_home .. "/" .. legacy_path,
+    _data_home .. "/" .. relative_path,
+    _state_home .. "/" .. legacy_path,
+    _state_home .. "/" .. relative_path,
     _generated_config .. "/" .. legacy_path,
     _generated_config .. "/" .. relative_path,
     _system_config .. "/" .. relative_path,
@@ -57,7 +60,7 @@ local function _rofi_config_path()
 end
 
 local function _load_user_override(relative_path)
-  local path = _config_home .. "/argvus/hypr/" .. relative_path
+  local path = _data_home .. "/hypr/" .. relative_path
   if _path_exists(path) then
     dofile(path)
   end
@@ -107,8 +110,14 @@ local function _argvus_bind(id, default_keys, action, options)
   hl.bind(keys, action, options)
 end
 
-local function _font_state_value(key, fallback)
-  local file = io.open(_state_home .. "/fonts.conf", "r")
+-- Font state is a config.json projection. Keep the legacy root fallback only
+-- for profiles that have not run argvus-config migration yet.
+local _font_state_path = _first_existing({
+  _generated_config .. "/fonts.conf",
+  _state_home .. "/fonts.conf",
+})
+local function _projected_font_state_value(key, fallback)
+  local file = io.open(_font_state_path, "r")
   if file then
     for line in file:lines() do
       local candidate_key, value = line:match("^%s*([^=#]+)%s*=%s*(.-)%s*$")
@@ -122,8 +131,8 @@ local function _font_state_value(key, fallback)
   return fallback
 end
 
-local _argvus_font_family = _font_state_value("system_family", _font_state_value("default_family", "IBM Plex Mono"))
-local _argvus_font_size = tonumber(_font_state_value("system_size", _font_state_value("default_size", "13"))) or 13
+local _argvus_font_family = _projected_font_state_value("system_family", _projected_font_state_value("default_family", "IBM Plex Mono"))
+local _argvus_font_size = tonumber(_projected_font_state_value("system_size", _projected_font_state_value("default_size", "13"))) or 13
 
 local _argvus_input = {
   kb_layout = "br,us",
@@ -173,6 +182,7 @@ local function _get_default(category)
   if not _reads_defaults then
     _reads_defaults = true
     local path = _first_existing({
+      _state_home .. "/data/control-center/defaults.json",
       _config_home .. "/argvus/defaults.json",
       _xdg_state_home .. "/argvus/defaults.json",
       _system_config .. "/defaults.json",
@@ -191,8 +201,14 @@ local function _get_default(category)
   return _default_values[category] or _defaults_fallback[category]
 end
 
+-- The active theme is a config.json projection that lives under `data/`. Every
+-- writer (theme-switch.sh, argvus-config project) emits `data/`, so reading the
+-- legacy root first made this file resolve Sticky for every session that had
+-- run the migration. Keep the root as a read-only fallback for profiles that
+-- have not migrated yet.
 local _theme_name = "argvus-dark"
 local _active_theme = _read_first_line({
+  _data_home .. "/.active-theme",
   _state_home .. "/.active-theme",
   _config_home .. "/.active-theme",
 })
@@ -200,17 +216,36 @@ if _active_theme then
   _theme_name = _active_theme
 end
 
+-- Sticky/Float is independent of the theme (`/layout/variant`, owned by
+-- mode-switch.sh/argvus-config apply-mode): `_theme_name` no longer carries a
+-- `-float` suffix. The paired `<theme>-float` asset directory only differs
+-- from `<theme>` in rounding/gaps (never color), so pick the on-disk variant
+-- by the current mode instead of by the theme name.
+local _layout_variant = "sticky"
+local _variant_bin = io.popen("argvus-config get /layout/variant --raw 2>/dev/null")
+if _variant_bin then
+  local _variant_value = _variant_bin:read("*l") or ""
+  if _variant_value == "float" then
+    _layout_variant = "float"
+  end
+  _variant_bin:close()
+end
+local _theme_asset_name = _theme_name
+if _layout_variant == "float" and not _theme_name:match("%-float$") then
+  _theme_asset_name = _theme_name .. "-float"
+end
+
 local _theme_path = _first_existing({
-  _config_home .. "/hypr/themes/" .. _theme_name .. "/theme.lua",
-  _config_home .. "/argvus/hypr/themes/" .. _theme_name .. "/theme.lua",
-  _generated_config .. "/hypr/themes/" .. _theme_name .. "/theme.lua",
-  _system_config .. "/appearance/config/hypr/themes/" .. _theme_name .. "/theme.lua",
+  _config_home .. "/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
+  _config_home .. "/argvus/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
+  _generated_config .. "/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
+  _system_config .. "/appearance/config/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
 })
 local theme = dofile(_theme_path)
 
 -- Window spacing is also a mode reset. A theme may declare another value,
 -- but Sticky and Float both start from the ARGVUS mode contract.
-theme.gaps_in = _theme_name:match("%-float$") and 10 or 2
+theme.gaps_in = _layout_variant == "float" and 4 or 2
 
 -- Theme files own the active border color. A manual accent is the only
 -- exception, and is opt-in in canonical config.json; the legacy accent file
@@ -223,6 +258,7 @@ if _config_bin then
 end
 if _accent_custom then
   local _accent_line = _read_first_line({
+    _data_home .. "/.accent-color",
     _state_home .. "/.accent-color",
     _config_home .. "/.accent-color",
   })
@@ -235,18 +271,22 @@ if _accent_custom then
   end
 end
 
+-- Window spacing is projected from /layout into data/.spaces by
+-- argvus-config project. Prefer that copy so a manual layout.json edit reaches
+-- the compositor instead of silently falling back to the mode heuristic.
 local _spaces_path = _first_existing({
+  _data_home .. "/.spaces",
   _state_home .. "/.spaces",
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar_top = _theme_name:match("%-float$") and 18 or 0
+local _spaces_waybar_top = _layout_variant == "float" and 18 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = _theme_name:match("%-float$") and 18 or 2
+local _spaces_waybar_bottom = _layout_variant == "float" and 18 or 2
 local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
-local _spaces_gaps_out_top = _theme_name:match("%-float$") and 18 or 0
+local _spaces_gaps_out_top = _layout_variant == "float" and 18 or 0
 local _spaces_gaps_out_left = _spaces_gaps_out_top
 local _spaces_gaps_out_right = _spaces_gaps_out_top
 local _spaces_gaps_out_bottom = _spaces_gaps_out_top
@@ -295,7 +335,7 @@ end
 
 -- spaces-switch.sh materializes this derived file before startup/reload. Lua
 -- consumes it so startup and Apply use exactly the same effective geometry.
-local _effective_spaces_path = _config_home .. "/argvus/generated/spaces-effective.conf"
+local _effective_spaces_path = _generated_config .. "/spaces-effective.conf"
 local _effective_spaces_file = io.open(_effective_spaces_path)
 local _spaces_effective_top
 local _spaces_effective_right
@@ -334,13 +374,16 @@ theme.gaps_out = {
   left = _spaces_effective_left,
 }
 
+-- Border rounding/thickness follow /layout through data/.borders for the same
+-- reason as .spaces: the projection is authoritative, not the theme suffix.
 local _borders_path = _first_existing({
+  _data_home .. "/.borders",
   _state_home .. "/.borders",
   _config_home .. "/.borders",
 })
 local _borders_file = io.open(_borders_path)
-local _borders_rounded = _theme_name:match("%-float$") and 1 or 0
-local _borders_rounding = _theme_name:match("%-float$") and 4 or 0
+local _borders_rounded = _layout_variant == "float" and 1 or 0
+local _borders_rounding = _layout_variant == "float" and 4 or 0
 local _borders_thickness = 1
 if _borders_file then
   for _line in _borders_file:lines() do
@@ -362,7 +405,17 @@ end
 theme.border_size = math.min(math.max(_borders_thickness, 0), 10)
 
 -- Virtual machine compatibility -------------------------------------------------------------------
+-- ARGVUS_VIRTUALIZATION is published by argvus-start and is the authoritative
+-- answer for the running session. Only probe systemd-detect-virt when it is
+-- absent. Both report the literal "none" on a physical machine, so that string
+-- must never be treated as a VM: doing so silently turned every effect off
+-- (animations, transparency, blur, shadows) and forced software rendering.
 local function _is_virtual_machine()
+  local published = os.getenv("ARGVUS_VIRTUALIZATION")
+  if published and published ~= "" then
+    return published ~= "none"
+  end
+
   local pipe = io.popen("systemd-detect-virt --vm 2>/dev/null")
   if not pipe then
     return false
@@ -371,17 +424,23 @@ local function _is_virtual_machine()
   local virt = pipe:read("*l")
   pipe:close()
 
-  return virt ~= nil and virt ~= ""
+  if not virt or virt == "" or virt == "none" then
+    return false
+  end
+
+  return true
 end
 
 local _is_vm = _is_virtual_machine()
 local _low_power_session = os.getenv("ARGVUS_LOW_POWER") == "1" or _is_vm
 local _legacy_effects_state = _read_first_line({
+  _data_home .. "/state/effects",
   _state_home .. "/state/effects",
   _state_home .. "/effects",
 })
 local function _component_enabled(component)
   local state = _read_first_line({
+    _data_home .. "/state/" .. component,
     _state_home .. "/state/" .. component,
     _state_home .. "/" .. component,
   }) or _legacy_effects_state
@@ -389,9 +448,23 @@ local function _component_enabled(component)
 end
 local _animations_enabled = _component_enabled("animations")
 local _transparency_enabled = _component_enabled("transparency")
-local _blur_enabled = _component_enabled("blur")
+local function _canonical_value(pointer)
+  local pipe = io.popen("argvus-config get " .. pointer .. " --effective --raw 2>/dev/null")
+  if not pipe then return nil end
+  local value = pipe:read("*l")
+  pipe:close()
+  return value
+end
+local _global_blur_enabled = _canonical_value("/effects/blur_global_enabled")
+  ~= "false"
+local _global_blur_value = tonumber(_canonical_value("/effects/blur_global_value")) or 50
+_global_blur_value = math.min(math.max(_global_blur_value, 0), 100)
+local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
-local _theme_effects_path = _state_home .. "/state/effects/" .. _theme_name .. ".conf"
+local _theme_effects_path = _first_existing({
+  _data_home .. "/state/effects/" .. _theme_name .. ".conf",
+  _state_home .. "/state/effects/" .. _theme_name .. ".conf",
+})
 local function _theme_effect_value(key, fallback)
   local file = io.open(_theme_effects_path, "r")
   if not file then
@@ -425,19 +498,15 @@ local function _theme_effect_enabled(key, fallback)
   return fallback
 end
 
-local _taskbar_blur = _theme_effect_value("taskbar.blur", 50)
-local _control_panel_blur = _theme_effect_value("control-panel.blur", 50)
-local _widget_telemetry_blur = _theme_effect_value("widget-telemetry.blur", 50)
-local _taskbar_blur_enabled = _theme_effect_enabled("taskbar.blur", true)
-local _control_panel_blur_enabled = _theme_effect_enabled("control-panel.blur", true)
-local _widget_telemetry_blur_enabled = _theme_effect_enabled("widget-telemetry.blur", true)
-local _surface_blur_active =
-  (_taskbar_blur_enabled and _taskbar_blur > 0) or
-  (_control_panel_blur_enabled and _control_panel_blur > 0) or
-  (_widget_telemetry_blur_enabled and _widget_telemetry_blur > 0)
--- Theme opacity is intended to work together with blur. With transparency
--- off, keep application surfaces opaque instead of exposing the wallpaper.
-local _window_opacity = _transparency_enabled and nil or "1 1"
+-- ARGVUS never applies compositor opacity. Dimming is produced by exactly two
+-- mechanisms: transparency, where the client renders its own background with
+-- alpha derived from /effects/transparency_*, and blur, where the compositor
+-- blurs whatever sits behind the surface. Hyprland opacity multipliers scale
+-- the whole surface including its content, which is a different visual and
+-- makes the Control Center settings disagree with what is actually rendered.
+-- The terminal follows the same contract: argvus-terminal reads
+-- /effects/transparency_terminal_* and writes the Kitty background_opacity
+-- itself, so the compositor has nothing to dim there.
 
 if _is_vm then
   hl.env("LIBGL_ALWAYS_SOFTWARE", "1")
@@ -494,16 +563,17 @@ hl.env("XDG_CONFIG_DIRS", table.concat({
   os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg",
 }, ":"))
 local _active_theme_for_yazi = _read_first_line({
-  _config_home .. "/argvus/.active-theme",
+  _data_home .. "/.active-theme",
+  _state_home .. "/.active-theme",
   _system_config .. "/argvus/.active-theme",
 }) or "argvus-dark"
 local _native_yazi_config = _config_home .. "/yazi"
-local _argvus_yazi_config = _config_home .. "/argvus/yazi"
+local _argvus_yazi_config = _data_home .. "/yazi"
 local _yazi_config_home = _system_config .. "/app-profiles/config/yazi"
 if _path_exists(_native_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
   _yazi_config_home = _native_yazi_config
 elseif _path_exists(_argvus_yazi_config .. "/flavors/" .. _active_theme_for_yazi .. ".yazi/flavor.toml") then
-  _yazi_config_home = _config_home .. "/argvus/yazi"
+  _yazi_config_home = _data_home .. "/yazi"
 end
 hl.env("YAZI_CONFIG_HOME", _yazi_config_home)
 -- Theme
@@ -512,11 +582,6 @@ hl.env("YAZI_CONFIG_HOME", _yazi_config_home)
 
 -- Variables ---------------------------------------------------------------------------------------
 local mod = "SUPER"
-local foot_config = string.format("%q", _first_existing({
-  _config_home .. "/argvus/foot/foot.ini",
-  _generated_config .. "/foot/foot.ini",
-  _system_config .. "/app-profiles/config/foot/foot.ini",
-}))
 local _terminal_bin = _get_default("terminal")
 -- Keep explicit config paths for terminals that do not read Argvus' per-user tree.
 local terminal
@@ -525,7 +590,9 @@ if _terminal_bin == "kitty" then
 elseif _terminal_bin == "argvus-terminal" then
   terminal = "argvus-terminal"
 elseif _terminal_bin == "foot" then
-  terminal = "foot -c " .. foot_config
+  -- Legacy sessions may still select foot, which ARGVUS no longer ships.
+  -- Map it to kitty so the binding does not target a missing binary.
+  terminal = "kitty"
 else
   terminal = _terminal_bin
 end
@@ -591,11 +658,8 @@ hl.config({
   },
 
   decoration = {
-    active_opacity = 1.0,
-    inactive_opacity = 1.0,
     rounding = theme.rounding,
     rounding_power = theme.rounding_power,
-    fullscreen_opacity = 1.0,
     dim_inactive = false,
     dim_strength = 0.08,
 
@@ -608,8 +672,8 @@ hl.config({
     },
 
     blur = {
-      enabled = _blur_enabled or _surface_blur_active,
-      size = 3,
+      enabled = _blur_enabled and _global_blur_value > 0,
+      size = math.max(1, math.floor(_global_blur_value / 10)),
       passes = 1,
       new_optimizations = true,
       xray = false,
@@ -743,50 +807,55 @@ hl.animation({
 })
 
 -- Blur --------------------------------------------------------------------------------------------
-local function _surface_blur(namespace, participation, enabled)
-  if enabled and participation > 0 then
-    hl.layer_rule({
-      match = { namespace = namespace },
-      blur = true,
-      ignore_alpha = math.max(0, math.min(1, 1 - (participation / 100))),
-    })
+-- Hyprland runs a single global blur pass. Layer rules only opt individual layer
+-- surfaces in; translucent toplevels such as argvus-terminal take part as soon
+-- as the global pass is on, because their background alpha is the surface.
+-- Hyprland 0.56 has no positive per-window blur effect, so the terminal is never
+-- listed here: adding a window rule could only ever subtract from the global
+-- pass. Its blurred backdrop comes from the background alpha that
+-- argvus-terminal derives from /effects/transparency_terminal_*.
+--
+-- The per-surface switches below come from the theme effects state written by
+-- the Control Center, so the compositor and the UI never disagree about which
+-- ARGVUS surfaces are blurred. A surface without a switch follows the global
+-- blur state.
+local _blur_layer_surfaces = {
+  { namespace = "argvus-taskbar", surface = "taskbar" },
+  -- SidebarWindow pins argvus-control-panel. Older builds fall back to the
+  -- Quickshell default namespace, so keep matching that too.
+  { namespace = "argvus-control-panel|quickshell", surface = "control-panel" },
+  { namespace = "argvus-widget-telemetry", surface = "widget-telemetry" },
+  { namespace = "argvus-launcher|rofi", surface = "launcher" },
+  { namespace = "dunst" },
+}
+
+if _blur_enabled then
+  local _blur_default = _component_enabled("blur")
+  for _, layer in ipairs(_blur_layer_surfaces) do
+    local surface = layer.surface
+    if surface == nil or _theme_effect_enabled(surface .. ".blur", _blur_default) then
+      hl.layer_rule({ match = { namespace = layer.namespace }, blur = true })
+    end
   end
 end
 
-if _surface_blur_active then
-  _surface_blur("argvus-taskbar", _taskbar_blur, _taskbar_blur_enabled)
-  _surface_blur("quickshell", _control_panel_blur, _control_panel_blur_enabled)
-  _surface_blur("argvus-widget-telemetry", _widget_telemetry_blur, _widget_telemetry_blur_enabled)
-end
-if _blur_enabled then
-  hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
-  hl.layer_rule({ match = { namespace = "dunst" }, blur = true })
-else
-  -- Hyprland 0.56 does not support opacity in layer rules. The individual
-  -- consumers apply their solid surface colors when effects are disabled.
-end
-
 -- Window Rules  -----------------------------------------------------------------------------------
--- Applications that expose a compositor-controlled alpha must also become
--- opaque with effects disabled. Layer surfaces are handled by their own CSS:
--- Hyprland 0.56 does not accept opacity in layer rules.
-if not _transparency_enabled then
-  hl.window_rule({ match = { class = ".*" }, opacity = "1 1" })
-end
+-- Transparency is a client-side contract: any surface that wants the wallpaper
+-- visible behind it renders its own background with alpha from the
+-- /effects/transparency_* pointers. The compositor only contributes blur, so no
+-- rule below sets opacity. Layer surfaces are handled by their own CSS.
 
 hl.window_rule({
   match = { class = "org.gnome.Nautilus" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = "hyprfm" },
   float = false,
   size = "1399 920",
   center = true,
-  opacity = _window_opacity or theme.file_manager_opacity,
 })
 hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
@@ -803,10 +872,6 @@ hl.window_rule({
   float = true,
   size = "900 900",
   center = true,
-})
-hl.window_rule({
-  match = { class = "kitty", title = ".*nvim.*" },
-  opacity = _window_opacity or theme.term_opacity,
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "nwg-displays" }, float = true, size = "1100 768", center = true })
@@ -842,6 +907,20 @@ hl.window_rule({
   center = true,
   size = "1380 840",
 })
+hl.window_rule({
+  match = { class = "argvus-game-snake" },
+  float = true,
+  maximize = false,
+  center = true,
+  size = "1380 840",
+})
+hl.window_rule({
+  match = { class = "kitty", title = ".*argvus-game-snake$" },
+  float = true,
+  maximize = false,
+  center = true,
+  size = "1380 840",
+})
 
 -- Agente de autenticação do PolicyKit (pkexec) ------------------------------------------------------
 -- Sem esta regra, a janela do hyprpolkitagent entra no layout em tile atrás/abaixo
@@ -856,11 +935,6 @@ hl.window_rule({
   pin = true,
   size = "420 260",
 })
-
--- Transparency at the terminals -------------------------------------------------------------------
-hl.window_rule({ match = { class = "kitty" }, opacity = _window_opacity or theme.term_opacity })
-hl.window_rule({ match = { class = "foot" }, opacity = _window_opacity or theme.term_opacity })
-hl.window_rule({ match = { class = "Alacritty" }, opacity = _window_opacity or theme.term_opacity })
 
 -- ================ Keybindings ================
 
@@ -898,6 +972,11 @@ _argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd("argvus --co
 
 -- Theme switcher ----------------------------------------------------------------------------------
 _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
+
+-- Sticky/Float layout mode (independent of theme) --------------------------------------------------
+-- Named "layout_mode" rather than "mode" to avoid colliding with the
+-- pre-existing "appearance.mode" id, which toggles GTK light/dark.
+_argvus_bind("appearance.layout_mode", mod .. " + SHIFT + K", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/layout-mode-menu.sh"))))
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
 _argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))

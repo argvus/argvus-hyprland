@@ -9,7 +9,7 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 . "$ARGVUS_BOOTSTRAP"
 ARGVUS_MUTABLE_CONFIG=1
 
-STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
+STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 BORDERS_FILE="${STATE_DIR}/.borders"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
 THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
@@ -35,6 +35,16 @@ read_state() {
 
 compute_defaults() {
   _theme="$(read_state "$ACTIVE_FILE" "$DEFAULT_THEME")"
+  # /layout/variant is the canonical variant. The .active-theme suffix is only a
+  # fallback for profiles that have not run argvus-config migration yet; without
+  # this, a manual layout.json edit moved spacing while borders stayed sticky.
+  if command -v argvus-config >/dev/null 2>&1; then
+    _variant="$(argvus-config get /layout/variant --raw 2>/dev/null || true)"
+    case "$_variant" in
+      sticky) _theme="$DEFAULT_THEME" ;;
+      float) _theme="${DEFAULT_THEME}-float" ;;
+    esac
+  fi
   case "$_theme" in
     *-float)
       ROUNDED_DEF=1

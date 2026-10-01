@@ -12,7 +12,7 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 . "$ARGVUS_BOOTSTRAP"
 ARGVUS_MUTABLE_CONFIG=1
 
-STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
+STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 SPACES_FILE="${STATE_DIR}/.spaces"
 EFFECTIVE_FILE="$(paths_generated_config spaces-effective.conf)"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
@@ -115,7 +115,7 @@ compute_defaults() {
 
   case "$_theme" in
     *-float)
-      GAPS_IN_DEF=10
+      GAPS_IN_DEF=4
       GAPS_OUT_TOP_DEF=18; GAPS_OUT_LEFT_DEF=18; GAPS_OUT_RIGHT_DEF=18; GAPS_OUT_BOTTOM_DEF=18
       WAYBAR_TOP_DEF=18; WAYBAR_LEFT_DEF=18; WAYBAR_RIGHT_DEF=18; WAYBAR_BOTTOM_DEF=18
       ;;
