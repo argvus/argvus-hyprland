@@ -1,9 +1,9 @@
-Hyprland Cheatsheets
+ARGVUS Cheatsheets
 ====================
 
 Desktop Environment Shortcuts »
 --------------------------------------------------
-SHORTCUT                               DESCRIPTION
+SHORTCUT                        DESCRIPTION
 
 01 - SUPER + 1..9               = Workspaces
 02 - SUPER + Shift + Space      = Enable/Disable Floating Window
@@ -11,8 +11,8 @@ SHORTCUT                               DESCRIPTION
 04 - SUPER + Ctrl + ←→          = Cycle focus between windows (tiled and floating)
 05 - Ctrl + Alt + ←→  or        = Moving between work areas
      Mouse 4 / Mouse 5
-06 - ALT + Tab                  = Cycle through all windows
-07 - SUPER + R                  = Enter window resize mode (floating window only)
+06 - Alt + Tab                  = Cycle through all windows
+07 - SUPER + r                  = Enter window resize mode (floating window only)
      ←→↑↓                       = Resize
      SHIFT + ←→↑↓               = Move window
      Esc                        = Exit resize mode
@@ -30,51 +30,52 @@ SHORTCUT                               DESCRIPTION
 19 - SUPER + Print              = Capture focused window
 20 - SUPER + Shift + Print      = Capture entire screen
 21 - SUPER + g                  = Start/Pause/Resume screen recording
-22 - SUPER + Shift + g          = Stop and save screen recording
+22 - SUPER + Shift + G          = Stop and save screen recording
 23 - SUPER + ,                  = Open/Close notification sidebar
 24 - SUPER + BackSpace          = Toggle Waybar top
 25 - SUPER + y                  = Opens Control Center > Appearance > Wallpapers
-26 - SUPER + Shift + t          = Opens the selector themes
-27 - SUPER + Shift + l          = Choose the inactivity lock timeout
-28 - SUPER + Alt + w            = Toggle Keep Awake
-29 - SUPER + Shift + w          = Configures the weather location
-30 - SUPER + Shift + b          = Opens the brightness selector
-31 - SUPER + F5                 = Toggles between GTK Dark and Light themes
-32 - SUPER + F6                 = Toggle animations
-33 - SUPER + F1                 = Open About ARGVUS
-34 - SUPER + L                  = Lock system
-35 - SUPER + Shift + s          = Turn monitor off/on (not suspend system)
-36 - SUPER + Esc                = Exit system
-37 - SUPER + Shift + r          = Reload Hyprland
-38 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
+26 - SUPER + Shift + T          = Opens the selector themes
+27 - SUPER + Shift + M          = Open the mode selector
+28 - SUPER + Shift + L          = Choose the inactivity lock timeout
+29 - SUPER + Alt + w            = Toggle Keep Awake
+30 - SUPER + Shift + W          = Configures the weather location
+31 - SUPER + Shift + B          = Opens the brightness selector
+32 - SUPER + F5                 = Toggles between GTK Dark and Light themes
+33 - SUPER + F6                 = Toggle animations
+34 - SUPER + F1                 = Open About ARGVUS
+35 - SUPER + l                  = Lock system
+36 - SUPER + Shift + S          = Turn monitor off/on (not suspend system)
+37 - SUPER + Esc                = Exit system
+38 - SUPER + Shift + R          = Reload Hyprland
+39 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
 
 Software Shortcuts »
 --------------------------------------------------
 SHORTCUT                               DESCRIPTION
 
-39 - SUPER + Enter              = Terminal
-40 - SUPER + Space              = File Manager
-41 - SUPER + Shift + d          = Removable devices menu
-42 - SUPER + b                  = Default Browser
-43 - SUPER + d                  = Program Launcher
-44 - SUPER + c                  = Calculator
-45 - SUPER + Ctrl + /           = Kitty Cheatsheets
-46 - SUPER + Shift + /          = Hyprland Cheatsheets
-47 - SUPER + h                  = Clipboard History
-48 - SUPER + Shift + h          = Clear Clipboard History
-49 - SUPER + p                  = Color Picker
-50 - SUPER + .                  = Emoji Picker
-51 - ALT + SHIFT                = Cycle through the configured keyboard layouts
-52 - SUPER + Alt + C            = Open ARGVUS Control Center
+40 - SUPER + Enter              = Terminal
+41 - SUPER + Space              = File Manager
+42 - SUPER + Shift + D          = Removable devices menu
+43 - SUPER + b                  = Default Browser
+44 - SUPER + d                  = Program Launcher
+45 - SUPER + c                  = Calculator
+46 - SUPER + Ctrl + /?          = Kitty Cheatsheets
+47 - SUPER + Shift + /?         = ARGVUS Cheatsheets
+48 - SUPER + h                  = Clipboard History
+49 - SUPER + Shift + H          = Clear Clipboard History
+50 - SUPER + p                  = Color Picker
+51 - SUPER + .                  = Emoji Picker
+52 - Alt + Shift                = Cycle through the configured keyboard layouts
+53 - SUPER + Alt + c            = Open ARGVUS Control Center
 
 Directories »
 -----------------------------------------------
 
-Argvus configs:      $HOME/.config/argvus/
-Argvus per-app:      $HOME/.config/argvus/<app>/  (hypr, waybar, kitty, quickshell, ...)
-Argvus overrides:    $HOME/.config/<app>/  (free user override)
-Hyprland logs:       $HOME/.local/state/hyprland/
-Kitty configs:       $HOME/.config/argvus/kitty/
-Waybar configs:      $HOME/.config/argvus/waybar/
-Quickshell configs:  $HOME/.config/argvus/quickshell/
-Argvus storage:      $HOME/.config/argvus-removable-devices/
+ARGVUS configs:        $HOME/.config/argvus/
+ARGVUS per-app:        $HOME/.config/argvus/data/<app>/  (hypr, waybar, quickshell, ...)
+ARGUVS overrides:      $HOME/.config/<app>/  (free user override)
+ARGVUS session logs:   $HOME/.local/state/argvus/session.log
+ARGVUS storage:        $HOME/.config/argvus/data/removable-devices/
+Waybar configs:        $HOME/.config/argvus/data/waybar/
+Quickshell configs:    $HOME/.config/argvus/data/quickshell/
+

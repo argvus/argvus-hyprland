@@ -1,9 +1,9 @@
-Hyprland Cheatsheets
+ARGVUS Cheatsheets
 ====================
 
 Atalhos do ambiente de Desktop »
 -------------------------------------------
-ATALHO                            DESCRIÇÃO
+ATALHO                          DESCRIÇÃO
 
 01 - SUPER + 1..9               = Áreas de trabalho
 02 - SUPER + Shift + Space      = Ativa/Desativa Janela flutuante
@@ -11,8 +11,8 @@ ATALHO                            DESCRIÇÃO
 04 - SUPER + Ctrl + ←→          = Ciclar foco entre janelas (tileadas e flutuantes)
 05 - Ctrl + Alt + ←→  ou        = Circular entre áreas de trabalho
      Mouse 4 / Mouse 5
-06 - ALT + Tab                  = Circular entre todas janelas
-07 - SUPER + R                  = Entrar modo redimensionar janela (apenas flutuante)
+06 - Alt + Tab                  = Circular entre todas janelas
+07 - SUPER + r                  = Entrar modo redimensionar janela (apenas flutuante)
      ←→↑↓                       = Redimensionar
      SHIFT + ←→↑↓               = Mover janela
      Esc                        = Sair modo redimensionar
@@ -30,52 +30,53 @@ ATALHO                            DESCRIÇÃO
 19 - SUPER + Print              = Capturar janela em foco
 20 - SUPER + Shift + Print      = Capturar tela inteira
 21 - SUPER + g                  = Iniciar/Pausar/Retomar gravação de tela
-22 - SUPER + Shift + g          = Parar e salvar gravação de tela
+22 - SUPER + Shift + G          = Parar e salvar gravação de tela
 23 - SUPER + ,                  = Abre/Fecha sidebar de notificações
 24 - SUPER + BackSpace          = Oculta/Mostra Waybar top
 25 - SUPER + y                  = Abre Control Center > Appearance > Wallpapers
-26 - SUPER + Shift + t          = Abre o seletor de temas
-27 - SUPER + Shift + l          = Escolhe o tempo de bloqueio por inatividade
-28 - SUPER + Alt + w            = Ativa/Desativa manter acordado
-29 - SUPER + Shift + w          = Configura a localização do clima
-30 - SUPER + Shift + b          = Abre o seletor de brilho
-31 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
-32 - SUPER + F6                 = Ativa/Desativa animações
-33 - SUPER + F1                 = Abrir Sobre o ARGVUS
-34 - SUPER + L                  = Bloquear sistema
-35 - SUPER + Shift + s          = Desligar/Ligar monitor (não é suspender)
-36 - SUPER + Esc                = Sair do sistema
-37 - SUPER + Shift + r          = Recarregar Hyprland
-38 - SUPER + Alt + ↑/↓          = Mover barra de tarefas para topo/inferior
+26 - SUPER + Shift + T          = Abre o seletor de temas
+27 - SUPER + Shift + M          = Abre o seletor de modos
+28 - SUPER + Shift + L          = Escolhe o tempo de bloqueio por inatividade
+29 - SUPER + Alt + w            = Ativa/Desativa manter acordado
+30 - SUPER + Shift + W          = Configura a localização do clima
+31 - SUPER + Shift + B          = Abre o seletor de brilho
+32 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
+33 - SUPER + F6                 = Ativa/Desativa animações
+34 - SUPER + F1                 = Abrir Sobre o ARGVUS
+35 - SUPER + l                  = Bloquear sistema
+36 - SUPER + Shift + S          = Desligar/Ligar monitor (não é suspender)
+37 - SUPER + Esc                = Sair do sistema
+38 - SUPER + Shift + R          = Recarregar Hyprland
+39 - SUPER + Alt + ↑/↓          = Mover barra de tarefas para topo/inferior
 
 Atalhos de software »
 ------------------------------------------------
 ATALHO                                 DESCRIÇÃO
 
-39 - SUPER + Enter              = Terminal
-40 - SUPER + Space              = Gerenciador de arquivos
-41 - SUPER + Shift + d          = Menu de dispositivos removíveis
-42 - SUPER + b                  = Navegador padrão
-43 - SUPER + d                  = Lançador de programas
-44 - SUPER + c                  = Calculadora
-45 - SUPER + Ctrl + /           = Cheatsheets do Kitty
-46 - SUPER + Shift + /          = Cheatsheets do Hyprland
-47 - SUPER + h                  = Histórico no Clipboard
-48 - SUPER + Shift + h          = Apagar histórico do Clipboard
-49 - SUPER + p                  = Seletor de cores (Color Picker)
-50 - SUPER + .                  = Emoji Picker
-51 - ALT + SHIFT                = Alterna entre os layouts de teclado configurados
-52 - SUPER + Alt + C            = Abre o ARGVUS Control Center
+40 - SUPER + Enter              = Terminal
+41 - SUPER + Space              = Gerenciador de arquivos
+42 - SUPER + Shift + D          = Menu de dispositivos removíveis
+43 - SUPER + b                  = Navegador padrão
+44 - SUPER + d                  = Lançador de programas
+45 - SUPER + c                  = Calculadora
+46 - SUPER + Ctrl + /?          = Cheatsheets do Kitty
+47 - SUPER + Shift + /?         = Cheatsheets do ARGVUS
+48 - SUPER + h                  = Histórico no Clipboard
+49 - SUPER + Shift + H          = Apagar histórico do Clipboard
+50 - SUPER + p                  = Seletor de cores (Color Picker)
+51 - SUPER + .                  = Emoji Picker
+52 - Alt + Shift                = Alterna entre os layouts de teclado configurados
+53 - SUPER + Alt + c            = Abre o ARGVUS Control Center
 
 
 Diretórios »
 -----------------------------------------------
 
 Configs do Argvus:      $HOME/.config/argvus/
-Argvus por app:         $HOME/.config/argvus/<app>/  (hypr, waybar, kitty, quickshell, ...)
-Overrides do Argvus:    $HOME/.config/<app>/  (override livre do usuário)
-Logs do Hyprland:       $HOME/.local/state/hyprland/
-Configs do Kitty:       $HOME/.config/argvus/kitty/
-Configs da Waybar:      $HOME/.config/argvus/waybar/
-Configs do Quickshell:  $HOME/.config/argvus/quickshell/
-Argvus Storage:         $HOME/.config/argvus-removable-devices/
+ARGVUS por app:         $HOME/.config/argvus/data/<app>/  (hypr, waybar, quickshell, ...)
+Overrides do ARGVUS:    $HOME/.config/<app>/  (override livre do usuário)
+ARGVUS Log Session:     $HOME/.local/state/argvus/session.log
+ARGVUS Storage:         $HOME/.config/argvus/data/removable-devices/
+Configs da Waybar:      $HOME/.config/argvus/data/waybar/
+Configs do Quickshell:  $HOME/.config/argvus/data/quickshell/
+
