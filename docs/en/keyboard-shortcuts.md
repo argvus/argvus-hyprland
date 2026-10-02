@@ -11,7 +11,7 @@ The page searches and groups the active keybinding manifest. You can select a bi
 
 Changes are stored in `config.json` under `/keyboard_shortcuts`; the generated Hyprland fragment is written below `~/.config/argvus/data/generated/hypr/`. A disabled shortcut is represented by `null`. Keys are stable English config keys, independent of the selected locale: a manifest ID such as `window.close` maps to `close_window`, while `window.drag_mouse` maps to `drag_window__floating_window_only`. The old `/hyprland/keybindings` section and `keybindings.toml` are migration-only. ARGVUS schedules a session reload only when the projection plan reports a real change.
 
-The editor changes bindings already present in the ARGVUS manifest. To add a completely new manual binding or compositor action, use [`bindings.lua`](./hyprland-overrides/) instead of editing the generated fragment.
+The editor changes bindings already present in the ARGVUS manifest. To add a completely new manual binding or compositor action, use [`bindings.lua`](/docs/argvus-hyprland/hyprland-overrides/) instead of editing the generated fragment.
 
 ## Current reference
 
@@ -21,4 +21,4 @@ Some useful built-in actions include moving focus and workspaces, toggling float
 
 `SUPER + Shift + R` is the explicit runtime reload: it reloads Hyprland and restarts the ARGVUS taskbar, Control Panel and Widget Telemetry services. Configuration-driven reloads remain conditional and skip the graphical reload when the canonical state is unchanged.
 
-See [Windows and layout](./windows-and-layout/) for floating and workspace behavior and [Control Center](../control-center/) for the settings workflow.
+See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](../control-center/) for the settings workflow.

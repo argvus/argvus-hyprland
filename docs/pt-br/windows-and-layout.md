@@ -50,7 +50,7 @@ Esses valores são escritos no estado de aparência do ARGVUS, e o `argvus-confi
 
 ## Janelas e áreas de trabalho
 
-Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O ARGVUS também suporta janelas utilitárias flutuantes; `SUPER + SHIFT + Space` alterna a janela em foco entre os layouts tileado e flutuante. Movimento entre áreas e foco de janelas são controlados pelo manifesto de atalhos ativo; veja [Atalhos de teclado](./keyboard-shortcuts/).
+Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O ARGVUS também suporta janelas utilitárias flutuantes; `SUPER + SHIFT + Space` alterna a janela em foco entre os layouts tileado e flutuante. Movimento entre áreas e foco de janelas são controlados pelo manifesto de atalhos ativo; veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/).
 
 ## O que alterar primeiro
 

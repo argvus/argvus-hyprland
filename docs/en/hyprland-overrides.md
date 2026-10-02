@@ -118,4 +118,4 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 
 The packaged source and helpers are under `/usr/share/argvus/hyprland/`. Generated files under `~/.config/argvus/data/generated/` are derived state; edit the owning setting or override fragment instead of editing generated output directly.
 
-See [Keyboard shortcuts](./keyboard-shortcuts/) for the Control Center workflow and [file locations](../../reference/file-locations/) for the complete configuration path reference.
+See [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/) for the Control Center workflow and [file locations](../../reference/file-locations/) for the complete configuration path reference.
