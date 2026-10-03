@@ -29,4 +29,4 @@ Advanced mouse controls backed by `ratbag` are shown only for supported devices.
 
 The settings are stored as user state and a generated Hyprland input fragment is regenerated for the session. Use the page's reset action when present; do not edit the generated fragment directly. A setting can apply only to the current compositor when the session cannot reload the relevant device state.
 
-See [Control Center](../control-center/) and [Where to configure things](../where-to-configure/).
+See [Control Center](/docs/argvus-control-center/) and [Where to configure things](/docs/user-guide/where-to-configure/).

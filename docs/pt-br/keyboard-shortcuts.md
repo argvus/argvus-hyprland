@@ -22,4 +22,4 @@ Algumas ações incluídas são mover foco e áreas de trabalho, alternar janela
 
 `SUPER + Shift + R` é o reload explícito do runtime: recarrega o Hyprland e reinicia os serviços da taskbar, do Control Panel e do Widget Telemetry. Reloads acionados por configuração continuam condicionais e não fazem reload gráfico quando o estado canônico não mudou.
 
-Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para comportamento de janelas flutuantes e áreas de trabalho e [Control Center](../control-center/) para o fluxo de configurações.
+Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para comportamento de janelas flutuantes e áreas de trabalho e [Control Center](/pt/docs/argvus-control-center/) para o fluxo de configurações.

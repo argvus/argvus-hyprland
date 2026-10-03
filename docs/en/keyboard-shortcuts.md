@@ -21,4 +21,4 @@ Some useful built-in actions include moving focus and workspaces, toggling float
 
 `SUPER + Shift + R` is the explicit runtime reload: it reloads Hyprland and restarts the ARGVUS taskbar, Control Panel and Widget Telemetry services. Configuration-driven reloads remain conditional and skip the graphical reload when the canonical state is unchanged.
 
-See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](../control-center/) for the settings workflow.
+See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](/docs/argvus-control-center/) for the settings workflow.

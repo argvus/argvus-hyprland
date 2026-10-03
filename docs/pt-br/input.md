@@ -30,4 +30,4 @@ Controles avançados de mouse fornecidos pelo `ratbag` aparecem apenas para disp
 
 As configurações são armazenadas como estado de usuário e um fragmento de entrada Hyprland gerado é regenerado para a sessão. Use a ação de restauração da página quando presente; não edite o fragmento gerado diretamente. Uma alteração pode ser aplicada apenas ao compositor atual quando a sessão não puder recarregar o estado do dispositivo correspondente.
 
-Veja [Control Center](../control-center/) e [Onde configurar as coisas](../where-to-configure/).
+Veja [Control Center](/pt/docs/argvus-control-center/) e [Onde configurar as coisas](/pt/docs/user-guide/where-to-configure/).

@@ -62,7 +62,7 @@ Changes are applied through the ARGVUS appearance/session integration. Use the p
 
 ## Related
 
-- [Appearance](../appearance/)
+- [Appearance](/docs/user-guide/appearance/)
 - [Themes](/docs/argvus-themes/)
-- [Taskbar](./taskbar/)
-- [Control Panel](./control-panel/)
+- [Taskbar](/docs/argvus-taskbar/taskbar/)
+- [Control Panel](/docs/argvus-control-panel/)
