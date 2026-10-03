@@ -64,6 +64,6 @@ As alterações são aplicadas pela integração de aparência e sessão do ARGV
 ## Relacionados
 
 * [Aparência](../appearance/)
-* [Temas e acentos](../appearance/themes/)
+* [Temas](/pt/docs/argvus-themes/)
 * [Taskbar](./taskbar/)
 * [Control Panel](./control-panel/)

@@ -63,6 +63,6 @@ Changes are applied through the ARGVUS appearance/session integration. Use the p
 ## Related
 
 - [Appearance](../appearance/)
-- [Themes and accents](../appearance/themes/)
+- [Themes](/docs/argvus-themes/)
 - [Taskbar](./taskbar/)
 - [Control Panel](./control-panel/)
