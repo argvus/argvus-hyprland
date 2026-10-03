@@ -47,6 +47,8 @@ hl.env("MY_VARIABLE", "1")
 
 Environment changes affect applications started by the session. Log out and in again when the value must be inherited by the complete session; a compositor reload alone is not enough for applications that were already started.
 
+ARGVUS owns `XDG_CONFIG_DIRS` and rebuilds it on every Hyprland reload, including reloads triggered by theme switches. Each ARGVUS configuration directory appears once, and entries inherited from the session are kept after them without repetition, so the value stays bounded. Sessions started by earlier versions may still carry the duplicated entries; if Kitty, `argvus-terminal` or `argvus --control-center` fail with `Out of buffer space calling sprintf`, log out and in again to start with a clean environment.
+
 ## Adding a keybinding
 
 Use `bindings.lua` for a new binding that is not part of the ARGVUS keybinding manifest:

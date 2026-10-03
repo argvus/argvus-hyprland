@@ -48,6 +48,8 @@ hl.env("MY_VARIABLE", "1")
 
 Alterações de ambiente afetam os aplicativos iniciados pela sessão. Saia e entre novamente quando o valor precisar ser herdado pela sessão inteira; apenas recarregar o compositor não é suficiente para aplicativos que já estavam em execução.
 
+O ARGVUS controla `XDG_CONFIG_DIRS` e a recria a cada reload do Hyprland, incluindo os reloads disparados por trocas de tema. Cada diretório de configuração do ARGVUS aparece uma única vez, e as entradas herdadas da sessão são mantidas depois delas, sem repetição, de modo que o valor permanece limitado. Sessões iniciadas por versões anteriores podem ainda conter as entradas duplicadas; se o Kitty, o `argvus-terminal` ou o `argvus --control-center` falharem com `Out of buffer space calling sprintf`, saia e entre novamente para iniciar com ambiente limpo.
+
 ## Adicionar um keybinding
 
 Use `bindings.lua` para um binding novo que não faça parte do manifesto de keybindings do ARGVUS:

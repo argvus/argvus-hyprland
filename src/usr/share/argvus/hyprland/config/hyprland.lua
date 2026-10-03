@@ -549,7 +549,10 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("XDG_CONFIG_DIRS", table.concat({
+-- This file is re-evaluated on every hyprctl reload (theme switches trigger one), and the
+-- compositor keeps the value between evaluations. Entries are deduplicated so XDG_CONFIG_DIRS
+-- stays bounded instead of gaining the ARGVUS block again on each reload.
+local _argvus_config_dirs = {
   _system_config .. "/portal/config",
   _system_config .. "/appearance/config",
   _system_config .. "/app-profiles/config",
@@ -560,8 +563,26 @@ hl.env("XDG_CONFIG_DIRS", table.concat({
   _system_config .. "/control-panel/config",
   _system_config .. "/taskbar/config",
   _system_config,
-  os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg",
-}, ":"))
+}
+
+local function _merge_config_dirs(inherited)
+  local seen, merged = {}, {}
+  local function add(dir)
+    if dir ~= "" and not seen[dir] then
+      seen[dir] = true
+      merged[#merged + 1] = dir
+    end
+  end
+  for _, dir in ipairs(_argvus_config_dirs) do
+    add(dir)
+  end
+  for dir in string.gmatch(inherited .. ":", "([^:]*):") do
+    add(dir)
+  end
+  return table.concat(merged, ":")
+end
+
+hl.env("XDG_CONFIG_DIRS", _merge_config_dirs(os.getenv("XDG_CONFIG_DIRS") or "/etc/xdg"))
 local _active_theme_for_yazi = _read_first_line({
   _data_home .. "/.active-theme",
   _state_home .. "/.active-theme",
