@@ -55,18 +55,19 @@ SHORTCUT                               DESCRIPTION
 
 40 - SUPER + Enter              = Terminal
 41 - SUPER + Space              = File Manager
-42 - SUPER + Shift + D          = Removable devices menu
-43 - SUPER + b                  = Default Browser
-44 - SUPER + d                  = Program Launcher
-45 - SUPER + c                  = Calculator
-46 - SUPER + Ctrl + /?          = Kitty Cheatsheets
-47 - SUPER + Shift + /?         = ARGVUS Cheatsheets
-48 - SUPER + h                  = Clipboard History
-49 - SUPER + Shift + H          = Clear Clipboard History
-50 - SUPER + p                  = Color Picker
-51 - SUPER + .                  = Emoji Picker
-52 - Alt + Shift                = Cycle through the configured keyboard layouts
-53 - SUPER + Alt + c            = Open ARGVUS Control Center
+42 - SUPER + Ctrl + Space       = System Monitor
+43 - SUPER + Shift + D          = Removable devices menu
+44 - SUPER + b                  = Default Browser
+45 - SUPER + d                  = Program Launcher
+46 - SUPER + c                  = Calculator
+47 - SUPER + Ctrl + /?          = Kitty Cheatsheets
+48 - SUPER + Shift + /?         = ARGVUS Cheatsheets
+49 - SUPER + h                  = Clipboard History
+50 - SUPER + Shift + H          = Clear Clipboard History
+51 - SUPER + p                  = Color Picker
+52 - SUPER + .                  = Emoji Picker
+53 - Alt + Shift                = Cycle through the configured keyboard layouts
+54 - SUPER + Alt + c            = Open ARGVUS Control Center
 
 Directories »
 -----------------------------------------------

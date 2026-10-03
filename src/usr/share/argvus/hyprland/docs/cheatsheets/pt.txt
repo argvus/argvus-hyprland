@@ -55,18 +55,19 @@ ATALHO                                 DESCRIÇÃO
 
 40 - SUPER + Enter              = Terminal
 41 - SUPER + Space              = Gerenciador de arquivos
-42 - SUPER + Shift + D          = Menu de dispositivos removíveis
-43 - SUPER + b                  = Navegador padrão
-44 - SUPER + d                  = Lançador de programas
-45 - SUPER + c                  = Calculadora
-46 - SUPER + Ctrl + /?          = Cheatsheets do Kitty
-47 - SUPER + Shift + /?         = Cheatsheets do ARGVUS
-48 - SUPER + h                  = Histórico no Clipboard
-49 - SUPER + Shift + H          = Apagar histórico do Clipboard
-50 - SUPER + p                  = Seletor de cores (Color Picker)
-51 - SUPER + .                  = Emoji Picker
-52 - Alt + Shift                = Alterna entre os layouts de teclado configurados
-53 - SUPER + Alt + c            = Abre o ARGVUS Control Center
+42 - SUPER + Ctrl + Space       = Monitor do sistema
+43 - SUPER + Shift + D          = Menu de dispositivos removíveis
+44 - SUPER + b                  = Navegador padrão
+45 - SUPER + d                  = Lançador de programas
+46 - SUPER + c                  = Calculadora
+47 - SUPER + Ctrl + /?          = Cheatsheets do Kitty
+48 - SUPER + Shift + /?         = Cheatsheets do ARGVUS
+49 - SUPER + h                  = Histórico no Clipboard
+50 - SUPER + Shift + H          = Apagar histórico do Clipboard
+51 - SUPER + p                  = Seletor de cores (Color Picker)
+52 - SUPER + .                  = Emoji Picker
+53 - Alt + Shift                = Alterna entre os layouts de teclado configurados
+54 - SUPER + Alt + c            = Abre o ARGVUS Control Center
 
 
 Diretórios »

@@ -978,6 +978,9 @@ _argvus_bind("app.terminal", mod .. " + Return", hl.dsp.exec_cmd(terminal))
 -- File Manager ------------------------------------------------------------------------------------
 _argvus_bind("app.file_manager", mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 
+-- System Monitor ----------------------------------------------------------------------------------
+_argvus_bind("app.system_monitor", mod .. " + CTRL + Space", hl.dsp.exec_cmd("argvus-tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus-system-monitor"))
+
 -- Removable storage -------------------------------------------------------------------------------
 _argvus_bind("app.removable_devices", mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
 
