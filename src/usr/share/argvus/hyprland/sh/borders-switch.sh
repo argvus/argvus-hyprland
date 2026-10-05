@@ -88,6 +88,19 @@ write_state() {
 effective_values() {
   compute_defaults
   read_state_values
+  # If .borders file is empty/missing, try to load values from layout.json via argvus-config
+  # before falling back to variant defaults. This ensures that user-set values are respected
+  # even if .borders is stale or missing.
+  if [ -z "$ROUNDED" ] && [ -z "$ROUNDING" ] && [ -z "$THICKNESS" ]; then
+    if command -v argvus-config >/dev/null 2>&1; then
+      _layout_rounded="$(argvus-config get /layout/window/rounded --raw 2>/dev/null || true)"
+      _layout_rounding="$(argvus-config get /layout/window/rounding --raw 2>/dev/null || true)"
+      _layout_border_size="$(argvus-config get /layout/window/border_size --raw 2>/dev/null || true)"
+      [ -n "$_layout_rounded" ] && ROUNDED="$_layout_rounded"
+      [ -n "$_layout_rounding" ] && ROUNDING="$_layout_rounding"
+      [ -n "$_layout_border_size" ] && THICKNESS="$_layout_border_size"
+    fi
+  fi
   [ -n "$ROUNDED" ] || ROUNDED="$ROUNDED_DEF"
   [ -n "$ROUNDING" ] || ROUNDING="$ROUNDING_DEF"
   [ -n "$THICKNESS" ] || THICKNESS="$THICKNESS_DEF"
