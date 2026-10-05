@@ -122,7 +122,7 @@ compute_defaults() {
     *)
       GAPS_IN_DEF=2
       GAPS_OUT_TOP_DEF=0; GAPS_OUT_LEFT_DEF=0; GAPS_OUT_RIGHT_DEF=0; GAPS_OUT_BOTTOM_DEF=0
-      WAYBAR_TOP_DEF=0; WAYBAR_LEFT_DEF=0; WAYBAR_RIGHT_DEF=0; WAYBAR_BOTTOM_DEF=2
+      WAYBAR_TOP_DEF=0; WAYBAR_LEFT_DEF=0; WAYBAR_RIGHT_DEF=0; WAYBAR_BOTTOM_DEF=0
       ;;
   esac
 }
@@ -209,14 +209,14 @@ apply_waybar_margins() {
 apply_gaps_runtime() {
   [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ] && return 0
   command -v hyprctl >/dev/null 2>&1 || return 0
-  [ -n "${GAPS_IN:-}" ] && hyprctl keyword general:gaps_in "$GAPS_IN" >/dev/null 2>&1
+  # `hyprctl keyword` is rejected by the Lua parser ("use eval"), so runtime
+  # gaps must go through `hyprctl eval`, the same config path as hyprland.lua.
   [ -n "${GAPS_OUT_TOP:-}" ] || return 0
 
   calculate_effective_geometry
 
-  hyprctl keyword general:gaps_out \
-    "$EFFECTIVE_TOP $EFFECTIVE_RIGHT $EFFECTIVE_BOTTOM $EFFECTIVE_LEFT" \
-    >/dev/null 2>&1
+  hyprctl eval "hl.config({ general = { gaps_in = ${GAPS_IN:-0}, gaps_out = { top = $EFFECTIVE_TOP, right = $EFFECTIVE_RIGHT, bottom = $EFFECTIVE_BOTTOM, left = $EFFECTIVE_LEFT } } })" \
+    >/dev/null 2>&1 || true
 }
 
 restart_waybar() {
@@ -239,6 +239,7 @@ set_key() {
           write_spaces
           [ "$SET_PERSIST" -eq 1 ] && return 0
           effective_values
+          write_effective_geometry || return $?
           apply_waybar_margins
           apply_gaps_runtime
           restart_waybar

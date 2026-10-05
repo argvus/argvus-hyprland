@@ -283,7 +283,7 @@ local _spaces_file = io.open(_spaces_path)
 local _spaces_waybar_top = _layout_variant == "float" and 18 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = _layout_variant == "float" and 18 or 2
+local _spaces_waybar_bottom = _layout_variant == "float" and 18 or 0
 local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
 local _spaces_gaps_out_top = _layout_variant == "float" and 18 or 0
