@@ -96,6 +96,11 @@ effective_values() {
       _layout_rounded="$(argvus-config get /layout/window/rounded --raw 2>/dev/null || true)"
       _layout_rounding="$(argvus-config get /layout/window/rounding --raw 2>/dev/null || true)"
       _layout_border_size="$(argvus-config get /layout/window/border_size --raw 2>/dev/null || true)"
+      # argvus-config prints JSON booleans as true/false; .borders uses 1/0.
+      case "$_layout_rounded" in
+        true) _layout_rounded=1 ;;
+        false) _layout_rounded=0 ;;
+      esac
       [ -n "$_layout_rounded" ] && ROUNDED="$_layout_rounded"
       [ -n "$_layout_rounding" ] && ROUNDING="$_layout_rounding"
       [ -n "$_layout_border_size" ] && THICKNESS="$_layout_border_size"
