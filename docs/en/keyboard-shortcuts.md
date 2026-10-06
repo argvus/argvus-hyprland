@@ -89,6 +89,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | Shortcut | Description |
 | --- | --- |
 | `SUPER + Enter` | Terminal |
+| `SUPER + [` | Terminal scratchpad (dropdown on a special workspace; press again to hide) |
 | `SUPER + Space` | File Manager |
 | `SUPER + CTRL + Space` | System monitor |
 | `SUPER + Shift + D` | Removable devices menu |

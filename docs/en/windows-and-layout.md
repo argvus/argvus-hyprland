@@ -51,6 +51,17 @@ These values are written to ARGVUS appearance state, and `argvus-config` project
 
 Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; `SUPER + SHIFT + Space` toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
 
+### Workspace placement for browsers and IDEs
+
+New windows of browsers open on workspace 2 and IDEs open on workspace 1 by default. The rules live in `hyprland.window_rules` in `argvus-config`:
+
+```sh
+argvus-config get hyprland.window_rules
+argvus-config set hyprland.window_rules.browser.workspace 3
+```
+
+Each rule has a `workspace` from 1 to 10 and a `classes` list. Entries in `classes` are regular expressions matched against the window class (case sensitive), for example `[Cc]ode.*` or `jetbrains-.*`. Only letters, digits and `._*+?-[]()|^$` are accepted. `argvus-config` writes the rules to `generated/hypr/window-rules.lua`, which the Hyprland configuration loads. To replace the rules without changing the defaults, add `hl.window_rule` calls to `rules.lua` in your ARGVUS data directory; those load after the generated rules.
+
 ## What to change first
 
 - If windows feel crowded, increase the window gap or use Float mode.

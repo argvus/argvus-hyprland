@@ -884,6 +884,13 @@ hl.window_rule({
   size = "700 450",
   center = true,
 })
+-- Workspace placement for browsers and IDEs (argvus-config: hyprland.window_rules)
+for _, rule in ipairs(_load_generated_table("hypr/window-rules.lua") or {}) do
+  for _, class in ipairs(rule.classes) do
+    hl.window_rule({ match = { class = class }, workspace = tostring(rule.workspace) })
+  end
+end
+
 hl.window_rule({ match = { class = ".*pavucontrol.*" }, float = true })
 hl.window_rule({ match = { class = "org.gnome.FileRoller" }, float = true })
 hl.window_rule({ match = { class = "org.gnome.Calculator" }, float = true })
@@ -974,6 +981,9 @@ _argvus_bind("system.about", mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
 
 -- Open Terminal -----------------------------------------------------------------------------------
 _argvus_bind("app.terminal", mod .. " + Return", hl.dsp.exec_cmd(terminal))
+
+-- Terminal scratchpad (dropdown on a special workspace) -------------------------------------------
+_argvus_bind("app.scratchpad", mod .. " + bracketleft", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/scratchpad.sh"))))
 
 -- File Manager ------------------------------------------------------------------------------------
 _argvus_bind("app.file_manager", mod .. " + Space", hl.dsp.exec_cmd(file_manager))

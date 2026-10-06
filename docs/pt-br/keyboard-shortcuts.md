@@ -90,6 +90,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | Atalho | Descrição |
 | --- | --- |
 | `SUPER + Enter` | Terminal |
+| `SUPER + [` | Terminal suspenso (scratchpad em workspace especial; pressione de novo para ocultar) |
 | `SUPER + Space` | Gerenciador de arquivos |
 | `SUPER + CTRL + Space` | Monitor do sistema |
 | `SUPER + Shift + D` | Menu de dispositivos removíveis |

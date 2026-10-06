@@ -7,6 +7,7 @@
     {"id":"system.kitty_cheatsheet","category":"system","description_key":"keybindings.action.kitty_cheatsheet","keys":"SUPER + CTRL + slash","action":"argvus-kitty-cheatsheet"},
     {"id":"system.about","category":"system","description_key":"keybindings.action.about","keys":"SUPER + F1","action":"argvus --about"},
     {"id":"app.terminal","category":"applications","description_key":"keybindings.action.terminal","keys":"SUPER + Return","action":"argvus-terminal"},
+    {"id":"app.scratchpad","category":"applications","description_key":"keybindings.action.scratchpad","keys":"SUPER + bracketleft","action":"hyprland/sh/scratchpad.sh"},
     {"id":"app.file_manager","category":"applications","description_key":"keybindings.action.file_manager","keys":"SUPER + Space","action":"argvus --spf"},
     {"id":"app.system_monitor","category":"applications","description_key":"keybindings.action.system_monitor","keys":"SUPER + CTRL + Space","action":"argvus-tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus-system-monitor"},
     {"id":"app.removable_devices","category":"applications","description_key":"keybindings.action.removable_devices","keys":"SUPER + SHIFT + D","action":"argvus --removable-devices"},

@@ -52,6 +52,17 @@ Esses valores são escritos no estado de aparência do ARGVUS, e o `argvus-confi
 
 Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O ARGVUS também suporta janelas utilitárias flutuantes; `SUPER + SHIFT + Space` alterna a janela em foco entre os layouts tileado e flutuante. Movimento entre áreas e foco de janelas são controlados pelo manifesto de atalhos ativo; veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/).
 
+### Posicionamento de workspace para navegadores e IDEs
+
+Novas janelas de navegadores abrem no workspace 2 e de IDEs no workspace 1 por padrão. As regras ficam em `hyprland.window_rules` no `argvus-config`:
+
+```sh
+argvus-config get hyprland.window_rules
+argvus-config set hyprland.window_rules.browser.workspace 3
+```
+
+Cada regra tem um `workspace` de 1 a 10 e uma lista `classes`. Os itens de `classes` são expressões regulares comparadas à classe da janela (diferencia maiúsculas), por exemplo `[Cc]ode.*` ou `jetbrains-.*`. Só são aceitos letras, dígitos e `._*+?-[]()|^$`. O `argvus-config` grava as regras em `generated/hypr/window-rules.lua`, que a configuração do Hyprland carrega. Para trocar as regras sem alterar os padrões, adicione chamadas `hl.window_rule` ao `rules.lua` no diretório de dados do ARGVUS; elas são carregadas depois das regras geradas.
+
 ## O que alterar primeiro
 
 * Se as janelas estiverem apertadas, aumente o gap da janela ou use o modo Float.
