@@ -68,6 +68,7 @@ ATALHO                                 DESCRIÇÃO
 52 - SUPER + .                  = Emoji Picker
 53 - Alt + Shift                = Alterna entre os layouts de teclado configurados
 54 - SUPER + Alt + c            = Abre o ARGVUS Control Center
+55 - SUPER + [                  = Terminal suspenso (dropdown; pressione de novo para ocultar)
 
 
 Diretórios »

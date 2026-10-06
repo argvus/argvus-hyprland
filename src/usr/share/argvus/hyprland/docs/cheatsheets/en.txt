@@ -68,6 +68,7 @@ SHORTCUT                               DESCRIPTION
 52 - SUPER + .                  = Emoji Picker
 53 - Alt + Shift                = Cycle through the configured keyboard layouts
 54 - SUPER + Alt + c            = Open ARGVUS Control Center
+55 - SUPER + [                  = Terminal scratchpad (dropdown; press again to hide)
 
 Directories »
 -----------------------------------------------
