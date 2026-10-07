@@ -69,6 +69,8 @@ SHORTCUT                               DESCRIPTION
 53 - Alt + Shift                = Cycle through the configured keyboard layouts
 54 - SUPER + Alt + c            = Open ARGVUS Control Center
 55 - SUPER + [                  = Terminal scratchpad (dropdown; press again to hide)
+56 - SUPER + o                  = Project list (argvus-projects)
+57 - SUPER + Alt + 1..9        = Project 1..9 (positions in the project list)
 
 Directories »
 -----------------------------------------------

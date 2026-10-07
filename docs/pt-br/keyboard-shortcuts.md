@@ -56,6 +56,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + 7` | Área de trabalho 7 |
 | `SUPER + 8` | Área de trabalho 8 |
 | `SUPER + 9` | Área de trabalho 9 |
+| `SUPER + ALT + 1` a `SUPER + ALT + 9` | Abre o projeto dessa posição do `argvus-projects` |
 | `SUPER + Shift + 1` | Mover janela para a área de trabalho 1 |
 | `SUPER + Shift + 2` | Mover janela para a área de trabalho 2 |
 | `SUPER + Shift + 3` | Mover janela para a área de trabalho 3 |

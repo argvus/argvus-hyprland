@@ -55,6 +55,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + 7` | Workspace 7 |
 | `SUPER + 8` | Workspace 8 |
 | `SUPER + 9` | Workspace 9 |
+| `SUPER + ALT + 1` to `SUPER + ALT + 9` | Opens the project in that position of `argvus-projects` |
 | `SUPER + Shift + 1` | Move window to desktop 1 |
 | `SUPER + Shift + 2` | Move window to desktop 2 |
 | `SUPER + Shift + 3` | Move window to desktop 3 |
