@@ -1037,6 +1037,11 @@ else
   _launcher_cmd = _launcher_bin .. " --show drun"
 end
 _argvus_bind("app.launcher", mod .. " + D", hl.dsp.exec_cmd(_launcher_cmd))
+_argvus_bind("app.projects", mod .. " + O", hl.dsp.exec_cmd("argvus-projects"))
+-- SUPER + ALT + N opens the Nth project listed by argvus-projects, without the menu.
+for slot = 1, 9 do
+  _argvus_bind("project.slot_" .. slot, mod .. " + ALT + " .. slot, hl.dsp.exec_cmd("argvus-projects open " .. slot))
+end
 
 -- ARGVUS Control Center ----------------------------------------------------------------------------
 _argvus_bind("system.control_center", mod .. " + ALT + C", hl.dsp.exec_cmd("argvus --control-center"))
