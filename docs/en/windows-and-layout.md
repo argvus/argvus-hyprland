@@ -53,7 +53,7 @@ Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supp
 
 ### Workspace placement for browsers and IDEs
 
-New windows of browsers open on workspace 2 and IDEs open on workspace 1 by default. The rules live in `hyprland.window_rules` in `argvus-config`:
+No window rules are defined by default on a fresh install. You can add your own per-application workspace placement rules under `hyprland.window_rules` in `argvus-config`, for example:
 
 ```sh
 argvus-config get hyprland.window_rules

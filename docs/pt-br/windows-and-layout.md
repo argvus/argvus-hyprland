@@ -54,7 +54,7 @@ Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O AR
 
 ### Posicionamento de workspace para navegadores e IDEs
 
-Novas janelas de navegadores abrem no workspace 2 e de IDEs no workspace 1 por padrão. As regras ficam em `hyprland.window_rules` no `argvus-config`:
+Nenhuma regra de janela é definida por padrão em uma instalação nova. Você pode adicionar suas próprias regras de posicionamento por aplicativo em `hyprland.window_rules` no `argvus-config`, por exemplo:
 
 ```sh
 argvus-config get hyprland.window_rules
