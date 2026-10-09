@@ -1,7 +1,7 @@
 # Maintainer: William C. Canin
 pkgname=argvus-hyprland
 pkgver=0.1.0
-pkgrel=2
+pkgrel=1
 pkgdesc="Hyprland configuration and shell scripts for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-hyprland"
