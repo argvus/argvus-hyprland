@@ -71,6 +71,8 @@ SHORTCUT                               DESCRIPTION
 55 - SUPER + [                  = Terminal scratchpad (dropdown; press again to hide)
 56 - SUPER + o                  = Project list (argvus-projects)
 57 - SUPER + Alt + 1..9        = Project 1..9 (positions in the project list)
+58 - SUPER + Alt + s            = SSH host picker (argvus-ssh)
+59 - SUPER + Alt + n            = Snippet picker (argvus-snippets)
 
 Directories »
 -----------------------------------------------

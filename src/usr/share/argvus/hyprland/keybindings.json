@@ -22,6 +22,8 @@
     {"id":"project.slot_7","category":"applications","description_key":"keybindings.action.project_slot","keys":"SUPER + ALT + 7","action":"argvus-projects open 7"},
     {"id":"project.slot_8","category":"applications","description_key":"keybindings.action.project_slot","keys":"SUPER + ALT + 8","action":"argvus-projects open 8"},
     {"id":"project.slot_9","category":"applications","description_key":"keybindings.action.project_slot","keys":"SUPER + ALT + 9","action":"argvus-projects open 9"},
+    {"id":"app.ssh","category":"applications","description_key":"keybindings.action.ssh","keys":"SUPER + ALT + S","action":"argvus-ssh"},
+    {"id":"app.snippets","category":"applications","description_key":"keybindings.action.snippets","keys":"SUPER + ALT + N","action":"argvus-snippets"},
     {"id":"app.browser","category":"applications","description_key":"keybindings.action.browser","keys":"SUPER + B","action":"xdg-open https://"},
     {"id":"app.calculator","category":"applications","description_key":"keybindings.action.calculator","keys":"SUPER + C","action":"rofi calculator"},
     {"id":"window.maximize","category":"windows","description_key":"keybindings.action.maximize","keys":"SUPER + S","action":"dispatcher:fullscreen:maximized:toggle"},

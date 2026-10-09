@@ -71,6 +71,8 @@ ATALHO                                 DESCRIÇÃO
 55 - SUPER + [                  = Terminal suspenso (dropdown; pressione de novo para ocultar)
 56 - SUPER + o                  = Lista de projetos (argvus-projects)
 57 - SUPER + Alt + 1..9        = Projeto 1..9 (posições na lista de projetos)
+58 - SUPER + Alt + s            = Seletor de hosts SSH (argvus-ssh)
+59 - SUPER + Alt + n            = Seletor de snippets (argvus-snippets)
 
 
 Diretórios »
