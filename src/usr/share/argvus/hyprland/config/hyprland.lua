@@ -461,6 +461,18 @@ local _global_blur_value = tonumber(_canonical_value("/effects/blur_global_value
 _global_blur_value = math.min(math.max(_global_blur_value, 0), 100)
 local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
+-- Maps the 0-100 blur percentage onto Hyprland's kawase parameters. The radius grows
+-- with both `size` and `passes`, so the old `size = value / 10` (max 10, one pass)
+-- left 100% barely stronger than 50%. Now 0% stays at the minimum and 100% reaches
+-- size 12 with 4 passes, a visibly heavier frosted glass.
+local function _blur_params(value)
+  return {
+    size = 2 + math.floor(value * 0.10),
+    passes = 2 + math.floor(value / 40),
+  }
+end
+local _global_blur_shape = _blur_params(_global_blur_value)
+
 local _theme_effects_path = _first_existing({
   _data_home .. "/state/effects/" .. _theme_name .. ".conf",
   _state_home .. "/state/effects/" .. _theme_name .. ".conf",
@@ -694,8 +706,8 @@ hl.config({
 
     blur = {
       enabled = _blur_enabled and _global_blur_value > 0,
-      size = math.max(1, math.floor(_global_blur_value / 10)),
-      passes = 1,
+      size = _global_blur_shape.size,
+      passes = _global_blur_shape.passes,
       new_optimizations = true,
       xray = false,
       noise = 0.0,
