@@ -457,21 +457,25 @@ local function _canonical_value(pointer)
 end
 local _global_blur_enabled = _canonical_value("/effects/blur_global_enabled")
   ~= "false"
-local _global_blur_value = tonumber(_canonical_value("/effects/blur_global_value")) or 50
-_global_blur_value = math.min(math.max(_global_blur_value, 0), 100)
 local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
--- Maps the 0-100 blur percentage onto Hyprland's kawase parameters. The radius grows
--- with both `size` and `passes`, so the old `size = value / 10` (max 10, one pass)
--- left 100% barely stronger than 50%. Now 0% stays at the minimum and 100% reaches
--- size 12 with 4 passes, a visibly heavier frosted glass.
-local function _blur_params(value)
-  return {
-    size = 2 + math.floor(value * 0.10),
-    passes = 2 + math.floor(value / 40),
-  }
+-- Hyprland decoration:blur parameters, read as-is from effects.blur_* in config.json.
+-- Each value is clamped to the range the schema accepts; a missing or invalid value
+-- falls back to the default written by argvus-config.
+local function _blur_number(key, minimum, maximum, fallback)
+  local value = tonumber(_canonical_value("/effects/" .. key))
+  if not value then return fallback end
+  return math.min(math.max(value, minimum), maximum)
 end
-local _global_blur_shape = _blur_params(_global_blur_value)
+local _blur_settings = {
+  size = math.floor(_blur_number("blur_size", 1, 64, 6)),
+  passes = math.floor(_blur_number("blur_passes", 1, 8, 2)),
+  brightness = _blur_number("blur_brightness", 0, 2, 1),
+  noise = _blur_number("blur_noise", 0, 1, 0),
+  contrast = _blur_number("blur_contrast", 0, 2, 0.9),
+  vibrancy = _blur_number("blur_vibrancy", 0, 1, 0.1),
+  vibrancy_darkness = _blur_number("blur_vibrancy_darkness", 0, 1, 0),
+}
 
 local _theme_effects_path = _first_existing({
   _data_home .. "/state/effects/" .. _theme_name .. ".conf",
@@ -705,15 +709,16 @@ hl.config({
     },
 
     blur = {
-      enabled = _blur_enabled and _global_blur_value > 0,
-      size = _global_blur_shape.size,
-      passes = _global_blur_shape.passes,
+      enabled = _blur_enabled,
+      size = _blur_settings.size,
+      passes = _blur_settings.passes,
       new_optimizations = true,
       xray = false,
-      noise = 0.0,
-      contrast = 0.9,
-      brightness = 0.8,
-      vibrancy = 0.1,
+      noise = _blur_settings.noise,
+      contrast = _blur_settings.contrast,
+      brightness = _blur_settings.brightness,
+      vibrancy = _blur_settings.vibrancy,
+      vibrancy_darkness = _blur_settings.vibrancy_darkness,
       ignore_opacity = false,
       popups = false,
     },
