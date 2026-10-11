@@ -802,47 +802,139 @@ hl.window_rule({
 })
 
 -- Animations --------------------------------------------------------------------------------------
-hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
-hl.curve("smoothOut", { type = "bezier", points = { { 0.36, 0 }, { 0.66, -0.56 } } })
-hl.curve("smoothIn", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
+-- Each leaf reads its speed, curve and style from effects.animation_* in config.json, written by
+-- effects-toggle.sh animations-settings. The values come from one argvus-config call, and a missing
+-- or invalid value falls back to the default written by argvus-config. A leaf without an enabled
+-- switch follows the global animations state.
+local _effects_document = nil
+local function _effect_value(key)
+  if _effects_document == nil then
+    local pipe = io.popen("argvus-config get /effects --effective 2>/dev/null")
+    _effects_document = pipe and pipe:read("*a") or ""
+    if pipe then pipe:close() end
+  end
+  local raw = _effects_document:match('"' .. key .. '"%s*:%s*([^,\n}]+)')
+  if raw == nil then return nil end
+  raw = raw:gsub("%s+$", "")
+  return (raw:gsub('^"(.*)"$', "%1"))
+end
+local function _animation_number(key, minimum, maximum, fallback)
+  local value = tonumber(_effect_value("animation_" .. key))
+  if not value then return fallback end
+  return math.min(math.max(value, minimum), maximum)
+end
+local function _animation_flag(key, fallback)
+  local value = _effect_value("animation_" .. key)
+  if value == "true" then return true end
+  if value == "false" then return false end
+  return fallback
+end
+local function _animation_choice(key, choices, fallback)
+  local value = _effect_value("animation_" .. key)
+  if value and choices[value] then return value end
+  return fallback
+end
 
-hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 1, bezier = "default" })
-hl.animation({
-  leaf = "windows",
-  enabled = _animations_enabled,
-  speed = 5,
-  bezier = "myBezier",
+-- Styles Hyprland 0.56.2 accepts per leaf family. `popin` is refused by the workspace leaves and
+-- `fade` by the window leaves, so a choice outside its leaf's set falls back to the leaf default.
+local _window_styles = {
+  slide = true, popin = true, slidefade = true, slidevert = true, slidefadevert = true, gnomed = true,
+}
+local _layer_styles = {
+  slide = true, popin = true, fade = true, slidefade = true, slidevert = true, slidefadevert = true,
+}
+local _workspace_styles = {
+  slide = true, fade = true, slidefade = true, slidevert = true, slidefadevert = true,
+}
+local _animation_curves = { default = true, bezier = true, spring = true, linear = true, ease_out = true }
+local _animation_bezier_names = {
+  bezier = "argvus_bezier",
+  linear = "argvus_linear",
+  ease_out = "argvus_ease_out",
+}
+
+hl.curve("argvus_default", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+hl.curve("argvus_bezier", {
+  type = "bezier",
+  points = {
+    { _animation_number("bezier_x1", 0, 1, 0.05), _animation_number("bezier_y1", -2, 3, 0.9) },
+    { _animation_number("bezier_x2", 0, 1, 0.1), _animation_number("bezier_y2", -2, 3, 1.05) },
+  },
 })
-hl.animation({
-  leaf = "windowsIn",
-  enabled = _animations_enabled,
-  speed = 5,
-  bezier = "myBezier",
-  style = "popin 80%",
+hl.curve("argvus_spring", {
+  type = "spring",
+  mass = _animation_number("spring_mass", 0.5, 10, 1),
+  stiffness = _animation_number("spring_stiffness", 0.5, 2000, 238.119),
+  dampening = _animation_number("spring_dampening", 0.5, 200, 24.213),
 })
-hl.animation({
-  leaf = "windowsOut",
-  enabled = _animations_enabled,
-  speed = 4,
-  bezier = "smoothOut",
-  style = "popin 80%",
-})
-hl.animation({ leaf = "border", enabled = _animations_enabled, speed = 10, bezier = "default" })
-hl.animation({ leaf = "fade", enabled = _animations_enabled, speed = 5, bezier = "smoothIn" })
-hl.animation({
-  leaf = "fadeOut",
-  enabled = _animations_enabled,
-  speed = 4,
-  bezier = "smoothOut",
-})
-hl.animation({
-  leaf = "workspaces",
-  enabled = _animations_enabled,
-  speed = 5,
-  bezier = "myBezier",
-  style = "slide",
-})
+hl.curve("argvus_linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
+hl.curve("argvus_ease_out", { type = "bezier", points = { { 0, 0 }, { 0.58, 1 } } })
+
+-- Stock curves of Hyprland 0.56.2. A leaf set to "default" uses the one it ships with.
+hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
+hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
+hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
+
+-- Leaf key (config effects.animation_<key>_*), Hyprland leaf, and the defaults used when the
+-- config has no usable value. The defaults are the Hyprland 0.56.2 stock values; `stock` is the
+-- curve the stock config gives the leaf. Leaves the stock config does not define keep ARGVUS
+-- values and the `argvus_default` curve. `styles`, `style` and `popin` are only set for leaves
+-- whose page has a Style row; `enabled` only for leaves with an Enabled switch.
+local _animation_leaves = {
+  { key = "opening", leaf = "windowsIn", styles = _window_styles, style = "popin", popin = 87, speed = 4.1, stock = "easy" },
+  { key = "closing", leaf = "windowsOut", styles = _window_styles, style = "popin", popin = 87, speed = 1.49, stock = "linear" },
+  { key = "moving", leaf = "windowsMove", enabled = true, speed = 4.79, stock = "easy" },
+  { key = "switching", leaf = "workspaces", styles = _workspace_styles, style = "fade", speed = 1.94, stock = "almostLinear" },
+  { key = "workspace_in", leaf = "workspacesIn", styles = _workspace_styles, style = "fade", speed = 1.21, stock = "almostLinear" },
+  { key = "workspace_out", leaf = "workspacesOut", styles = _workspace_styles, style = "fade", speed = 1.94, stock = "almostLinear" },
+  { key = "special_workspace", leaf = "specialWorkspace", styles = _workspace_styles, style = "slide", speed = 5 },
+  { key = "layers", leaf = "layers", enabled = true, speed = 3.81, stock = "easeOutQuint" },
+  { key = "layers_in", leaf = "layersIn", styles = _layer_styles, style = "fade", speed = 4, stock = "easeOutQuint" },
+  { key = "layers_out", leaf = "layersOut", styles = _layer_styles, style = "fade", speed = 1.5, stock = "linear" },
+  { key = "fade", leaf = "fade", enabled = true, speed = 3.03, stock = "quick" },
+  { key = "fade_in", leaf = "fadeIn", enabled = true, speed = 1.73, stock = "almostLinear" },
+  { key = "fade_out", leaf = "fadeOut", enabled = true, speed = 1.46, stock = "almostLinear" },
+  { key = "border", leaf = "border", enabled = true, speed = 5.39, stock = "easeOutQuint" },
+  { key = "border_angle", leaf = "borderangle", enabled = true, speed = 5 },
+  { key = "zoom", leaf = "zoomFactor", enabled = true, speed = 7, stock = "quick" },
+  { key = "monitor_added", leaf = "monitorAdded", enabled = true, speed = 5 },
+}
+
+for _, entry in ipairs(_animation_leaves) do
+  local animation = {
+    leaf = entry.leaf,
+    enabled = _animations_enabled,
+    speed = _animation_number(entry.key .. "_speed", 1, 10, entry.speed),
+  }
+  if entry.enabled then
+    animation.enabled = _animations_enabled and _animation_flag(entry.key .. "_enabled", entry.enabled)
+  end
+  if entry.styles then
+    local style = _animation_choice(entry.key .. "_style", entry.styles, entry.style)
+    if style == "popin" and entry.popin then
+      animation.style = "popin " .. math.floor(_animation_number(entry.key .. "_popin", 1, 100, entry.popin)) .. "%"
+    else
+      animation.style = style
+    end
+  end
+  local curve = _animation_choice(entry.key .. "_curve", _animation_curves, "default")
+  if curve == "spring" then
+    animation.spring = "argvus_spring"
+  elseif curve == "default" then
+    if entry.stock == "easy" then
+      animation.spring = "easy"
+    else
+      animation.bezier = entry.stock or "argvus_default"
+    end
+  else
+    animation.bezier = _animation_bezier_names[curve]
+  end
+  hl.animation(animation)
+end
+
+hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 10, bezier = "default" })
 
 -- Blur --------------------------------------------------------------------------------------------
 -- Hyprland runs a single global blur pass. Layer rules only opt individual layer
