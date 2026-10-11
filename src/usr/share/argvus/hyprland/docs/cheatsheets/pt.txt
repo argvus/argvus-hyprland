@@ -40,7 +40,7 @@ ATALHO                          DESCRIÇÃO
 29 - SUPER + Alt + w            = Ativa/Desativa manter acordado
 30 - SUPER + Shift + W          = Configura a localização do clima
 31 - SUPER + Shift + B          = Abre o seletor de brilho
-32 - SUPER + F5                 = Altera entre tema Dark e Light do GTK
+32 - SUPER + F5                 = Alterna entre os temas ARGVUS Dark e ARGVUS Light
 33 - SUPER + F6                 = Ativa/Desativa animações
 34 - SUPER + F1                 = Abrir Sobre o ARGVUS
 35 - SUPER + l                  = Bloquear sistema

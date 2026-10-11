@@ -1131,7 +1131,7 @@ _argvus_bind("appearance.brightness", mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh
 -- Weather location --------------------------------------------------------------------------------
 _argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/weather-location.sh"))))
 
--- GTK Theme Dark/Light ----------------------------------------------------------------------------
+-- ARGVUS Dark/Light theme toggle ------------------------------------------------------------------
 _argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
 
 -- Visual effects ----------------------------------------------------------------------------------

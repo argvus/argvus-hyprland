@@ -40,7 +40,7 @@ SHORTCUT                        DESCRIPTION
 29 - SUPER + Alt + w            = Toggle Keep Awake
 30 - SUPER + Shift + W          = Configures the weather location
 31 - SUPER + Shift + B          = Opens the brightness selector
-32 - SUPER + F5                 = Toggles between GTK Dark and Light themes
+32 - SUPER + F5                 = Toggles between ARGVUS Dark and ARGVUS Light themes
 33 - SUPER + F6                 = Toggle animations
 34 - SUPER + F1                 = Open About ARGVUS
 35 - SUPER + l                  = Lock system
