@@ -222,7 +222,7 @@ end
 -- from `<theme>` in rounding/gaps (never color), so pick the on-disk variant
 -- by the current mode instead of by the theme name.
 local _layout_variant = "sticky"
-local _variant_bin = io.popen("argvus-config get /layout/variant --raw 2>/dev/null")
+local _variant_bin = io.popen("argvus config get /layout/variant --raw 2>/dev/null")
 if _variant_bin then
   local _variant_value = _variant_bin:read("*l") or ""
   if _variant_value == "float" then
@@ -251,7 +251,7 @@ theme.gaps_in = _layout_variant == "float" and 4 or 2
 -- exception, and is opt-in in canonical config.json; the legacy accent file
 -- is not enough to distinguish a theme default from a user override.
 local _accent_custom = false
-local _config_bin = io.popen("argvus-config get /appearance/accent_custom --raw 2>/dev/null")
+local _config_bin = io.popen("argvus config get /appearance/accent_custom --raw 2>/dev/null")
 if _config_bin then
   _accent_custom = (_config_bin:read("*l") or "") == "true"
   _config_bin:close()
@@ -449,7 +449,7 @@ end
 local _animations_enabled = _component_enabled("animations")
 local _transparency_enabled = _component_enabled("transparency")
 local function _canonical_value(pointer)
-  local pipe = io.popen("argvus-config get " .. pointer .. " --effective --raw 2>/dev/null")
+  local pipe = io.popen("argvus config get " .. pointer .. " --effective --raw 2>/dev/null")
   if not pipe then return nil end
   local value = pipe:read("*l")
   pipe:close()
@@ -625,7 +625,7 @@ local terminal
 if _terminal_bin == "kitty" then
   terminal = "kitty"
 elseif _terminal_bin == "argvus-terminal" then
-  terminal = "argvus-terminal"
+  terminal = "argvus terminal"
 elseif _terminal_bin == "foot" then
   -- Legacy sessions may still select foot, which ARGVUS no longer ships.
   -- Map it to kitty so the binding does not target a missing binary.
@@ -649,7 +649,7 @@ local _file_manager_bin = _get_default("file_manager")
 local _file_manager_cmd = _argvus_file_manager_wrappers[_file_manager_bin] or _file_manager_bin
 local file_manager
 if _tui_file_managers[_file_manager_cmd] then
-  file_manager = "argvus-tui-terminal --class argvus-file-manager --term kitty -- " .. _file_manager_cmd
+  file_manager = "argvus tui-terminal --class argvus-file-manager --term kitty -- " .. _file_manager_cmd
 else
   file_manager = _file_manager_cmd
 end
@@ -809,7 +809,7 @@ hl.window_rule({
 local _effects_document = nil
 local function _effect_value(key)
   if _effects_document == nil then
-    local pipe = io.popen("argvus-config get /effects --effective 2>/dev/null")
+    local pipe = io.popen("argvus config get /effects --effective 2>/dev/null")
     _effects_document = pipe and pipe:read("*a") or ""
     if pipe then pipe:close() end
   end
@@ -1098,7 +1098,7 @@ _argvus_bind("app.scratchpad", mod .. " + bracketleft", hl.dsp.exec_cmd(_sh(_con
 _argvus_bind("app.file_manager", mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 
 -- System Monitor ----------------------------------------------------------------------------------
-_argvus_bind("app.system_monitor", mod .. " + CTRL + Space", hl.dsp.exec_cmd("argvus-tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus-system-monitor"))
+_argvus_bind("app.system_monitor", mod .. " + CTRL + Space", hl.dsp.exec_cmd("argvus tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus system-monitor"))
 
 -- Removable storage -------------------------------------------------------------------------------
 _argvus_bind("app.removable_devices", mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
@@ -1141,18 +1141,18 @@ _argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd(_sh(_confi
 local _launcher_bin = _get_default("launcher")
 local _launcher_cmd
 if _launcher_bin == "rofi" or _launcher_bin == "" then
-  _launcher_cmd = "argvus-launcher --config " .. rofi_config
+  _launcher_cmd = "argvus launcher --config " .. rofi_config
 else
   _launcher_cmd = _launcher_bin .. " --show drun"
 end
 _argvus_bind("app.launcher", mod .. " + D", hl.dsp.exec_cmd(_launcher_cmd))
-_argvus_bind("app.projects", mod .. " + O", hl.dsp.exec_cmd("argvus-projects"))
--- SUPER + ALT + N opens the Nth project listed by argvus-projects, without the menu.
+_argvus_bind("app.projects", mod .. " + O", hl.dsp.exec_cmd("argvus projects"))
+-- SUPER + ALT + N opens the Nth project listed by argvus projects, without the menu.
 for slot = 1, 9 do
-  _argvus_bind("project.slot_" .. slot, mod .. " + ALT + " .. slot, hl.dsp.exec_cmd("argvus-projects open " .. slot))
+  _argvus_bind("project.slot_" .. slot, mod .. " + ALT + " .. slot, hl.dsp.exec_cmd("argvus projects open " .. slot))
 end
-_argvus_bind("app.ssh", mod .. " + ALT + S", hl.dsp.exec_cmd("argvus-ssh"))
-_argvus_bind("app.snippets", mod .. " + ALT + N", hl.dsp.exec_cmd("argvus-snippets"))
+_argvus_bind("app.ssh", mod .. " + ALT + S", hl.dsp.exec_cmd("argvus ssh"))
+_argvus_bind("app.snippets", mod .. " + ALT + N", hl.dsp.exec_cmd("argvus snippets"))
 
 -- ARGVUS Control Center ----------------------------------------------------------------------------
 _argvus_bind("system.control_center", mod .. " + ALT + C", hl.dsp.exec_cmd("argvus --control-center"))
@@ -1378,8 +1378,8 @@ _argvus_bind("record.toggle", mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("h
 _argvus_bind("record.stop", mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
-_argvus_bind("system.clipboard", mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus-i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
-_argvus_bind("system.clipboard_clear", mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus-i18n get hyprland clipboard.title)" "$(argvus-i18n get hyprland clipboard.history_erased)"'))
+_argvus_bind("system.clipboard", mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
+_argvus_bind("system.clipboard_clear", mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus i18n get hyprland clipboard.title)" "$(argvus i18n get hyprland clipboard.history_erased)"'))
 
 -- Screenshot / Print ------------------------------------------------------------------------------
 _argvus_bind("screenshot.region", "Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))
@@ -1454,7 +1454,7 @@ _argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_pat
 _argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh")) .. " --lock"))
 
 -- Reload Hyprland ---------------------------------------------------------------------------------
-_argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus-sessionctl reload"))
+_argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus sessionctl reload"))
 
 -- Move the waybar status bar to the top/bottom ----------------------------------------------------
 -- Use absolute paths so the bind works even when hyprland's env is minimal.
@@ -1471,5 +1471,5 @@ _load_user_override("user.lua")
 
 -- Autostart ---------------------------------------------------------------------------------------
 hl.on("hyprland.start", function()
-  hl.exec_cmd("argvus-sessionctl ready")
+  hl.exec_cmd("argvus sessionctl ready")
 end)

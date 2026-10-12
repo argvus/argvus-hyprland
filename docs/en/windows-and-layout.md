@@ -56,8 +56,8 @@ Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supp
 No window rules are defined by default on a fresh install. You can add your own per-application workspace placement rules under `hyprland.window_rules` in `argvus-config`, for example:
 
 ```sh
-argvus-config get hyprland.window_rules
-argvus-config set hyprland.window_rules.browser.workspace 3
+argvus config get hyprland.window_rules
+argvus config set hyprland.window_rules.browser.workspace 3
 ```
 
 Each rule has a `workspace` from 1 to 10 and a `classes` list. Entries in `classes` are regular expressions matched against the window class (case sensitive), for example `[Cc]ode.*` or `jetbrains-.*`. Only letters, digits and `._*+?-[]()|^$` are accepted. `argvus-config` writes the rules to `generated/hypr/window-rules.lua`, which the Hyprland configuration loads. To replace the rules without changing the defaults, add `hl.window_rule` calls to `rules.lua` in your ARGVUS data directory; those load after the generated rules.

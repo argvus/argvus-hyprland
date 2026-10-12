@@ -104,8 +104,8 @@ write_spaces() {
 
 compute_defaults() {
   _theme="$(read_state "$ACTIVE_FILE" "$DEFAULT_THEME")"
-  if command -v argvus-config >/dev/null 2>&1; then
-    _variant="$(argvus-config get /layout/variant --raw 2>/dev/null || true)"
+  if command -v argvus >/dev/null 2>&1; then
+    _variant="$(argvus config get /layout/variant --raw 2>/dev/null || true)"
     case "$_variant" in
       sticky) _theme="$DEFAULT_THEME" ;;
       float) _theme="${DEFAULT_THEME}-float" ;;
@@ -221,8 +221,8 @@ apply_gaps_runtime() {
 
 restart_waybar() {
   [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ] && return 0
-  command -v argvus-sessionctl >/dev/null 2>&1 || return 0
-  argvus-sessionctl restart waybar >/dev/null 2>&1 || true
+  command -v argvus >/dev/null 2>&1 || return 0
+  argvus sessionctl restart waybar >/dev/null 2>&1 || true
 }
 
 set_key() {

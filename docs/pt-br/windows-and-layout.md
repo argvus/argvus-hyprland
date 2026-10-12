@@ -57,8 +57,8 @@ Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O AR
 Nenhuma regra de janela é definida por padrão em uma instalação nova. Você pode adicionar suas próprias regras de posicionamento por aplicativo em `hyprland.window_rules` no `argvus-config`, por exemplo:
 
 ```sh
-argvus-config get hyprland.window_rules
-argvus-config set hyprland.window_rules.browser.workspace 3
+argvus config get hyprland.window_rules
+argvus config set hyprland.window_rules.browser.workspace 3
 ```
 
 Cada regra tem um `workspace` de 1 a 10 e uma lista `classes`. Os itens de `classes` são expressões regulares comparadas à classe da janela (diferencia maiúsculas), por exemplo `[Cc]ode.*` ou `jetbrains-.*`. Só são aceitos letras, dígitos e `._*+?-[]()|^$`. O `argvus-config` grava as regras em `generated/hypr/window-rules.lua`, que a configuração do Hyprland carrega. Para trocar as regras sem alterar os padrões, adicione chamadas `hl.window_rule` ao `rules.lua` no diretório de dados do ARGVUS; elas são carregadas depois das regras geradas.

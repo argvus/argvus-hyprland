@@ -34,7 +34,7 @@ dispatch() {
 address="$(find_address)"
 
 if [ -z "$address" ]; then
-  argvus-terminal --class "$CLASS" >/dev/null 2>&1 &
+  argvus terminal --class "$CLASS" >/dev/null 2>&1 &
 
   attempts=0
   while [ -z "$address" ] && [ "$attempts" -lt 40 ]; do

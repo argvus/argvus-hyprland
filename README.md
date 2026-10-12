@@ -4,7 +4,7 @@ Hyprland configuration and Hyprland-specific scripts for the ARGVUS desktop.
 
 The package owns the compositor configuration and assets under
 `/usr/share/argvus/hyprland`. Session lifecycle remains owned by
-`argvus-session` and is controlled through `argvus-sessionctl`.
+`argvus-session` and is controlled through `argvus sessionctl`.
 
 ## Build and validate
 

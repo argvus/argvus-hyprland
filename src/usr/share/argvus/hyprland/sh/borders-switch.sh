@@ -38,8 +38,8 @@ compute_defaults() {
   # /layout/variant is the canonical variant. The .active-theme suffix is only a
   # fallback for profiles that have not run argvus-config migration yet; without
   # this, a manual layout.json edit moved spacing while borders stayed sticky.
-  if command -v argvus-config >/dev/null 2>&1; then
-    _variant="$(argvus-config get /layout/variant --raw 2>/dev/null || true)"
+  if command -v argvus >/dev/null 2>&1; then
+    _variant="$(argvus config get /layout/variant --raw 2>/dev/null || true)"
     case "$_variant" in
       sticky) _theme="$DEFAULT_THEME" ;;
       float) _theme="${DEFAULT_THEME}-float" ;;
@@ -92,10 +92,10 @@ effective_values() {
   # before falling back to variant defaults. This ensures that user-set values are respected
   # even if .borders is stale or missing.
   if [ -z "$ROUNDED" ] && [ -z "$ROUNDING" ] && [ -z "$THICKNESS" ]; then
-    if command -v argvus-config >/dev/null 2>&1; then
-      _layout_rounded="$(argvus-config get /layout/window/rounded --raw 2>/dev/null || true)"
-      _layout_rounding="$(argvus-config get /layout/window/rounding --raw 2>/dev/null || true)"
-      _layout_border_size="$(argvus-config get /layout/window/border_size --raw 2>/dev/null || true)"
+    if command -v argvus >/dev/null 2>&1; then
+      _layout_rounded="$(argvus config get /layout/window/rounded --raw 2>/dev/null || true)"
+      _layout_rounding="$(argvus config get /layout/window/rounding --raw 2>/dev/null || true)"
+      _layout_border_size="$(argvus config get /layout/window/border_size --raw 2>/dev/null || true)"
       # argvus-config prints JSON booleans as true/false; .borders uses 1/0.
       case "$_layout_rounded" in
         true) _layout_rounded=1 ;;
