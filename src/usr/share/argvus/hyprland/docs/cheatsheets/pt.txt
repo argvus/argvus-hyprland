@@ -73,6 +73,7 @@ ATALHO                                 DESCRIÇÃO
 57 - SUPER + Alt + 1..9        = Projeto 1..9 (posições na lista de projetos)
 58 - SUPER + Alt + s            = Seletor de hosts SSH (argvus ssh)
 59 - SUPER + Alt + n            = Seletor de snippets (argvus snippets)
+60 - SUPER + Alt + g            = Seletor de projetos e TUI de git (argvus git)
 
 
 Diretórios »

@@ -98,6 +98,9 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + D` | Lançador de programas |
 | `SUPER + B` | Navegador padrão |
 | `SUPER + C` | Calculadora |
+| `SUPER + ALT + S` | Seletor de hosts SSH (`argvus ssh`) |
+| `SUPER + ALT + N` | Seletor de snippets (`argvus snippets`) |
+| `SUPER + ALT + G` | Seletor de projetos e TUI de git (lazygit ou gitui) no projeto escolhido (`argvus git`) |
 
 ### Mídia
 

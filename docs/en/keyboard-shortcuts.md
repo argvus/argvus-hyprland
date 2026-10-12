@@ -97,6 +97,9 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + D` | Program Launcher |
 | `SUPER + B` | Default Browser |
 | `SUPER + C` | Calculator |
+| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
+| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + ALT + G` | Project picker, then git TUI (lazygit or gitui) in the chosen project (`argvus git`) |
 
 ### Media
 

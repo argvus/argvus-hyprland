@@ -1153,6 +1153,7 @@ for slot = 1, 9 do
 end
 _argvus_bind("app.ssh", mod .. " + ALT + S", hl.dsp.exec_cmd("argvus ssh"))
 _argvus_bind("app.snippets", mod .. " + ALT + N", hl.dsp.exec_cmd("argvus snippets"))
+_argvus_bind("app.git", mod .. " + ALT + G", hl.dsp.exec_cmd("argvus git"))
 
 -- ARGVUS Control Center ----------------------------------------------------------------------------
 _argvus_bind("system.control_center", mod .. " + ALT + C", hl.dsp.exec_cmd("argvus --control-center"))
