@@ -3,7 +3,7 @@ title: Windows and layout
 description: Understand gaps, borders, modes and panel space in ARGVUS.
 ---
 
-ARGVUS uses Hyprland for tiled and floating window placement. The user-facing layout controls are grouped in **Control Center → Appearance → Spaces, Borders & Position** and are also reflected by the Control Panel's corresponding appearance card.
+ARGVUS uses Hyprland for tiled and floating window placement. The user-facing layout controls live in three Control Center pages: **Control Center → Appearance → Taskbar** (position, spaces and icons), **Control Center → Desktop & Input → Hyprland → Window spaces** and **Control Center → Desktop & Input → Hyprland → Borders**.
 
 ## The concepts
 
@@ -32,18 +32,17 @@ The bundled theme modes provide two starting geometries:
 | Sticky | Internal gap `2`, outer gap `0` by default | Square, compact and close to the screen edge |
 | Float | Internal gap `10`, outer gap `18` by default | Rounded, shadowed and more spacious; taskbar/shell margin defaults to `18` |
 
-These are defaults, not limits. The Spaces, Borders & Position page can store edge gaps and taskbar margins independently. Changing a theme or mode can project different effective layout values.
+These are defaults, not limits. The Window spaces and Taskbar spaces pages can store window gaps and taskbar margins independently. Changing a theme or mode can project different effective layout values.
 
-## Spaces, Borders & Position controls
+## Layout controls
 
-The page exposes these independent controls:
+Each control is independent and lives on the page listed here:
 
-- **Taskbar position** — top or bottom edge.
-- **Taskbar spaces** — top, left, right and bottom margins, each from `0` to `100`.
-- **Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
-- **General borders** — enable rounded corners; when enabled, rounding is selectable from `2` to `10`.
-- **Edge thickness** — border thickness from `0` to `10`.
-- **Utility group** — whether the taskbar utility group uses automatic or always-expanded behavior.
+- **Taskbar → Position** — taskbar position, top or bottom edge.
+- **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`.
+- **Taskbar → Icons** — whether the taskbar utility group uses automatic or always-expanded behavior.
+- **Hyprland → Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
+- **Hyprland → Borders** — general borders: enable rounded corners; when enabled, rounding is selectable from `2` to `10`. Edge thickness is set here too, from `0` to `10`.
 
 These values are written to ARGVUS appearance state, and `argvus-config` projects them into the generated Hyprland files that the session then applies. A taskbar margin changes the shell surface's position; an outer window gap changes the tiled window area. They can produce a similar visual distance, but changing one does not change the other.
 

@@ -4,7 +4,7 @@ description: Entenda gaps, bordas, modos e espaço dos painéis no ARGVUS.
 slug: pt/0.4.0/docs/user-guide/desktop/windows-and-layout
 ---
 
-O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os controles de layout ficam em **Control Center → Aparência → Espaços, bordas e posição** e também aparecem no card de aparência correspondente do Control Panel.
+O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os controles de layout ficam em três páginas do Control Center: **Control Center → Aparência → Barra de tarefas** (posição, espaçamentos e ícones), **Control Center → Desktop e entrada → Hyprland → Espaços das janelas** e **Control Center → Desktop e entrada → Hyprland → Bordas**.
 
 ## Os conceitos
 
@@ -33,18 +33,17 @@ Os modos dos temas incluídos fornecem duas geometrias iniciais:
 | Sticky | Gap interno `2`, gap externo `0` por padrão | Quadrado, compacto e próximo à borda |
 | Float | Gap interno `10`, gap externo `18` por padrão | Arredondado, com sombra e mais espaçoso; margem padrão de taskbar/shell `18` |
 
-Esses são valores padrão, não limites. A página Espaços, bordas e posição pode salvar gaps das bordas e margens da taskbar de forma independente. Alterar tema ou modo pode projetar valores efetivos de layout diferentes.
+Esses são valores padrão, não limites. As páginas Espaços das janelas e Espaçamentos da barra de tarefas podem salvar gaps das janelas e margens da taskbar de forma independente. Alterar tema ou modo pode projetar valores efetivos de layout diferentes.
 
-## Controles de Espaços, bordas e posição
+## Controles de layout
 
-A página oferece estes controles independentes:
+Cada controle é independente e fica na página indicada:
 
-* **Posição da taskbar** — borda superior ou inferior.
-* **Espaços da taskbar** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`.
-* **Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
-* **Bordas gerais** — ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`.
-* **Espessura da borda** — de `0` a `10`.
-* **Grupo utilitário** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
+* **Barra de tarefas → Posição** — borda superior ou inferior.
+* **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`.
+* **Barra de tarefas → Ícones** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
+* **Hyprland → Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
+* **Hyprland → Bordas** — bordas gerais: ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`. A espessura da borda também fica aqui, de `0` a `10`.
 
 Esses valores são escritos no estado de aparência do ARGVUS, e o `argvus-config` os projeta nos arquivos Hyprland gerados que a sessão aplica em seguida. Uma margem da taskbar muda a posição da superfície do shell; um gap externo muda a área das janelas lado a lado. Eles podem produzir uma distância visual parecida, mas alterar um não altera o outro.
 
