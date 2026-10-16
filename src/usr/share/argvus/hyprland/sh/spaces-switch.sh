@@ -115,7 +115,9 @@ compute_defaults() {
 
   case "$_theme" in
     *-float)
-      GAPS_IN_DEF=4
+      # Documented Float mode: internal gap 10, outer gap 18 (same as the
+      # argvus-config baseline for the float variant).
+      GAPS_IN_DEF=10
       GAPS_OUT_TOP_DEF=18; GAPS_OUT_LEFT_DEF=18; GAPS_OUT_RIGHT_DEF=18; GAPS_OUT_BOTTOM_DEF=18
       WAYBAR_TOP_DEF=18; WAYBAR_LEFT_DEF=18; WAYBAR_RIGHT_DEF=18; WAYBAR_BOTTOM_DEF=18
       ;;
