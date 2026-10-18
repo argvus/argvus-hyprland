@@ -1,0 +1,8 @@
+# Formatting for the Lua files of the Hyprland configuration.
+# Matches the style already used by hyprland.lua (2 spaces, wide lines for
+# long bind and rule tables). The repository-wide .editorconfig asks for tabs
+# and 80 columns, which the Lua files do not follow today; changing that is a
+# separate decision.
+indent_type = "Spaces"
+indent_width = 2
+column_width = 200

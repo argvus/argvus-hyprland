@@ -5,9 +5,7 @@
 
 -- Theme loader ------------------------------------------------------------------------------------
 local _home = os.getenv("HOME") or ""
-local _config_home = os.getenv("ARGVUS_CONFIG_HOME")
-  or os.getenv("XDG_CONFIG_HOME")
-  or (_home .. "/.config")
+local _config_home = os.getenv("ARGVUS_CONFIG_HOME") or os.getenv("XDG_CONFIG_HOME") or (_home .. "/.config")
 local _system_config = os.getenv("ARGVUS_SYSTEM_CONFIG") or "/usr/share/argvus"
 local _debug_session = os.getenv("ARGVUS_DEBUG") == "1"
 local _state_home = _config_home .. "/argvus"
@@ -59,15 +57,16 @@ local function _rofi_config_path()
   return _config_path("launcher/config/config.rasi", "rofi/config.rasi")
 end
 
+-- A broken user override must not stop the rest of the configuration from
+-- loading, so the error is reported and the remaining files still load.
 local function _load_user_override(relative_path)
   local path = _data_home .. "/hypr/" .. relative_path
   if _path_exists(path) then
-    dofile(path)
+    local ok, err = pcall(dofile, path)
+    if not ok then
+      print("ARGVUS: ignoring invalid user override " .. path .. ": " .. tostring(err))
+    end
   end
-end
-
-local function _sh(path)
-  return "sh " .. string.format("%q", path)
 end
 
 local function _read_first_line(paths)
@@ -131,8 +130,11 @@ local function _projected_font_state_value(key, fallback)
   return fallback
 end
 
-local _argvus_font_family = _projected_font_state_value("system_family", _projected_font_state_value("default_family", "IBM Plex Mono"))
-local _argvus_font_size = tonumber(_projected_font_state_value("system_size", _projected_font_state_value("default_size", "13"))) or 13
+local _argvus_font_family =
+  _projected_font_state_value("system_family", _projected_font_state_value("default_family", "IBM Plex Mono"))
+local _argvus_font_size = tonumber(
+  _projected_font_state_value("system_size", _projected_font_state_value("default_size", "13"))
+) or 13
 
 local _argvus_input = {
   kb_layout = "br,us",
@@ -202,7 +204,7 @@ local function _get_default(category)
 end
 
 -- The active theme is a config.json projection that lives under `data/`. Every
--- writer (theme-switch.sh, argvus-config project) emits `data/`, so reading the
+-- writer (the theme transaction, argvus-config project) emits `data/`, so reading the
 -- legacy root first made this file resolve Sticky for every session that had
 -- run the migration. Keep the root as a read-only fallback for profiles that
 -- have not migrated yet.
@@ -221,15 +223,17 @@ end
 -- `-float` suffix. The paired `<theme>-float` asset directory only differs
 -- from `<theme>` in rounding/gaps (never color), so pick the on-disk variant
 -- by the current mode instead of by the theme name.
-local _layout_variant = "sticky"
-local _variant_bin = io.popen("argvus config get /layout/variant --raw 2>/dev/null")
-if _variant_bin then
-  local _variant_value = _variant_bin:read("*l") or ""
-  if _variant_value == "float" then
-    _layout_variant = "float"
-  end
-  _variant_bin:close()
+-- Runtime values that argvus-config projects into hypr/state.lua. A missing or
+-- invalid file falls back to the defaults used when no value is known, and the
+-- fallback is reported: the user's layout, accent and effects are not applied
+-- until the projection runs again (`argvus config project`).
+local _hypr_state = {}
+if _path_exists(_generated_config .. "/hypr/state.lua") then
+  _hypr_state = _load_generated_table("hypr/state.lua") or {}
+else
+  print("ARGVUS: hypr/state.lua is missing; run `argvus config project`. Using default layout, accent and effects.")
 end
+local _layout_variant = _hypr_state.layout_variant == "float" and "float" or "sticky"
 local _theme_asset_name = _theme_name
 if _layout_variant == "float" and not _theme_name:match("%-float$") then
   _theme_asset_name = _theme_name .. "-float"
@@ -250,12 +254,7 @@ theme.gaps_in = _layout_variant == "float" and 10 or 2
 -- Theme files own the active border color. A manual accent is the only
 -- exception, and is opt-in in canonical config.json; the legacy accent file
 -- is not enough to distinguish a theme default from a user override.
-local _accent_custom = false
-local _config_bin = io.popen("argvus config get /appearance/accent_custom --raw 2>/dev/null")
-if _config_bin then
-  _accent_custom = (_config_bin:read("*l") or "") == "true"
-  _config_bin:close()
-end
+local _accent_custom = _hypr_state.accent_custom == true
 if _accent_custom then
   local _accent_line = _read_first_line({
     _data_home .. "/.accent-color",
@@ -302,35 +301,83 @@ local _spaces_gaps_out_bottom_set = false
 if _spaces_file then
   for _line in _spaces_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
-    if _key == "gaps_in" then theme.gaps_in = tonumber(_val) end
-    if _key == "gaps_out" then _spaces_gaps_out_legacy = tonumber(_val) end
-    if _key == "gaps_out_top" then _spaces_gaps_out_top = tonumber(_val); _spaces_gaps_out_top_set = true end
-    if _key == "gaps_out_left" then _spaces_gaps_out_left = tonumber(_val); _spaces_gaps_out_left_set = true end
-    if _key == "gaps_out_right" then _spaces_gaps_out_right = tonumber(_val); _spaces_gaps_out_right_set = true end
-    if _key == "gaps_out_bottom" then _spaces_gaps_out_bottom = tonumber(_val); _spaces_gaps_out_bottom_set = true end
-    if _key == "waybar" then _spaces_waybar_legacy = tonumber(_val) end
-    if _key == "waybar_top" then _spaces_waybar_top = tonumber(_val); _spaces_waybar_top_set = true end
-    if _key == "waybar_left" then _spaces_waybar_left = tonumber(_val); _spaces_waybar_left_set = true end
-    if _key == "waybar_right" then _spaces_waybar_right = tonumber(_val); _spaces_waybar_right_set = true end
-    if _key == "waybar_bottom" then _spaces_waybar_bottom = tonumber(_val); _spaces_waybar_bottom_set = true end
+    if _key == "gaps_in" then
+      theme.gaps_in = tonumber(_val)
+    end
+    if _key == "gaps_out" then
+      _spaces_gaps_out_legacy = tonumber(_val)
+    end
+    if _key == "gaps_out_top" then
+      _spaces_gaps_out_top = tonumber(_val)
+      _spaces_gaps_out_top_set = true
+    end
+    if _key == "gaps_out_left" then
+      _spaces_gaps_out_left = tonumber(_val)
+      _spaces_gaps_out_left_set = true
+    end
+    if _key == "gaps_out_right" then
+      _spaces_gaps_out_right = tonumber(_val)
+      _spaces_gaps_out_right_set = true
+    end
+    if _key == "gaps_out_bottom" then
+      _spaces_gaps_out_bottom = tonumber(_val)
+      _spaces_gaps_out_bottom_set = true
+    end
+    if _key == "waybar" then
+      _spaces_waybar_legacy = tonumber(_val)
+    end
+    if _key == "waybar_top" then
+      _spaces_waybar_top = tonumber(_val)
+      _spaces_waybar_top_set = true
+    end
+    if _key == "waybar_left" then
+      _spaces_waybar_left = tonumber(_val)
+      _spaces_waybar_left_set = true
+    end
+    if _key == "waybar_right" then
+      _spaces_waybar_right = tonumber(_val)
+      _spaces_waybar_right_set = true
+    end
+    if _key == "waybar_bottom" then
+      _spaces_waybar_bottom = tonumber(_val)
+      _spaces_waybar_bottom_set = true
+    end
     local _pos_key, _pos_val = _line:match("^([%w_]+)=([%a]+)$")
-    if _pos_key == "waybar_pos" and (_pos_val == "top" or _pos_val == "bottom") then _spaces_waybar_pos = _pos_val end
+    if _pos_key == "waybar_pos" and (_pos_val == "top" or _pos_val == "bottom") then
+      _spaces_waybar_pos = _pos_val
+    end
   end
   _spaces_file:close()
 end
 
 if _spaces_waybar_legacy then
-  if not _spaces_waybar_top_set then _spaces_waybar_top = _spaces_waybar_legacy end
-  if not _spaces_waybar_left_set then _spaces_waybar_left = _spaces_waybar_legacy end
-  if not _spaces_waybar_right_set then _spaces_waybar_right = _spaces_waybar_legacy end
-  if not _spaces_waybar_bottom_set then _spaces_waybar_bottom = _spaces_waybar_legacy end
+  if not _spaces_waybar_top_set then
+    _spaces_waybar_top = _spaces_waybar_legacy
+  end
+  if not _spaces_waybar_left_set then
+    _spaces_waybar_left = _spaces_waybar_legacy
+  end
+  if not _spaces_waybar_right_set then
+    _spaces_waybar_right = _spaces_waybar_legacy
+  end
+  if not _spaces_waybar_bottom_set then
+    _spaces_waybar_bottom = _spaces_waybar_legacy
+  end
 end
 
 if _spaces_gaps_out_legacy then
-  if not _spaces_gaps_out_top_set then _spaces_gaps_out_top = _spaces_gaps_out_legacy end
-  if not _spaces_gaps_out_left_set then _spaces_gaps_out_left = _spaces_gaps_out_legacy end
-  if not _spaces_gaps_out_right_set then _spaces_gaps_out_right = _spaces_gaps_out_legacy end
-  if not _spaces_gaps_out_bottom_set then _spaces_gaps_out_bottom = _spaces_gaps_out_legacy end
+  if not _spaces_gaps_out_top_set then
+    _spaces_gaps_out_top = _spaces_gaps_out_legacy
+  end
+  if not _spaces_gaps_out_left_set then
+    _spaces_gaps_out_left = _spaces_gaps_out_legacy
+  end
+  if not _spaces_gaps_out_right_set then
+    _spaces_gaps_out_right = _spaces_gaps_out_legacy
+  end
+  if not _spaces_gaps_out_bottom_set then
+    _spaces_gaps_out_bottom = _spaces_gaps_out_legacy
+  end
 end
 
 -- spaces-switch.sh materializes this derived file before startup/reload. Lua
@@ -344,18 +391,30 @@ local _spaces_effective_left
 if _effective_spaces_file then
   for _line in _effective_spaces_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
-    if _key == "effective_top" then _spaces_effective_top = tonumber(_val) end
-    if _key == "effective_right" then _spaces_effective_right = tonumber(_val) end
-    if _key == "effective_bottom" then _spaces_effective_bottom = tonumber(_val) end
-    if _key == "effective_left" then _spaces_effective_left = tonumber(_val) end
+    if _key == "effective_top" then
+      _spaces_effective_top = tonumber(_val)
+    end
+    if _key == "effective_right" then
+      _spaces_effective_right = tonumber(_val)
+    end
+    if _key == "effective_bottom" then
+      _spaces_effective_bottom = tonumber(_val)
+    end
+    if _key == "effective_left" then
+      _spaces_effective_left = tonumber(_val)
+    end
   end
   _effective_spaces_file:close()
 end
 
 -- Bootstrap normally creates the generated file. Keep a deterministic
 -- fallback for a direct compositor start before the first session prepare.
-if not _spaces_effective_top or not _spaces_effective_right or
-   not _spaces_effective_bottom or not _spaces_effective_left then
+if
+  not _spaces_effective_top
+  or not _spaces_effective_right
+  or not _spaces_effective_bottom
+  or not _spaces_effective_left
+then
   _spaces_effective_top = _spaces_gaps_out_top
   _spaces_effective_right = _spaces_gaps_out_right
   _spaces_effective_bottom = _spaces_gaps_out_bottom
@@ -388,9 +447,15 @@ local _borders_thickness = 1
 if _borders_file then
   for _line in _borders_file:lines() do
     local _key, _val = _line:match("^([%w_]+)=(%d+)$")
-    if _key == "rounded" then _borders_rounded = tonumber(_val) end
-    if _key == "rounding" then _borders_rounding = tonumber(_val) end
-    if _key == "thickness" then _borders_thickness = tonumber(_val) end
+    if _key == "rounded" then
+      _borders_rounded = tonumber(_val)
+    end
+    if _key == "rounding" then
+      _borders_rounding = tonumber(_val)
+    end
+    if _key == "thickness" then
+      _borders_thickness = tonumber(_val)
+    end
   end
   _borders_file:close()
 end
@@ -405,33 +470,11 @@ end
 theme.border_size = math.min(math.max(_borders_thickness, 0), 10)
 
 -- Virtual machine compatibility -------------------------------------------------------------------
--- ARGVUS_VIRTUALIZATION is published by argvus-start and is the authoritative
--- answer for the running session. Only probe systemd-detect-virt when it is
--- absent. Both report the literal "none" on a physical machine, so that string
--- must never be treated as a VM: doing so silently turned every effect off
--- (animations, transparency, blur, shadows) and forced software rendering.
-local function _is_virtual_machine()
-  local published = os.getenv("ARGVUS_VIRTUALIZATION")
-  if published and published ~= "" then
-    return published ~= "none"
-  end
-
-  local pipe = io.popen("systemd-detect-virt --vm 2>/dev/null")
-  if not pipe then
-    return false
-  end
-
-  local virt = pipe:read("*l")
-  pipe:close()
-
-  if not virt or virt == "" or virt == "none" then
-    return false
-  end
-
-  return true
-end
-
-local _is_vm = _is_virtual_machine()
+-- argvus-config decides virtual machine state (ARGVUS_VIRTUALIZATION first, then
+-- systemd-detect-virt) and projects it into hypr/state.lua. It reports "none" on
+-- physical hardware as false, so physical machines keep every effect (animations,
+-- transparency, blur, shadows). The compositor spawns no process while loading.
+local _is_vm = _hypr_state.virtual_machine == true
 local _low_power_session = os.getenv("ARGVUS_LOW_POWER") == "1" or _is_vm
 local _legacy_effects_state = _read_first_line({
   _data_home .. "/state/effects",
@@ -448,23 +491,23 @@ local function _component_enabled(component)
 end
 local _animations_enabled = _component_enabled("animations")
 local _transparency_enabled = _component_enabled("transparency")
-local function _canonical_value(pointer)
-  local pipe = io.popen("argvus config get " .. pointer .. " --effective --raw 2>/dev/null")
-  if not pipe then return nil end
-  local value = pipe:read("*l")
-  pipe:close()
-  return value
+-- Effective effect values projected from the canonical document into hypr/state.lua.
+local function _effect_state(key)
+  local effects = _hypr_state.effects
+  return effects and effects[key]
 end
-local _global_blur_enabled = _canonical_value("/effects/blur_global_enabled")
-  ~= "false"
+local _global_blur_enabled = _effect_state("blur_global_enabled") ~= false
 local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
 
 -- Hyprland decoration:blur parameters, read as-is from effects.blur_* in config.json.
 -- Each value is clamped to the range the schema accepts; a missing or invalid value
 -- falls back to the default written by argvus-config.
 local function _blur_number(key, minimum, maximum, fallback)
-  local value = tonumber(_canonical_value("/effects/" .. key))
-  if not value then return fallback end
+  local raw = _effect_state(key)
+  local value = raw ~= nil and tonumber(raw) or nil
+  if not value then
+    return fallback
+  end
   return math.min(math.max(value, minimum), maximum)
 end
 local _blur_settings = {
@@ -502,7 +545,9 @@ end
 
 local function _theme_effect_enabled(key, fallback)
   local file = io.open(_theme_effects_path, "r")
-  if not file then return fallback end
+  if not file then
+    return fallback
+  end
   for line in file:lines() do
     local name, value = line:match("^([^=]+)=(%S+)$")
     if name == key .. ".enabled" then
@@ -539,7 +584,7 @@ hl.monitor({
   scale = 1,
 })
 
--- Generated monitor state (produced by argvus-display / nwg-displays adapter)
+-- Generated monitor state (projected by argvus-config from /displays)
 local _generated_monitors = _generated_config .. "/hypr/monitors.lua"
 if _path_exists(_generated_monitors) then
   local _ok, _err = pcall(dofile, _generated_monitors)
@@ -636,9 +681,18 @@ end
 -- Default File Manager: the state may hold a TUI (runs in the terminal) or a
 -- GUI file manager. TUI ones launch through the terminal like the old spf.
 local _tui_file_managers = {
-  ["argvus --spf"] = true, ["argvus --yazy"] = true, ["argvus --yazi"] = true,
-  spf = true, superfile = true, yazi = true, ranger = true, lf = true,
-  joshuto = true, broot = true, mc = true, nnn = true,
+  ["argvus --spf"] = true,
+  ["argvus --yazy"] = true,
+  ["argvus --yazi"] = true,
+  spf = true,
+  superfile = true,
+  yazi = true,
+  ranger = true,
+  lf = true,
+  joshuto = true,
+  broot = true,
+  mc = true,
+  nnn = true,
 }
 local _argvus_file_manager_wrappers = {
   spf = "argvus --spf",
@@ -803,48 +857,66 @@ hl.window_rule({
 
 -- Animations --------------------------------------------------------------------------------------
 -- Each leaf reads its speed, curve and style from effects.animation_* in config.json, written by
--- effects-toggle.sh animations-settings. The values come from one argvus-config call, and a missing
--- or invalid value falls back to the default written by argvus-config. A leaf without an enabled
--- switch follows the global animations state.
-local _effects_document = nil
+-- `argvus effects-toggle animations-settings`. The values come from hypr/state.lua, projected by
+-- argvus-config. A missing or invalid value falls back to the default written by argvus-config.
+-- A leaf without an enabled switch follows the global animations state.
+-- Values are returned as text, as the callers compare and convert them.
 local function _effect_value(key)
-  if _effects_document == nil then
-    local pipe = io.popen("argvus config get /effects --effective 2>/dev/null")
-    _effects_document = pipe and pipe:read("*a") or ""
-    if pipe then pipe:close() end
+  local raw = _effect_state(key)
+  if raw == nil then
+    return nil
   end
-  local raw = _effects_document:match('"' .. key .. '"%s*:%s*([^,\n}]+)')
-  if raw == nil then return nil end
-  raw = raw:gsub("%s+$", "")
-  return (raw:gsub('^"(.*)"$', "%1"))
+  return tostring(raw)
 end
 local function _animation_number(key, minimum, maximum, fallback)
   local value = tonumber(_effect_value("animation_" .. key))
-  if not value then return fallback end
+  if not value then
+    return fallback
+  end
   return math.min(math.max(value, minimum), maximum)
 end
 local function _animation_flag(key, fallback)
   local value = _effect_value("animation_" .. key)
-  if value == "true" then return true end
-  if value == "false" then return false end
+  if value == "true" then
+    return true
+  end
+  if value == "false" then
+    return false
+  end
   return fallback
 end
 local function _animation_choice(key, choices, fallback)
   local value = _effect_value("animation_" .. key)
-  if value and choices[value] then return value end
+  if value and choices[value] then
+    return value
+  end
   return fallback
 end
 
 -- Styles Hyprland 0.56.2 accepts per leaf family. `popin` is refused by the workspace leaves and
 -- `fade` by the window leaves, so a choice outside its leaf's set falls back to the leaf default.
 local _window_styles = {
-  slide = true, popin = true, slidefade = true, slidevert = true, slidefadevert = true, gnomed = true,
+  slide = true,
+  popin = true,
+  slidefade = true,
+  slidevert = true,
+  slidefadevert = true,
+  gnomed = true,
 }
 local _layer_styles = {
-  slide = true, popin = true, fade = true, slidefade = true, slidevert = true, slidefadevert = true,
+  slide = true,
+  popin = true,
+  fade = true,
+  slidefade = true,
+  slidevert = true,
+  slidefadevert = true,
 }
 local _workspace_styles = {
-  slide = true, fade = true, slidefade = true, slidevert = true, slidefadevert = true,
+  slide = true,
+  fade = true,
+  slidefade = true,
+  slidevert = true,
+  slidefadevert = true,
 }
 local _animation_curves = { default = true, bezier = true, spring = true, linear = true, ease_out = true }
 local _animation_bezier_names = {
@@ -883,12 +955,49 @@ hl.curve("easy", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 
 -- values and the `argvus_default` curve. `styles`, `style` and `popin` are only set for leaves
 -- whose page has a Style row; `enabled` only for leaves with an Enabled switch.
 local _animation_leaves = {
-  { key = "opening", leaf = "windowsIn", styles = _window_styles, style = "popin", popin = 87, speed = 4.1, stock = "easy" },
-  { key = "closing", leaf = "windowsOut", styles = _window_styles, style = "popin", popin = 87, speed = 1.49, stock = "linear" },
+  {
+    key = "opening",
+    leaf = "windowsIn",
+    styles = _window_styles,
+    style = "popin",
+    popin = 87,
+    speed = 4.1,
+    stock = "easy",
+  },
+  {
+    key = "closing",
+    leaf = "windowsOut",
+    styles = _window_styles,
+    style = "popin",
+    popin = 87,
+    speed = 1.49,
+    stock = "linear",
+  },
   { key = "moving", leaf = "windowsMove", enabled = true, speed = 4.79, stock = "easy" },
-  { key = "switching", leaf = "workspaces", styles = _workspace_styles, style = "fade", speed = 1.94, stock = "almostLinear" },
-  { key = "workspace_in", leaf = "workspacesIn", styles = _workspace_styles, style = "fade", speed = 1.21, stock = "almostLinear" },
-  { key = "workspace_out", leaf = "workspacesOut", styles = _workspace_styles, style = "fade", speed = 1.94, stock = "almostLinear" },
+  {
+    key = "switching",
+    leaf = "workspaces",
+    styles = _workspace_styles,
+    style = "fade",
+    speed = 1.94,
+    stock = "almostLinear",
+  },
+  {
+    key = "workspace_in",
+    leaf = "workspacesIn",
+    styles = _workspace_styles,
+    style = "fade",
+    speed = 1.21,
+    stock = "almostLinear",
+  },
+  {
+    key = "workspace_out",
+    leaf = "workspacesOut",
+    styles = _workspace_styles,
+    style = "fade",
+    speed = 1.94,
+    stock = "almostLinear",
+  },
   { key = "special_workspace", leaf = "specialWorkspace", styles = _workspace_styles, style = "slide", speed = 5 },
   { key = "layers", leaf = "layers", enabled = true, speed = 3.81, stock = "easeOutQuint" },
   { key = "layers_in", leaf = "layersIn", styles = _layer_styles, style = "fade", speed = 4, stock = "easeOutQuint" },
@@ -1080,10 +1189,10 @@ _argvus_bind("navigation.alt_tab_next", "ALT + Tab", hl.dsp.exec_cmd("snappy-swi
 _argvus_bind("navigation.alt_tab_previous", "ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
-_argvus_bind("system.hyprland_cheatsheet", mod .. " + SHIFT + slash", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/cheatsheets.sh")) .. " hypr"))
+_argvus_bind("system.hyprland_cheatsheet", mod .. " + SHIFT + slash", hl.dsp.exec_cmd("argvus cheatsheets-hypr hypr"))
 
 -- Cheatsheets Kitty -------------------------------------------------------------------------------
-_argvus_bind("system.kitty_cheatsheet", mod .. " + CTRL + slash", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/cheatsheets.sh")) .. " kitty"))
+_argvus_bind("system.kitty_cheatsheet", mod .. " + CTRL + slash", hl.dsp.exec_cmd("argvus cheatsheets-launcher kitty"))
 
 -- About ARGVUS ------------------------------------------------------------------------------------
 _argvus_bind("system.about", mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
@@ -1092,50 +1201,60 @@ _argvus_bind("system.about", mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))
 _argvus_bind("app.terminal", mod .. " + Return", hl.dsp.exec_cmd(terminal))
 
 -- Terminal scratchpad (dropdown on a special workspace) -------------------------------------------
-_argvus_bind("app.scratchpad", mod .. " + bracketleft", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/scratchpad.sh"))))
+_argvus_bind("app.scratchpad", mod .. " + bracketleft", hl.dsp.exec_cmd("argvus scratchpad"))
 
 -- File Manager ------------------------------------------------------------------------------------
 _argvus_bind("app.file_manager", mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 
 -- System Monitor ----------------------------------------------------------------------------------
-_argvus_bind("app.system_monitor", mod .. " + CTRL + Space", hl.dsp.exec_cmd("argvus tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus system-monitor"))
+_argvus_bind(
+  "app.system_monitor",
+  mod .. " + CTRL + Space",
+  hl.dsp.exec_cmd(
+    "argvus tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus system-monitor"
+  )
+)
 
 -- Removable storage -------------------------------------------------------------------------------
 _argvus_bind("app.removable_devices", mod .. " + SHIFT + D", hl.dsp.exec_cmd("argvus --removable-devices"))
 
 -- Sidebar Settings --------------------------------------------------------------------------------
-_argvus_bind("widget.sidebar", mod .. " + comma", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))))
-_argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/toggle-sidebar.sh"))), { mouse = true })
+_argvus_bind("widget.sidebar", mod .. " + comma", hl.dsp.exec_cmd("argvus toggle-sidebar"))
+_argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd("argvus toggle-sidebar"), { mouse = true })
 
 -- Toggle Waybar top -------------------------------------------------------------------------------
-_argvus_bind("widget.taskbar_toggle", mod .. " + BackSpace", hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service"))
+_argvus_bind(
+  "widget.taskbar_toggle",
+  mod .. " + BackSpace",
+  hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service")
+)
 
 -- Wallpaper settings ------------------------------------------------------------------------------
 _argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd("argvus --control-center appearance wallpapers"))
 
 -- Theme switcher ----------------------------------------------------------------------------------
-_argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/theme-switch.sh"))))
+_argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd("argvus theme-switch"))
 
 -- Sticky/Float layout mode (independent of theme) --------------------------------------------------
 -- Named "layout_mode" rather than "mode" to avoid colliding with the
 -- pre-existing "appearance.mode" id, which toggles GTK light/dark.
-_argvus_bind("appearance.layout_mode", mod .. " + SHIFT + M", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/layout-mode-menu.sh"))))
+_argvus_bind("appearance.layout_mode", mod .. " + SHIFT + M", hl.dsp.exec_cmd("argvus layout-mode-menu"))
 
 -- Inactivity lock timeout -------------------------------------------------------------------------
-_argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/idle-timeout.sh"))))
-_argvus_bind("session.keep_awake", mod .. " + ALT + W", hl.dsp.exec_cmd(_sh(_config_path("power/sh/keep-awake.sh")) .. " toggle"))
+_argvus_bind("session.idle_timeout", mod .. " + SHIFT + L", hl.dsp.exec_cmd("argvus idle-timeout"))
+_argvus_bind("session.keep_awake", mod .. " + ALT + W", hl.dsp.exec_cmd("argvus keep-awake toggle"))
 
 -- Brightness --------------------------------------------------------------------------------------
-_argvus_bind("appearance.brightness", mod .. " + SHIFT + B", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/brightness-switch.sh"))))
+_argvus_bind("appearance.brightness", mod .. " + SHIFT + B", hl.dsp.exec_cmd("argvus brightness-switch"))
 
 -- Weather location --------------------------------------------------------------------------------
-_argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd(_sh(_config_path("control-panel/sh/weather-location.sh"))))
+_argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd("argvus weather-location"))
 
 -- ARGVUS Dark/Light theme toggle ------------------------------------------------------------------
-_argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd(_sh(_config_path("appearance/sh/toggle-mode.sh"))))
+_argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd("argvus toggle-mode"))
 
 -- Visual effects ----------------------------------------------------------------------------------
-_argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd(_sh(_config_path("session/sh/effects-toggle.sh")) .. " animations toggle"))
+_argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd("argvus effects-toggle animations toggle"))
 
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
@@ -1342,18 +1461,39 @@ for i = 1, 9 do
 end
 
 -- Volume ------------------------------------------------------------------------------------------
-_argvus_bind("session.volume_up",
+_argvus_bind(
+  "session.volume_up",
   "XF86AudioRaiseVolume",
   hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
   { locked = true, repeating = true }
 )
 -- Keep the remaining media defaults in the same override contract.
-_argvus_bind("session.volume_down", "XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
-_argvus_bind("session.mute", "XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+_argvus_bind(
+  "session.volume_down",
+  "XF86AudioLowerVolume",
+  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  { locked = true, repeating = true }
+)
+_argvus_bind(
+  "session.mute",
+  "XF86AudioMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+  { locked = true }
+)
 
 -- Brightness --------------------------------------------------------------------------------------
-_argvus_bind("session.brightness_up", "XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locked = true, repeating = true })
-_argvus_bind("session.brightness_down", "XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
+_argvus_bind(
+  "session.brightness_up",
+  "XF86MonBrightnessUp",
+  hl.dsp.exec_cmd("brightnessctl set +5%"),
+  { locked = true, repeating = true }
+)
+_argvus_bind(
+  "session.brightness_down",
+  "XF86MonBrightnessDown",
+  hl.dsp.exec_cmd("brightnessctl set 5%-"),
+  { locked = true, repeating = true }
+)
 
 -- Multimidia --------------------------------------------------------------------------------------
 _argvus_bind("session.play_pause", "XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
@@ -1375,17 +1515,31 @@ end
 _argvus_bind("app.browser", mod .. " + B", hl.dsp.exec_cmd(_browser_cmd))
 
 -- Screen recording --------------------------------------------------------------------------------
-_argvus_bind("record.toggle", mod .. " + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full"))
-_argvus_bind("record.stop", mod .. " + SHIFT + G", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --video-full-stop"))
+_argvus_bind("record.toggle", mod .. " + G", hl.dsp.exec_cmd("argvus hypr-screenshot --video-full"))
+_argvus_bind("record.stop", mod .. " + SHIFT + G", hl.dsp.exec_cmd("argvus hypr-screenshot --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
-_argvus_bind("system.clipboard", mod .. " + H", hl.dsp.exec_cmd("cliphist list | rofi -config " .. rofi_config .. " -dmenu -i -p \"$(argvus i18n get hyprland clipboard.search)\" | cliphist decode | wl-copy"))
-_argvus_bind("system.clipboard_clear", mod .. " + SHIFT + H", hl.dsp.exec_cmd('cliphist wipe && notify-send "$(argvus i18n get hyprland clipboard.title)" "$(argvus i18n get hyprland clipboard.history_erased)"'))
+_argvus_bind(
+  "system.clipboard",
+  mod .. " + H",
+  hl.dsp.exec_cmd(
+    "cliphist list | rofi -config "
+      .. rofi_config
+      .. ' -dmenu -i -p "$(argvus i18n get hyprland clipboard.search)" | cliphist decode | wl-copy'
+  )
+)
+_argvus_bind(
+  "system.clipboard_clear",
+  mod .. " + SHIFT + H",
+  hl.dsp.exec_cmd(
+    'cliphist wipe && notify-send "$(argvus i18n get hyprland clipboard.title)" "$(argvus i18n get hyprland clipboard.history_erased)"'
+  )
+)
 
 -- Screenshot / Print ------------------------------------------------------------------------------
-_argvus_bind("screenshot.region", "Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-region"))
-_argvus_bind("screenshot.window", mod .. " + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-window"))
-_argvus_bind("screenshot.fullscreen", mod .. " + SHIFT + Print", hl.dsp.exec_cmd(_sh(_config_path("hyprland/sh/hypr-screenshot.sh")) .. " --image-full"))
+_argvus_bind("screenshot.region", "Print", hl.dsp.exec_cmd("argvus hypr-screenshot --image-region"))
+_argvus_bind("screenshot.window", mod .. " + Print", hl.dsp.exec_cmd("argvus hypr-screenshot --image-window"))
+_argvus_bind("screenshot.fullscreen", mod .. " + SHIFT + Print", hl.dsp.exec_cmd("argvus hypr-screenshot --image-full"))
 
 -- Mode Resize Window (keyboard) -------------------------------------------------------------------
 local _in_resize = false
@@ -1419,10 +1573,30 @@ hl.define_submap("resize", function()
   _argvus_bind("resize.up", "up", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
 
   -- Move window
-  _argvus_bind("resize.move_right", "SHIFT + right", hl.dsp.window.move({ x = 20, y = 0, relative = true }), { repeating = true })
-  _argvus_bind("resize.move_left", "SHIFT + left", hl.dsp.window.move({ x = -20, y = 0, relative = true }), { repeating = true })
-  _argvus_bind("resize.move_down", "SHIFT + down", hl.dsp.window.move({ x = 0, y = 20, relative = true }), { repeating = true })
-  _argvus_bind("resize.move_up", "SHIFT + up", hl.dsp.window.move({ x = 0, y = -20, relative = true }), { repeating = true })
+  _argvus_bind(
+    "resize.move_right",
+    "SHIFT + right",
+    hl.dsp.window.move({ x = 20, y = 0, relative = true }),
+    { repeating = true }
+  )
+  _argvus_bind(
+    "resize.move_left",
+    "SHIFT + left",
+    hl.dsp.window.move({ x = -20, y = 0, relative = true }),
+    { repeating = true }
+  )
+  _argvus_bind(
+    "resize.move_down",
+    "SHIFT + down",
+    hl.dsp.window.move({ x = 0, y = 20, relative = true }),
+    { repeating = true }
+  )
+  _argvus_bind(
+    "resize.move_up",
+    "SHIFT + up",
+    hl.dsp.window.move({ x = 0, y = -20, relative = true }),
+    { repeating = true }
+  )
 
   -- Escape/Return: exits submap
   _argvus_bind("resize.cancel_escape", "escape", function()
@@ -1440,28 +1614,35 @@ _argvus_bind("window.drag_mouse", mod .. " + mouse:272", hl.dsp.window.drag(), {
 _argvus_bind("window.resize_mouse", mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Emoji picker ------------------------------------------------------------------------------------
-_argvus_bind("system.emoji_picker", mod .. " + period", hl.dsp.exec_cmd(_sh(_config_path("launcher/sh/emoji-picker.sh"))))
+_argvus_bind("system.emoji_picker", mod .. " + period", hl.dsp.exec_cmd("argvus emoji-picker"))
 
 -- Color Picker ------------------------------------------------------------------------------------
 _argvus_bind("system.color_picker", mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Calculator --------------------------------------------------------------------------------------
-_argvus_bind("app.calculator", mod .. " + C", hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort"))
+_argvus_bind(
+  "app.calculator",
+  mod .. " + C",
+  hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort")
+)
 
 -- Exit Hyprland -----------------------------------------------------------------------------------
-_argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh"))))
+_argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd("argvus hypr-power-menu"))
 
 -- Lock session ------------------------------------------------------------------------------------
-_argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd(_sh(_config_path("power/sh/hypr-power-menu.sh")) .. " --lock"))
+_argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd("argvus hypr-power-menu --lock"))
 
 -- Reload Hyprland ---------------------------------------------------------------------------------
 _argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus sessionctl reload"))
 
 -- Move the waybar status bar to the top/bottom ----------------------------------------------------
--- Use absolute paths so the bind works even when hyprland's env is minimal.
 -- Bind arrow keys to move the waybar; keep a single binding per direction
-_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos top"))
-_argvus_bind("widget.waybar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("sh /usr/share/argvus/hyprland/sh/spaces-switch.sh --set waybar_pos bottom"))
+_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus spaces-switch --set waybar_pos top"))
+_argvus_bind(
+  "widget.waybar_bottom",
+  mod .. " + ALT + down",
+  hl.dsp.exec_cmd("argvus spaces-switch --set waybar_pos bottom")
+)
 
 -- User overrides ----------------------------------------------------------------------------------
 -- monitors.lua: generated state loaded above, then user override takes precedence.

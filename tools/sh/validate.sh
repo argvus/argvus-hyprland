@@ -16,11 +16,22 @@ require_command() {
 require_command bash
 require_command makepkg
 require_command shellcheck
+require_command luac
+require_command stylua
 
 cd "$ROOT_DIR"
 
 shellcheck tools/sh/*.sh packaging/arch/common/*.sh
 bash -n tools/sh/*.sh packaging/arch/common/*.sh
+
+# Lua runs only inside Hyprland, so it is checked here by syntax (luac) and
+# formatting (stylua). Find, not a glob, so nested files are covered too.
+mapfile -t lua_files < <(find src -type f -name '*.lua' | sort)
+((${#lua_files[@]} > 0)) || die "no Lua files found under src/"
+for lua_file in "${lua_files[@]}"; do
+	luac -p "$lua_file" || die "Lua syntax error in $lua_file"
+done
+stylua --check "${lua_files[@]}" || die "Lua formatting differs from stylua.toml"
 
 metadata() {
 	bash -c '
