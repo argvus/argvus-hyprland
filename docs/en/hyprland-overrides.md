@@ -34,6 +34,8 @@ Use the files by responsibility:
 - `bindings.lua` — additional keybindings or custom actions.
 - `user.lua` — environment variables and other Lua configuration that does not fit the previous categories.
 
+A fragment with a Lua error does not stop the rest of the configuration. Hyprland skips that file, reports `ARGVUS: ignoring invalid user override` with its path and the error, and still loads the remaining fragments. Check a fragment with `luac -p` before reloading.
+
 Do not edit `/usr/share/argvus/hyprland/config/hyprland.lua`. It is package-owned and can be replaced by an update.
 
 ## Environment overrides

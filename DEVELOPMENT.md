@@ -30,12 +30,15 @@ build/         build outputs (git-ignored)
 Arch-based system with `make`, `git`, `gnupg` and the `base-devel` group.
 
 ```sh
-sudo pacman -S --needed base-devel git gnupg make pacman-contrib shellcheck
+sudo pacman -S --needed base-devel git gnupg make pacman-contrib shellcheck lua stylua
 ```
 
 - `pacman-contrib` provides `updpkgsums` (regenerates PKGBUILD checksums).
 - `shellcheck` validates the repository shell scripts and the shared Arch
   packaging functions.
+- `lua` provides `luac`, and `stylua` formats the Lua files. `make validate`
+  checks Hyprland Lua syntax with `luac -p` and formatting with
+  `stylua --check` (settings in `stylua.toml`).
 - Optional: `git-cliff` (changelog generation, `make changelog`), `namcap`
   (package linting), and cspell (local spellcheck). CI installs all of them.
 
@@ -77,7 +80,7 @@ make clean
 ## Validation
 
 ```sh
-make validate   # shellcheck, PKGBUILD parsing, and whitespace checks
+make validate   # shellcheck, Lua syntax and format, PKGBUILD parsing, and whitespace checks
 make lint       # local static checks
 make spellcheck # optional local cspell check
 ```

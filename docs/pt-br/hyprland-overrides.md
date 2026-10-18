@@ -35,6 +35,8 @@ Use os arquivos conforme a responsabilidade:
 * `bindings.lua` — novos keybindings ou ações personalizadas.
 * `user.lua` — variáveis de ambiente e outras configurações Lua que não pertencem às categorias anteriores.
 
+Um fragmento com erro de Lua não interrompe o restante da configuração. O Hyprland ignora esse arquivo, registra `ARGVUS: ignoring invalid user override` com o caminho e o erro, e continua carregando os demais fragmentos. Verifique um fragmento com `luac -p` antes de recarregar.
+
 Não edite `/usr/share/argvus/hyprland/config/hyprland.lua`. Ele pertence ao pacote e pode ser substituído por uma atualização.
 
 ## Overrides de ambiente
