@@ -74,6 +74,6 @@ As alterações são aplicadas pela integração de aparência e sessão do ARGV
 ## Relacionados
 
 * [Aparência](/pt/docs/user-guide/appearance/)
-* [Temas](/pt/docs/argvus-themes/)
+* [Temas](/pt/docs/user-guide/appearance/)
 * [Taskbar](/pt/docs/argvus-taskbar/taskbar/)
 * [Control Panel](/pt/docs/argvus-control-panel/)

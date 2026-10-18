@@ -3,7 +3,7 @@ title: Mouse and touchpad
 description: Configure pointer and touchpad behavior in ARGVUS.
 ---
 
-Open **Control Center → Locale & Region → Mouse & Touchpad**, or run `argvus-control-center input`.
+Open **Control Center → Locale & Region → Mouse & Touchpad**, or run `argvus control-center input`.
 
 ## Mouse
 

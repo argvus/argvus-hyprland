@@ -4,7 +4,7 @@ description: Consulte os atalhos da configuração Hyprland.
 slug: pt/0.4.0/docs/user-guide/desktop/keyboard-shortcuts
 ---
 
-Abra **Control Center → Localidade e região → Atalhos de teclado**, ou execute `argvus-control-center keybindings`.
+Abra **Control Center → Localidade e região → Atalhos de teclado**, ou execute `argvus control-center keybindings`.
 
 ## O que a página faz
 
@@ -30,8 +30,6 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 
 | Atalho | Descrição |
 | --- | --- |
-| `ALT + Tab` | Circular entre todas janelas |
-| `ALT + Shift + Tab` | Circular entre todas janelas |
 | `SUPER + Left Arrow` | Focar janela tileada por direção |
 | `SUPER + Right Arrow` | Focar janela tileada por direção |
 | `SUPER + Up Arrow` | Focar janela tileada por direção |

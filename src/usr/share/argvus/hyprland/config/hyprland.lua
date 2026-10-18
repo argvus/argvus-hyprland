@@ -1096,12 +1096,6 @@ hl.window_rule({
   size = "1399 920",
   center = true,
 })
-hl.window_rule({
-  match = { class = ".*pwvucontrol.*" },
-  float = true,
-  size = "700 450",
-  center = true,
-})
 -- Workspace placement for browsers and IDEs (argvus-config: hyprland.window_rules)
 for _, rule in ipairs(_load_generated_table("hypr/window-rules.lua") or {}) do
   for _, class in ipairs(rule.classes) do
@@ -1183,10 +1177,6 @@ hl.window_rule({
 })
 
 -- ================ Keybindings ================
-
--- Moving between windows (Using: snappy-switcher) -------------------------------------------------
-_argvus_bind("navigation.alt_tab_next", "ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
-_argvus_bind("navigation.alt_tab_previous", "ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
 _argvus_bind("system.hyprland_cheatsheet", mod .. " + SHIFT + slash", hl.dsp.exec_cmd("argvus cheatsheets-hypr hypr"))

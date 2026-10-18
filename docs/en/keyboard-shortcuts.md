@@ -3,7 +3,7 @@ title: Keyboard shortcuts
 description: Find the shortcuts provided by the ARGVUS Hyprland configuration.
 ---
 
-Open **Control Center → Locale & Region → Keyboard shortcuts**, or run `argvus-control-center keybindings`.
+Open **Control Center → Locale & Region → Keyboard shortcuts**, or run `argvus control-center keybindings`.
 
 ## What the page does
 
@@ -29,8 +29,6 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 
 | Shortcut | Description |
 | --- | --- |
-| `ALT + Tab` | Cycle through all windows |
-| `ALT + Shift + Tab` | Cycle through all windows |
 | `SUPER + Left Arrow` | Focus tiled window by direction |
 | `SUPER + Right Arrow` | Focus tiled window by direction |
 | `SUPER + Up Arrow` | Focus tiled window by direction |

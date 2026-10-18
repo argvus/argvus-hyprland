@@ -4,7 +4,7 @@ description: Configure o comportamento do ponteiro e do touchpad no ARGVUS.
 slug: pt/0.4.0/docs/user-guide/hardware/input
 ---
 
-Abra **Control Center → Localidade e região → Mouse e touchpad**, ou execute `argvus-control-center input`.
+Abra **Control Center → Localidade e região → Mouse e touchpad**, ou execute `argvus control-center input`.
 
 ## Mouse
 

@@ -1,8 +1,6 @@
 {
   "version": 1,
   "bindings": [
-    {"id":"navigation.alt_tab_next","category":"navigation","description_key":"keybindings.action.alt_tab_next","keys":"ALT + Tab","action":"snappy-switcher next --mod alt"},
-    {"id":"navigation.alt_tab_previous","category":"navigation","description_key":"keybindings.action.alt_tab_previous","keys":"ALT + SHIFT + Tab","action":"snappy-switcher prev --mod alt"},
     {"id":"system.hyprland_cheatsheet","category":"system","description_key":"keybindings.action.hyprland_cheatsheet","keys":"SUPER + SHIFT + slash","action":"argvus-hyprland-cheatsheet"},
     {"id":"system.kitty_cheatsheet","category":"system","description_key":"keybindings.action.kitty_cheatsheet","keys":"SUPER + CTRL + slash","action":"argvus-kitty-cheatsheet"},
     {"id":"system.about","category":"system","description_key":"keybindings.action.about","keys":"SUPER + F1","action":"argvus --about"},
