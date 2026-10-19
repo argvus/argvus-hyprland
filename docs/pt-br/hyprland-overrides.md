@@ -1,7 +1,6 @@
 ---
 title: Overrides do Hyprland
 description: Personalize a configuração Hyprland do ARGVUS sem editar arquivos empacotados.
-slug: pt/0.4.0/docs/user-guide/desktop/hyprland-overrides
 ---
 
 O ARGVUS oferece duas formas diferentes de personalizar o Hyprland. Elas não devem ser confundidas:

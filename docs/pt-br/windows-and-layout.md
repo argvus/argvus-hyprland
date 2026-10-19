@@ -1,7 +1,6 @@
 ---
 title: Janelas e layout
 description: Entenda gaps, bordas, modos e espaço dos painéis no ARGVUS.
-slug: pt/0.4.0/docs/user-guide/desktop/windows-and-layout
 ---
 
 O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os controles de layout ficam em três páginas do Control Center: **Control Center → Aparência → Barra de tarefas** (posição, espaçamentos e ícones), **Control Center → Desktop e entrada → Hyprland → Espaços das janelas** e **Control Center → Desktop e entrada → Hyprland → Bordas**.

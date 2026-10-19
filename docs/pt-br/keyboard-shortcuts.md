@@ -1,7 +1,6 @@
 ---
 title: Atalhos de teclado
 description: Consulte os atalhos da configuração Hyprland.
-slug: pt/0.4.0/docs/user-guide/desktop/keyboard-shortcuts
 ---
 
 Abra **Control Center → Localidade e região → Atalhos de teclado**, ou execute `argvus control-center keybindings`.
