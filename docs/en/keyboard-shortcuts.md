@@ -187,4 +187,4 @@ These shortcuts work only while resize mode is active. `Esc` or `Enter` leaves t
 | `Enter` | Exit resize mode |
 
 
-See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](/docs/argvus-control-center/) for the settings workflow.
+See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](/docs/components/argvus-control-center/) for the settings workflow.

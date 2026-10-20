@@ -187,4 +187,4 @@ Estes atalhos valem somente enquanto o modo redimensionar está ativo. `Esc` ou 
 | `Enter` | Sair modo redimensionar |
 
 
-Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para comportamento de janelas flutuantes e áreas de trabalho e [Control Center](/pt/docs/argvus-control-center/) para o fluxo de configurações.
+Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para comportamento de janelas flutuantes e áreas de trabalho e [Control Center](/pt/docs/components/argvus-control-center/) para o fluxo de configurações.

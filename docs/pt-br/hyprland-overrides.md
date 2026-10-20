@@ -80,7 +80,7 @@ hl.bind(
 O Control Center é o caminho preferencial para alterar ou desativar um binding existente do ARGVUS:
 
 ```sh
-argvus-control-center keybindings
+argvus control-center keybindings
 ```
 
 Essas alterações são salvas canonicamente em `/keyboard_shortcuts` e materializadas em `~/.config/argvus/data/generated/hypr/keybindings.lua`. Um binding criado manualmente em `bindings.lua` não é adicionado ao manifesto do Control Center e não é gerenciado pela ação de restauração dele.
@@ -122,4 +122,4 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 
 Os arquivos-fonte e helpers empacotados ficam em `/usr/share/argvus/hyprland/`. Os arquivos gerados em `~/.config/argvus/data/generated/` são estado derivado; altere a configuração responsável ou o fragmento de override em vez de editar a saída gerada diretamente.
 
-Veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/) para o fluxo do Control Center e [localizações de arquivos](../../reference/file-locations/) para a referência completa dos caminhos de configuração.
+Veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/) para o fluxo do Control Center e [localizações de arquivos](/pt/docs/reference/file-locations/) para a referência completa dos caminhos de configuração.
