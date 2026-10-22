@@ -40,7 +40,7 @@ ATALHO                          DESCRIÇÃO
 29 - SUPER + Shift + W          = Configura a localização do clima
 30 - SUPER + Shift + B          = Abre o seletor de brilho
 31 - SUPER + F5                 = Alterna entre os temas ARGVUS Dark e ARGVUS Light
-32 - SUPER + F6                 = Ativa/Desativa animações
+32 - SUPER + F6                 = Ativa/Desativa efeitos visuais
 33 - SUPER + F1                 = Abrir Sobre o ARGVUS
 34 - SUPER + l                  = Bloquear sistema
 35 - SUPER + Shift + S          = Desligar/Ligar monitor (não é suspender)

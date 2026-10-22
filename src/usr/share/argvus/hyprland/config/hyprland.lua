@@ -472,10 +472,10 @@ theme.border_size = math.min(math.max(_borders_thickness, 0), 10)
 -- Virtual machine compatibility -------------------------------------------------------------------
 -- argvus-config decides virtual machine state (ARGVUS_VIRTUALIZATION first, then
 -- systemd-detect-virt) and projects it into hypr/state.lua. It reports "none" on
--- physical hardware as false, so physical machines keep every effect (animations,
--- transparency, blur, shadows). The compositor spawns no process while loading.
+-- physical hardware as false. Virtual machines use software rendering but keep every
+-- effect (animations, transparency, blur, shadows) enabled unless the user turns it off.
+-- The compositor spawns no process while loading.
 local _is_vm = _hypr_state.virtual_machine == true
-local _low_power_session = os.getenv("ARGVUS_LOW_POWER") == "1" or _is_vm
 local _legacy_effects_state = _read_first_line({
   _data_home .. "/state/effects",
   _state_home .. "/state/effects",
@@ -487,17 +487,47 @@ local function _component_enabled(component)
     _state_home .. "/state/" .. component,
     _state_home .. "/" .. component,
   }) or _legacy_effects_state
-  return state == "enabled" or (state ~= "disabled" and not _low_power_session)
+  -- Every effect is on by default, on virtual machines too; only an explicit "disabled" turns it off.
+  return state ~= "disabled"
 end
-local _animations_enabled = _component_enabled("animations")
-local _transparency_enabled = _component_enabled("transparency")
 -- Effective effect values projected from the canonical document into hypr/state.lua.
 local function _effect_state(key)
   local effects = _hypr_state.effects
   return effects and effects[key]
 end
-local _global_blur_enabled = _effect_state("blur_global_enabled") ~= false
-local _blur_enabled = _component_enabled("blur") and _global_blur_enabled
+-- The canonical /effects flags decide first (they are what `argvus effects-toggle` writes).
+-- The legacy state files and the low-power default only answer when the flag is absent.
+local function _effect_flag(key, component)
+  local flag = _effect_state(key)
+  if type(flag) == "boolean" then
+    return flag
+  end
+  return _component_enabled(component)
+end
+-- Transparency is one switch per surface (/effects/transparency_<surface>_enabled). The
+-- compositor-side part (window shadows) follows the surfaces the EFFECTS switch covers and
+-- is on while at least one of them keeps its transparency on.
+local _effect_surfaces = { "taskbar", "control-panel", "widget-telemetry", "terminal", "launchers" }
+local function _transparency_flag()
+  local seen = false
+  for _, surface in ipairs(_effect_surfaces) do
+    local value = _effect_state("transparency_" .. surface .. "_enabled")
+    if type(value) == "boolean" then
+      if value then
+        return true
+      end
+      seen = true
+    end
+  end
+  if seen then
+    return false
+  end
+  return _component_enabled("transparency")
+end
+local _animations_enabled = _effect_flag("animations", "animations")
+local _transparency_enabled = _transparency_flag()
+local _blur_default = _effect_flag("blur_global_enabled", "blur")
+local _blur_enabled = _blur_default
 
 -- Hyprland decoration:blur parameters, read as-is from effects.blur_* in config.json.
 -- Each value is clamped to the range the schema accepts; a missing or invalid value
@@ -1069,7 +1099,6 @@ local _blur_layer_surfaces = {
 }
 
 if _blur_enabled then
-  local _blur_default = _component_enabled("blur")
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
     if surface == nil or _theme_effect_enabled(surface .. ".blur", _blur_default) then
@@ -1244,7 +1273,7 @@ _argvus_bind("widget.weather", mod .. " + SHIFT + W", hl.dsp.exec_cmd("argvus we
 _argvus_bind("appearance.mode", mod .. " + F5", hl.dsp.exec_cmd("argvus toggle-mode"))
 
 -- Visual effects ----------------------------------------------------------------------------------
-_argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd("argvus effects-toggle animations toggle"))
+_argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd("argvus effects-toggle toggle"))
 
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
@@ -1454,22 +1483,17 @@ end
 _argvus_bind(
   "session.volume_up",
   "XF86AudioRaiseVolume",
-  hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
+  hl.dsp.exec_cmd("argvus config audio volume +5 --limit 150"),
   { locked = true, repeating = true }
 )
 -- Keep the remaining media defaults in the same override contract.
 _argvus_bind(
   "session.volume_down",
   "XF86AudioLowerVolume",
-  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  hl.dsp.exec_cmd("argvus config audio volume -5"),
   { locked = true, repeating = true }
 )
-_argvus_bind(
-  "session.mute",
-  "XF86AudioMute",
-  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-  { locked = true }
-)
+_argvus_bind("session.mute", "XF86AudioMute", hl.dsp.exec_cmd("argvus config audio mute toggle"), { locked = true })
 
 -- Brightness --------------------------------------------------------------------------------------
 _argvus_bind(
