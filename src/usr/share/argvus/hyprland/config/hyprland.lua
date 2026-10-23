@@ -234,6 +234,12 @@ else
   print("ARGVUS: hypr/state.lua is missing; run `argvus config project`. Using default layout, accent and effects.")
 end
 local _layout_variant = _hypr_state.layout_variant == "float" and "float" or "sticky"
+-- Background of the loading splash for the active theme. Hyprland shows it between the
+-- login handoff surface and the session overlay, so the output keeps one color.
+local _splash_background = "rgb(16, 18, 24)"
+if type(_hypr_state.background_color) == "string" and _hypr_state.background_color:match("^rgb%(%x%x%x%x%x%x%)$") then
+  _splash_background = _hypr_state.background_color
+end
 local _theme_asset_name = _theme_name
 if _layout_variant == "float" and not _theme_name:match("%-float$") then
   _theme_asset_name = _theme_name .. "-float"
@@ -824,9 +830,9 @@ hl.config({
     force_default_wallpaper = 0,
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
-    -- The default splash fallback is #101218. Dynamic theme colors are drawn
-    -- by the layer-shell client once its first frame arrives.
-    background_color = "rgb(16, 18, 24)",
+    -- The splash background of the active theme (#101218 when unknown), so the
+    -- frames before the session overlay match the login spinner surfaces.
+    background_color = _splash_background,
     font_family = _argvus_font_family,
     splash_font_family = _argvus_font_family,
   },
