@@ -929,23 +929,19 @@ local function _animation_choice(key, choices, fallback)
   return fallback
 end
 
--- Styles Hyprland 0.56.2 accepts per leaf family. `popin` is refused by the workspace leaves and
--- `fade` by the window leaves, so a choice outside its leaf's set falls back to the leaf default.
+-- Styles that render per leaf family in Hyprland 0.56.2. The compositor also accepts the slide
+-- variants on the window and layer leaves, but draws them as pop-in or plain slide, so they are not
+-- offered. `popin` is refused by the workspace leaves and `fade` by the window leaves, so a choice
+-- outside its leaf's set falls back to the leaf default.
 local _window_styles = {
   slide = true,
   popin = true,
-  slidefade = true,
-  slidevert = true,
-  slidefadevert = true,
   gnomed = true,
 }
 local _layer_styles = {
   slide = true,
   popin = true,
   fade = true,
-  slidefade = true,
-  slidevert = true,
-  slidefadevert = true,
 }
 local _workspace_styles = {
   slide = true,
@@ -962,18 +958,19 @@ local _animation_bezier_names = {
 }
 
 hl.curve("argvus_default", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+-- Y points are limited to -1..2: Hyprland refuses any bezier coordinate outside that range.
 hl.curve("argvus_bezier", {
   type = "bezier",
   points = {
-    { _animation_number("bezier_x1", 0, 1, 0.05), _animation_number("bezier_y1", -2, 3, 0.9) },
-    { _animation_number("bezier_x2", 0, 1, 0.1), _animation_number("bezier_y2", -2, 3, 1.05) },
+    { _animation_number("bezier_x1", 0, 1, 0.23), _animation_number("bezier_y1", -1, 2, 1) },
+    { _animation_number("bezier_x2", 0, 1, 0.32), _animation_number("bezier_y2", -1, 2, 1) },
   },
 })
 hl.curve("argvus_spring", {
   type = "spring",
   mass = _animation_number("spring_mass", 0.5, 10, 1),
-  stiffness = _animation_number("spring_stiffness", 0.5, 2000, 238.119),
-  dampening = _animation_number("spring_dampening", 0.5, 200, 24.213),
+  stiffness = _animation_number("spring_stiffness", 0.5, 2000, 238.1191),
+  dampening = _animation_number("spring_dampening", 0.5, 200, 24.21279333),
 })
 hl.curve("argvus_linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("argvus_ease_out", { type = "bezier", points = { { 0, 0 }, { 0.58, 1 } } })
@@ -1011,18 +1008,10 @@ local _animation_leaves = {
   },
   { key = "moving", leaf = "windowsMove", enabled = true, speed = 4.79, stock = "easy" },
   {
-    key = "switching",
-    leaf = "workspaces",
-    styles = _workspace_styles,
-    style = "fade",
-    speed = 1.94,
-    stock = "almostLinear",
-  },
-  {
     key = "workspace_in",
     leaf = "workspacesIn",
     styles = _workspace_styles,
-    style = "fade",
+    style = "slide",
     speed = 1.21,
     stock = "almostLinear",
   },
@@ -1030,14 +1019,13 @@ local _animation_leaves = {
     key = "workspace_out",
     leaf = "workspacesOut",
     styles = _workspace_styles,
-    style = "fade",
+    style = "slide",
     speed = 1.94,
     stock = "almostLinear",
   },
   { key = "special_workspace", leaf = "specialWorkspace", styles = _workspace_styles, style = "slide", speed = 5 },
-  { key = "layers", leaf = "layers", enabled = true, speed = 3.81, stock = "easeOutQuint" },
-  { key = "layers_in", leaf = "layersIn", styles = _layer_styles, style = "fade", speed = 4, stock = "easeOutQuint" },
-  { key = "layers_out", leaf = "layersOut", styles = _layer_styles, style = "fade", speed = 1.5, stock = "linear" },
+  { key = "layers_in", leaf = "layersIn", styles = _layer_styles, style = "slide", speed = 4, stock = "easeOutQuint" },
+  { key = "layers_out", leaf = "layersOut", styles = _layer_styles, style = "slide", speed = 1.5, stock = "linear" },
   { key = "fade", leaf = "fade", enabled = true, speed = 3.03, stock = "quick" },
   { key = "fade_in", leaf = "fadeIn", enabled = true, speed = 1.73, stock = "almostLinear" },
   { key = "fade_out", leaf = "fadeOut", enabled = true, speed = 1.46, stock = "almostLinear" },
