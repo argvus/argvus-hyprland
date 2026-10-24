@@ -1,5 +1,19 @@
 # argvus-hyprland
 
+<div align="center">
+
+[![CI](https://github.com/argvus/argvus-hyprland/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/argvus/argvus-hyprland/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/argvus/argvus-hyprland)](./LICENSE)
+[![Language: Shell](https://img.shields.io/badge/Shell-POSIX-4EAA25?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Platform: Arch Linux | Wayland](https://img.shields.io/badge/platform-Arch%20Linux%20%7C%20Wayland-1793D1?logo=archlinux&logoColor=white)](https://archlinux.org/)
+[![Compositor: Hyprland 0.56.2](https://img.shields.io/badge/compositor-Hyprland%200.56.2-58E1FF)](https://hyprland.org/)
+[![Pull requests](https://img.shields.io/github/issues-pr/argvus/argvus-hyprland)](https://github.com/argvus/argvus-hyprland/pulls)
+[![Issues](https://img.shields.io/github/issues/argvus/argvus-hyprland)](https://github.com/argvus/argvus-hyprland/issues)
+[![Last commit](https://img.shields.io/github/last-commit/argvus/argvus-hyprland)](https://github.com/argvus/argvus-hyprland/commits/main)
+[![Docs](https://img.shields.io/badge/docs-project-blue)](./docs/)
+
+</div>
+
 Hyprland configuration and Hyprland-specific scripts for the ARGVUS desktop.
 
 The package owns the compositor configuration and assets under
