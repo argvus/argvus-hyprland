@@ -4,6 +4,8 @@
 # Keys: gaps_in, gaps_out_top, gaps_out_left, gaps_out_right, gaps_out_bottom,
 # waybar_top, waybar_left, waybar_right, waybar_bottom.
 # Values are user-controlled from 0 to 100 after each theme applies its mode reset.
+# ARGVUS_SKIP_WAYBAR_RESTART=1 leaves Waybar to the caller: the theme switch
+# restarts the bars it stopped, so a restart here would only start them early.
 # shellcheck disable=SC1090,SC1091,SC2034
 
 set -u
@@ -18,7 +20,6 @@ EFFECTIVE_FILE="$(paths_generated_config spaces-effective.conf)"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
 WAYBAR_CFG="$(paths_config taskbar/config/argvus-taskbar.jsonc)"
 WAYBAR_SYSINFO="$(paths_config widget-telemetry/config/argvus-widget-telemetry.jsonc)"
-THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
 DEFAULT_THEME="argvus-dark"
 MAX_VALUE=100
 SET_PERSIST=0
@@ -223,6 +224,7 @@ apply_gaps_runtime() {
 
 restart_waybar() {
   [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ] && return 0
+  [ "${ARGVUS_SKIP_WAYBAR_RESTART:-0}" = 1 ] && return 0
   command -v argvus >/dev/null 2>&1 || return 0
   argvus sessionctl restart waybar >/dev/null 2>&1 || true
 }

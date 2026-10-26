@@ -12,7 +12,6 @@ ARGVUS_MUTABLE_CONFIG=1
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 BORDERS_FILE="${STATE_DIR}/.borders"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
-THEMES_DIR="$(paths_config appearance/config/hypr/themes)"
 WAYBAR_CSS="$(paths_config taskbar/config/argvus-taskbar.css)"
 WAYBAR_SYSINFO_CSS="$(paths_config widget-telemetry/config/argvus-widget-telemetry.css)"
 ROFI_THEME="$(paths_config launcher/config/theme.rasi)"
@@ -130,8 +129,10 @@ apply_runtime() {
   command -v hyprctl >/dev/null 2>&1 || return 0
   _applied_rounding="$ROUNDING"
   [ "$ROUNDED" = 1 ] || _applied_rounding=0
-  hyprctl keyword general:border_size "$THICKNESS" >/dev/null 2>&1
-  hyprctl keyword decoration:rounding "$_applied_rounding" >/dev/null 2>&1
+  # `hyprctl keyword` is rejected by the Lua parser ("use eval"), so runtime
+  # borders go through `hyprctl eval`, the same config path as hyprland.lua.
+  hyprctl eval "hl.config({ general = { border_size = $THICKNESS }, decoration = { rounding = $_applied_rounding } })" \
+    >/dev/null 2>&1 || true
 }
 
 set_key() {

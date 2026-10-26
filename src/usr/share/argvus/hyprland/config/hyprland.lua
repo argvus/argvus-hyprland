@@ -245,13 +245,55 @@ if _layout_variant == "float" and not _theme_name:match("%-float$") then
   _theme_asset_name = _theme_name .. "-float"
 end
 
-local _theme_path = _first_existing({
-  _config_home .. "/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
-  _config_home .. "/argvus/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
-  _generated_config .. "/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
-  _system_config .. "/appearance/config/hypr/themes/" .. _theme_asset_name .. "/theme.lua",
-})
-local theme = dofile(_theme_path)
+-- The theme build (`argvus theme`) has the colours of the active theme and
+-- accent and the geometry of the layout. Its `build.toml` names the theme it
+-- was rendered for; a build of another theme is never used.
+local function _theme_build_file(relative)
+  local build = _generated_config .. "/theme/current"
+  local file = io.open(build .. "/build.toml", "r")
+  if not file then
+    return nil
+  end
+  local text = "\n" .. file:read("*a")
+  file:close()
+  local built_theme = text:match('\ntheme = "([^"]+)"')
+  if not built_theme then
+    return nil
+  end
+  if text:match('\nvariant = "float"') then
+    built_theme = built_theme .. "-float"
+  end
+  if built_theme ~= _theme_asset_name then
+    return nil
+  end
+  return build .. "/" .. relative
+end
+
+-- The colours of the ARGVUS Dark theme, until the session's first theme switch
+-- renders a build (`argvus theme-switch`, which also runs at login).
+local _default_theme = {
+  border_active = "rgba(3590bdff)",
+  border_inactive = "rgba(333647ff)",
+  groupbar_active = "rgba(3590bdff)",
+  groupbar_inactive = "rgba(333647cc)",
+  shadow_color = 0xcc000000,
+  shadow_color_inactive = 0x66111316,
+  rounding = 0,
+  rounding_power = 1,
+  gaps_in = 1,
+  gaps_out = 1,
+  border_size = 1,
+}
+local _built_theme = _theme_build_file("hypr/theme.lua")
+local theme = _default_theme
+if _built_theme then
+  local _loaded, _table = pcall(dofile, _built_theme)
+  if _loaded and type(_table) == "table" then
+    theme = _table
+  else
+    print("ARGVUS: " .. _built_theme .. " could not be loaded; using the ARGVUS Dark colours.")
+  end
+end
 
 -- Window spacing is also a mode reset. A theme may declare another value,
 -- but Sticky and Float both start from the ARGVUS mode contract.
