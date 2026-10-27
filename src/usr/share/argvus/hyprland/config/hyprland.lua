@@ -1138,6 +1138,10 @@ local _blur_layer_surfaces = {
 -- would show the compositor background around a half-visible spinner at login.
 hl.layer_rule({ match = { namespace = "argvus-loading-theme" }, no_anim = true })
 
+-- The slurp selection overlay must leave in one frame. With a layer slide or fade
+-- still running, grim captures the closing overlay together with the chosen area.
+hl.layer_rule({ match = { namespace = "selection" }, no_anim = true })
+
 if _blur_enabled then
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
