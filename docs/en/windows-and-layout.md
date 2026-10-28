@@ -43,6 +43,7 @@ Each control is independent and lives on the page listed here:
 - **Taskbar → Icons** — whether the taskbar utility group uses automatic or always-expanded behavior.
 - **Hyprland → Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
 - **Hyprland → Borders** — general borders: enable rounded corners; when enabled, rounding is selectable from `2` to `10`. Edge thickness is set here too, from `0` to `10`.
+- **Hyprland → Borders → Shadow** — the window shadow, off by default. It sets the range, render power, sharp corners, offsets and scale, and its color follows the theme accent with alpha `99` unless a color is typed.
 
 These values are written to ARGVUS appearance state, and `argvus-config` projects them into the generated Hyprland files that the session then applies. A taskbar margin changes the shell surface's position; an outer window gap changes the tiled window area. They can produce a similar visual distance, but changing one does not change the other.
 

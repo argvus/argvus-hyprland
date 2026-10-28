@@ -43,6 +43,7 @@ Cada controle é independente e fica na página indicada:
 * **Barra de tarefas → Ícones** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
 * **Hyprland → Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
 * **Hyprland → Bordas** — bordas gerais: ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`. A espessura da borda também fica aqui, de `0` a `10`.
+* **Hyprland → Bordas → Sombra** — a sombra das janelas, desligada por padrão. Define alcance, potência de renderização, cantos nítidos, deslocamentos e escala; a cor segue o destaque do tema com alfa `99`, a menos que uma cor seja digitada.
 
 Esses valores são escritos no estado de aparência do ARGVUS, e o `argvus-config` os projeta nos arquivos Hyprland gerados que a sessão aplica em seguida. Uma margem da taskbar muda a posição da superfície do shell; um gap externo muda a área das janelas lado a lado. Eles podem produzir uma distância visual parecida, mas alterar um não altera o outro.
 
