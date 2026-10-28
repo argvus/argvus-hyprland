@@ -552,28 +552,7 @@ local function _effect_flag(key, component)
   end
   return _component_enabled(component)
 end
--- Transparency is one switch per surface (/effects/transparency_<surface>_enabled). The
--- compositor-side part (window shadows) follows the surfaces the EFFECTS switch covers and
--- is on while at least one of them keeps its transparency on.
-local _effect_surfaces = { "taskbar", "control-panel", "widget-telemetry", "terminal", "launchers" }
-local function _transparency_flag()
-  local seen = false
-  for _, surface in ipairs(_effect_surfaces) do
-    local value = _effect_state("transparency_" .. surface .. "_enabled")
-    if type(value) == "boolean" then
-      if value then
-        return true
-      end
-      seen = true
-    end
-  end
-  if seen then
-    return false
-  end
-  return _component_enabled("transparency")
-end
 local _animations_enabled = _effect_flag("animations", "animations")
-local _transparency_enabled = _transparency_flag()
 local _blur_default = _effect_flag("blur_global_enabled", "blur")
 local _blur_enabled = _blur_default
 
@@ -596,6 +575,25 @@ local _blur_settings = {
   contrast = _blur_number("blur_contrast", 0, 2, 0.9),
   vibrancy = _blur_number("blur_vibrancy", 0, 1, 0.1),
   vibrancy_darkness = _blur_number("blur_vibrancy_darkness", 0, 1, 0),
+}
+
+-- Window shadow (decoration:shadow) parameters, read from effects.shadow_* in config.json.
+-- An empty shadow_color follows the accent of the active theme with a 99 alpha; a
+-- RRGGBBAA value from the Control Center is used as written. Hyprland takes colours
+-- as rgba(RRGGBBAA), so the hex digits are always wrapped here.
+local _accent_hex = theme.border_active and theme.border_active:match("rgba%((%x%x%x%x%x%x)") or "3590bd"
+local _shadow_color_setting = _effect_state("shadow_color")
+local _shadow_settings = {
+  enabled = _effect_state("shadow_enabled") == true,
+  sharp = _effect_state("shadow_sharp") == true,
+  range = math.floor(_blur_number("shadow_range", 0, 100, 6)),
+  render_power = math.floor(_blur_number("shadow_render_power", 1, 10, 6)),
+  offset_x = math.floor(_blur_number("shadow_offset_x", -100, 100, 0)),
+  offset_y = math.floor(_blur_number("shadow_offset_y", -100, 100, 0)),
+  scale = _blur_number("shadow_scale", 0, 1, 1),
+  color = "rgba("
+    .. ((type(_shadow_color_setting) == "string" and _shadow_color_setting:match("^%x%x%x%x%x%x%x%x$")) or (_accent_hex .. "99"))
+    .. ")",
 }
 
 local _theme_effects_path = _first_existing({
@@ -833,11 +831,14 @@ hl.config({
     dim_strength = 0.08,
 
     shadow = {
-      enabled = _transparency_enabled,
-      range = _transparency_enabled and 6 or 0,
-      render_power = 2,
-      color = theme.shadow_color,
+      enabled = _shadow_settings.enabled,
+      range = _shadow_settings.range,
+      render_power = _shadow_settings.render_power,
+      sharp = _shadow_settings.sharp,
+      color = _shadow_settings.color,
       color_inactive = theme.shadow_color_inactive,
+      offset = { _shadow_settings.offset_x, _shadow_settings.offset_y },
+      scale = _shadow_settings.scale,
     },
 
     blur = {
