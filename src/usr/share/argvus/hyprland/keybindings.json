@@ -9,6 +9,8 @@
     {"id":"app.file_manager","category":"applications","description_key":"keybindings.action.file_manager","keys":"SUPER + Space","action":"argvus --spf"},
     {"id":"app.system_monitor","category":"applications","description_key":"keybindings.action.system_monitor","keys":"SUPER + CTRL + Space","action":"argvus tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus system-monitor"},
     {"id":"app.removable_devices","category":"applications","description_key":"keybindings.action.removable_devices","keys":"SUPER + SHIFT + D","action":"argvus --removable-devices"},
+    {"id":"app.focus","category":"applications","description_key":"keybindings.action.focus","keys":"SUPER + SHIFT + F","action":"argvus focus"},
+    {"id":"app.clock","category":"applications","description_key":"keybindings.action.clock","keys":"SUPER + SHIFT + C","action":"argvus clock"},
     {"id":"app.launcher","category":"applications","description_key":"keybindings.action.launcher","keys":"SUPER + D","action":"argvus launcher"},
     {"id":"app.projects","category":"applications","description_key":"keybindings.action.projects","keys":"SUPER + O","action":"argvus projects"},
     {"id":"project.slot_1","category":"applications","description_key":"keybindings.action.project_slot","keys":"SUPER + ALT + 1","action":"argvus projects open 1"},

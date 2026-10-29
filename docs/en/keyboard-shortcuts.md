@@ -92,6 +92,8 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + Space` | File Manager |
 | `SUPER + CTRL + Space` | System monitor |
 | `SUPER + Shift + D` | Removable devices menu |
+| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
+| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
 | `SUPER + D` | Program Launcher |
 | `SUPER + B` | Default Browser |
 | `SUPER + C` | Calculator |

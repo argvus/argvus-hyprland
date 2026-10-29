@@ -51,6 +51,8 @@ These values are written to ARGVUS appearance state, and `argvus-config` project
 
 Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; `SUPER + SHIFT + Space` toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
 
+The packaged configuration opens the Control Center and Snake as floating, centered windows. ARGVUS Focus and ARGVUS Clock are GTK layer-shell popups anchored beside the taskbar, so they are not tiled windows and do not use Hyprland window rules. The Clock alarm card is a separate layer surface (`argvus-clock-alarm`).
+
 ### Workspace placement for browsers and IDEs
 
 No window rules are defined by default on a fresh install. You can add your own per-application workspace placement rules under `hyprland.window_rules` in `argvus-config`, for example:

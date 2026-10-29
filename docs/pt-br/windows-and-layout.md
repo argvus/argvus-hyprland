@@ -51,6 +51,8 @@ Esses valores são escritos no estado de aparência do ARGVUS, e o `argvus-confi
 
 Janelas tileadas são organizadas pelo Hyprland na área de trabalho ativa. O ARGVUS também suporta janelas utilitárias flutuantes; `SUPER + SHIFT + Space` alterna a janela em foco entre os layouts tileado e flutuante. Movimento entre áreas e foco de janelas são controlados pelo manifesto de atalhos ativo; veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/).
 
+A configuração do pacote abre o Control Center e o Snake como janelas flutuantes e centralizadas. ARGVUS Focus e ARGVUS Clock são popups GTK layer-shell ancorados junto à taskbar; não são janelas tileadas e não usam regras de janela do Hyprland. O cartão de alarme do Clock é uma superfície de camada separada (`argvus-clock-alarm`).
+
 ### Posicionamento de workspace para navegadores e IDEs
 
 Nenhuma regra de janela é definida por padrão em uma instalação nova. Você pode adicionar suas próprias regras de posicionamento por aplicativo em `hyprland.window_rules` no `argvus-config`, por exemplo:

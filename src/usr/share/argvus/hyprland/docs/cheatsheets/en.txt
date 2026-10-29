@@ -73,6 +73,8 @@ SHORTCUT                               DESCRIPTION
 57 - SUPER + Alt + s            = SSH host picker (argvus ssh)
 58 - SUPER + Alt + n            = Snippet picker (argvus snippets)
 59 - SUPER + Alt + g            = Project picker, then git TUI (argvus git)
+60 - SUPER + Shift + F          = ARGVUS Focus (Pomodoro and focus sessions)
+61 - SUPER + Shift + C          = ARGVUS Clock (clock, timers and alarms)
 
 Directories »
 -----------------------------------------------

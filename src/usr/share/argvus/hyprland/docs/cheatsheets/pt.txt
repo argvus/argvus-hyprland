@@ -73,6 +73,8 @@ ATALHO                                 DESCRIÇÃO
 57 - SUPER + Alt + s            = Seletor de hosts SSH (argvus ssh)
 58 - SUPER + Alt + n            = Seletor de snippets (argvus snippets)
 59 - SUPER + Alt + g            = Seletor de projetos e TUI de git (argvus git)
+60 - SUPER + Shift + F          = ARGVUS Focus (Pomodoro e sessões de foco)
+61 - SUPER + Shift + C          = ARGVUS Clock (relógio, temporizadores e alarmes)
 
 
 Diretórios »
