@@ -39,7 +39,7 @@ Esses são valores padrão, não limites. As páginas Espaços das janelas e Esp
 Cada controle é independente e fica na página indicada:
 
 * **Barra de tarefas → Posição** — borda superior ou inferior.
-* **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`.
+* **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`. Sticky usa margem inferior padrão `2`; Float usa `18`.
 * **Barra de tarefas → Ícones** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
 * **Hyprland → Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
 * **Hyprland → Bordas** — bordas gerais: ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`. A espessura da borda também fica aqui, de `0` a `10`.

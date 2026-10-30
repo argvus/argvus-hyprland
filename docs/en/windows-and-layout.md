@@ -39,7 +39,7 @@ These are defaults, not limits. The Window spaces and Taskbar spaces pages can s
 Each control is independent and lives on the page listed here:
 
 - **Taskbar → Position** — taskbar position, top or bottom edge.
-- **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`.
+- **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`. Sticky defaults the bottom margin to `2`; Float uses `18`.
 - **Taskbar → Icons** — whether the taskbar utility group uses automatic or always-expanded behavior.
 - **Hyprland → Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
 - **Hyprland → Borders** — general borders: enable rounded corners; when enabled, rounding is selectable from `2` to `10`. Edge thickness is set here too, from `0` to `10`.
