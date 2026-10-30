@@ -169,7 +169,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + Shift + M` | Abre o seletor de modo Sticky/Float |
 | `SUPER + F5` | Alterna entre os temas ARGVUS Dark e ARGVUS Light |
 | `SUPER + F6` | Ativa/Desativa animações |
-| `SUPER + Shift + B` | Abre o seletor de brilho |
+| `SUPER + Shift + B` | Abre o seletor de brilho e a ação de luz noturna |
 
 ### Modo redimensionar (após SUPER + R)
 
@@ -190,3 +190,7 @@ Estes atalhos valem somente enquanto o modo redimensionar está ativo. `Esc` ou 
 
 
 Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para comportamento de janelas flutuantes e áreas de trabalho e [Control Center](/pt/docs/components/argvus-control-center/) para o fluxo de configurações.
+
+## Luz noturna
+
+**SUPER + Shift + B** preserva a ação `appearance.brightness` no manifesto canônico de atalhos. O menu Rofi de brilho também oferece luz noturna quando o Hyprsunset está disponível. Configure temperatura (1000–20000 K) e horários locais em **Central de Controle > Área de trabalho e entrada > Monitores > Luz noturna**. A ação rápida usa a CLI compartilhada e não recarrega o Hyprland nem altera Lua gerado.

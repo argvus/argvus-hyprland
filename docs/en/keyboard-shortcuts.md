@@ -169,7 +169,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + Shift + M` | Open Sticky/Float mode picker |
 | `SUPER + F5` | Toggle between the ARGVUS Dark and ARGVUS Light themes |
 | `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector |
+| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
 
 ### Resize mode (after SUPER + R)
 
@@ -190,3 +190,7 @@ These shortcuts work only while resize mode is active. `Esc` or `Enter` leaves t
 
 
 See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating and workspace behavior and [Control Center](/docs/components/argvus-control-center/) for the settings workflow.
+
+## Night Light
+
+**SUPER + Shift + B** keeps the `appearance.brightness` action in the canonical keybinding manifest. Its Rofi brightness menu also offers Night Light when Hyprsunset is available. Configure temperature (1000–20000 K) and local start/end times in **Control Center > Desktop & Input > Displays > Night Light**. The quick action uses the shared CLI and does not reload Hyprland or change generated Lua.

@@ -38,7 +38,7 @@ ATALHO                          DESCRIÇÃO
 27 - SUPER + Shift + L          = Escolhe o tempo de bloqueio por inatividade
 28 - SUPER + Alt + w            = Ativa/Desativa manter acordado
 29 - SUPER + Shift + W          = Configura a localização do clima
-30 - SUPER + Shift + B          = Abre o seletor de brilho
+30 - SUPER + Shift + B          = Abre o seletor de brilho e a ação de luz noturna
 31 - SUPER + F5                 = Alterna entre os temas ARGVUS Dark e ARGVUS Light
 32 - SUPER + F6                 = Ativa/Desativa efeitos visuais
 33 - SUPER + F1                 = Abrir Sobre o ARGVUS

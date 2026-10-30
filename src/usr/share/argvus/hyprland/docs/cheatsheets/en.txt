@@ -38,7 +38,7 @@ SHORTCUT                        DESCRIPTION
 27 - SUPER + Shift + L          = Choose the inactivity lock timeout
 28 - SUPER + Alt + w            = Toggle Keep Awake
 29 - SUPER + Shift + W          = Configures the weather location
-30 - SUPER + Shift + B          = Opens the brightness selector
+30 - SUPER + Shift + B          = Opens the brightness selector and Night Light toggle
 31 - SUPER + F5                 = Toggles between ARGVUS Dark and ARGVUS Light themes
 32 - SUPER + F6                 = Toggle visual effects
 33 - SUPER + F1                 = Open About ARGVUS
