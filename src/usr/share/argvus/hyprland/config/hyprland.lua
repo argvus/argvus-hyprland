@@ -1223,7 +1223,9 @@ hl.window_rule({
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "nwg-displays" }, float = true, size =
 "1100 768", center = true })
-hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true })
+-- Keep dialogs opened by the full-screen Control Panel modal above its layer surface.
+hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true, center = true, pin = true })
+hl.window_rule({ match = { class = "kdialog|org.kde.kdialog" }, float = true, center = true, pin = true })
 hl.window_rule({
   match = { class = "argvus-cpu|argvus-mem|argvus-taskbar-cpu|argvus-taskbar-mem|cpu-temp-popup|gpu-temp-popup" },
   float = true,
