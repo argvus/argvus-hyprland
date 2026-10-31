@@ -123,3 +123,5 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 Os arquivos-fonte e helpers empacotados ficam em `/usr/share/argvus/hyprland/`. Os arquivos gerados em `~/.config/argvus/data/generated/` são estado derivado; altere a configuração responsável ou o fragmento de override em vez de editar a saída gerada diretamente.
 
 Veja [Atalhos de teclado](/pt/docs/argvus-hyprland/keyboard-shortcuts/) para o fluxo do Control Center e [localizações de arquivos](/pt/docs/reference/file-locations/) para a referência completa dos caminhos de configuração.
+
+A potência de renderização da sombra é limitada a 1–4 (padrão 4) antes de configurar o Hyprland, inclusive nas projeções antigas de efeitos. Isso impede que valores aceitos por versões anteriores do ARGVUS bloqueiem a inicialização no Hyprland 0.57.

@@ -600,7 +600,7 @@ local _shadow_settings = {
   enabled = _effect_state("shadow_enabled") == true,
   sharp = _effect_state("shadow_sharp") == true,
   range = math.floor(_blur_number("shadow_range", 0, 100, 6)),
-  render_power = math.floor(_blur_number("shadow_render_power", 1, 10, 6)),
+  render_power = math.floor(_blur_number("shadow_render_power", 1, 4, 4)),
   offset_x = math.floor(_blur_number("shadow_offset_x", -100, 100, 0)),
   offset_y = math.floor(_blur_number("shadow_offset_y", -100, 100, 0)),
   scale = _blur_number("shadow_scale", 0, 1, 1),
