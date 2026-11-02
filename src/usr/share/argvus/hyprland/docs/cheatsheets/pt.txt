@@ -75,6 +75,7 @@ ATALHO                                 DESCRIÇÃO
 59 - SUPER + Alt + g            = Seletor de projetos e TUI de git (argvus git)
 60 - SUPER + Shift + F          = ARGVUS Focus (Pomodoro e sessões de foco)
 61 - SUPER + Shift + C          = ARGVUS Clock (relógio, temporizadores e alarmes)
+62 - SUPER + A                  = Seletor de agentes de IA (pacote opcional argvus-ai)
 
 
 Diretórios »
@@ -87,4 +88,3 @@ ARGVUS Log Session:     $HOME/.local/state/argvus/session.log
 ARGVUS Storage:         $HOME/.config/argvus/data/removable-devices/
 Configs da Waybar:      $HOME/.config/argvus/data/waybar/
 Configs do Quickshell:  $HOME/.config/argvus/data/quickshell/
-

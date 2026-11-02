@@ -194,3 +194,9 @@ Veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/) para compo
 ## Luz noturna
 
 **SUPER + Shift + B** preserva a ação `appearance.brightness` no manifesto canônico de atalhos. O menu Rofi de brilho também oferece luz noturna quando o Hyprsunset está disponível. Configure temperatura (1000–20000 K) e horários locais em **Central de Controle > Área de trabalho e entrada > Monitores > Luz noturna**. A ação rápida usa a CLI compartilhada e não recarrega o Hyprland nem altera Lua gerado.
+
+
+Com argvus-ai instalado, SUPER + A abre o menu de agentes de IA. O atalho respeita overrides app.ai e deixa de ser carregado após remoção do pacote e reload do compositor. Até o reload, a ação protegida fica inativa.
+
+
+O pacote opcional argvus-ai fornece /usr/share/argvus/ai/hyprland.lua. O Hyprland carrega esse módulo de forma protegida antes dos overrides do usuário; sem o módulo, o bind desaparece no reload. O pacote Hyprland fornece um hook Pacman que atualiza somente o timestamp da configuração do sistema após instalação/atualização/remoção do módulo, acionando o autoreload nativo. Se o autoreload estiver desabilitado ou houver uma configuração raiz própria, recarregue essa configuração explicitamente. O catálogo do Control Center inclui app.ai com a mesma combinação e descrição traduzida; o bind permanece inativo sem o módulo opcional.

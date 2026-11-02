@@ -194,3 +194,9 @@ See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating
 ## Night Light
 
 **SUPER + Shift + B** keeps the `appearance.brightness` action in the canonical keybinding manifest. Its Rofi brightness menu also offers Night Light when Hyprsunset is available. Configure temperature (1000–20000 K) and local start/end times in **Control Center > Desktop & Input > Displays > Night Light**. The quick action uses the shared CLI and does not reload Hyprland or change generated Lua.
+
+
+With the optional argvus-ai package installed, SUPER + A opens the AI agents menu. The binding respects app.ai user overrides and disappears after package removal and compositor reload. Until reload the guarded action is inactive.
+
+
+The optional argvus-ai package owns /usr/share/argvus/ai/hyprland.lua. Hyprland loads it safely before user overrides; removing the module removes its bind on reload. The Hyprland package provides a Pacman hook which touches only the system configuration timestamp after module installation/upgrade/removal, triggering native autoreload. If autoreload is disabled or a separate user root config is used, reload that configuration explicitly. The Control Center catalog includes app.ai with the same default keys and localized label; the binding remains inactive without the optional module.

@@ -75,6 +75,7 @@ SHORTCUT                               DESCRIPTION
 59 - SUPER + Alt + g            = Project picker, then git TUI (argvus git)
 60 - SUPER + Shift + F          = ARGVUS Focus (Pomodoro and focus sessions)
 61 - SUPER + Shift + C          = ARGVUS Clock (clock, timers and alarms)
+62 - SUPER + A                  = AI agent selector (optional argvus-ai package)
 
 Directories »
 -----------------------------------------------
@@ -86,4 +87,3 @@ ARGVUS session logs:   $HOME/.local/state/argvus/session.log
 ARGVUS storage:        $HOME/.config/argvus/data/removable-devices/
 Waybar configs:        $HOME/.config/argvus/data/waybar/
 Quickshell configs:    $HOME/.config/argvus/data/quickshell/
-

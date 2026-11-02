@@ -1763,6 +1763,18 @@ _argvus_bind(
 
 -- User overrides ----------------------------------------------------------------------------------
 -- monitors.lua: generated state loaded above, then user override takes precedence.
+-- The optional package owns its binding module. Missing modules are normal.
+local _ai_module = _system_config .. "/ai/hyprland.lua"
+if _path_exists(_ai_module) then
+  local ok, err = pcall(function()
+    local register = dofile(_ai_module)
+    register(_argvus_bind, mod)
+  end)
+  if not ok then
+    print("ARGVUS: ignoring invalid optional module " .. _ai_module .. ": " .. tostring(err))
+  end
+end
+
 _load_user_override("monitors.lua")
 _load_user_override("rules.lua")
 _load_user_override("bindings.lua")

@@ -11,6 +11,7 @@
     {"id":"app.removable_devices","category":"applications","description_key":"keybindings.action.removable_devices","keys":"SUPER + SHIFT + D","action":"argvus --removable-devices"},
     {"id":"app.focus","category":"applications","description_key":"keybindings.action.focus","keys":"SUPER + SHIFT + F","action":"argvus focus"},
     {"id":"app.clock","category":"applications","description_key":"keybindings.action.clock","keys":"SUPER + SHIFT + C","action":"argvus clock"},
+    {"id":"app.ai","category":"applications","description_key":"control_center.keybindings.action.ai","keys":"SUPER + A","action":"argvus-ai menu"},
     {"id":"app.launcher","category":"applications","description_key":"keybindings.action.launcher","keys":"SUPER + D","action":"argvus launcher"},
     {"id":"app.projects","category":"applications","description_key":"keybindings.action.projects","keys":"SUPER + O","action":"argvus projects"},
     {"id":"project.slot_1","category":"applications","description_key":"keybindings.action.project_slot","keys":"SUPER + ALT + 1","action":"argvus projects open 1"},

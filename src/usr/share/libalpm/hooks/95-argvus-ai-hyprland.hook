@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Path
+Target = usr/share/argvus/ai/hyprland.lua
+
+[Action]
+Description = Refreshing optional ARGVUS AI Hyprland bindings...
+When = PostTransaction
+Exec = /usr/bin/touch --no-create /usr/share/argvus/hyprland/config/hyprland.lua

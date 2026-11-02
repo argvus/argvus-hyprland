@@ -30,6 +30,7 @@ arch_check_hyprland_payload() {
 
 	test -f "${source_root}/src/usr/share/argvus/hyprland/config/hyprland.lua"
 	test -f "${source_root}/src/usr/share/argvus/hyprland/keybindings.json"
+	test -f "${source_root}/src/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook"
 	jq -e '
       (.version == 1) and (.bindings | type == "array") and
       (all(.bindings[]; (.id | type == "string" and length > 0) and
@@ -52,6 +53,8 @@ arch_package_hyprland_payload() {
 	cp -a "${source_root}/src/usr/share/argvus/hyprland/." \
 		"${pkgdir}/usr/share/argvus/hyprland/"
 	find "${pkgdir}/usr/share/argvus/hyprland" -type f -name '*.sh' -exec chmod 755 {} +
+	install -Dm644 "${source_root}/src/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook" \
+		"${pkgdir}/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook"
 	install -Dm644 "${source_root}/LICENSE" \
 		"${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
