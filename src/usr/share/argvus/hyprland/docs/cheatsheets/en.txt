@@ -60,7 +60,7 @@ SHORTCUT                               DESCRIPTION
 44 - SUPER + d                  = Program Launcher
 45 - SUPER + c                  = Calculator
 46 - SUPER + Ctrl + /?          = Kitty Cheatsheets
-47 - SUPER + Shift + /?         = ARGVUS Cheatsheets
+47 - SUPER + Shift + ?          = ARGVUS Cheatsheets
 48 - SUPER + h                  = Clipboard History
 49 - SUPER + Shift + H          = Clear Clipboard History
 50 - SUPER + p                  = Color Picker

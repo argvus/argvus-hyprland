@@ -1,7 +1,7 @@
 {
   "version": 1,
   "bindings": [
-    {"id":"system.hyprland_cheatsheet","category":"system","description_key":"keybindings.action.hyprland_cheatsheet","keys":"SUPER + SHIFT + slash","action":"argvus cheatsheets-hypr hypr"},
+    {"id":"system.hyprland_cheatsheet","category":"system","description_key":"keybindings.action.hyprland_cheatsheet","keys":"SUPER + SHIFT + question","action":"argvus cheatsheets-hypr hypr"},
     {"id":"system.kitty_cheatsheet","category":"system","description_key":"keybindings.action.kitty_cheatsheet","keys":"SUPER + CTRL + slash","action":"argvus-kitty-cheatsheet"},
     {"id":"system.about","category":"system","description_key":"keybindings.action.about","keys":"SUPER + F1","action":"argvus --about"},
     {"id":"app.terminal","category":"applications","description_key":"keybindings.action.terminal","keys":"SUPER + Return","action":"argvus terminal"},

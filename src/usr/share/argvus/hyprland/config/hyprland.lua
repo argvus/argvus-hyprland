@@ -1309,7 +1309,11 @@ hl.window_rule({
 -- ================ Keybindings ================
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
-_argvus_bind("system.hyprland_cheatsheet", mod .. " + SHIFT + slash", hl.dsp.exec_cmd("argvus cheatsheets-hypr hypr"))
+_argvus_bind(
+  "system.hyprland_cheatsheet",
+  mod .. " + SHIFT + question",
+  hl.dsp.exec_cmd("argvus cheatsheets-hypr hypr")
+)
 
 -- Cheatsheets Kitty -------------------------------------------------------------------------------
 _argvus_bind("system.kitty_cheatsheet", mod .. " + CTRL + slash", hl.dsp.exec_cmd("argvus cheatsheets-launcher kitty"))

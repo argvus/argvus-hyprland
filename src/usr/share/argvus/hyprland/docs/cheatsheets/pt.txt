@@ -60,7 +60,7 @@ ATALHO                                 DESCRIÇÃO
 44 - SUPER + d                  = Lançador de programas
 45 - SUPER + c                  = Calculadora
 46 - SUPER + Ctrl + /?          = Cheatsheets do Kitty
-47 - SUPER + Shift + /?         = Cheatsheets do ARGVUS
+47 - SUPER + Shift + ?          = Cheatsheets do ARGVUS
 48 - SUPER + h                  = Histórico no Clipboard
 49 - SUPER + Shift + H          = Apagar histórico do Clipboard
 50 - SUPER + p                  = Seletor de cores (Color Picker)
