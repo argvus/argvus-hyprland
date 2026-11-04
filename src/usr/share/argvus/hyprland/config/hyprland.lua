@@ -1247,7 +1247,9 @@ hl.window_rule({ match = { class = "nwg-displays" }, float = true, size = "1100 
 hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true, center = true, pin = true })
 hl.window_rule({ match = { class = "kdialog|org.kde.kdialog" }, float = true, center = true, pin = true })
 hl.window_rule({
-  match = { class = "argvus-cpu|argvus-mem|argvus-taskbar-cpu|argvus-taskbar-mem|cpu-temp-popup|gpu-temp-popup" },
+  match = {
+    class = "argvus-cpu|argvus-mem|argvus-taskbar-cpu|argvus-taskbar-mem|cpu-temp-popup|gpu-temp-popup|argvus-du",
+  },
   float = true,
   size = "1399 920",
   center = true,

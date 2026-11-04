@@ -51,7 +51,7 @@ These values are written to ARGVUS appearance state, and `argvus-config` project
 
 Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; `SUPER + SHIFT + Space` toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
 
-The packaged configuration opens the Control Center and Snake as floating, centered windows. ARGVUS Focus and ARGVUS Clock are GTK layer-shell popups anchored beside the taskbar, so they are not tiled windows and do not use Hyprland window rules. The Clock alarm card is a separate layer surface (`argvus-clock-alarm`).
+The packaged configuration opens the Control Center, Snake and Disk Usage Analyzer as floating, centered windows. Disk Usage Analyzer uses the same initial `1399 × 920` geometry as the taskbar memory popup, applied by its window class rule when the window opens. ARGVUS Focus and ARGVUS Clock are GTK layer-shell popups anchored beside the taskbar, so they are not tiled windows and do not use Hyprland window rules. The Clock alarm card is a separate layer surface (`argvus-clock-alarm`).
 
 The Control Panel uses a full-monitor layer surface while its modal is open. The packaged rules float, center and pin the Polkit agent, GTK portal and KDialog windows so dialogs launched by the panel stay above the modal and can receive input.
 
