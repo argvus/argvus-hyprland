@@ -55,6 +55,8 @@ The packaged configuration opens the Control Center, Snake and Disk Usage Analyz
 
 The Control Panel uses a full-monitor layer surface while its modal is open. The packaged rules float, center and pin the Polkit agent, GTK portal and KDialog windows so dialogs launched by the panel stay above the modal and can receive input.
 
+`hyprpicker`, opened with `SUPER + P`, does not use Hyprland animations. This exception affects only the color picker; other animations continue to follow the global settings.
+
 ### Workspace placement for browsers and IDEs
 
 No window rules are defined by default on a fresh install. You can add your own per-application workspace placement rules under `hyprland.window_rules` in `argvus-config`, for example:

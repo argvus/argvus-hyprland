@@ -55,6 +55,8 @@ A configuração do pacote abre o Control Center, o Snake e o Disk Usage Analyze
 
 O Control Panel usa uma superfície layer-shell em tela cheia enquanto o modal está aberto. As regras do pacote deixam flutuantes, centralizam e fixam as janelas do agente Polkit, do portal GTK e do KDialog para que os diálogos abertos pelo painel apareçam acima do modal e recebam entrada.
 
+O `hyprpicker`, aberto por `SUPER + P`, não usa animação do Hyprland. Essa exceção afeta apenas o seletor de cores; as demais animações continuam seguindo as configurações globais.
+
 ### Posicionamento de workspace para navegadores e IDEs
 
 Nenhuma regra de janela é definida por padrão em uma instalação nova. Você pode adicionar suas próprias regras de posicionamento por aplicativo em `hyprland.window_rules` no `argvus-config`, por exemplo:

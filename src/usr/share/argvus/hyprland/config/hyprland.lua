@@ -1206,6 +1206,9 @@ if _blur_enabled then
   end
 end
 
+-- The color picker is a layer surface; keep it immediate even when window animations are enabled.
+hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
+
 -- Window Rules  -----------------------------------------------------------------------------------
 -- Transparency is a client-side contract: any surface that wants the wallpaper
 -- visible behind it renders its own background with alpha from the
