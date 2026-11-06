@@ -1770,6 +1770,39 @@ _argvus_bind(
   hl.dsp.exec_cmd("argvus spaces-switch --set waybar_pos bottom")
 )
 
+-- User-created global shortcuts. Generated actions are data, never evaluated Lua.
+local _custom_shortcuts = _load_generated_table("hypr/custom-shortcuts.lua") or {}
+for id, binding in pairs(_custom_shortcuts) do
+  if type(binding) == "table" and binding.enabled == true then
+    local ok, err = pcall(function()
+      local action = binding.action
+      local dispatcher
+      if action.type == "command" then
+        dispatcher = hl.dsp.exec_cmd(action.command)
+      elseif action.type == "dispatcher" then
+        local factory = hl.dsp
+        for segment in action.dispatcher:gmatch("[^.]+") do
+          factory = factory[segment]
+        end
+        if type(factory) ~= "function" then
+          error("unsupported dispatcher: " .. action.dispatcher)
+        end
+        if action.arguments ~= nil then
+          dispatcher = factory(action.arguments)
+        else
+          dispatcher = factory()
+        end
+      else
+        error("unsupported shortcut action")
+      end
+      hl.bind(binding.keys, dispatcher)
+    end)
+    if not ok then
+      print("ARGVUS: could not register custom shortcut " .. id .. ": " .. tostring(err))
+    end
+  end
+end
+
 -- User overrides ----------------------------------------------------------------------------------
 -- monitors.lua: generated state loaded above, then user override takes precedence.
 -- The optional package owns its binding module. Missing modules are normal.

@@ -1,6 +1,9 @@
 ARGVUS Cheatsheets
 ====================
 
+Atalhos personalizados: Control Center > Desktop e entrada > Atalhos de Teclado > Criar atalhos.
+Gerencie em Todos os atalhos; a tabela abaixo lista os padrões empacotados.
+
 Atalhos do ambiente de Desktop »
 -------------------------------------------
 ATALHO                          DESCRIÇÃO

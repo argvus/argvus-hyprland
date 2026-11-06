@@ -3,15 +3,19 @@ title: Keyboard shortcuts
 description: Find the shortcuts provided by the ARGVUS Hyprland configuration.
 ---
 
-Open **Control Center → Locale & Region → Keyboard shortcuts**, or run `argvus control-center keybindings`.
+Open **Control Center → Desktop & Input → Keyboard Shortcuts**, or run `argvus control-center keybindings`.
 
 ## What the page does
 
-The page searches and groups the active keybinding manifest. You can select a binding, edit its key combination, capture a new combination, enable or disable a configurable binding and restore all shortcuts from the page's restore action. A shortcut must contain a non-modifier key; the editor normalizes names such as Super/Win, Ctrl, Alt, Shift, arrows, function keys and media keys. `SUPER + Y` opens **Control Center → Appearance → Wallpapers**.
+**All Shortcuts** searches and groups the active keybinding manifest. You can select a binding, edit its key combination, capture a new combination, enable or disable a configurable binding and restore all shortcuts from the page's restore action. A shortcut must contain a non-modifier key; the editor normalizes names such as Super/Win, Ctrl, Alt, Shift, arrows, function keys and media keys. `SUPER + Y` opens **Control Center → Appearance → Wallpapers**.
 
-Changes are stored in `config.json` under `/keyboard_shortcuts`; the generated Hyprland fragment is written below `~/.config/argvus/data/generated/hypr/`. A disabled shortcut is represented by `null`. Keys are stable English config keys, independent of the selected locale: a manifest ID such as `window.close` maps to `close_window`, while `window.drag_mouse` maps to `drag_window__floating_window_only`. The old `/hyprland/keybindings` section and `keybindings.toml` are migration-only. ARGVUS schedules a session reload only when the projection plan reports a real change.
+Official shortcut changes are stored in `$XDG_CONFIG_HOME/argvus/config/keyboard_shortcuts.json`, represented by `/keyboard_shortcuts` in the logical model; the generated Hyprland fragment is written below `~/.config/argvus/data/generated/hypr/`. A disabled shortcut is represented by `null`. Keys are stable English config keys, independent of the selected locale: a manifest ID such as `window.close` maps to `close_window`, while `window.drag_mouse` maps to `drag_window__floating_window_only`. The old `/hyprland/keybindings` section and `keybindings.toml` are migration-only. ARGVUS schedules a session reload only when the projection plan reports a real change.
 
-The editor changes bindings already present in the ARGVUS manifest. To add a completely new manual binding or compositor action, use [`bindings.lua`](/docs/argvus-hyprland/hyprland-overrides/) instead of editing the generated fragment.
+**Create Shortcuts** creates a global keyboard shortcut independently of the packaged manifest. Supply a description, keys and either a command or a supported Lua dispatcher (for example `window.float` with JSON arguments `{"action":"toggle"}`). **Create** saves and applies it, then selects it in **All Shortcuts → Custom Shortcuts**. Cancel or `Esc` discards the draft. Creation and capture do not execute the command.
+
+Custom shortcuts can be edited, enabled/disabled and deleted with confirmation. Conflicts with enabled shortcuts in the same context require replacement confirmation; protected bindings cannot be replaced. Restoring official defaults preserves custom records. If restoring would collide with an active custom shortcut, change or disable that custom shortcut first. Custom definitions are stored under `/hyprland/custom_shortcuts` in `$XDG_CONFIG_HOME/argvus/config/hyprland.json`. The generated `data/generated/hypr/custom-shortcuts.lua` is loaded with the existing protected loader; invalid registrations are logged without aborting the rest of the configuration. Save failures preserve the draft; application failures report that the record was saved and can be retried.
+
+Run `argvus control-center shortcuts create` or `argvus control-center shortcuts list` to open either page. For advanced submaps, mouse bindings or flags, [`bindings.lua`](/docs/argvus-hyprland/hyprland-overrides/) remains available. Never edit the generated fragments.
 
 ## Current reference
 

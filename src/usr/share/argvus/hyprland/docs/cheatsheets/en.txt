@@ -1,6 +1,9 @@
 ARGVUS Cheatsheets
 ====================
 
+Custom shortcuts: Control Center > Desktop & Input > Keyboard Shortcuts > Create Shortcuts.
+Manage them under All Shortcuts; the table below lists packaged defaults.
+
 Desktop Environment Shortcuts »
 --------------------------------------------------
 SHORTCUT                        DESCRIPTION

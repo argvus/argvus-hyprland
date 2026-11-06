@@ -3,15 +3,19 @@ title: Atalhos de teclado
 description: Consulte os atalhos da configuração Hyprland.
 ---
 
-Abra **Control Center → Localidade e região → Atalhos de teclado**, ou execute `argvus control-center keybindings`.
+Abra **Control Center → Desktop e entrada → Atalhos de Teclado**, ou execute `argvus control-center keybindings`.
 
 ## O que a página faz
 
-A página busca e agrupa o manifesto de atalhos ativo. Você pode selecionar um atalho, editar sua combinação, capturar uma nova combinação, ativar ou desativar um atalho configurável e restaurar todos os atalhos pela ação de restauração da página. Um atalho precisa conter uma tecla que não seja apenas modificador; o editor normaliza nomes como Super/Win, Ctrl, Alt, Shift, setas, teclas de função e teclas multimídia. `SUPER + Y` abre **Control Center → Appearance → Wallpapers**.
+**Todos os atalhos** busca e agrupa o manifesto de atalhos ativo. Você pode selecionar um atalho, editar sua combinação, capturar uma nova combinação, ativar ou desativar um atalho configurável e restaurar todos os atalhos pela ação de restauração da página. Um atalho precisa conter uma tecla que não seja apenas modificador; o editor normaliza nomes como Super/Win, Ctrl, Alt, Shift, setas, teclas de função e teclas multimídia. `SUPER + Y` abre **Control Center → Appearance → Wallpapers**.
 
-As alterações são salvas em `config.json`, em `/keyboard_shortcuts`; o fragmento Hyprland gerado fica em `~/.config/argvus/data/generated/hypr/`. Um atalho desativado é representado por `null`. As chaves são estáveis, em inglês e independentes do locale: um ID como `window.close` vira `close_window`, enquanto `window.drag_mouse` vira `drag_window__floating_window_only`. A seção antiga `/hyprland/keybindings` e `keybindings.toml` servem apenas como fontes de migração. O ARGVUS agenda reload da sessão somente quando o plano de projeção informa uma mudança real.
+As alterações de atalhos oficiais são salvas em `$XDG_CONFIG_HOME/argvus/config/keyboard_shortcuts.json`, representadas por `/keyboard_shortcuts` no modelo lógico; o fragmento Hyprland gerado fica em `~/.config/argvus/data/generated/hypr/`. Um atalho desativado é representado por `null`. As chaves são estáveis, em inglês e independentes do locale: um ID como `window.close` vira `close_window`, enquanto `window.drag_mouse` vira `drag_window__floating_window_only`. A seção antiga `/hyprland/keybindings` e `keybindings.toml` servem apenas como fontes de migração. O ARGVUS agenda reload da sessão somente quando o plano de projeção informa uma mudança real.
 
-O editor altera bindings que já existem no manifesto do ARGVUS. Para adicionar um binding manual completamente novo ou uma ação do compositor, use [`bindings.lua`](/pt/docs/argvus-hyprland/hyprland-overrides/) em vez de editar o fragmento gerado.
+**Criar atalhos** cria um atalho global de teclado independentemente do manifesto empacotado. Informe descrição, teclas e um comando ou dispatcher Lua suportado (por exemplo `window.float` com argumentos JSON `{"action":"toggle"}`). **Criar** salva e aplica o atalho, depois o seleciona em **Todos os atalhos → Atalhos personalizados**. Cancelar ou `Esc` descarta o rascunho. Criação e captura não executam o comando.
+
+Os personalizados podem ser editados, ativados/desativados e excluídos com confirmação. Conflitos com atalhos ativos no mesmo contexto pedem confirmação para substituir; bindings protegidos não podem ser substituídos. Restaurar padrões oficiais preserva os registros personalizados. Se a restauração causar colisão com um personalizado ativo, altere ou desative esse personalizado antes de restaurar. As definições ficam em `/hyprland/custom_shortcuts`, em `$XDG_CONFIG_HOME/argvus/config/hyprland.json`. O arquivo gerado `data/generated/hypr/custom-shortcuts.lua` usa o carregador protegido existente; falhas de registro são registradas no log sem interromper o restante da configuração. Falhas de gravação preservam o rascunho; falhas de aplicação informam que o registro foi salvo e permitem tentar novamente.
+
+Execute `argvus control-center shortcuts create` ou `argvus control-center shortcuts list` para abrir as subtelas. Para submaps, bindings do mouse ou flags avançadas, [`bindings.lua`](/pt/docs/argvus-hyprland/hyprland-overrides/) continua disponível. Nunca edite os fragmentos gerados.
 
 ## Referência atual
 
