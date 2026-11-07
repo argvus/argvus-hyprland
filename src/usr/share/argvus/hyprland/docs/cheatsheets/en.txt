@@ -72,7 +72,7 @@ SHORTCUT                               DESCRIPTION
 53 - SUPER + Alt + c            = Open ARGVUS Control Center
 54 - SUPER + [                  = Terminal scratchpad (dropdown; press again to hide)
 55 - SUPER + o                  = Project list (argvus projects)
-56 - SUPER + Alt + 1..9        = Project 1..9 (positions in the project list)
+56 - SUPER + Ctrl + 1..9        = Project 1..9 (positions in the project list)
 57 - SUPER + Alt + s            = SSH host picker (argvus ssh)
 58 - SUPER + Alt + n            = Snippet picker (argvus snippets)
 59 - SUPER + Alt + g            = Project picker, then git TUI (argvus git)

@@ -1397,9 +1397,9 @@ else
 end
 _argvus_bind("app.launcher", mod .. " + D", hl.dsp.exec_cmd(_launcher_cmd))
 _argvus_bind("app.projects", mod .. " + O", hl.dsp.exec_cmd("argvus projects"))
--- SUPER + ALT + N opens the Nth project listed by argvus projects, without the menu.
+-- SUPER + CTRL + N opens the Nth project listed by argvus projects, without the menu.
 for slot = 1, 9 do
-  _argvus_bind("project.slot_" .. slot, mod .. " + ALT + " .. slot, hl.dsp.exec_cmd("argvus projects open " .. slot))
+  _argvus_bind("project.slot_" .. slot, mod .. " + CTRL + " .. slot, hl.dsp.exec_cmd("argvus projects open " .. slot))
 end
 _argvus_bind("app.ssh", mod .. " + ALT + S", hl.dsp.exec_cmd("argvus ssh"))
 _argvus_bind("app.snippets", mod .. " + ALT + N", hl.dsp.exec_cmd("argvus snippets"))

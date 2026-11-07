@@ -72,7 +72,7 @@ ATALHO                                 DESCRIÇÃO
 53 - SUPER + Alt + c            = Abre o ARGVUS Control Center
 54 - SUPER + [                  = Terminal suspenso (dropdown; pressione de novo para ocultar)
 55 - SUPER + o                  = Lista de projetos (argvus projects)
-56 - SUPER + Alt + 1..9        = Projeto 1..9 (posições na lista de projetos)
+56 - SUPER + Ctrl + 1..9        = Projeto 1..9 (posições na lista de projetos)
 57 - SUPER + Alt + s            = Seletor de hosts SSH (argvus ssh)
 58 - SUPER + Alt + n            = Seletor de snippets (argvus snippets)
 59 - SUPER + Alt + g            = Seletor de projetos e TUI de git (argvus git)
