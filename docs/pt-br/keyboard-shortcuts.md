@@ -209,3 +209,5 @@ O pacote opcional argvus-ai fornece /usr/share/argvus/ai/hyprland.lua. O Hyprlan
 ## Terminal de pacotes
 
 Estas teclas se aplicam dentro de **Control Center > System Administration > Packages**, não globalmente no Hyprland. `F8` reabre o terminal da transação, `Esc` oculta sem parar o processo, `Shift+PageUp/PageDown` percorre o histórico, `Shift+End` volta à saída atual e `Ctrl+C` interrompe o processo em foco. O cheatsheet instalado inclui as mesmas teclas.
+
+Em Pacotes, `/` foca a barra **Buscar** do topo. `Enter` nela envia consultas de instalação aos repositórios/AUR; as listas de remoção e atualização filtram ao digitar. `↓` vai aos resultados, `↑` no primeiro resultado volta à busca e `Esc` na busca preserva a consulta e volta à lista. Enter num resultado executa a ação do pacote.

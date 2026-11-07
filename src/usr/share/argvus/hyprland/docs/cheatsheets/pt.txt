@@ -84,6 +84,10 @@ ATALHO                                 DESCRIÇÃO
 Control Center > Pacotes (dentro do aplicativo)
 -----------------------------------------------
 
+/                          = Focar a barra Buscar no topo de Pacotes
+Enter (Buscar)             = Buscar nos repositórios/AUR; confirmar filtro local
+Baixo / Cima no 1º resultado = Alternar entre busca e resultados
+Esc (Buscar)               = Voltar aos resultados preservando a consulta
 F8                         = Reabrir o terminal da transação
 Esc                        = Ocultar terminal; manter a transação em execução
 Shift + PageUp/PageDown    = Percorrer histórico do terminal

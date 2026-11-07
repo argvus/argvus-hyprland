@@ -83,6 +83,10 @@ SHORTCUT                               DESCRIPTION
 Control Center > Packages (inside the application)
 -----------------------------------------------
 
+/                          = Focus the top Search bar in Packages
+Enter (Search)             = Search Official/AUR; confirm a local filter
+Down / Up on first result  = Move between Search and results
+Esc (Search)               = Return to results and preserve the query
 F8                         = Reopen the transaction terminal
 Esc                        = Hide terminal; keep the transaction running
 Shift + PageUp/PageDown    = Scroll terminal history

@@ -209,3 +209,5 @@ The optional argvus-ai package owns /usr/share/argvus/ai/hyprland.lua. Hyprland 
 ## Packages terminal
 
 These keys apply inside **Control Center > System Administration > Packages**, rather than to Hyprland globally. `F8` reopens the transaction terminal, `Esc` hides it without stopping the process, `Shift+PageUp/PageDown` scroll history, `Shift+End` returns to live output and `Ctrl+C` interrupts the focused child. The installed cheatsheet includes the same keys.
+
+In Packages, `/` focuses the top **Search** bar. `Enter` there submits Official/AUR installation searches; removal and update lists filter as you type. `Down` moves to results, `Up` on the first result returns to Search, and `Esc` in Search preserves the query and returns to the list. Enter on a result performs its package action.
