@@ -204,3 +204,8 @@ With the optional argvus-ai package installed, SUPER + A opens the AI agents men
 
 
 The optional argvus-ai package owns /usr/share/argvus/ai/hyprland.lua. Hyprland loads it safely before user overrides; removing the module removes its bind on reload. The Hyprland package provides a Pacman hook which touches only the system configuration timestamp after module installation/upgrade/removal, triggering native autoreload. If autoreload is disabled or a separate user root config is used, reload that configuration explicitly. The Control Center catalog includes app.ai with the same default keys and localized label; the binding remains inactive without the optional module.
+
+
+## Packages terminal
+
+These keys apply inside **Control Center > System Administration > Packages**, rather than to Hyprland globally. `F8` reopens the transaction terminal, `Esc` hides it without stopping the process, `Shift+PageUp/PageDown` scroll history, `Shift+End` returns to live output and `Ctrl+C` interrupts the focused child. The installed cheatsheet includes the same keys.

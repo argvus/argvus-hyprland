@@ -81,6 +81,15 @@ ATALHO                                 DESCRIÇÃO
 62 - SUPER + A                  = Seletor de agentes de IA (pacote opcional argvus-ai)
 
 
+Control Center > Pacotes (dentro do aplicativo)
+-----------------------------------------------
+
+F8                         = Reabrir o terminal da transação
+Esc                        = Ocultar terminal; manter a transação em execução
+Shift + PageUp/PageDown    = Percorrer histórico do terminal
+Shift + End                = Voltar à saída atual do terminal
+Ctrl + C                   = Interromper o processo do terminal em foco
+
 Diretórios »
 -----------------------------------------------
 

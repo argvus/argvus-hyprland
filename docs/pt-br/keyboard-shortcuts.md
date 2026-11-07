@@ -204,3 +204,8 @@ Com argvus-ai instalado, SUPER + A abre o menu de agentes de IA. O atalho respei
 
 
 O pacote opcional argvus-ai fornece /usr/share/argvus/ai/hyprland.lua. O Hyprland carrega esse módulo de forma protegida antes dos overrides do usuário; sem o módulo, o bind desaparece no reload. O pacote Hyprland fornece um hook Pacman que atualiza somente o timestamp da configuração do sistema após instalação/atualização/remoção do módulo, acionando o autoreload nativo. Se o autoreload estiver desabilitado ou houver uma configuração raiz própria, recarregue essa configuração explicitamente. O catálogo do Control Center inclui app.ai com a mesma combinação e descrição traduzida; o bind permanece inativo sem o módulo opcional.
+
+
+## Terminal de pacotes
+
+Estas teclas se aplicam dentro de **Control Center > System Administration > Packages**, não globalmente no Hyprland. `F8` reabre o terminal da transação, `Esc` oculta sem parar o processo, `Shift+PageUp/PageDown` percorre o histórico, `Shift+End` volta à saída atual e `Ctrl+C` interrompe o processo em foco. O cheatsheet instalado inclui as mesmas teclas.

@@ -80,6 +80,15 @@ SHORTCUT                               DESCRIPTION
 61 - SUPER + Shift + C          = ARGVUS Clock (clock, timers and alarms)
 62 - SUPER + A                  = AI agent selector (optional argvus-ai package)
 
+Control Center > Packages (inside the application)
+-----------------------------------------------
+
+F8                         = Reopen the transaction terminal
+Esc                        = Hide terminal; keep the transaction running
+Shift + PageUp/PageDown    = Scroll terminal history
+Shift + End                = Return to live terminal output
+Ctrl + C                   = Interrupt the focused terminal process
+
 Directories »
 -----------------------------------------------
 
