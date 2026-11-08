@@ -3,7 +3,7 @@ title: Janelas e layout
 description: Entenda gaps, bordas, modos e espaço dos painéis no ARGVUS.
 ---
 
-O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os controles de layout ficam em três páginas do Control Center: **Control Center → Aparência → Barra de tarefas** (posição, espaçamentos e ícones), **Control Center → Desktop e entrada → Hyprland → Espaços das janelas** e **Control Center → Desktop e entrada → Hyprland → Bordas**.
+O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os controles de layout ficam em três páginas do Control Center: **Control Center → Aparência → Barra de tarefas** (posição, espaçamentos e ícones), **Control Center → Desktop e entrada → Hyprland → Janelas → Espaços** e **Control Center → Desktop e entrada → Hyprland → Bordas**.
 
 ## Os conceitos
 
@@ -41,7 +41,7 @@ Cada controle é independente e fica na página indicada:
 * **Barra de tarefas → Posição** — borda superior ou inferior.
 * **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`. Sticky usa margem inferior padrão `2`; Spaced usa `18`.
 * **Barra de tarefas → Ícones** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
-* **Hyprland → Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
+* **Hyprland → Janelas → Espaços** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
 * **Hyprland → Bordas** — bordas gerais: ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`. A espessura da borda também fica aqui, de `0` a `10`.
 * **Hyprland → Bordas → Sombra** — a sombra das janelas, desligada por padrão. Define alcance, potência de renderização, cantos nítidos, deslocamentos e escala; a cor segue o destaque do tema com alfa `99`, a menos que uma cor seja digitada.
 
@@ -113,7 +113,7 @@ que limita o valor a `2`, embora a documentação mais recente possa indicar `3`
 
 ## Modo global de janelas
 
-Abra **Control Center → Desktop e entrada → Hyprland → Regras de janelas** e escolha **Janelas em mosaico (padrão)** ou **Janelas flutuantes**. O mesmo seletor está disponível pelo ícone de modo de janelas no grupo de utilitários da taskbar.
+Abra **Control Center → Desktop e entrada → Hyprland → Janelas → Modo** e escolha **Janelas em mosaico (padrão)** ou **Janelas flutuantes**. O mesmo seletor está disponível pelo ícone de modo de janelas no grupo de utilitários da taskbar.
 
 A preferência vale para todos os monitores e workspaces e permanece após encerrar a sessão. O modo flutuante converte janelas existentes de aplicativos e novas janelas. O modo mosaico restaura apenas as janelas convertidas pela política; diálogos e outras janelas que já eram flutuantes permanecem assim. Uma janela explicitamente fixada durante o modo flutuante também permanece flutuante para preservar sua fixação. O layout em mosaico é recalculado; a árvore exata de divisões anterior não é restaurada.
 

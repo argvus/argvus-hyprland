@@ -3,7 +3,7 @@ title: Windows and layout
 description: Understand gaps, borders, modes and panel space in ARGVUS.
 ---
 
-ARGVUS uses Hyprland for tiled and floating window placement. The user-facing layout controls live in three Control Center pages: **Control Center → Appearance → Taskbar** (position, spaces and icons), **Control Center → Desktop & Input → Hyprland → Window spaces** and **Control Center → Desktop & Input → Hyprland → Borders**.
+ARGVUS uses Hyprland for tiled and floating window placement. The user-facing layout controls live in three Control Center pages: **Control Center → Appearance → Taskbar** (position, spaces and icons), **Control Center → Desktop & Input → Hyprland → Windows → Spaces** and **Control Center → Desktop & Input → Hyprland → Borders**.
 
 ## The concepts
 
@@ -41,7 +41,7 @@ Each control is independent and lives on the page listed here:
 - **Taskbar → Position** — taskbar position, top or bottom edge.
 - **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`. Sticky defaults the bottom margin to `2`; Spaced uses `18`.
 - **Taskbar → Icons** — whether the taskbar utility group uses automatic or always-expanded behavior.
-- **Hyprland → Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
+- **Hyprland → Windows → Spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
 - **Hyprland → Borders** — general borders: enable rounded corners; when enabled, rounding is selectable from `2` to `10`. Edge thickness is set here too, from `0` to `10`.
 - **Hyprland → Borders → Shadow** — the window shadow, off by default. It sets the range, render power, sharp corners, offsets and scale, and its color follows the theme accent with alpha `99` unless a color is typed.
 
@@ -112,7 +112,7 @@ which limits it to `2`, even though newer documentation may list `3`.
 
 ## Global window mode
 
-Open **Control Center → Desktop & Input → Hyprland → Window Rules** and select **Tile Windows (Default)** or **Floating Windows**. The same selector is available from the window-mode icon in the taskbar utility group.
+Open **Control Center → Desktop & Input → Hyprland → Windows → Mode** and select **Tile Windows (Default)** or **Floating Windows**. The same selector is available from the window-mode icon in the taskbar utility group.
 
 The preference applies to every monitor and workspace and is remembered after logout. Floating converts existing application windows and newly opened windows. Tile restores only windows that this policy converted; dialogs and other windows that were already floating remain floating. A window explicitly pinned while Floating is active also remains floating to preserve its pin. The tiled layout is recalculated; its exact previous split tree is not restored.
 
