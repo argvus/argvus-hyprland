@@ -49,6 +49,12 @@ arch_check_hyprland_payload() {
 arch_package_hyprland_payload() {
 	local source_root="${srcdir}/${pkgname}-${pkgver}"
 
+	install -Dm755 "${srcdir}/hyprland-plugins-${_plugins_commit}/hyprbars/hyprbars.so" \
+		"${pkgdir}/usr/lib/argvus/hyprland/hyprbars.so"
+	install -Dm644 "${srcdir}/hyprland-plugins-${_plugins_commit}/LICENSE" \
+		"${pkgdir}/usr/share/licenses/${pkgname}/hyprbars-LICENSE"
+	install -Dm644 "${source_root}/src/usr/share/argvus/theme/consumers.d/window-controls.toml" \
+		"${pkgdir}/usr/share/argvus/theme/consumers.d/window-controls.toml"
 	install -dm755 "${pkgdir}/usr/share/argvus/hyprland"
 	cp -a "${source_root}/src/usr/share/argvus/hyprland/." \
 		"${pkgdir}/usr/share/argvus/hyprland/"
@@ -57,4 +63,14 @@ arch_package_hyprland_payload() {
 		"${pkgdir}/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook"
 	install -Dm644 "${source_root}/LICENSE" \
 		"${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
+arch_prepare_hyprbars() {
+	local source_root="${srcdir}/${pkgname}-${pkgver}"
+  tar -xzf "${srcdir}/hyprbars-${_plugins_commit}.tar.gz" -C "$srcdir"
+  patch -Np1 -d "${srcdir}/hyprland-plugins-${_plugins_commit}" < "$source_root/packaging/arch/hyprbars-window-address.patch"
+}
+
+arch_build_hyprbars() {
+  make -C "${srcdir}/hyprland-plugins-${_plugins_commit}/hyprbars" all
 }

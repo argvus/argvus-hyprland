@@ -3,16 +3,16 @@ pkgname=argvus-hyprland
 pkgver=0.0.0
 pkgrel=1
 pkgdesc="Hyprland configuration and shell scripts for the ARGVUS desktop."
-arch=('any')
+arch=('x86_64')
 url="https://github.com/argvus/argvus-hyprland"
-license=('GPL-3.0-only')
+license=('GPL-3.0-only' 'BSD-3-Clause')
 depends=(
   'argvus-appearance'
   'argvus'
   'argvus-launcher'
   'bash'
   'gpu-screen-recorder'
-  'hyprland>=0.57.0'
+  'hyprland=0.57.0'
   'hyprshot'
   'jq'
   'libnotify'
@@ -26,11 +26,15 @@ optdepends=('argvus-session: session lifecycle controller used by reload keybind
 provides=('argvus-shell')
 conflicts=('argvus-shell')
 replaces=('argvus-shell')
+makedepends=('gcc' 'pkgconf' 'patch' 'hyprland=0.57.0')
+_plugins_commit=d2427d4d15b36df40468f5a58bbd67cdba19835d
 options=('!debug')
 source=(
   "${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz"
+  "hyprbars-${_plugins_commit}.tar.gz::https://codeload.github.com/hyprwm/hyprland-plugins/tar.gz/${_plugins_commit}"
 )
-sha256sums=()
+noextract=("hyprbars-${_plugins_commit}.tar.gz")
+sha256sums=('SKIP' '87ef50648c9b7bd6bf83d4fdf17ee3a76e72583819779c12b8c1ca86e28d2660')
 
 # shellcheck disable=SC1091
 _functions_file="${startdir:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)}/../common/functions.sh"
@@ -38,6 +42,11 @@ _functions_file="${startdir:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 
 prepare() {
   arch_normalize_source_tree
+  arch_prepare_hyprbars
+}
+
+build() {
+  arch_build_hyprbars
 }
 
 check() {

@@ -142,6 +142,10 @@ effective_values() {
   [ -n "$WAYBAR_LEFT" ] || WAYBAR_LEFT="$WAYBAR_LEFT_DEF"
   [ -n "$WAYBAR_RIGHT" ] || WAYBAR_RIGHT="$WAYBAR_RIGHT_DEF"
   [ -n "$WAYBAR_BOTTOM" ] || WAYBAR_BOTTOM="$WAYBAR_BOTTOM_DEF"
+  # Position is owned by the canonical Rust backend, including theme/reload
+  # adapters that still consume the legacy geometry file.
+  _canonical_pos="$(argvus config get /layout/taskbar/position --raw 2>/dev/null || true)"
+  case "$_canonical_pos" in top|bottom) WAYBAR_POS="$_canonical_pos" ;; esac
   [ -n "$WAYBAR_POS" ] || WAYBAR_POS="top"
 }
 
@@ -237,20 +241,12 @@ set_key() {
 
   case "$_key" in
     waybar_pos)
-      case "$_value" in
-        top|bottom)
-          WAYBAR_POS="$_value"
-          write_spaces
-          [ "$SET_PERSIST" -eq 1 ] && return 0
-          effective_values
-          write_effective_geometry || return $?
-          apply_waybar_margins
-          apply_gaps_runtime
-          restart_waybar
-          return 0
-          ;;
-        *) argvus_tr hyprland spaces.invalid_value_position "value=$_value" >&2; return 1 ;;
-      esac
+      if [ "$SET_PERSIST" -eq 1 ]; then
+        argvus windows position "$_value" --persist
+      else
+        argvus windows position "$_value"
+      fi
+      return $?
       ;;
   esac
 
@@ -292,6 +288,7 @@ reset_key() {
   read_state_values
   case "$_key" in
     all)
+      argvus windows position top --persist || return $?
       GAPS_IN=""
       GAPS_OUT_TOP=""; GAPS_OUT_LEFT=""; GAPS_OUT_RIGHT=""; GAPS_OUT_BOTTOM=""
       WAYBAR_TOP=""; WAYBAR_LEFT=""; WAYBAR_RIGHT=""; WAYBAR_BOTTOM=""
@@ -316,7 +313,7 @@ reset_key() {
         waybar_bottom) WAYBAR_BOTTOM="" ;;
       esac
       ;;
-    waybar_pos) WAYBAR_POS="" ;;
+    waybar_pos) argvus windows position top; return $? ;;
     *) argvus_tr hyprland spaces.invalid_key "key=$_key" >&2; return 1 ;;
   esac
   write_spaces

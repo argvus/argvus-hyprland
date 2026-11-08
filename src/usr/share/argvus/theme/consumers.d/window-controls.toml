@@ -1,0 +1,11 @@
+id = "window-controls"
+template = "hyprland/theme-template/window-controls.lua"
+output = "window-controls/colors.lua"
+reload_stage = "build"
+
+[reload]
+kind = "command"
+argv = ["argvus", "windows", "decorations"]
+
+[palette]
+window_controls_close = "#d9534f"

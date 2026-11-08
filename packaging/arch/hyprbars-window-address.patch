@@ -1,0 +1,74 @@
+--- a/hyprbars/barDeco.cpp
++++ b/hyprbars/barDeco.cpp
+@@ -190,6 +190,8 @@
+     }
+ }
+ 
++static std::string argvusWindowAction(std::string command, PHLWINDOW window);
++
+ void CHyprBar::handleDownEvent(Event::SCallbackInfo& info, std::optional<ITouch::SDownEvent> touchEvent) {
+     m_bTouchEv = touchEvent.has_value();
+     if (m_bTouchEv)
+@@ -252,7 +254,7 @@
+ 
+     if (!ON_DOUBLE_CLICK.empty() &&
+         std::chrono::duration_cast<std::chrono::milliseconds>(Time::steadyNow() - m_lastMouseDown).count() < 400 /* Arbitrary delay I found suitable */) {
+-        Config::Supplementary::executor()->spawn(ON_DOUBLE_CLICK);
++        Config::Supplementary::executor()->spawn(argvusWindowAction(ON_DOUBLE_CLICK, PWINDOW));
+         m_bDragPending = false;
+     } else {
+         m_lastMouseDown = Time::steadyNow();
+@@ -290,6 +292,21 @@
+     return;
+ }
+ 
++// Capture the clicked window before spawning a process. Focus may change before
++// an external command connects to IPC; commands must not target the new focus.
++static std::string argvusWindowAction(std::string command, PHLWINDOW window) {
++    if (!window)
++        return "";
++    const std::string token = "@ARGVUS_WINDOW@";
++    const auto address = std::format("0x{:x}", reinterpret_cast<uintptr_t>(window.get()));
++    size_t position = 0;
++    while ((position = command.find(token, position)) != std::string::npos) {
++        command.replace(position, token.size(), address);
++        position += address.size();
++    }
++    return command;
++}
++
+ bool CHyprBar::doButtonPress(Config::INTEGER barPadding, Config::INTEGER barButtonPadding, Config::INTEGER barHeight, Vector2D COORDS, const bool BUTTONSRIGHT) {
+     //check if on a button
+     float offset = barPadding;
+@@ -300,7 +317,7 @@
+ 
+         if (VECINRECT(COORDS, currentPos.x, currentPos.y, currentPos.x + b.size + barButtonPadding, currentPos.y + b.size)) {
+             // hit on close
+-            Config::Supplementary::executor()->spawn(b.cmd);
++            Config::Supplementary::executor()->spawn(argvusWindowAction(b.cmd, m_pWindow.lock()));
+             return true;
+         }
+ 
+--- a/hyprbars/main.cpp
++++ b/hyprbars/main.cpp
+@@ -63,6 +63,12 @@
+ 
+     (*BARIT)->updateRules();
+     window->updateWindowData();
++}
++
++static int clearArgvusButtons(lua_State* L) {
++    (void)L;
++    g_pGlobalState->buttons.clear();
++    return 0;
+ }
+ 
+ int newLuaButton(lua_State* L) {
+@@ -218,6 +224,7 @@
+     HyprlandAPI::addConfigValueV2(PHANDLE, g_pGlobalState->config.onDoubleClick);
+ 
+     HyprlandAPI::addLuaFunction(PHANDLE, "hyprbars", "add_button", ::newLuaButton);
++    HyprlandAPI::addLuaFunction(PHANDLE, "hyprbars", "clear_buttons", ::clearArgvusButtons);
+     HyprlandAPI::addLuaFunction(PHANDLE, "hyprbars", "set_title", ::setLuaTitle);
+ 
+     static auto P4 = Event::bus()->m_events.config.preReload.listen([&] { onPreConfigReload(); });

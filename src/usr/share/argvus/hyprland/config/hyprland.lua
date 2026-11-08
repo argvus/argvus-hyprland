@@ -233,7 +233,8 @@ if _path_exists(_generated_config .. "/hypr/state.lua") then
 else
   print("ARGVUS: hypr/state.lua is missing; run `argvus config project`. Using default layout, accent and effects.")
 end
-local _layout_variant = (_hypr_state.layout_variant == "spaced" or _hypr_state.layout_variant == "float") and "spaced" or "sticky"
+local _layout_variant = (_hypr_state.layout_variant == "spaced" or _hypr_state.layout_variant == "float") and "spaced"
+  or "sticky"
 -- Background of the loading splash for the active theme. Hyprland shows it between the
 -- login handoff surface and the session overlay, so the output keeps one color.
 local _splash_background = "rgb(16, 18, 24)"
@@ -1416,6 +1417,9 @@ _argvus_bind("window.close", mod .. " + Q", hl.dsp.window.close())
 
 -- Enable/Disable Floating Window ------------------------------------------------------------------
 _argvus_bind("window.toggle_floating", mod .. " + SHIFT + space", function()
+  if argvus_window_mode and argvus_window_mode.is_floating() then
+    return
+  end
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
   hl.exec_scheduled_prop_refresh_immediately()
 
@@ -1763,12 +1767,8 @@ _argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus se
 
 -- Move the waybar status bar to the top/bottom ----------------------------------------------------
 -- Bind arrow keys to move the waybar; keep a single binding per direction
-_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus spaces-switch --set waybar_pos top"))
-_argvus_bind(
-  "widget.waybar_bottom",
-  mod .. " + ALT + down",
-  hl.dsp.exec_cmd("argvus spaces-switch --set waybar_pos bottom")
-)
+_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus windows position top"))
+_argvus_bind("widget.waybar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("argvus windows position bottom"))
 
 -- User-created global shortcuts. Generated actions are data, never evaluated Lua.
 local _custom_shortcuts = _load_generated_table("hypr/custom-shortcuts.lua") or {}
@@ -1821,6 +1821,28 @@ _load_user_override("monitors.lua")
 _load_user_override("rules.lua")
 _load_user_override("bindings.lua")
 _load_user_override("user.lua")
+
+-- Load after normal and user rules so Floating is the final window policy.
+do
+  local settings = _load_generated_table("hypr/window-mode.lua") or { mode = "tile" }
+  local controls_ok, controls = pcall(dofile, "/usr/share/argvus/hyprland/lua/window-controls.lua")
+  if not controls_ok then
+    print("ARGVUS: window controls unavailable: " .. tostring(controls))
+    local failure = controls
+    controls = function()
+      error(failure)
+    end
+  end
+  argvus_window_controls = controls
+  local ok, api = pcall(function()
+    return dofile("/usr/share/argvus/hyprland/lua/window-mode.lua")(settings.mode, controls)
+  end)
+  if ok then
+    argvus_window_mode = api
+  else
+    print("ARGVUS: window mode unavailable: " .. tostring(api))
+  end
+end
 
 -- Autostart ---------------------------------------------------------------------------------------
 hl.on("hyprland.start", function()

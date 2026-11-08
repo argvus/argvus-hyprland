@@ -81,7 +81,12 @@ trap 'rm -f "$generated_pkgbuild"' EXIT
 cp "$PKGBUILD" "$generated_pkgbuild"
 
 sha256="$(sha256sum "$archive" | awk '{print $1}')"
-sed -i "s/^sha256sums=.*/sha256sums=(\"${sha256}\")/" "$generated_pkgbuild"
+# Replace only the local archive placeholder; preserve pinned upstream checksums.
+sed -i "0,/^sha256sums=('SKIP'/s|^sha256sums=('SKIP'|sha256sums=(\"${sha256}\"|" "$generated_pkgbuild"
+grep -q "^sha256sums=(\"${sha256}\"" "$generated_pkgbuild" || {
+  printf 'error: could not set the local archive checksum in %s\n' "$generated_pkgbuild" >&2
+  exit 1
+}
 
 # Avoid reporting an older package as the result of this build.
 find "$DIST_DIR" -maxdepth 1 -type f \

@@ -103,3 +103,6 @@ ARGVUS session logs:   $HOME/.local/state/argvus/session.log
 ARGVUS storage:        $HOME/.config/argvus/data/removable-devices/
 Waybar configs:        $HOME/.config/argvus/data/waybar/
 Quickshell configs:    $HOME/.config/argvus/data/quickshell/
+
+Window mode: SUPER + SHIFT + Space changes individual windows only in Tile mode; Floating keeps all application windows floating.
+Floating: SUPER + ALT + Up/Down positions the main bar; the window bar follows the opposite edge. Tile restores minimized windows and removes the window bar.

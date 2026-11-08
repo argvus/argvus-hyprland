@@ -104,3 +104,6 @@ ARGVUS Log Session:     $HOME/.local/state/argvus/session.log
 ARGVUS Storage:         $HOME/.config/argvus/data/removable-devices/
 Configs da Waybar:      $HOME/.config/argvus/data/waybar/
 Configs do Quickshell:  $HOME/.config/argvus/data/quickshell/
+
+Modo de janelas: SUPER + SHIFT + Space altera janelas individualmente apenas no modo mosaico; o modo flutuante mantém todas as janelas de aplicativos flutuantes.
+Flutuante: SUPER + ALT + cima/baixo posiciona a barra principal; a barra de janelas fica na borda oposta. Mosaico restaura as minimizadas e remove a barra de janelas.
