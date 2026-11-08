@@ -109,15 +109,15 @@ compute_defaults() {
     _variant="$(argvus config get /layout/variant --raw 2>/dev/null || true)"
     case "$_variant" in
       sticky) _theme="$DEFAULT_THEME" ;;
-      float) _theme="${DEFAULT_THEME}-float" ;;
+      spaced|float) _theme="${DEFAULT_THEME}-spaced" ;;
     esac
   fi
   # Window spacing is a mode reset, not a theme-specific value.
 
   case "$_theme" in
-    *-float)
-      # Documented Float mode: internal gap 10, outer gap 18 (same as the
-      # argvus-config baseline for the float variant).
+    *-spaced|*-float)
+      # Documented Spaced mode: internal gap 10, outer gap 18 (same as the
+      # argvus-config baseline for the spaced variant).
       GAPS_IN_DEF=10
       GAPS_OUT_TOP_DEF=18; GAPS_OUT_LEFT_DEF=18; GAPS_OUT_RIGHT_DEF=18; GAPS_OUT_BOTTOM_DEF=18
       WAYBAR_TOP_DEF=18; WAYBAR_LEFT_DEF=18; WAYBAR_RIGHT_DEF=18; WAYBAR_BOTTOM_DEF=18

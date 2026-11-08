@@ -23,14 +23,14 @@ O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os contro
 * **Arredondamento** faz parte do modo visual selecionado. Ele altera o formato dos cantos, não move a janela.
 * **Reserva do painel e margem visível** são conceitos separados: um painel pode usar espaço visual enquanto o Hyprland organiza janelas segundo o estado de espaçamento ativo.
 
-## Modos Sticky e Float
+## Modos Sticky e Spaced
 
 Os modos dos temas incluídos fornecem duas geometrias iniciais:
 
 | Modo | Comportamento das janelas | Tratamento das superfícies |
 | --- | --- | --- |
 | Sticky | Gap interno `2`, gap externo `0` por padrão | Quadrado, compacto e próximo à borda |
-| Float | Gap interno `10`, gap externo `18` por padrão | Arredondado, com sombra e mais espaçoso; margem padrão de taskbar/shell `18` |
+| Spaced | Gap interno `10`, gap externo `18` por padrão | Arredondado, com sombra e mais espaçoso; margem padrão de taskbar/shell `18` |
 
 Esses são valores padrão, não limites. As páginas Espaços das janelas e Espaçamentos da barra de tarefas podem salvar gaps das janelas e margens da taskbar de forma independente. Alterar tema ou modo pode projetar valores efetivos de layout diferentes.
 
@@ -39,7 +39,7 @@ Esses são valores padrão, não limites. As páginas Espaços das janelas e Esp
 Cada controle é independente e fica na página indicada:
 
 * **Barra de tarefas → Posição** — borda superior ou inferior.
-* **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`. Sticky usa margem inferior padrão `2`; Float usa `18`.
+* **Barra de tarefas → Espaçamentos** — margens superior, esquerda, direita e inferior, cada uma de `0` a `100`. Sticky usa margem inferior padrão `2`; Spaced usa `18`.
 * **Barra de tarefas → Ícones** — comportamento automático ou sempre expandido do grupo utilitário da taskbar.
 * **Hyprland → Espaços das janelas** — gap interno e gaps externos superior/esquerdo/direito/inferior, cada um de `0` a `100`.
 * **Hyprland → Bordas** — bordas gerais: ativa cantos arredondados; quando ativos, o arredondamento varia de `2` a `10`. A espessura da borda também fica aqui, de `0` a `10`.
@@ -70,7 +70,7 @@ Cada regra tem um `workspace` de 1 a 10 e uma lista `classes`. Os itens de `clas
 
 ## O que alterar primeiro
 
-* Se as janelas estiverem apertadas, aumente o gap da janela ou use o modo Float.
+* Se as janelas estiverem apertadas, aumente o gap da janela ou use o modo Spaced.
 * Se as janelas estiverem muito afastadas da borda, reduza o espaço externo/taskbar ou use Sticky.
 * Se a taskbar parecer desalinhada depois de mudar sua posição, revise a posição e as quatro margens da taskbar em conjunto.
 * Se as janelas cobrirem um painel visual, verifique as configurações de painel e taskbar antes de alterar os gaps.

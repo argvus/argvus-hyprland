@@ -41,11 +41,11 @@ compute_defaults() {
     _variant="$(argvus config get /layout/variant --raw 2>/dev/null || true)"
     case "$_variant" in
       sticky) _theme="$DEFAULT_THEME" ;;
-      float) _theme="${DEFAULT_THEME}-float" ;;
+      spaced|float) _theme="${DEFAULT_THEME}-spaced" ;;
     esac
   fi
   case "$_theme" in
-    *-float)
+    *-spaced|*-float)
       ROUNDED_DEF=1
       ROUNDING_DEF=4
       THICKNESS_DEF=1

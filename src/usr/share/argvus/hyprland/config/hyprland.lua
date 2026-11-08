@@ -218,9 +218,9 @@ if _active_theme then
   _theme_name = _active_theme
 end
 
--- Sticky/Float is independent of the theme (`/layout/variant`, owned by
+-- Sticky/Spaced is independent of the theme (`/layout/variant`, owned by
 -- mode-switch.sh/argvus-config apply-mode): `_theme_name` no longer carries a
--- `-float` suffix. The paired `<theme>-float` asset directory only differs
+-- `-spaced` suffix. The paired `<theme>-spaced` asset directory only differs
 -- from `<theme>` in rounding/gaps (never color), so pick the on-disk variant
 -- by the current mode instead of by the theme name.
 -- Runtime values that argvus-config projects into hypr/state.lua. A missing or
@@ -233,16 +233,16 @@ if _path_exists(_generated_config .. "/hypr/state.lua") then
 else
   print("ARGVUS: hypr/state.lua is missing; run `argvus config project`. Using default layout, accent and effects.")
 end
-local _layout_variant = _hypr_state.layout_variant == "float" and "float" or "sticky"
+local _layout_variant = (_hypr_state.layout_variant == "spaced" or _hypr_state.layout_variant == "float") and "spaced" or "sticky"
 -- Background of the loading splash for the active theme. Hyprland shows it between the
 -- login handoff surface and the session overlay, so the output keeps one color.
 local _splash_background = "rgb(16, 18, 24)"
 if type(_hypr_state.background_color) == "string" and _hypr_state.background_color:match("^rgb%(%x%x%x%x%x%x%)$") then
   _splash_background = _hypr_state.background_color
 end
-local _theme_asset_name = _theme_name
-if _layout_variant == "float" and not _theme_name:match("%-float$") then
-  _theme_asset_name = _theme_name .. "-float"
+local _theme_asset_name = _theme_name:gsub("%-float$", "-spaced")
+if _layout_variant == "spaced" and not _theme_name:match("%-spaced$") and not _theme_name:match("%-float$") then
+  _theme_asset_name = _theme_name .. "-spaced"
 end
 
 -- The theme build (`argvus theme`) has the colours of the active theme and
@@ -260,8 +260,8 @@ local function _theme_build_file(relative)
   if not built_theme then
     return nil
   end
-  if text:match('\nvariant = "float"') then
-    built_theme = built_theme .. "-float"
+  if text:match('\nvariant = "spaced"') or text:match('\nvariant = "float"') then
+    built_theme = built_theme .. "-spaced"
   end
   if built_theme ~= _theme_asset_name then
     return nil
@@ -296,8 +296,8 @@ if _built_theme then
 end
 
 -- Window spacing is also a mode reset. A theme may declare another value,
--- but Sticky and Float both start from the ARGVUS mode contract.
-theme.gaps_in = _layout_variant == "float" and 10 or 2
+-- but Sticky and Spaced both start from the ARGVUS mode contract.
+theme.gaps_in = _layout_variant == "spaced" and 10 or 2
 
 -- Theme files own the active border color. A manual accent is the only
 -- exception, and is opt-in in canonical config.json; the legacy accent file
@@ -327,13 +327,13 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar_top = _layout_variant == "float" and 18 or 0
+local _spaces_waybar_top = _layout_variant == "spaced" and 18 or 0
 local _spaces_waybar_left = _spaces_waybar_top
 local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = _layout_variant == "float" and 18 or 2
+local _spaces_waybar_bottom = _layout_variant == "spaced" and 18 or 2
 local _spaces_waybar_pos = "top"
 local _spaces_waybar_legacy
-local _spaces_gaps_out_top = _layout_variant == "float" and 18 or 0
+local _spaces_gaps_out_top = _layout_variant == "spaced" and 18 or 0
 local _spaces_gaps_out_left = _spaces_gaps_out_top
 local _spaces_gaps_out_right = _spaces_gaps_out_top
 local _spaces_gaps_out_bottom = _spaces_gaps_out_top
@@ -489,8 +489,8 @@ local _borders_path = _first_existing({
   _config_home .. "/.borders",
 })
 local _borders_file = io.open(_borders_path)
-local _borders_rounded = _layout_variant == "float" and 1 or 0
-local _borders_rounding = _layout_variant == "float" and 4 or 0
+local _borders_rounded = _layout_variant == "spaced" and 1 or 0
+local _borders_rounding = _layout_variant == "spaced" and 4 or 0
 local _borders_thickness = 1
 if _borders_file then
   for _line in _borders_file:lines() do
@@ -1366,7 +1366,7 @@ _argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd("argvus --co
 -- Theme switcher ----------------------------------------------------------------------------------
 _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd("argvus theme-switch"))
 
--- Sticky/Float layout mode (independent of theme) --------------------------------------------------
+-- Sticky/Spaced layout mode (independent of theme) --------------------------------------------------
 -- Named "layout_mode" rather than "mode" to avoid colliding with the
 -- pre-existing "appearance.mode" id, which toggles GTK light/dark.
 _argvus_bind("appearance.layout_mode", mod .. " + SHIFT + M", hl.dsp.exec_cmd("argvus layout-mode-menu"))

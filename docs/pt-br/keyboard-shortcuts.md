@@ -170,7 +170,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | --- | --- |
 | `SUPER + Y` | Abre os wallpapers do Control Center |
 | `SUPER + Shift + T` | Abre o seletor de temas |
-| `SUPER + Shift + M` | Abre o seletor de modo Sticky/Float |
+| `SUPER + Shift + M` | Abre o seletor de modo Sticky/Spaced |
 | `SUPER + F5` | Alterna entre os temas ARGVUS Dark e ARGVUS Light |
 | `SUPER + F6` | Ativa/Desativa animações |
 | `SUPER + Shift + B` | Abre o seletor de brilho e a ação de luz noturna |

@@ -23,14 +23,14 @@ ARGVUS uses Hyprland for tiled and floating window placement. The user-facing la
 - **Rounding** is part of the selected visual mode. It changes the window corner shape rather than moving the window.
 - **Panel reservation and visible margin** are separate concerns: a panel can occupy or visually use space while Hyprland still lays out windows according to the active spacing state.
 
-## Sticky and Float modes
+## Sticky and Spaced modes
 
 The bundled theme modes provide two starting geometries:
 
 | Mode | Window behavior | Surface treatment |
 | --- | --- | --- |
 | Sticky | Internal gap `2`, outer gap `0` by default | Square, compact and close to the screen edge |
-| Float | Internal gap `10`, outer gap `18` by default | Rounded, shadowed and more spacious; taskbar/shell margin defaults to `18` |
+| Spaced | Internal gap `10`, outer gap `18` by default | Rounded, shadowed and more spacious; taskbar/shell margin defaults to `18` |
 
 These are defaults, not limits. The Window spaces and Taskbar spaces pages can store window gaps and taskbar margins independently. Changing a theme or mode can project different effective layout values.
 
@@ -39,7 +39,7 @@ These are defaults, not limits. The Window spaces and Taskbar spaces pages can s
 Each control is independent and lives on the page listed here:
 
 - **Taskbar → Position** — taskbar position, top or bottom edge.
-- **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`. Sticky defaults the bottom margin to `2`; Float uses `18`.
+- **Taskbar → Spaces** — taskbar top, left, right and bottom margins, each from `0` to `100`. Sticky defaults the bottom margin to `2`; Spaced uses `18`.
 - **Taskbar → Icons** — whether the taskbar utility group uses automatic or always-expanded behavior.
 - **Hyprland → Window spaces** — inner gap and outer top/left/right/bottom gaps, each from `0` to `100`.
 - **Hyprland → Borders** — general borders: enable rounded corners; when enabled, rounding is selectable from `2` to `10`. Edge thickness is set here too, from `0` to `10`.
@@ -70,7 +70,7 @@ Each rule has a `workspace` from 1 to 10 and a `classes` list. Entries in `class
 
 ## What to change first
 
-- If windows feel crowded, increase the window gap or use Float mode.
+- If windows feel crowded, increase the window gap or use Spaced mode.
 - If windows seem too far from the screen edge, reduce the outer/taskbar spacing or use Sticky mode.
 - If the taskbar appears misaligned after changing its position, review taskbar position and all four taskbar/shell margins together.
 - If windows overlap a visual panel, check the panel and taskbar layout settings before changing window gaps.
