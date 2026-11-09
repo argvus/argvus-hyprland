@@ -1,7 +1,10 @@
 """Opt-in real-client regression in an isolated nested Hyprland.
 
 Set ARGVUS_TEST_ARGVUS, ARGVUS_TEST_HYPRBARS and ARGVUS_TEST_WAYBAR to built
-artifacts. The ordinary test run skips this test; it never uses the main
+artifacts. Optional ARGVUS_TEST_KEYBOARD names a virtual-keyboard test driver
+that presses SUPER + ALT + Space. Without it, mode changes use the CLI.
+Optional ARGVUS_TEST_POINTER names a click driver taking x, y, width, height.
+The ordinary test run skips this test; it never uses the main
 compositor or the user's persistent configuration as fixtures.
 """
 import json
@@ -52,7 +55,18 @@ class WindowControls(unittest.TestCase):
             canonical = root / "config/argvus/config"
             canonical.mkdir(parents=True)
             (canonical / "hyprland.json").write_text(json.dumps({"window_mode":"floating"}))
-            config.write_text('''hl.config({ misc = { disable_hyprland_logo = true, disable_splash_rendering = true } })
+            hyprland_source = (ROOT / "src/usr/share/argvus/hyprland/config/hyprland.lua").read_text()
+            bind_start = hyprland_source.index("local function _argvus_bind(")
+            bind_end = hyprland_source.index("\n-- Font state", bind_start)
+            bind_wrapper = hyprland_source[bind_start:bind_end]
+            mode_binding = next(line for line in hyprland_source.splitlines() if line.startswith('_argvus_bind("window.toggle_mode",'))
+            overrides_path = root / "shortcut-overrides.lua"
+            overrides_path.write_text("return {}\n")
+            # Isolate virtual test-keyboard modifiers from the parent compositor.
+            config.write_text('''hl.monitor({output="",mode="1280x720@60",scale=1})
+hl.config({ input = { virtualkeyboard = { share_states = 0 } }, misc = { disable_hyprland_logo = true, disable_splash_rendering = true } })
+-- Keep parent-compositor pointer events out of the isolated click tests.
+hl.device({name="wl_pointer",enabled=false})
 hl.window_rule({match={class="argvus-controls-dialog"},float=true})
 local mode = "tile"
 local file = io.open("''' + str(mode_path) + '''", "r")
@@ -60,6 +74,8 @@ if file then file:close(); mode = dofile("''' + str(mode_path) + '''").mode end
 argvus_window_controls = dofile("''' + str(ROOT / "src/usr/share/argvus/hyprland/lua/window-controls.lua") + '''")
 argvus_window_mode = dofile("''' + str(ROOT / "src/usr/share/argvus/hyprland/lua/window-mode.lua") + '''")(mode, argvus_window_controls)
 ''')
+            with config.open("a") as file:
+                file.write('\nlocal mod="SUPER"\nlocal _keybinding_overrides=dofile(' + json.dumps(str(overrides_path)) + ')\n' + bind_wrapper + '\n' + mode_binding + '\n')
             processes = []
             logs = []
             def spawn(arguments):
@@ -104,6 +120,11 @@ argvus_window_mode = dofile("''' + str(ROOT / "src/usr/share/argvus/hyprland/lua
                 env["WAYLAND_DISPLAY"] = str(until(lambda: next((path for path in root.glob("wayland-*") if path.is_socket()), None)))
                 until(lambda: any(monitor["width"] > 0 and monitor["height"] > 0 for monitor in json.loads(ipc("j/monitors"))))
                 self.assertIn("hyprbars", until(lambda: ipc("/plugin list")))
+                def mode_binds():
+                    return [binding for binding in json.loads(ipc("j/binds")) if binding.get("key", "").lower() == "space" and binding["modmask"] == 72]
+                self.assertEqual(len(mode_binds()), 1)
+                self.assertFalse(mode_binds()[0]["repeat"])
+
                 until(lambda: not json.loads(cli("config", "window-mode", "status", "--json"))["pending"])
                 service = spawn([ARTIFACTS[0], "windows", "service"])
                 until(lambda: json.loads(cli("windows", "list", "--json")))
@@ -129,6 +150,36 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 self.assertEqual(ipc('/eval for _,w in ipairs(hl.get_windows()) do if w.address=="' + dialog + '" then hl.dispatch(hl.dsp.window.float({action="set",window=w})) end end'), "ok")
                 cli("config", "window-mode", "set", "floating")
                 until(lambda: json.loads(cli("windows", "list", "--json"))["ready"])
+                # Taskbar clicks focus an inactive window, minimize the active
+                # one, then restore it. Explicit activate never minimizes.
+                def click_normal():
+                    driver = os.environ.get("ARGVUS_TEST_POINTER")
+                    if not driver:
+                        cli("windows", "toggle", normal)
+                        return
+                    # Let the GTK consumer receive the preceding state update.
+                    time.sleep(.2)
+                    entries = json.loads(cli("windows", "list", "--json"))["windows"]
+                    index = next(index for index, window in enumerate(entries) if window["address"] == normal)
+                    layers = [entry for output in json.loads(ipc("j/layers")).values() for level in output["levels"].values() for entry in level]
+                    bar = next(entry for entry in layers if entry["namespace"] == "argvus-window-bar")
+                    monitor = json.loads(ipc("j/monitors"))[0]
+                    x = int(bar["x"] + bar["w"] * (index + .5) / len(entries))
+                    y = int(bar["y"] + bar["h"] / 2)
+                    subprocess.run([driver, str(x), str(y), str(int(monitor["width"] / monitor["scale"])), str(int(monitor["height"] / monitor["scale"]))],env=env,check=True,timeout=10)
+                cli("windows", "activate", dialog)
+                click_normal()
+                until(lambda: json.loads(ipc("j/activewindow"))["address"] == normal)
+                self.assertFalse(any(parked(window) for window in clients()))
+                pointer_before_toggle = json.loads(ipc("j/cursorpos"))
+                click_normal()
+                until(lambda: any(window["address"] == normal and parked(window) for window in clients()))
+                click_normal()
+                until(lambda: json.loads(ipc("j/activewindow"))["address"] == normal)
+                self.assertFalse(any(parked(window) for window in clients()))
+                self.assertEqual(json.loads(ipc("j/cursorpos")), pointer_before_toggle)
+                cli("windows", "activate", normal)
+                self.assertFalse(any(parked(window) for window in clients()))
                 before = next(window for window in clients() if window["address"] == normal)
                 cli("windows", "minimize", normal)
                 until(lambda: any(parked(window) for window in clients()))
@@ -153,7 +204,12 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 self.assertEqual(json.loads(ipc("j/cursorpos")), sticky_pointer)
                 self.assertEqual(next(window for window in clients() if window["address"] == normal)["fullscreen"], 1)
                 cli("windows", "minimize", normal)
-                cli("config", "window-mode", "set", "tile")
+                keyboard = os.environ.get("ARGVUS_TEST_KEYBOARD")
+                if keyboard:
+                    subprocess.run([keyboard], env=env, check=True, timeout=10)
+                    until(lambda: json.loads(cli("config", "window-mode", "status", "--json"))["preferred"] == "tile")
+                else:
+                    self.assertEqual(json.loads(cli("config", "window-mode", "toggle"))["preferred"], "tile")
                 until(lambda: "argvus-window-bar" not in ipc("j/layers"))
                 self.assertFalse(any(parked(window) for window in clients()))
                 self.assertFalse(next(window for window in clients() if window["address"] == normal)["floating"])
@@ -175,7 +231,26 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 self.assertLess(secondary["y"], main["y"])
                 cli("windows", "position", "bottom")
                 self.assertEqual(ipc("/reload"), "ok")
+                self.assertEqual(len(mode_binds()), 1)
+                overrides_path.write_text('return {["window.toggle_mode"]={keys="SUPER + ALT + T",enabled=true}}\n')
+                self.assertEqual(ipc("/reload"), "ok")
+                self.assertEqual(mode_binds(), [])
+                self.assertTrue(any(binding["modmask"] == 72 and binding.get("key", "").lower() == "t" for binding in json.loads(ipc("j/binds"))))
+                overrides_path.write_text('return {["window.toggle_mode"]={enabled=false}}\n')
+                self.assertEqual(ipc("/reload"), "ok")
+                self.assertEqual(mode_binds(), [])
+                overrides_path.write_text("return {}\n")
+                self.assertEqual(ipc("/reload"), "ok")
+                self.assertEqual(len(mode_binds()), 1)
                 until(lambda: not json.loads(cli("config", "window-mode", "status", "--json"))["pending"])
+                # The default shortcut still works in both directions after reload.
+                if keyboard:
+                    for expected in ["tile", "floating"]:
+                        subprocess.run([keyboard], env=env, check=True, timeout=10)
+                        until(lambda: json.loads(cli("config", "window-mode", "status", "--json"))["preferred"] == expected)
+                else:
+                    for expected in ["tile", "floating"]:
+                        self.assertEqual(json.loads(cli("config", "window-mode", "toggle"))["preferred"], expected)
                 # Spaced geometry includes both bars, the title and window border.
                 layout_path = canonical / "layout.json"
                 layout_data = json.loads(layout_path.read_text())

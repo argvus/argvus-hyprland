@@ -10,6 +10,7 @@ SHORTCUT                        DESCRIPTION
 
 01 - SUPER + 1..9               = Workspaces
 02 - SUPER + Shift + Space      = Enable/Disable Floating Window
+     SUPER + Alt + Space        = Toggle global Tile/Floating window mode
 03 - SUPER + ←→↑↓               = Focus tiled window by direction
 04 - SUPER + Ctrl + ←→          = Cycle focus between windows (tiled and floating)
 05 - Ctrl + Alt + ←→  or        = Moving between work areas
@@ -104,5 +105,5 @@ ARGVUS storage:        $HOME/.config/argvus/data/removable-devices/
 Waybar configs:        $HOME/.config/argvus/data/waybar/
 Quickshell configs:    $HOME/.config/argvus/data/quickshell/
 
-Window mode: SUPER + SHIFT + Space changes individual windows only in Tile mode; Floating keeps all application windows floating.
+Window mode: SUPER + ALT + Space toggles Tile/Floating globally. SUPER + SHIFT + Space changes individual windows only in Tile mode; Floating keeps all application windows floating.
 Floating: SUPER + ALT + Up/Down positions the main bar; the window bar follows the opposite edge. Tile restores minimized windows and removes the window bar.

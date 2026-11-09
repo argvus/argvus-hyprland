@@ -31,6 +31,7 @@
     {"id":"window.maximize","category":"windows","description_key":"keybindings.action.maximize","keys":"SUPER + S","action":"dispatcher:fullscreen:maximized:toggle"},
     {"id":"window.close","category":"windows","description_key":"keybindings.action.close_window","keys":"SUPER + Q","action":"dispatcher:close"},
     {"id":"window.toggle_floating","category":"windows","description_key":"keybindings.action.toggle_floating","keys":"SUPER + SHIFT + Space","action":"dispatcher:float:toggle"},
+    {"id":"window.toggle_mode","category":"windows","description_key":"control_center.keybindings.action.toggle_window_mode","keys":"SUPER + ALT + Space","action":"argvus config window-mode toggle"},
     {"id":"window.fullscreen","category":"windows","description_key":"keybindings.action.fullscreen","keys":"SUPER + F","action":"dispatcher:fullscreen"},
     {"id":"window.toggle_split","category":"windows","description_key":"keybindings.action.toggle_split","keys":"SUPER + E","action":"dispatcher:togglesplit"},
     {"id":"window.group_tabs","category":"windows","description_key":"keybindings.action.group_tabs","keys":"SUPER + W","action":"dispatcher:group:toggle"},

@@ -1415,6 +1415,9 @@ _argvus_bind("window.maximize", mod .. " + S", hl.dsp.window.fullscreen({ mode =
 -- Closed Window -----------------------------------------------------------------------------------
 _argvus_bind("window.close", mod .. " + Q", hl.dsp.window.close())
 
+-- Toggle the shared global Tile/Floating preference (not one window).
+_argvus_bind("window.toggle_mode", mod .. " + ALT + space", hl.dsp.exec_cmd("argvus config window-mode toggle"))
+
 -- Enable/Disable Floating Window ------------------------------------------------------------------
 _argvus_bind("window.toggle_floating", mod .. " + SHIFT + space", function()
   if argvus_window_mode and argvus_window_mode.is_floating() then

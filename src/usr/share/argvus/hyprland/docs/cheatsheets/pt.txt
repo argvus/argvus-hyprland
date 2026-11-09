@@ -10,6 +10,7 @@ ATALHO                          DESCRIÇÃO
 
 01 - SUPER + 1..9               = Áreas de trabalho
 02 - SUPER + Shift + Space      = Ativa/Desativa Janela flutuante
+     SUPER + Alt + Space        = Alternar modo global de janelas em mosaico/flutuantes
 03 - SUPER + ←→↑↓               = Focar janela tileada por direção
 04 - SUPER + Ctrl + ←→          = Ciclar foco entre janelas (tileadas e flutuantes)
 05 - Ctrl + Alt + ←→  ou        = Circular entre áreas de trabalho
@@ -105,5 +106,5 @@ ARGVUS Storage:         $HOME/.config/argvus/data/removable-devices/
 Configs da Waybar:      $HOME/.config/argvus/data/waybar/
 Configs do Quickshell:  $HOME/.config/argvus/data/quickshell/
 
-Modo de janelas: SUPER + SHIFT + Space altera janelas individualmente apenas no modo mosaico; o modo flutuante mantém todas as janelas de aplicativos flutuantes.
+Modo de janelas: SUPER + ALT + Space alterna globalmente entre mosaico e flutuante. SUPER + SHIFT + Space altera janelas individualmente apenas no modo mosaico; o modo flutuante mantém todas as janelas de aplicativos flutuantes.
 Flutuante: SUPER + ALT + cima/baixo posiciona a barra principal; a barra de janelas fica na borda oposta. Mosaico restaura as minimizadas e remove a barra de janelas.
