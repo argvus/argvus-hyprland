@@ -1,5 +1,5 @@
 ---
-title: Windows and layout
+title: Windows và bố cục
 description: Hiểu các khoảng trống, biên, chế độ và không gian bảng trong ARGVUS.
 ---
 
@@ -27,7 +27,7 @@ ARGVUS sử dụng Hyprland để sắp xếp cửa sổ dạng lát và nổi. 
 
 Các chế độ giao diện đi kèm cung cấp hai hình học khởi đầu:
 
-| Mode | Window behavior | Surface treatment |
+| Chế độ | Hành vi của cửa sổ | Xử lý bề mặt |
 | --- | --- | --- |
 | Dính | Khoảng trống bên trong `2`, khe ngoài`0`mặc định | Hình vuông, gọn gàng và gần mép màn hình |
 | Có khoảng cách | Khoảng cách bên trong `10`, khe ngoài`18`mặc định | Bo tròn, có bóng và rộng rãi hơn; lề thanh tác vụ/lớp vỏ mặc định là`18` |
@@ -76,7 +76,7 @@ Mỗi quy tắc có một `workspace` từ 1 đến 10 và một danh sách `cla
 
 Các thay đổi được áp dụng thông qua tích hợp giao diện/phiên ARGVUS. Sử dụng hành động đặt lại trên trang khi có sẵn; không chỉnh sửa trực tiếp các tệp Hyprland được tạo tự động.
 
-## Related
+## Liên quan
 
 
 ## Lắc cửa sổ
@@ -104,7 +104,7 @@ Công tắc Animations toàn cầu ức chế Wobble trong khi vẫn giữ các 
 phụ thuộc vào gói. Phiên bản 0.56 không được hỗ trợ cho cấu hình này. Cường độ tối đa
 giới hạn nó ở `2`, mặc dù tài liệu mới hơn có thể liệt kê `3`. Chế độ cửa sổ toàn cầu
 
-## 
+##
 
 Mở **Control Center → Desktop & Input → Hyprland → Windows → Mode** và chọn **Tile Windows (Mặc định)** hoặc **Floating Windows**. Bộ chọn tương tự cũng có sẵn từ biểu tượng chế độ cửa sổ trong nhóm tiện ích thanh tác vụ.
 
@@ -116,7 +116,7 @@ Sự ưu tiên chuẩn là `/hyprland/window_mode` trong `$XDG_CONFIG_HOME/argvu
 
 Nếu ứng dụng đang chờ xử lý hoặc thất bại, giao diện sẽ phân biệt điều này với sở thích đã lưu. Chọn lại tùy chọn để thử lại. Nếu không có bộ ghép ảnh, sở thích sẽ được lưu cho lần đăng nhập tiếp theo. Nút cửa sổ và thanh ứng dụng
 
-## 
+##
 
 Chế độ nổi thêm một thanh tiêu đề ARGVUS với **Thu nhỏ**, **Phóng to / Khôi phục** và **Đóng** cho các cửa sổ ứng dụng bình thường. Nháy đúp vào thanh tiêu đề sẽ chuyển đổi giữa trạng thái phóng to và khôi phục. Trang trí bổ sung này sẽ ẩn trong chế độ Tile và toàn màn hình. Các ứng dụng tự vẽ các điều khiển của riêng chúng có thể hiển thị cả hai thanh; các điều khiển ARGVUS đồng bộ là có chủ ý.
 
@@ -134,10 +134,10 @@ Trong **Spaced + Floating**, các cửa sổ tuân theo khoảng trống bên ng
 
 `SUPER + Alt + Space` chuyển đổi chế độ Toàn cầu Tile/Nổi, sử dụng cùng một tùy chọn với thanh tác vụ và Trung tâm Điều khiển. Lệnh tương đương là `argvus config window-mode toggle`. Các lần gọi đồng thời được xếp hàng; việc chuyển đổi sử dụng tùy chọn đã lưu ngay cả khi ứng dụng đang chờ. Phím tắt có thể được thay đổi hoặc vô hiệu hóa trong Phím tắt Bàn phím; `SUPER + Shift + Space` giữ hành động cho từng cửa sổ riêng lẻ.
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
- for the installed and user paths. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+Mỗi quy tắc có một không gian làm việc từ 1 đến 10 và một danh sách lớp. Các mục trong lớp là các biểu thức chính quy được khớp với lớp cửa sổ (phân biệt chữ hoa chữ thường), ví dụ: [Cc]ode.* hoặc jetbrains-.*. Chỉ chấp nhận các chữ cái, chữ số và ._*+?-|^$. argvus-config ghi các quy tắc vào generate/hypr/window-rules.lua, cấu hình Hyprland sẽ tải. Để thay thế các quy tắc mà không thay đổi giá trị mặc định, hãy thêm lệnh gọi hl.window_rule vào quy tắc.lua trong thư mục dữ liệu ARGVUS của bạn; những tải đó sau các quy tắc được tạo.
+ cho các đường dẫn cài đặt và người dùng. cho đường dẫn đã cài đặt và người dùng.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+Các cửa sổ lát gạch được sắp xếp theo Hyprland trên không gian làm việc đang hoạt động. ARGVUS cũng hỗ trợ các cửa sổ tiện ích nổi; SUPER + SHIFT + Space chuyển đổi cửa sổ tập trung giữa bố cục xếp chồng và bố cục nổi. Chuyển động của không gian làm việc và tiêu điểm cửa sổ được kiểm soát bởi bảng kê khai liên kết phím đang hoạt động; xem [Phím tắt](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Bề ngoài](/docs/user-guide/appearance/)
 - [Chủ đề](/docs/user-guide/appearance/)
 - [Thanh tác vụ](/docs/argvus-taskbar/taskbar/)

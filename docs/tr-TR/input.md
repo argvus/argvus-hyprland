@@ -1,23 +1,23 @@
 ---
-title: Mouse and touchpad
+title: Fare ve dokunmatik yüzey
 description: ARGVUS'ta işaretçi ve dokunmatik yüzey davranışını yapılandırın.
 ---
 
 **Kontrol Merkezi → Dil ve Bölge → Fare & Dokunmatik Yüzey** öğesini açın veya `argvus control-center input` çalıştırın.
 
-## Mouse
+## Fare
 
 Bir fare algılandığında, sayfa şunları gösterir:
 
-- sensitivity from `-1.0` to `1.0`;
+- `-1.0`'dan `1.0`'ya kadar hassasiyet;
 - uyarlanabilir veya düz hızlanma profili;
 - kaydırma faktörü `0.1`'den `10.0`'ye;
-- natural scrolling;
+- doğal kaydırma;
 - sol el ile kullanılan düğme düzeni.
 
 Hassasiyet, kaydırma faktörü ve geçişler, sayfa açıkken Hyprland üzerinden uygulanır, ardından tam giriş durumu kaydedilir. Sayfa, ARGVUS giriş dosyası mevcut olmadığında geçerli kompozitör değerini okur.
 
-## Touchpad
+## Dokunmatik yüzey
 
 Bir dokunmatik yüzey algılandığında, sayfa doğal kaydırma, tıklamak için dokunma, dokun ve sürükle, iki parmakla sağ tıklama ve yazarken devre dışı bırakma seçeneklerini gösterir. Bu seçenekler, yalnızca çalışan oturum bir dokunmatik yüzey bildirdiğinde faydalı kontroller olarak gösterilir.
 

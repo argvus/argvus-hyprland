@@ -1,11 +1,11 @@
 ---
-title: Windows and layout
+title: Windows ve düzen
 description: ARGVUS'taki boşlukları, sınırları, modları ve panel alanını anlayın.
 ---
 
 ARGVUS, döşeli ve kayan pencere yerleştirmesi için Hyprland kullanır. Kullanıcıya yönelik düzen kontrolleri üç Kontrol Merkezi sayfasında bulunur: **Kontrol Merkezi → Görünüm → Görev Çubuğu** (konum, alanlar ve simgeler), **Kontrol Merkezi → Masaüstü & Girdi → Hyprland → Pencereler → Alanlar** ve **Kontrol Merkezi → Masaüstü & Girdi → Hyprland → Sınırlar**.
 
-## 
+##
 
 ```text
 ┌────────────────────────────────────┐
@@ -27,7 +27,7 @@ ARGVUS, döşeli ve kayan pencere yerleştirmesi için Hyprland kullanır. Kulla
 
 Paketlenmiş tema modları iki başlangıç geometrisi sağlar:
 
-| Mode | Window behavior | Surface treatment |
+| Modu | Pencere davranışı | Yüzey işleme |
 | --- | --- | --- |
 | Yapışkan | İç boşluk `2`, dış boşluk `0`varsayılan olarak | Kare, kompakt ve ekranın kenarına yakın |
 | Aralıklı | İç boşluk `10`, dış boşluk `18`varsayılan olarak | Yuvarlatılmış, gölgeli ve daha geniş; görev çubuğu/kabuk kenar boşluğu varsayılan olarak `18` |
@@ -76,7 +76,7 @@ Her kuralın 1'den 10'a kadar bir  `argvus-config` `workspace`'si ve bir `classe
 
 Değişiklikler ARGVUS görünüm/oturum entegrasyonu üzerinden uygulanır. Mevcutsa sayfanın sıfırlama eylemini kullanın; oluşturulan Hyprland dosyalarını doğrudan düzenlemeyin.
 
-## Related
+## İlgili
 
 
 ## Pencere sallanması
@@ -134,10 +134,10 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 
 `SUPER + Alt + Space`, görev çubuğu ve Kontrol Merkezi ile aynı tercihi kullanarak genel Kare/Kayan modu açar veya kapatır. Eşdeğer komut `argvus config window-mode toggle`'dir. Eşzamanlı çağrılar sıraya konur; görev beklemede olsa bile geçiş kaydedilen tercihi kullanır. Kısayol, Klavye Kısayollarında değiştirilebilir veya devre dışı bırakılabilir; `SUPER + Shift + Space` kendi tek pencere eylemini korur.
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
- for the installed and user paths. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+Her kuralın 1'den 10'a kadar bir çalışma alanı ve bir sınıf listesi vardır. Sınıflardaki girişler, pencere sınıfına (büyük/küçük harfe duyarlı) göre eşleşen düzenli ifadelerdir; örneğin [Cc]ode.* veya jetbrains-.*. Yalnızca harfler, rakamlar ve ._*+?-|^$ kabul edilir. argvus-config, kuralları Hyprland yapılandırmasının yüklediği created/hypr/window-rules.lua öğesine yazar. Varsayılanları değiştirmeden kuralları değiştirmek için, ARGVUS veri dizininizdeki kurallara.lua hl.window_rule çağrılarını ekleyin; bunlar oluşturulan kurallardan sonra yüklenir.
+ yüklü ve kullanıcı yolları için. yüklü ve kullanıcı yolları için.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+Döşenmiş pencereler etkin çalışma alanında Hyprland tarafından düzenlenir. ARGVUS aynı zamanda değişken yardımcı program pencerelerini de destekler; SUPER + SHIFT + Space, odaklanılan pencerede döşenmiş ve kayan düzenler arasında geçiş yapar. Çalışma alanı hareketi ve pencere odağı, etkin tuş bağlama bildirimi tarafından kontrol edilir; bkz. [Klavye kısayolları](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Görünüm](/docs/user-guide/appearance/)
 - [Temalar](/docs/user-guide/appearance/)
 - [Görev Çubuğu](/docs/argvus-taskbar/taskbar/)

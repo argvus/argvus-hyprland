@@ -47,7 +47,7 @@ ARGVUS는 타일 및 플로팅 창 배치를 위해 Hyprland를 사용합니다.
 
 ## 윈도우와 작업 공간
 
-타일링된 창은 Hyprland가 활성 작업 공간에서 배열합니다. ARGVUS는 또한 플로팅 유틸리티 창을 지원합니다; `SUPER + SHIFT + Space`는 포커스 된 창을 타일링 레이아웃과 플로팅 레이아웃 간에 전환합니다. 작업 공간 이동과 창 포커스는 활성 키 바인딩 매니페스트에 의해 제어됩니다; [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/)]를 참조하세요.
+타일링된 창은 Hyprland가 활성 작업 공간에서 배열합니다. ARGVUS는 또한 플로팅 유틸리티 창을 지원합니다; `SUPER + SHIFT + Space`는 포커스 된 창을 타일링 레이아웃과 플로팅 레이아웃 간에 전환합니다. 작업 공간 이동과 창 포커스는 활성 키 바인딩 매니페스트에 의해 제어됩니다; [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/)를 참조하세요.
 
 패키지된 구성은 제어 센터, 스네이크 및 디스크 사용 분석기를 떠 있는 중앙 창으로 엽니다. 디스크 사용 분석기는 작업 표시줄 메모리 팝업과 동일한 초기 `1399 × 920` 지오메트리를 사용하며, 창이 열릴 때 창 클래스 규칙에 의해 적용됩니다. ARGVUS Focus와 ARGVUS Clock은 GTK 레이어 셸 팝업으로 작업 표시줄 옆에 고정되어 있으므로 타일링된 창이 아니며 Hyprland 창 규칙을 사용하지 않습니다. 시계 알람 카드(clock alarm card)는 별도의 레이어 표면(`argvus-clock-alarm`)입니다.
 
@@ -67,23 +67,23 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 ## 먼저 변경할 사항
 
-- 창이 답답하게 느껴진다면, 창 간격을 늘리거나 Spaced 모드를 사용하세요.  
-- 창이 화면 가장자리에서 너무 멀게 느껴진다면, 외부/작업 표시줄 간격을 줄이거나 Sticky 모드를 사용하세요.  
-- 작업 표시줄 위치를 변경한 후 작업 표시줄이 정렬되지 않은 것처럼 보인다면, 작업 표시줄 위치와 네 개의 작업 표시줄/셸 여백을 함께 확인하세요.  
-- 창이 시각 패널과 겹친다면, 창 간격을 변경하기 전에 패널과 작업 표시줄 레이아웃 설정을 확인하세요.  
+- 창이 답답하게 느껴진다면, 창 간격을 늘리거나 Spaced 모드를 사용하세요.
+- 창이 화면 가장자리에서 너무 멀게 느껴진다면, 외부/작업 표시줄 간격을 줄이거나 Sticky 모드를 사용하세요.
+- 작업 표시줄 위치를 변경한 후 작업 표시줄이 정렬되지 않은 것처럼 보인다면, 작업 표시줄 위치와 네 개의 작업 표시줄/셸 여백을 함께 확인하세요.
+- 창이 시각 패널과 겹친다면, 창 간격을 변경하기 전에 패널과 작업 표시줄 레이아웃 설정을 확인하세요.
 
-변경 사항은 ARGVUS 모양/세션 통합을 통해 적용됩니다. 가능한 경우 페이지의 재설정 기능을 사용하세요; 생성된 Hyprland 파일을 직접 편집하지 마세요.  
+변경 사항은 ARGVUS 모양/세션 통합을 통해 적용됩니다. 가능한 경우 페이지의 재설정 기능을 사용하세요; 생성된 Hyprland 파일을 직접 편집하지 마세요.
 
 ## 관련
 
-- [Appearance](/docs/user-guide/appearance/)]  
-- [Themes](/docs/user-guide/appearance/)]  
-- [Taskbar](/docs/argvus-taskbar/taskbar/)]  
-- [Control Panel](/docs/argvus-control-panel/)]  
+- [Appearance](/docs/user-guide/appearance/)
+- [Themes](/docs/user-guide/appearance/)
+- [Taskbar](/docs/argvus-taskbar/taskbar/)
+- [Control Panel](/docs/argvus-control-panel/)
 
 ## 창 흔들림
 
-**Desktop & Input → Hyprland → Animations → Windows**를 열고  
+**Desktop & Input → Hyprland → Animations → Windows**를 열고
 **Wobble** 컨트롤을 사용하세요. `wobble`를 검색하거나, 페이지를 직접 여세요:
 
 ```sh
@@ -93,7 +93,7 @@ Wobble은 기본적으로 비활성화되어 있습니다. 그 ARGVUS 기본값�
 
 글로벌 Animations 스위치는 Wobble을 억제하면서 개별 설정은 유지합니다. 표준 값은 ARGVUS 상태의 `effects.wobble_*`에 존재하며; `hypr/state.lua`는 생성되며 수동으로 편집해서는 안 됩니다.
 
-이는 `argvus-hyprland`의 패키지 의존성에 의해 적용되며, **Hyprland 0.57.0 이상**이 필요합니다. 버전 0.56은 이 구성에서 지원되지 않습니다. 최대 강도는 [출시된 0.57.0 소스](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)]를 따르며, 이는 `2`로 제한하지만, 최신 문서에서는 `3`로 나와 있을 수 있습니다.
+이는 `argvus-hyprland`의 패키지 의존성에 의해 적용되며, **Hyprland 0.57.0 이상**이 필요합니다. 버전 0.56은 이 구성에서 지원되지 않습니다. 최대 강도는 [출시된 0.57.0 소스](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)를 따르며, 이는 `2`로 제한하지만, 최신 문서에서는 `3`로 나와 있을 수 있습니다.
 
 ## 전역 창 모드
 

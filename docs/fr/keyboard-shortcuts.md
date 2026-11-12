@@ -65,7 +65,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + Shift + 8` | Déplacer la fenêtre vers le bureau 8 |
 | `SUPER + Shift + 9` | Déplacer la fenêtre vers le bureau 9 |
 
-### Windows
+### Fenêtres
 
 | Raccourci | Description |
 | --- | --- |
@@ -88,7 +88,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 
 | Raccourci | Description |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | Borne |
 | `SUPER + [` | Bloc-notes du terminal (menu déroulant sur un espace de travail spécial ; appuyez de nouveau pour cacher) |
 | `SUPER + Space` | Gestionnaire de fichiers |
 | `SUPER + CTRL + Space` | Moniteur système |
@@ -126,7 +126,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + G` | Démarrer/Pause/Reprendre l'enregistrement de l'écran |
 | `SUPER + Shift + G` | Arrêter et sauvegarder l'enregistrement de l'écran |
 
-### Session
+### Séance
 
 | Raccourci | Description |
 | --- | --- |

@@ -22,10 +22,10 @@ Wenn ein Touchpad erkannt wird, zeigt die Seite natürliches Scrollen, Tippen zu
 
 ## Hardwareabhängige Steuerungen
 
-Erweiterte Mauskontrollen, die durch `ratbag` unterstützt werden, werden nur für unterstützte Geräte angezeigt. ARGVUS behauptet nicht, dass jede Maus DPI, Profile oder Abtastratenänderungen unterstützt. Wenn ein Gerät nicht erkannt wird oder der optionale Geräteservice nicht verfügbar ist, können diese Steuerungen auf dieser Seite nicht angewendet werden. 
+Erweiterte Mauskontrollen, die durch `ratbag` unterstützt werden, werden nur für unterstützte Geräte angezeigt. ARGVUS behauptet nicht, dass jede Maus DPI, Profile oder Abtastratenänderungen unterstützt. Wenn ein Gerät nicht erkannt wird oder der optionale Geräteservice nicht verfügbar ist, können diese Steuerungen auf dieser Seite nicht angewendet werden.
 
 ## Persistenz und Zurücksetzen
 
 Die Einstellungen werden als Benutzerzustand gespeichert und ein generiertes Hyprland-Eingabefragment wird für die Sitzung neu erstellt. Verwenden Sie die Zurücksetzen-Aktion der Seite, wenn diese vorhanden ist; bearbeiten Sie das generierte Fragment nicht direkt. Eine Einstellung kann nur für den aktuellen Kompositor gelten, wenn die Sitzung den relevanten Gerätezustand nicht neu laden kann.
 
-Siehe [Control Center](/docs/components/argvus-control-center/)] und [Where to configure things](/docs/user-guide/where-to-configure/)].
+Siehe [Control Center](/docs/components/argvus-control-center/) und [Where to configure things](/docs/user-guide/where-to-configure/).

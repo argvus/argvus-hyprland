@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: कीबोर्ड शॉर्टकट
 description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वारा प्रदान किए गए शॉर्टकट खोजें।
 ---
 
@@ -29,168 +29,168 @@ description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वा�
 
 तालिका बेस मैनिफेस्ट (`/usr/share/argvus/hyprland/keybindings.json`) के बाइंडिंग्स को उनके डिफ़ॉल्ट कुंजियों के साथ सूचीबद्ध करती है। कंट्रोल सेंटर में आपके अपने बदलाव यहां दिखायी गई कुंजियों को प्रभावित बाइंडिंग्स के लिए बदल देते हैं, और अक्षम बाइंडिंग्स नहीं चलतीं।
 
-### Navigation
+### नेविगेशन
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | दिशा के अनुसार फोकस टाइल वाली खिड़की |
+| `SUPER + Right Arrow` | दिशा के अनुसार फोकस टाइल वाली खिड़की |
+| `SUPER + Up Arrow` | दिशा के अनुसार फोकस टाइल वाली खिड़की |
+| `SUPER + Down Arrow` | दिशा के अनुसार फोकस टाइल वाली खिड़की |
+| `SUPER + CTRL + Left Arrow` | खिड़कियों के बीच चक्र फोकस (टाइल और फ्लोटिंग) |
+| `SUPER + CTRL + Right Arrow` | खिड़कियों के बीच चक्र फोकस (टाइल और फ्लोटिंग) |
 
-### Workspaces
+### कार्यस्थान
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | कार्य क्षेत्रों के बीच स्थानांतरण |
+| `CTRL + ALT + Left Arrow` | कार्य क्षेत्रों के बीच स्थानांतरण |
+| `Mouse extra button (mouse:276)` | कार्य क्षेत्रों के बीच स्थानांतरण |
+| `Mouse side button (mouse:275)` | कार्य क्षेत्रों के बीच स्थानांतरण |
+| `SUPER + 1` | कार्यक्षेत्र 1 |
+| `SUPER + 2` | कार्यक्षेत्र 2 |
+| `SUPER + 3` | कार्यक्षेत्र 3 |
+| `SUPER + 4` | कार्यक्षेत्र 4 |
+| `SUPER + 5` | कार्यक्षेत्र 5 |
+| `SUPER + 6` | कार्यक्षेत्र 6 |
+| `SUPER + 7` | कार्यक्षेत्र 7 |
+| `SUPER + 8` | कार्यक्षेत्र 8 |
+| `SUPER + 9` | कार्यक्षेत्र 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9` | उस स्थिति में प्रोजेक्ट खोलता है `argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | विंडो को डेस्कटॉप 1 पर ले जाएँ |
+| `SUPER + Shift + 2` | विंडो को डेस्कटॉप 2 पर ले जाएँ |
+| `SUPER + Shift + 3` | विंडो को डेस्कटॉप 3 पर ले जाएँ |
+| `SUPER + Shift + 4` | विंडो को डेस्कटॉप 4 पर ले जाएँ |
+| `SUPER + Shift + 5` | विंडो को डेस्कटॉप पर ले जाएँ 5 |
+| `SUPER + Shift + 6` | विंडो को डेस्कटॉप पर ले जाएँ 6 |
+| `SUPER + Shift + 7` | विंडो को डेस्कटॉप 7 पर ले जाएँ |
+| `SUPER + Shift + 8` | विंडो को डेस्कटॉप 8 पर ले जाएँ |
+| `SUPER + Shift + 9` | विंडो को डेस्कटॉप 9 पर ले जाएँ |
 
-### Windows
+### खिड़कियाँ
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | विंडो को अधिकतम करें (टॉगल करें) |
+| `SUPER + Q` | विंडो बंद करें |
+| `SUPER + Shift + Space` | फ़्लोटिंग विंडो सक्षम/अक्षम करें |
+| `SUPER + F` | पूर्ण स्क्रीन विंडो |
+| `SUPER + E` | विभाजित ऊर्ध्वाधर/क्षैतिज टॉगल |
+| `SUPER + W` | टैब में समूह/असमूहीकृत करें |
+| `SUPER + Tab` | टैब के बीच नेविगेट करें |
+| `SUPER + Shift + Left Arrow` | विंडो हटाएँ |
+| `SUPER + Shift + Right Arrow` | विंडो हटाएँ |
+| `SUPER + Shift + Up Arrow` | विंडो हटाएँ |
+| `SUPER + Shift + Down Arrow` | विंडो हटाएँ |
+| `SUPER + Left mouse button (mouse:272)` | विंडो खींचें (केवल फ्लोटिंग विंडो) |
+| `SUPER + Right mouse button (mouse:273)` | विंडो आकार परिवर्तन मोड (केवल फ़्लोटिंग विंडो) |
+| `SUPER + R` | विंडो आकार परिवर्तन मोड दर्ज करें (केवल फ़्लोटिंग विंडो) |
 
-### Applications
+### अनुप्रयोग
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | टर्मिनल |
 | `SUPER + [` | टर्मिनल स्क्रैचपैड (एक विशेष वर्कस्पेस पर ड्रॉपडाउन; छिपाने के लिए फिर से दबाएँ) |
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | फ़ाइल प्रबंधक |
+| `SUPER + CTRL + Space` | सिस्टम मॉनिटर |
+| `SUPER + Shift + D` | हटाने योग्य डिवाइस मेनू |
+| `SUPER + Shift + F` | ARGVUS फोकस (पोमोडोरो और फोकस सत्र) |
+| `SUPER + Shift + C` | ARGVUS घड़ी (घड़ी, टाइमर और अलार्म) |
+| `SUPER + D` | प्रोग्राम लॉन्चर |
+| `SUPER + B` | डिफ़ॉल्ट ब्राउज़र |
+| `SUPER + C` | कैलकुलेटर |
+| `SUPER + ALT + S` | SSH होस्ट पिकर (`argvus ssh`) |
+| `SUPER + ALT + N` | स्निपेट पिकर (`argvus snippets`) |
 | `SUPER + ALT + G` | प्रोजेक्ट पिकर, फिर चुने गए प्रोजेक्ट में git TUI (lazygit या gitui) (`argvus git`) |
 
-### Media
+### मीडिया
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | आवाज़ तेज़ करो |
+| `Volume Down` | आवाज़ कम करो |
+| `Mute` | म्यूट करें |
+| `Brightness Up` | चमक ऊपर |
+| `Brightness Down` | चमक कम |
+| `Play/Pause` | चलाएं/रोकें |
+| `Next Track` | अगला ट्रैक |
+| `Previous Track` | पिछला ट्रैक |
+| `Stop` | ट्रैक रोकें |
 
 ### स्क्रीनशॉट्स और रिकॉर्डिंग
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | चयनित क्षेत्र पर कब्जा |
+| `SUPER + Print` | फोकस्ड विंडो कैप्चर करें |
+| `SUPER + Shift + Print` | संपूर्ण स्क्रीन कैप्चर करें |
+| `SUPER + G` | Start/Pause/Resume स्क्रीन रिकॉर्डिंग |
+| `SUPER + Shift + G` | स्क्रीन रिकॉर्डिंग रोकें और सहेजें |
 
-### Session
+### सत्र
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | लॉक सिस्टम |
+| `SUPER + escape` | निकास प्रणाली |
+| `SUPER + Shift + R` | Hyprland पुनः लोड करें |
+| `SUPER + Shift + S` | मॉनिटर को बंद/चालू करें (सिस्टम को निलंबित नहीं करें) |
+| `SUPER + Shift + L` | निष्क्रियता लॉक टाइमआउट चुनें |
+| `SUPER + ALT + W` | जागते रहो टॉगल करें |
 
-### System
+### सिस्टम
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Hyprland चीटशीट |
+| `SUPER + CTRL + /` | किटी चीटशीट्स |
+| `SUPER + F1` | ARGVUS के बारे में खोलें |
+| `SUPER + ALT + C` | नियंत्रण केंद्र खोलें |
+| `SUPER + P` | रंग बीनने वाला |
+| `SUPER + .` | इमोजी पिकर |
+| `SUPER + H` | क्लिपबोर्ड इतिहास |
+| `SUPER + Shift + H` | क्लिपबोर्ड इतिहास साफ़ करें |
 
-### Widgets
+### विजेट्स
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | अधिसूचना साइडबार खोलें/बंद करें |
+| `Middle mouse button (mouse:274)` | अधिसूचना साइडबार खोलें/बंद करें |
+| `SUPER + Backspace` | Waybar को शीर्ष पर टॉगल करें |
+| `SUPER + Shift + W` | मौसम स्थान कॉन्फ़िगर करें |
+| `SUPER + ALT + Up Arrow` | टास्कबार को शीर्ष पर ले जाएँ |
+| `SUPER + ALT + Down Arrow` | टास्कबार को नीचे ले जाएँ |
 
-### Appearance
+### दिखावट
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | नियंत्रण केंद्र वॉलपेपर खोलें |
+| `SUPER + Shift + T` | थीम चयनकर्ता खोलें |
+| `SUPER + Shift + M` | स्टिकी/स्पेस्ड मोड पिकर खोलें |
 | `SUPER + F5` | ARGVUS डार्क और ARGVUS लाइट थीम के बीच टॉगल करें |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | एनिमेशन टॉगल करें |
+| `SUPER + Shift + B` | चमक चयनकर्ता और नाइट लाइट टॉगल खोलें |
 
 ### रिसाइज़ मोड (SUPER + R के बाद)
 
 ये शॉर्टकट केवल तभी काम करते हैं जब रिसाइज़ मोड सक्रिय हो। `Esc` या `Enter` मोड छोड़ देता है।
 
-| Shortcut | Description |
+| शॉर्टकट | विवरण |
 | --- | --- |
-| `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Right Arrow` | आकार बदलें |
+| `Left Arrow` | आकार बदलें |
+| `Up Arrow` | आकार बदलें |
+| `Down Arrow` | आकार बदलें |
+| `Shift + Right Arrow` | विंडो हटाएँ |
+| `Shift + Left Arrow` | विंडो हटाएँ |
+| `Shift + Up Arrow` | विंडो हटाएँ |
+| `Shift + Down Arrow` | विंडो हटाएँ |
+| `escape` | आकार परिवर्तन मोड से बाहर निकलें |
+| `Enter` | आकार परिवर्तन मोड से बाहर निकलें |
 
 
 उड़ने और कार्यक्षेत्र व्यवहार के लिए [Windows और layout](/docs/argvus-hyprland/windows-and-layout/) देखें और सेटिंग्स वर्कफ़्लो के लिए [Control Center](/docs/components/argvus-control-center/) देखें।

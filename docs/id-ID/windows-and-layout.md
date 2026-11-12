@@ -1,5 +1,5 @@
 ---
-title: Windows and layout
+title: Windows dan tata letak
 description: Pahami celah, batas, mode, dan ruang panel di ARGVUS.
 ---
 
@@ -27,7 +27,7 @@ ARGVUS menggunakan Hyprland untuk penempatan jendela terpetak dan mengambang. Ko
 
 Mode tema bawaan menyediakan dua geometri awal:
 
-| Mode | Window behavior | Surface treatment |
+| Modus | Perilaku jendela | Perawatan permukaan |
 | --- | --- | --- |
 | Lengket | Celah internal `2`, celah luar `0`secara default | Persegi, kompak dan dekat dengan tepi layar |
 | Berjarak | Celah internal `10`, celah luar `18`secara default | Membulat, berbentuk bayangan dan lebih luas; batas taskbar/shell default ke`18` |
@@ -76,7 +76,7 @@ Setiap aturan memiliki `workspace` dari 1 sampai 10 dan daftar `classes`. Entri 
 
 Perubahan diterapkan melalui integrasi tampilan/sesi ARGVUS. Gunakan tindakan reset pada halaman jika tersedia; jangan mengedit file Hyprland yang dihasilkan secara langsung.
 
-## Related
+## Terkait
 
 
 ## Goyangan jendela
@@ -104,7 +104,7 @@ Ini memerlukan Hyprland **0.57.0 atau lebih baru**, ditegakkan oleh `argvus-hypr
 ketergantungan paket. Versi 0.56 tidak didukung untuk konfigurasi ini. Maksimum intensitas
 yang membatasinya hingga `2`, meskipun dokumentasi baru mungkin mencantumkan `3`. Mode jendela global
 
-## 
+##
 
 Buka **Control Center → Desktop & Input → Hyprland → Windows → Mode** dan pilih **Tile Windows (Default)** atau **Floating Windows**. Pemilih yang sama tersedia dari ikon mode-jendela di grup utilitas taskbar.
 
@@ -134,10 +134,10 @@ Dalam **Spaced + Floating**, jendela menghormati celah luar dan area yang dicada
 
 `SUPER + Alt + Space` mengalihkan mode Tile/Floating global, menggunakan preferensi yang sama seperti taskbar dan Control Center. Perintah yang setara adalah `argvus config window-mode toggle`. Pemanggilan bersamaan dijalankan secara berurutan; pengalihan menggunakan preferensi yang tersimpan walaupun aplikasi sedang menunggu. Pintasan dapat diubah atau dinonaktifkan di Pintasan Keyboard; `SUPER + Shift + Space` mempertahankan aksi jendela individualnya.
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
+Setiap aturan memiliki ruang kerja dari 1 hingga 10 dan daftar kelas. Entri dalam kelas adalah ekspresi reguler yang dicocokkan dengan kelas jendela (peka huruf besar/kecil), misalnya [Cc]ode.* atau jetbrains-.*. Hanya huruf, angka dan ._*+?-|^$ yang diterima. argvus-config menulis aturan ke generate/hypr/window-rules.lua, yang mana konfigurasi Hyprland dimuat. Untuk mengganti aturan tanpa mengubah default, tambahkan panggilan hl.window_rule ke rule.lua di direktori data ARGVUS Anda; itu dimuat setelah aturan yang dihasilkan.
 untuk jalur yang terpasang dan pengguna. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+Jendela ubin disusun berdasarkan Hyprland pada ruang kerja aktif. ARGVUS juga mendukung jendela utilitas mengambang; SUPER + SHIFT + Spasi mengalihkan jendela fokus antara tata letak ubin dan mengambang. Pergerakan ruang kerja dan fokus jendela dikendalikan oleh manifes pengikatan tombol aktif; lihat [Pintasan keyboard](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Penampilan](/docs/user-guide/appearance/)
 - [Tema](/docs/user-guide/appearance/)
 - [Bilah tugas](/docs/argvus-taskbar/taskbar/)

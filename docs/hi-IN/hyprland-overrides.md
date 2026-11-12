@@ -1,5 +1,5 @@
 ---
-title: Hyprland overrides
+title: Hyprland ओवरराइड करता है
 description: ARGVUS Hyprland कॉन्फ़िगरेशन को पैकेज्ड फाइलों को संपादित किए बिना अनुकूलित करें।
 ---
 

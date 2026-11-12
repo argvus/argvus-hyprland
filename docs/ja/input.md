@@ -28,4 +28,4 @@ Open **コントロールセンター → ロケールと地域 → マウスと
 
 設定はユーザーステートとして保存され、セッション用に生成された Hyprland 入力フラグメントが再生成されます。ページにリセット操作がある場合はそれを使用してください。生成されたフラグメントを直接編集しないでください。セッションで関連デバイスの状態を再読み込みできない場合、設定は現在のコンポジターにのみ適用されます。
 
-詳細は [Control Center](/docs/components/argvus-control-center/)] および [設定場所](/docs/user-guide/where-to-configure/)] を参照してください。
+詳細は [Control Center](/docs/components/argvus-control-center/) および [設定場所](/docs/user-guide/where-to-configure/) を参照してください。

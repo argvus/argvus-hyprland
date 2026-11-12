@@ -4,7 +4,7 @@ description: Configura il comportamento del puntatore e del touchpad in ARGVUS.
 ---
 Apri **Centro di Controllo → Locale e Regione → Mouse e Touchpad**, oppure esegui `argvus control-center input`.
 
-## Mouse
+## Topo
 
 Quando viene rilevato un mouse, la pagina mostra:
 
@@ -28,4 +28,4 @@ I comandi avanzati del mouse supportati da `ratbag` sono mostrati solo per i dis
 
 Le impostazioni vengono memorizzate come stato utente e un frammento di input Hyprland generato viene rigenerato per la sessione. Utilizzare l'azione di reset della pagina quando presente; non modificare direttamente il frammento generato. Una impostazione può applicarsi solo al compositor attuale quando la sessione non può ricaricare lo stato del dispositivo rilevante.
 
-Vedere [Centro di Controllo](/docs/components/argvus-control-center/)] e [Dove configurare le cose](/docs/user-guide/where-to-configure/)].
+Vedere [Centro di Controllo](/docs/components/argvus-control-center/) e [Dove configurare le cose](/docs/user-guide/where-to-configure/).

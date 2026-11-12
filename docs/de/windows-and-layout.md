@@ -36,11 +36,11 @@ Dies sind Standardwerte, keine Grenzen. Die Seiten Fensterabstände und Taskbar-
 
 Jede Steuerung ist unabhängig und befindet sich auf der hier aufgeführten Seite:
 
-- **Taskleiste → Position** — Taskleistenposition, obere oder untere Kante. 
-- **Taskleiste → Abstände** — obere, linke, rechte und untere Ränder der Taskleiste, jeweils von `0` bis `100`. Sticky setzt standardmäßig den unteren Rand auf `2`; Spaced verwendet `18`. 
-- **Taskleiste → Symbole** — ob die Taskleisten-Dienstgruppe automatisches oder stets erweitertes Verhalten verwendet. 
-- **Hyprland → Fenster → Abstände** — innerer Abstand und äußerer Abstand oben/links/rechts/unten, jeweils von `0` bis `100`. 
-- **Hyprland → Ränder** — allgemeine Ränder: abgerundete Ecken aktivieren; wenn aktiviert, ist die Rundung von `2` bis `10` wählbar. Kantenstärke wird hier ebenfalls festgelegt, von `0` bis `10`. 
+- **Taskleiste → Position** — Taskleistenposition, obere oder untere Kante.
+- **Taskleiste → Abstände** — obere, linke, rechte und untere Ränder der Taskleiste, jeweils von `0` bis `100`. Sticky setzt standardmäßig den unteren Rand auf `2`; Spaced verwendet `18`.
+- **Taskleiste → Symbole** — ob die Taskleisten-Dienstgruppe automatisches oder stets erweitertes Verhalten verwendet.
+- **Hyprland → Fenster → Abstände** — innerer Abstand und äußerer Abstand oben/links/rechts/unten, jeweils von `0` bis `100`.
+- **Hyprland → Ränder** — allgemeine Ränder: abgerundete Ecken aktivieren; wenn aktiviert, ist die Rundung von `2` bis `10` wählbar. Kantenstärke wird hier ebenfalls festgelegt, von `0` bis `10`.
 - **Hyprland → Ränder → Schatten** — der Fensterschatten, standardmäßig ausgeschaltet. Es werden Bereich, Renderkraft, scharfe Ecken, Versatz und Maßstab festgelegt, und seine Farbe folgt dem Akzent des Themas mit Alpha `99`, es sei denn, eine Farbe wird manuell eingegeben.
 
 Diese Werte werden in den ARGVUS-Aussehungszustand geschrieben, und `argvus-config` projiziert sie in die erzeugten Hyprland-Dateien, die dann von der Sitzung angewendet werden. Ein Taskleistenabstand ändert die Position der Shell-Oberfläche; ein äußerer Fensterabstand ändert den Bereich der gekachelten Fenster. Sie können eine ähnliche visuelle Distanz erzeugen, aber die Änderung des einen ändert nicht das andere.

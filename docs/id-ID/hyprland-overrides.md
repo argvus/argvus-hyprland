@@ -1,5 +1,5 @@
 ---
-title: Hyprland overrides
+title: Hyprland menimpa
 description: Sesuaikan konfigurasi ARGVUS Hyprland tanpa mengedit file yang dikemas.
 ---
 
@@ -29,18 +29,18 @@ Konfigurasi yang dikemas memuat file-file ini dalam urutan ini saat ada:
 
 Gunakan file sesuai tanggung jawab:
 
-- 
+-
 
  — additional or replacement monitor declarations.
-- 
+-
 
  — window and layer rules.
-- 
+-
 
  — additional keybindings or custom actions.
-- 
+-
 
- — environment variables and other Lua configuration that does not fit the previous categories.
+ — variabel lingkungan dan konfigurasi Lua lainnya yang tidak sesuai dengan kategori sebelumnya.
 
 Fragmen dengan kesalahan Lua tidak menghentikan konfigurasi lainnya. Hyprland melewati file tersebut, melaporkan  user.lua  bindings.lua  rules.lua  `monitors.lua`  `rules.lua`  `bindings.lua`  `user.lua` `ARGVUS: ignoring invalid user override` dengan jalurnya dan kesalahannya, dan tetap memuat fragmen yang tersisa. Periksa fragmen dengan `luac -p` sebelum memuat ulang.
 
@@ -61,7 +61,7 @@ ARGVUS memiliki `XDG_CONFIG_DIRS` dan membangunnya kembali setiap kali Hyprland 
 
 ## Menambahkan keybinding
 
-Use 
+Use
 
  for a new binding that is not part of the ARGVUS keybinding manifest:
 

@@ -20,7 +20,7 @@ Esegui `argvus control-center shortcuts create` o `argvus control-center shortcu
 
 Il manifesto di base e le cheatsheet installate si trovano sotto `/usr/share/argvus/hyprland/`. La sovrascrittura utente attiva non è un manifesto sostitutivo: modifica le voci selezionate nel Centro di Controllo. Ecco perché un elenco specifico per versione, copiato manualmente, può diventare obsoleto.
 
-Alcune azioni integrate utili includono lo spostamento del focus e degli spazi di lavoro, l'attivazione/disattivazione delle finestre flottanti, screenshot e registrazione, apertura del launcher/terminale, cambiamento dell'aspetto, blocco della sessione, controllo dei media e ricaricamento di Hyprland. I collegamenti predefiniti sono elencati nella [tabella dei collegamenti predefiniti](#default-shortcut-table)] qui sotto; la pagina del Centro di Controllo mostra i collegamenti così come sono attualmente configurati.
+Alcune azioni integrate utili includono lo spostamento del focus e degli spazi di lavoro, l'attivazione/disattivazione delle finestre flottanti, screenshot e registrazione, apertura del launcher/terminale, cambiamento dell'aspetto, blocco della sessione, controllo dei media e ricaricamento di Hyprland. I collegamenti predefiniti sono elencati nella [tabella dei collegamenti predefiniti](#default-shortcut-table) qui sotto; la pagina del Centro di Controllo mostra i collegamenti così come sono attualmente configurati.
 
 `SUPER + Shift + R` è il ricaricamento esplicito a runtime: ricarica Hyprland e riavvia la barra delle applicazioni ARGVUS, il Pannello di Controllo e i servizi di Widget Telemetry. I ricaricamenti guidati dalla configurazione rimangono condizionali e saltano il ricaricamento grafico quando lo stato canonico non è cambiato.
 
@@ -65,7 +65,7 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | `SUPER + Shift + 8` | Sposta la finestra sul desktop 8 |
 | `SUPER + Shift + 9` | Sposta la finestra sul desktop 9 |
 
-### Windows
+### Finestre
 
 | Scorciatoia | Descrizione |
 | --- | --- |

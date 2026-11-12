@@ -28,4 +28,4 @@ Les commandes de souris avancées prises en charge par `ratbag` sont affichées 
 
 Les paramètres sont stockés en tant qu'état utilisateur et un fragment d'entrée Hyprland généré est régénéré pour la session. Utilisez l'action de réinitialisation de la page lorsque celle-ci est présente ; ne modifiez pas directement le fragment généré. Un paramètre ne peut s'appliquer qu'au compositeur actuel lorsque la session ne peut pas recharger l'état pertinent de l'appareil.
 
-Voir [Centre de contrôle](/docs/components/argvus-control-center/)] et [Où configurer les éléments](/docs/user-guide/where-to-configure/)].
+Voir [Centre de contrôle](/docs/components/argvus-control-center/) et [Où configurer les éléments](/docs/user-guide/where-to-configure/).

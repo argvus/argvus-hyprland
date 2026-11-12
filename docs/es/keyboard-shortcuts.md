@@ -65,7 +65,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + Shift + 8` | Mover ventana al escritorio 8 |
 | `SUPER + Shift + 9` | Mover ventana al escritorio 9 |
 
-### Windows
+### ventanas
 
 | Atajo | Descripción |
 | --- | --- |
@@ -88,7 +88,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 
 | Atajo | Descripción |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | Terminales |
 | `SUPER + [` | Bloc de notas del terminal (desplegable en un espacio de trabajo especial; presiona de nuevo para ocultar) |
 | `SUPER + Space` | Administrador de archivos |
 | `SUPER + CTRL + Space` | Monitor del sistema |
@@ -150,7 +150,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + H` | Historial del portapapeles |
 | `SUPER + Shift + H` | Borrar historial del portapapeles |
 
-### Widgets
+### widgets
 
 | Atajo | Descripción |
 | --- | --- |

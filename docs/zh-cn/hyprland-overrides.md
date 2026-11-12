@@ -111,6 +111,6 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 ```
 打包的源文件和辅助文件位于 `/usr/share/argvus/hyprland/`。位于 `~/.config/argvus/data/generated/` 的生成文件是派生状态；请编辑所属设置或覆盖片段，而不是直接编辑生成的输出。
 
-请参阅 [Control Center 工作流程的键盘快捷键](/docs/argvus-hyprland/keyboard-shortcuts/)] 和 [完整配置路径参考的文件位置](/docs/reference/file-locations/)]。
+请参阅 [Control Center 工作流程的键盘快捷键](/docs/argvus-hyprland/keyboard-shortcuts/) 和 [完整配置路径参考的文件位置](/docs/reference/file-locations/)。
 
 在调用 Hyprland 之前，影子渲染功率被限制在 1–4（默认 4），包括传统效果投影。这可以防止旧版本 ARGVUS 接受的值阻止在 Hyprland 0.57 上启动。

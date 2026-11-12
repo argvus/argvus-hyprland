@@ -65,7 +65,7 @@ description: Найдите сочетания клавиш, предостав�
 | `SUPER + Shift + 8` | Переместить окно на рабочий стол 8 |
 | `SUPER + Shift + 9` | Переместить окно на рабочий стол 9 |
 
-### Windows
+### Окна
 
 | Сочетание клавиш | Описание |
 | --- | --- |
@@ -189,7 +189,7 @@ description: Найдите сочетания клавиш, предостав�
 | `escape` | Выйти из режима изменения размера |
 | `Enter` | Выйти из режима изменения размера |
 
-Смотрите [Windows and layout](/docs/argvus-hyprland/windows-and-layout/)] для поведения плавающих окон и рабочих областей и [Control Center](/docs/components/argvus-control-center/)] для рабочего процесса настроек.
+Смотрите [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) для поведения плавающих окон и рабочих областей и [Control Center](/docs/components/argvus-control-center/) для рабочего процесса настроек.
 
 ## Ночной режим
 

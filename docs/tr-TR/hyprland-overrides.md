@@ -1,5 +1,5 @@
 ---
-title: Hyprland overrides
+title: Hyprland geçersiz kılmalar
 description: Paketlenmiş dosyaları düzenlemeden ARGVUS Hyprland yapılandırmasını özelleştirin.
 ---
 

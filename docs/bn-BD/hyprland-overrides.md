@@ -1,5 +1,5 @@
 ---
-title: Hyprland overrides
+title: Hyprland ওভাররাইড
 description: প্যাকেজকৃত ফাইল সম্পাদনা ছাড়াই ARGVUS Hyprland কাস্টমাইজ করুন।
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Hyprland overrides
+title: Hyprland ghi đè
 description: Tùy chỉnh cấu hình Hyprland của ARGVUS mà không chỉnh sửa các tệp đã đóng gói.
 ---
 

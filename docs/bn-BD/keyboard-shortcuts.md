@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: কীবোর্ড শর্টকাট
 description: ARGVUS Hyprland কনফিগারেশন দ্বারা প্রদত্ত শর্টকাট খুঁজুন।
 ---
 
@@ -29,168 +29,168 @@ description: ARGVUS Hyprland কনফিগারেশন দ্বারা �
 
 টেবিলটি বেস ম্যানিফেস্টের (`/usr/share/argvus/hyprland/keybindings.json`) বাইনডিংগুলি তাদের ডিফল্ট কী-এর সাথে তালিকাভুক্ত করে। কন্ট্রোল সেন্টারে আপনার নিজের পরিবর্তনগুলি এখানে প্রদর্শিত কী গুলিকে প্রভাবিত বাইনডিংগুলির জন্য প্রতিস্থাপন করে, এবং অক্ষম করা বাইনডিংগুলি চলবে না।
 
-### Navigation
+### নেভিগেশন
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | দিক দ্বারা টাইলযুক্ত উইন্ডোতে ফোকাস করুন |
+| `SUPER + Right Arrow` | দিক দ্বারা টাইলযুক্ত উইন্ডোতে ফোকাস করুন |
+| `SUPER + Up Arrow` | দিক দ্বারা টাইলযুক্ত উইন্ডোতে ফোকাস করুন |
+| `SUPER + Down Arrow` | দিক দ্বারা টাইলযুক্ত উইন্ডোতে ফোকাস করুন |
+| `SUPER + CTRL + Left Arrow` | জানালার মধ্যে সাইকেল ফোকাস (টাইল করা এবং ভাসমান) |
+| `SUPER + CTRL + Right Arrow` | জানালার মধ্যে সাইকেল ফোকাস (টাইল করা এবং ভাসমান) |
 
-### Workspaces
+### কর্মক্ষেত্র
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | কাজের এলাকার মধ্যে স্থানান্তর |
+| `CTRL + ALT + Left Arrow` | কাজের এলাকার মধ্যে স্থানান্তর |
+| `Mouse extra button (mouse:276)` | কাজের এলাকার মধ্যে স্থানান্তর |
+| `Mouse side button (mouse:275)` | কাজের এলাকার মধ্যে স্থানান্তর |
+| `SUPER + 1` | কর্মক্ষেত্র 1 |
+| `SUPER + 2` | কর্মক্ষেত্র 2 |
+| `SUPER + 3` | কর্মক্ষেত্র 3 |
+| `SUPER + 4` | কর্মক্ষেত্র 4 |
+| `SUPER + 5` | কর্মক্ষেত্র 5 |
+| `SUPER + 6` | কর্মক্ষেত্র 6 |
+| `SUPER + 7` | কর্মক্ষেত্র 7 |
+| `SUPER + 8` | কর্মক্ষেত্র 8 |
+| `SUPER + 9` | কর্মক্ষেত্র 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9` | সেই অবস্থানে প্রকল্পটি খুলে `argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | উইন্ডোটিকে ডেস্কটপে সরান 1 |
+| `SUPER + Shift + 2` | উইন্ডোকে ডেস্কটপে সরান 2 |
+| `SUPER + Shift + 3` | উইন্ডোকে ডেস্কটপে সরান 3 |
+| `SUPER + Shift + 4` | উইন্ডোকে ডেস্কটপে সরান 4 |
+| `SUPER + Shift + 5` | উইন্ডোকে ডেস্কটপে সরান 5 |
+| `SUPER + Shift + 6` | উইন্ডোকে ডেস্কটপে সরান 6 |
+| `SUPER + Shift + 7` | উইন্ডোকে ডেস্কটপে সরান 7 |
+| `SUPER + Shift + 8` | উইন্ডোকে ডেস্কটপে সরান 8 |
+| `SUPER + Shift + 9` | উইন্ডোকে ডেস্কটপে সরান 9 |
 
-### Windows
+### উইন্ডোজ
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | উইন্ডো ম্যাক্সিমাইজ করুন (টগল) |
+| `SUPER + Q` | জানালা বন্ধ করুন |
+| `SUPER + Shift + Space` | ফ্লোটিং উইন্ডো সক্ষম/অক্ষম করুন |
+| `SUPER + F` | ফুল স্ক্রিন উইন্ডো |
+| `SUPER + E` | উল্লম্ব/অনুভূমিক টগল বিভক্ত করুন |
+| `SUPER + W` | ট্যাবে গ্রুপ/আনগ্রুপ করুন |
+| `SUPER + Tab` | ট্যাবগুলির মধ্যে নেভিগেট করুন |
+| `SUPER + Shift + Left Arrow` | জানালা সরান |
+| `SUPER + Shift + Right Arrow` | জানালা সরান |
+| `SUPER + Shift + Up Arrow` | জানালা সরান |
+| `SUPER + Shift + Down Arrow` | জানালা সরান |
+| `SUPER + Left mouse button (mouse:272)` | উইন্ডো টানুন (শুধুমাত্র ভাসমান উইন্ডো) |
+| `SUPER + Right mouse button (mouse:273)` | উইন্ডো রিসাইজ মোড (শুধুমাত্র ভাসমান উইন্ডো) |
+| `SUPER + R` | উইন্ডোর আকার পরিবর্তন করুন (শুধুমাত্র ভাসমান উইন্ডো) |
 
-### Applications
+### অ্যাপ্লিকেশন
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | টার্মিনাল |
 | `SUPER + [` | টার্মিনাল স্ক্র্যাচপ্যাড (একটি বিশেষ ওয়ার্কস্পেসে ড্রপডাউন; আবার চাপলে লুকিয়ে যায়) |
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | ফাইল ম্যানেজার |
+| `SUPER + CTRL + Space` | সিস্টেম মনিটর |
+| `SUPER + Shift + D` | অপসারণযোগ্য ডিভাইস মেনু |
+| `SUPER + Shift + F` | ARGVUS ফোকাস (পোমোডোরো এবং ফোকাস সেশন) |
+| `SUPER + Shift + C` | ARGVUS ঘড়ি (ঘড়ি, টাইমার এবং অ্যালার্ম) |
+| `SUPER + D` | প্রোগ্রাম লঞ্চার |
+| `SUPER + B` | ডিফল্ট ব্রাউজার |
+| `SUPER + C` | ক্যালকুলেটর |
+| `SUPER + ALT + S` | SSH হোস্ট পিকার (`argvus ssh`) |
+| `SUPER + ALT + N` | স্নিপেট পিকার (`argvus snippets`) |
 | `SUPER + ALT + G`| প্রোজেক্ট পিকার, তারপর নির্বাচিত প্রোজেক্টে গিট টিইউআই (lazygit বা gitui)`argvus git`) |
 
-### Media
+### মিডিয়া
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | ভলিউম আপ |
+| `Volume Down` | ভলিউম কম |
+| `Mute` | নিঃশব্দ |
+| `Brightness Up` | উজ্জ্বলতা আপ |
+| `Brightness Down` | উজ্জ্বলতা কম |
+| `Play/Pause` | প্লে/পজ |
+| `Next Track` | পরবর্তী ট্র্যাক |
+| `Previous Track` | আগের ট্র্যাক |
+| `Stop` | স্টপ ট্র্যাক |
 
 ### স্ক্রিনশট এবং রেকর্ডিং
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | নির্বাচিত এলাকা ক্যাপচার |
+| `SUPER + Print` | ফোকাসড উইন্ডো ক্যাপচার |
+| `SUPER + Shift + Print` | পুরো স্ক্রীন ক্যাপচার |
+| `SUPER + G` | Start/Pause/Resume স্ক্রিন রেকর্ডিং |
+| `SUPER + Shift + G` | স্ক্রীন রেকর্ডিং বন্ধ করুন এবং সংরক্ষণ করুন |
 
-### Session
+### অধিবেশন
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | লক সিস্টেম |
+| `SUPER + escape` | প্রস্থান সিস্টেম |
+| `SUPER + Shift + R` | Hyprland পুনরায় লোড করুন |
+| `SUPER + Shift + S` | মনিটর বন্ধ/চালু করুন (সাসপেন্ড সিস্টেম নয়) |
+| `SUPER + Shift + L` | নিষ্ক্রিয়তা লক টাইমআউট নির্বাচন করুন |
+| `SUPER + ALT + W` | টগল কিপ জাগ্রত |
 
-### System
+### সিস্টেম
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Hyprland চিটশীট |
+| `SUPER + CTRL + /` | কিটি চিটশীট |
+| `SUPER + F1` | ARGVUS সম্পর্কে খুলুন |
+| `SUPER + ALT + C` | নিয়ন্ত্রণ কেন্দ্র খুলুন |
+| `SUPER + P` | রঙ চয়নকারী |
+| `SUPER + .` | ইমোজি পিকার |
+| `SUPER + H` | ক্লিপবোর্ড ইতিহাস |
+| `SUPER + Shift + H` | ক্লিপবোর্ড ইতিহাস সাফ করুন |
 
-### Widgets
+### উইজেট
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | বিজ্ঞপ্তি সাইডবার খুলুন/বন্ধ করুন |
+| `Middle mouse button (mouse:274)` | বিজ্ঞপ্তি সাইডবার খুলুন/বন্ধ করুন |
+| `SUPER + Backspace` | টগল Waybar শীর্ষ |
+| `SUPER + Shift + W` | আবহাওয়া অবস্থান কনফিগার করুন |
+| `SUPER + ALT + Up Arrow` | টাস্কবার শীর্ষে সরান |
+| `SUPER + ALT + Down Arrow` | টাস্কবার নীচে সরান |
 
-### Appearance
+### চেহারা
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | কন্ট্রোল সেন্টার ওয়ালপেপার খুলুন |
+| `SUPER + Shift + T` | থিম নির্বাচক খুলুন |
+| `SUPER + Shift + M` | স্টিকি/স্পেসড মোড পিকার খুলুন |
 | `SUPER + F5` | ARGVUS ডার্ক এবং ARGVUS লাইট থিমগুলির মধ্যে পরিবর্তন করুন |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | অ্যানিমেশন টগল করুন |
+| `SUPER + Shift + B` | উজ্জ্বলতা নির্বাচক এবং নাইট লাইট টগল খুলুন |
 
 ### রিসাইজ মোড (SUPER + R চাপার পর)
 
 এই শর্টকাটগুলি কেবলমাত্র রিসাইজ মোড সক্রিয় থাকলে কাজ করে। `Esc` বা `Enter` মোডটি ছেড়ে চলে যায়।
 
-| Shortcut | Description |
+| শর্টকাট | বর্ণনা |
 | --- | --- |
-| `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Right Arrow` | আকার পরিবর্তন |
+| `Left Arrow` | আকার পরিবর্তন |
+| `Up Arrow` | আকার পরিবর্তন |
+| `Down Arrow` | আকার পরিবর্তন |
+| `Shift + Right Arrow` | জানালা সরান |
+| `Shift + Left Arrow` | জানালা সরান |
+| `Shift + Up Arrow` | জানালা সরান |
+| `Shift + Down Arrow` | জানালা সরান |
+| `escape` | রিসাইজ মোড থেকে প্রস্থান করুন |
+| `Enter` | রিসাইজ মোড থেকে প্রস্থান করুন |
 
 
 ভাসমান এবং ওয়ার্কস্পেসের আচরণের জন্য [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) দেখুন এবং সেটিংস ওয়ার্কফ্লোর জন্য [Control Center](/docs/components/argvus-control-center/) দেখুন।

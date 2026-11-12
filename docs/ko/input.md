@@ -28,4 +28,4 @@ description: ARGVUS에서 포인터 및 터치패드 동작을 구성하십시�
 
 설정은 사용자 상태로 저장되며, 세션을 위해 생성된 Hyprland 입력 조각이 재생성됩니다. 페이지에 재설정 기능이 있는 경우 사용하고, 생성된 조각을 직접 편집하지 마세요. 세션이 관련 장치 상태를 다시 로드할 수 없는 경우 설정은 현재 컴포지터에만 적용될 수 있습니다.
 
-[제어 센터](/docs/components/argvus-control-center/)]와 [구성을 어디서 할지](/docs/user-guide/where-to-configure/)]를 참조하세요.
+[제어 센터](/docs/components/argvus-control-center/)와 [구성을 어디서 할지](/docs/user-guide/where-to-configure/)를 참조하세요.

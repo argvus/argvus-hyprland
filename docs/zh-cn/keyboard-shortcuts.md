@@ -65,7 +65,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | `SUPER + Shift + 8` | 将窗口移到桌面 8 |
 | `SUPER + Shift + 9` | 将窗口移到桌面 9 |
 
-### Windows
+### 窗户
 
 | 快捷键 | 描述 |
 | --- | --- |
@@ -193,7 +193,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 
 ## 夜间模式
 
-**SUPER + Shift + B** 会在标准键绑定清单中保留 `appearance.brightness` 操作。其 Rofi 亮度菜单在 Hyprsunset 可用时也提供夜间模式。可以在 **控制中心 > 桌面与输入 > 显示 > 夜间模式** 中配置温度（1000–20000 K）和本地开始/结束时间。快速操作使用共享 CLI，不会重新加载 Hyprland 或更改生成的 Lua 脚本。  
+**SUPER + Shift + B** 会在标准键绑定清单中保留 `appearance.brightness` 操作。其 Rofi 亮度菜单在 Hyprsunset 可用时也提供夜间模式。可以在 **控制中心 > 桌面与输入 > 显示 > 夜间模式** 中配置温度（1000–20000 K）和本地开始/结束时间。快速操作使用共享 CLI，不会重新加载 Hyprland 或更改生成的 Lua 脚本。
 
 在安装了可选的 argvus-ai 软件包后，SUPER + A 会打开 AI 代理菜单。该绑定会遵循 app.ai 用户覆盖设置，并在卸载软件包并重新加载合成器后消失。在重新加载之前，受保护的操作处于非激活状态。
 

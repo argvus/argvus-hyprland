@@ -1,20 +1,20 @@
 ---
-title: Hyprland overrides
+title: تجاوزات هايبرلاند
 description:                           .ﺔﻌﻤﺠﻤﻟﺍ ﺕﺎﻔﻠﻤﻟﺍ ﺮﻳﺮﺤﺗ ﻥﻭﺩ ARGVUS Hyprland ﻦﻳﻮﻜﺗ ﺺﺼﺧ
 ---
 
 :ﺎﻤﻬﻨﻴﺑ ﻂﻠﺨﻟﺍ ﺐﺠﻳ ﻻ﻿ .Hyprland ﺺﻴﺼﺨﺘﻟ ﻦﻴﺘﻔﻠﺘﺨﻣ ﻦﻴﺘﻘﻳﺮﻃ ARGVUS
 
-- 
+-
 
- is a complete user configuration. When it is valid and is not the stock Hyprland template, 
+هو تكوين المستخدم الكامل. عندما يكون صالحًا وليس قالب المخزون Hyprland،
 
- launches Hyprland with this file instead of the packaged configuration.
-- 
+ قم بتشغيل Hyprland بهذا الملف بدلاً من التكوين المعبأ.
+-
 
- contains incremental ARGVUS overrides. The packaged configuration remains the base and loads these fragments at the end.
+ يحتوي على تجاوزات ARGVUS تزايدية. يظل التكوين المعبأ هو الأساس ويقوم بتحميل هذه الأجزاء في النهاية.
 
-.ﺔﻣﺰﺤﻟﺍ ﺕﺎﺜﻳﺪﺤﺗ ﺮﺒﻋ ﺔﺣﺎﺘﻣ ﺔﺴﻠﺠﻟﺍ ﻞﻣﺎﻜﺗﻭ ،ﺓﺪﻟﻮﻤﻟﺍ ﺔﻟﺎﺤﻟﺍﻭ ،ARGVUS ـﻟ ﺔﻴﺿﺍﺮﺘﻓﻻ﻿ﺍ 
+.ﺔﻣﺰﺤﻟﺍ ﺕﺎﺜﻳﺪﺤﺗ ﺮﺒﻋ ﺔﺣﺎﺘﻣ ﺔﺴﻠﺠﻟﺍ ﻞﻣﺎﻜﺗﻭ ،ﺓﺪﻟﻮﻤﻟﺍ ﺔﻟﺎﺤﻟﺍﻭ ،ARGVUS ـﻟ ﺔﻴﺿﺍﺮﺘﻓﻻ﻿ﺍ
 
 ##                                                           ﺔﻣﻮﻋﺪﻤﻟﺍ ﺯﻭﺎﺠﺗ ﺕﺎﻔﻠﻣ
 
@@ -38,7 +38,7 @@ mkdir -p ~/.config/argvus/data/hypr
 -  ~/.config/argvus/data/hypr/  argvus start  `~/.config/hypr/hyprland.lua`  `argvus start`  `~/.config/argvus/data/hypr/` `monitors.lua` — ﺔﻠﻳﺪﺑ ﻭﺃ ﺔﻴﻓﺎﺿﺇ ﺕﺎﺷﺎﺷ ﺕﺎﻧﻼ﻿ﻋﺇ.
 - `rules.lua` — ﺕﺎﻘﺒﻄﻟﺍﻭ ﺬﻓﺍﻮﻨﻟﺍ ﺪﻋﺍﻮﻗ.
 - `bindings.lua` — ﺔﺼﺼﺨﻣ ﺕﺍءﺍﺮﺟﺇ ﻭﺃ ﺔﻴﻓﺎﺿﺇ ﺭﺎﺼﺘﺧﺍ ﺢﻴﺗﺎﻔﻣ.
-- `user.lua` — ﺕﺍﺩﺍﺪﻋﺇ ﻦﻣ ﺎﻫﺮﻴﻏﻭ ﺔﺌﻴﺒﻟﺍ ﺕﺍﺮﻴﻐﺘﻣ Lua ﺔﻘﺑﺎﺴﻟﺍ ﺕﺎﺌﻔﻟﺍ ﺐﺳﺎﻨﺗ 
+- `user.lua` — ﺕﺍﺩﺍﺪﻋﺇ ﻦﻣ ﺎﻫﺮﻴﻏﻭ ﺔﺌﻴﺒﻟﺍ ﺕﺍﺮﻴﻐﺘﻣ Lua ﺔﻘﺑﺎﺴﻟﺍ ﺕﺎﺌﻔﻟﺍ ﺐﺳﺎﻨﺗ
 
 ﻦﻋ ﻎﻠﺒﻳﻭ ،ﻒﻠﻤﻟﺍ ﺍﺬﻫ Hyprland ﺯﻭﺎﺠﺘﻳ .ﻦﻳﻮﻜﺘﻟﺍ ﻲﻗﺎﺑ ﻒﻗﻮﺗ ﻻ﻿ Lua ﻲﻓ ﺄﻄﺧ ﻰﻠﻋ ﻱﻮﺘﺤﺗ `ARGVUS: ignoring invalid user override`                 ﻊﻣ ءﺰﺟ ﻦﻣ ﻖﻘﺤﺗ .ﺔﻴﻘﺒﺘﻤﻟﺍ ءﺍﺰﺟﻷ﻿ﺍ ﻞﻤﺤﻳ ﻝﺍﺰﻳ ﻻ﻿ﻭ ،ﺄﻄﺨﻟﺍﻭ ﻩﺭﺎﺴﻣ ﻊﻣ`luac -p`                                                            .ﻞﻴﻤﺤﺘﻟﺍ ﺓﺩﺎﻋﺇ ﻞﺒﻗ
 
@@ -59,9 +59,9 @@ hl.env("MY_VARIABLE", "1")
 
 ## ﺢﻴﺗﺎﻔﻤﻟﺍ ﺔﺣﻮﻟ ﺭﺎﺼﺘﺧﺍ ﺔﻓﺎﺿﺇ
 
-Use 
+Use
 
- for a new binding that is not part of the ARGVUS keybinding manifest:
+ للربط الجديد الذي ليس جزءًا من بيان ربط المفاتيح ARGVUS:
 
 ```lua
 -- ~/.config/argvus/data/hypr/bindings.lua
@@ -95,9 +95,9 @@ argvus control-center keybindings
 
 ## ـﻟ ﺔﻠﻣﺎﻜﻟﺍ ﺔﻴﻠﺻﻷ﻿ﺍ ﺔﺌﻴﻬﺘﻟﺍ
 
- is not an overlay file. If you create it, 
+ is not an overlay file. If you create it,
 
- validates it and uses it as the complete Hyprland configuration:
+ يتحقق من صحته ويستخدمه كتكوين كامل Hyprland:
 
 ```sh
 mkdir -p ~/.config/hypr
@@ -132,7 +132,7 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 
                                                   ﺖﺤﺗ ﻥﻭﺪﻋﺎﺴﻤﻟﺍﻭ ﺄﺒﻌﻤﻟﺍ ﺭﺪﺼﻤﻟﺍ`/usr/share/argvus/hyprland/`                                                         ﺖﺤﺗ ﺓﺪﻟﻮﻤﻟﺍ ﺕﺎﻔﻠﻤﻟﺍ .`~/.config/argvus/data/generated/`.ﺓﺮﺷﺎﺒﻣ ﺪَّﻟﻮﻤﻟﺍ ﺞﺗﺎﻨﻟﺍ ﺮﻳﺮﺤﺗ ﻦﻣ ًﻻ﻿ﺪﺑ ﺓﺯﻭﺎﺠﺘﻤﻟﺍ ﺔﺋﺰﺠﺘﻟﺍ ﻭﺃ ﻚِﻟﺎﻤﻟﺍ ﺩﺍﺪﻋﻹ﻿ﺍ ﺮﻳﺮﺤﺘﺑ ﻢ
 
-See  for the installed and user paths.(/docs/argvus-hyprland/keyboard-shortcuts/) for the installed and user paths. for the installed and user paths.(/docs/reference/file-locations/) for the installed and user paths.
+راجع المسار المثبت ومسار المستخدم.(/docs/argvus-hyprland/keyboard-shortcuts/) لمعرفة المسار المثبت ومسار المستخدم. للمسارات المثبتة ومسارات المستخدم.(/docs/reference/file-locations/) للمسارات المثبتة والمستخدمين.
 
 Hyprland 0.57.  ﻰﻠﻋ ﻞﻴﻐﺸﺘﻟﺍ ﻊﻨﻣ ﻦﻣ ﻡﺪﻗﻷ﻿ﺍ ARGVUS ﺕﺍﺭﺍﺪﺻﺇ ﻞﺒﻗ ﻦﻣ
 

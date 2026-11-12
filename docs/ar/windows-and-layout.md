@@ -1,5 +1,5 @@
 ---
-title: Windows and layout
+title: النوافذ والتخطيط
 description:                        .ARGVUS ﻲﻓ ﺕﺎﺣﻮﻠﻟﺍ ﺔﺣﺎﺴﻣﻭ ﺐﻴﻟﺎﺳﻷ﻿ﺍﻭ ﺩﻭﺪﺤﻟﺍﻭ ﺕﺍﻮﺠﻔﻟﺍ ﻢﻬﻓﺍ
 ---
 
@@ -18,7 +18,7 @@ description:                        .ARGVUS ﻲﻓ ﺕﺎﺣﻮﻠﻟﺍ ﺔﺣ�
 ```
 
 - .ﺞﺟﺰﻤﻟﺍ ﻢﻴﻤﺼﺘﻠﻟ ﺔﻴﺟﺭﺎﺨﻟﺍ ﺔﻓﺎﺤﻟﺍﻭ ﺔﺠﺟﺰﻤﻟﺍ ﺬﻓﺍﻮﻨﻟﺍ ﻦﻴﺑ ﺔﻓﺎﺴﻤﻟﺍ ﻲﻫ **ﺬﻓﺍﻮﻨﻟﺍ ﺕﺍﻮﺠ
-- .ﺓﺬﻓﺎﻨﻟﺍ ﺓﻮﺠﻓ ﺔﻤﻴﻗ ﺲﻔﻧ ﺖﺴﻴﻟ ﺎﻬﻧﺇ .ﺔﺣﻮﻠﻟﺍﻭ ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﻞﺜﻣ ﺐﺘﻜﻤﻟﺍ ﺢﻄﺳ ﺢﻄﺳﺃ ﻝﻮﺣ 
+- .ﺓﺬﻓﺎﻨﻟﺍ ﺓﻮﺠﻓ ﺔﻤﻴﻗ ﺲﻔﻧ ﺖﺴﻴﻟ ﺎﻬﻧﺇ .ﺔﺣﻮﻠﻟﺍﻭ ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﻞﺜﻣ ﺐﺘﻜﻤﻟﺍ ﺢﻄﺳ ﺢﻄﺳﺃ ﻝﻮﺣ
 - .ﺮﻬﻈﻤﻟﺍ ﺔﺤﻔﺻ ﻲﻓ ﺔﺿﻭﺮﻌﻤﻟﺍ ﺩﻭﺪﺤﻟﺍ ﺽﺮﻋ ﻲﻓ ﻢﻜﺤﺘﻳ **ﺔﻓﺎﺤﻟﺍ ﻚﻤﺳ** .ﺓﺬﻓﺎﻨﻟﺍ ﻝﻮﺣ ﺔﻣﻮﺳﺮ
 - .ﺓﺬﻓﺎﻨﻟﺍ ﻚﻳﺮﺤﺗ ﻦﻣ ًﻻ﻿ﺪﺑ ﺓﺬﻓﺎﻨﻟﺍ ﺔﻳﻭﺍﺯ ﻞﻜﺷ ﺮﻴﻐﻳ ﻪﻧﺇ .ﺩﺪﺤﻤﻟﺍ ﺽﺮﻌﻟ
 - .ﻂﺸﻨﻟﺍ ﺪﻋﺎﺒﺘﻟﺍ ﺔﻟﺎﺤﻟ ﺎًﻘﻓﻭ ﺬﻓﺍﻮﻨﻟﺍ ﻢﻈﻨﻳ Hyprland ﻞﻈﻳ ﺎﻤﻨﻴﺑ ﺎًﻳﺮﺼﺑ ﺔﺣﺎﺴﻤﻟﺍ ﻡﺪﺨﺘﺴﺗ
@@ -27,7 +27,7 @@ description:                        .ARGVUS ﻲﻓ ﺕﺎﺣﻮﻠﻟﺍ ﺔﺣ�
 
                                  :ﻦﻴﺘﻴﺋﺍﺪﺘﺑﺍ ﻦﻴﺘﺳﺪﻨﻫ ﺔﻌﻤﺠﻤﻟﺍ ﺕﺎﻤﺴﻟﺍ ﻉﺎﺿﻭﺃ ﺮﻓﻮﺗ
 
-| Mode | Window behavior | Surface treatment |
+| الوضع | سلوك النافذة | المعالجة السطحية |
 | --- | --- | --- |
                                                           ﺔﻴﻠﺧﺍﺩ ﺓﻮﺠﻓ | ﺖﺑﺎﺛ |`2`                                                             ﺔﻴﺟﺭﺎﺨﻟﺍ ﺓﻮﺠﻔﻟﺍ ،`0`                                 | ﺔﺷﺎﺸﻟﺍ ﺔﻓﺎﺣ ﻦﻣ ﺐﻳﺮﻗﻭ ﻁﻮﻐﻀﻣ ،ﻊﺑﺮﻣ | ﺎًﻴﺿﺍﺮﺘﻓﺍ
                                                         ﺔﻴﻠﺧﺍﺩ ﺓﻮﺠﻓ | ﺪﻋﺎﺒﺘﻣ |`10`                                                             ﺔﻴﺟﺭﺎﺨﻟﺍ ﺓﻮﺠﻔﻟﺍ ،`18`  ﻰﻟﺇ ﺔﻴﺿﺍﺮﺘﻓﻻ﻿ﺍ ﻑﺪﺼﻟﺍ/ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﺔﻓﺎﺣ ؛ﺎًﻋﺎﺴﺗﺍ ﺮﺜﻛﺃﻭ ﻝﻼ﻿ﻇ ﻊﻣ ،ﺮﻳﺪﺘﺴﻣ | ﺎًﻴﺿﺍﺮﺘﻓﺍ`18` |
@@ -64,11 +64,11 @@ argvus config get hyprland.window_rules
 argvus config set hyprland.window_rules.browser.workspace 3
 ```
 
-Each rule has a 
+Each rule has a
 
- from 1 to 10 and a 
+ from 1 to 10 and a
 
- list. Entries in 
+ list. Entries in
 
 ##                                                         ًﻻ﻿ﻭﺃ ﻩﺮﻴﻴﻐﺗ ﺐﺠﻳ ﻱﺬﻟﺍ ﺎﻣ
 
@@ -79,7 +79,7 @@ Each rule has a
 
 .ﺓﺮﺷﺎﺒﻣ ﺓﺄﺸﻨُﻤﻟﺍ Hyprland ﺕﺎﻔﻠﻣ ﺮﻳﺮﺤﺘﺑ ﻢﻘﺗ ﻻ﻿ ؛ﺎًﺣﺎﺘﻣ ﻥﻮﻜﻳ ﺎﻣﺪﻨﻋ ﺔﺤﻔﺼﻠﻟ ﻦﻴﻴﻌﺘﻟﺍ ﺓ
 
-## Related
+## ذات صلة
 
 -                                                  (/docs/user-guide/appearance/)[ﻊﻴﺿﺍﻮﻤﻟﺍ]
 
@@ -94,7 +94,7 @@ argvus control-center hyprland animations windows
 
 ﺪﻴﻤﺨﺘﻟﺍﻭ ،`100` ﺔﺑﻼ﻿ﺼﻟﺍ ﻲﻫ ARGVUS ﻪﻟ ﺔﻴﺿﺍﺮﺘﻓﻻ﻿ﺍ ﺕﺍﺩﺍﺪﻋﻹ﻿ﺍ .ﺎًﻴﺿﺍﺮﺘﻓﺍ ﺯ
 `10`, mass `1`, intensity `1`                                                                  ﺔﻜﺒﺸﻟﺍ ﺓﺩﻮﺟﻭ`8`                                                         ﻞﺒﻘﺗ ﺔﻠﺘﻜﻟﺍﻭ ﺔﺑﻼ﻿ﺼﻟﺍ .
-`0.0001–1000`, damping `0–1000`, intensity `0–2`, and mesh an integer `2–32`.
+`0.0001–1000`، والتخميد `0–1000`، والكثافة `0–2`، وشبكة عدد صحيح `2–32`.
              ﻞﻳﺪﻌﺘﻠﻟ ﻢﻬﺳﻷ﻿ﺍ ﺢﻴﺗﺎﻔﻣ ﻡﺪﺨﺘﺳﺍ .ﺽﺮﻌﻟﺍ ﺔﻔﻠﻜﺗ ﻦﻣ ﻰﻠﻋﻷ﻿ﺍ ﺔﻜﺒﺸﻟﺍ ﺔﻗﺩ ﺪﻳﺰﻳ
 ؛ﺓﺩﻮﺴﻤﻟﺍ ﺮﻴﻐﻳ **ﺔﻴﺿﺍﺮﺘﻓﻻ﻿ﺍ Wobble ﺕﺍﺩﺍﺪﻋﺇ ﺓﺩﺎﻌﺘﺳﺍ** .ﺎﻬﺘﺑﺎﺘﻜﻟ Enter ﻂﻐﺿﺍ ﻭﺃ ﻢﻴﻘ
 ﻥﻭﺩ ،ﺓﺪﺣﺍﻭ ﺓﺮﻣ Hyprland ﻞﻴﻤﺤﺗ ﺪﻴﻌﻳﻭ ﺔﻘﻠﻌﻤﻟﺍ ﺔﻛﺮﺤﺘﻤﻟﺍ ﻡﻮﺳﺮﻟﺍ ﺕﻼ﻿ﻳﺪﻌﺗ ﻊﻴﻤﺟ ﻆﻔﺤﻳ *
@@ -102,7 +102,7 @@ argvus control-center hyprland animations windows
 
  ﺔﻳﺩﺮﻔﻟﺍ ﻪﺘﻴﺻﺎﺨﺑ ﻅﺎﻔﺘﺣﻻ﻿ﺍ ﻊﻣ Wobble ﺯﺍﺰﺘﻫﺍ ﻒﻗﻮﻳ ﺔﻛﺮﺤﺘﻤﻟﺍ ﻡﻮﺳﺮﻠﻟ ﻲﻤﻟﺎﻌﻟﺍ ﺡﺎﺘﻔﻤﻟﺍ
           ؛ARGVUS ﺔﻟﺎﺣ ﻲﻓ `effects.wobble_*` ﺖﺤﺗ ﺪﺟﻮﺗ ﺔﻴﻧﻮﻧﺎﻘﻟﺍ ﻢﻴﻘﻟﺍ .ﺕﺍﺩﺍﺪﻋﻹ﻿ﺍ
-                             .ًﺎﻳﻭﺪﻳ ﻪﻠﻳﺪﻌﺗ ﻡﺪﻋ ﺐﺠﻳﻭ `hypr/state.lua` ءﺎﺸﻧﺇ ﻢﺗ
+                             . ًﺎﻳﻭﺪﻳ ﻪﻠﻳﺪﻌﺗ ﻡﺪﻋ ﺐﺠﻳﻭ `hypr/state.lua` ءﺎﺸﻧﺇ ﻢﺗ
 
        `argvus-hyprland`'s ﺔﻄﺳﺍﻮﺑ ﺽﻭﺮﻔﻣ ،**ﺙﺪﺣﺃ ﻭﺃ Hyprland **0.57.0 ﺐﻠﻄﺘﻳ ﺍﺬﻫ
                         ـﻟﺍ .ﻦﻳﻮﻜﺘﻟﺍ ﺍﺬﻬﻟ ﻡﻮﻋﺪﻣ ﺮﻴﻏ 0.56 ﺭﺍﺪﺻﻹ﻿ﺍ .ﺔﻣﺰﺤﻟﺍ ﺩﺎﻤﺘﻋﺍ
@@ -132,18 +132,18 @@ Spaced.
 
 
 
-Commands:  argvus-hyprland  argvus-window-bar.service  argvus-windows.service  $XDG_RUNTIME_DIR/argvus  argvus windows service  `special:argvus-minimized`  `argvus windows service`  `$XDG_RUNTIME_DIR/argvus`  `argvus-windows.service`  `argvus-window-bar.service`  `argvus-hyprland` `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, and `minimize|restore|activate|maximize|close ADDRESS`. The window addresses come from the list. `position top --persist` stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
+Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG_RUNTIME_DIR/argvus argvus خدمة ويندوز `special:argvus-minimized` `argvus windows service` `$XDG_RUNTIME_DIR/argvus` `argvus-windows.service` `argvus-window-bar.service` `argvus-hyprland` `argvus windows list --json`، `watch --json`، `position top|bottom`، `restore-all`، و`minimize|restore|activate|maximize|close ADDRESS`. عناوين النافذة تأتي من القائمة. `position top --persist` يخزن/يعرض التفضيلات دون إعادة تشغيل الشريط الرئيسي. تتم كتابة تفاصيل أخطاء التكوين ووقت التشغيل إلى المجلة؛ تُظهر حالات فشل الإجراء المرئي أيضًا إشعارًا مترجمًا.
 
 
 
 `SUPER + Alt + Space` ﻮﻫ ﺊﻓﺎﻜﻤﻟﺍ ﺮﻣﻷ﻿ﺍ .ﻢﻜﺤﺘﻟﺍ ﺰﻛﺮﻣﻭ ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﻲﻓ ﺩﻮﺟﻮﻤﻟﺍ ﻞﻴﻀﻔﺘﻟﺍ ﺲﻔﻧ ﻡﺍﺪﺨﺘﺳﺎﺑ ،ﻲﻤ`argvus config window-mode toggle`;ﺢﻴﺗﺎﻔﻤﻟﺍ ﺔﺣﻮﻟ ﺕﺍﺭﺎﺼﺘﺧﺍ ﻲﻓ ﻪﻠﻴﻄﻌﺗ ﻭﺃ ﺭﺎﺼﺘﺧﻻ﻿ﺍ ﺮﻴﻴﻐﺗ ﻦﻜﻤﻳ .ﺭﺎﻈﺘﻧﻻ﻿ﺍ ﺪﻴﻗ ﻖﻴﺒﻄﺘﻟﺍ ﻥ`SUPER + Shift + Space`                                      .ﻪﺑ ﺔﺻﺎﺨﻟﺍ ﺔﻳﺩﺮﻔﻟﺍ ﺓﺬﻓﺎﻨﻟﺍ ﻞﻌﻓ ﻰﻠﻋ ﻆﻓﺎﺤﻳ
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
+تحتوي كل قاعدة على مساحة عمل من 1 إلى 10 وقائمة فئات. الإدخالات في الفئات هي تعبيرات عادية تتم مطابقتها لفئة النافذة (حساسة لحالة الأحرف)، على سبيل المثال [Cc]ode.* أو jetbrains-.*. يتم قبول الحروف والأرقام و._*+?-|^$ فقط. argvus- يكتب التكوين القواعد إلى generator/hypr/window-rules.lua، والتي يقوم التكوين Hyprland بتحميلها. لاستبدال القواعد دون تغيير الإعدادات الافتراضية، قم بإضافة استدعاءات hl.window_rule إلى القواعد.lua في دليل البيانات ARGVUS الخاص بك؛ تلك التحميل بعد القواعد التي تم إنشاؤها.
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
- for the installed and user paths. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+تحتوي كل قاعدة على مساحة عمل من 1 إلى 10 وقائمة فئات. الإدخالات في الفئات هي تعبيرات عادية تتم مطابقتها لفئة النافذة (حساسة لحالة الأحرف)، على سبيل المثال [Cc]ode.* أو jetbrains-.*. يتم قبول الحروف والأرقام و._*+?-|^$ فقط. argvus- يكتب التكوين القواعد إلى generator/hypr/window-rules.lua، والتي يقوم التكوين Hyprland بتحميلها. لاستبدال القواعد دون تغيير الإعدادات الافتراضية، قم بإضافة استدعاءات hl.window_rule إلى القواعد.lua في دليل البيانات ARGVUS الخاص بك؛ تلك التحميل بعد القواعد التي تم إنشاؤها.
+للمسارات المثبتة والمستخدم. للمسارات المثبتة ومسارات المستخدم.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)،
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+يتم ترتيب النوافذ المتجانبة بواسطة Hyprland في مساحة العمل النشطة. ARGVUS يدعم أيضًا نوافذ الأدوات المساعدة العائمة؛ SUPER + SHIFT + Space لتبديل النافذة التي تم التركيز عليها بين التخطيطات المتجانبة والعائمة. يتم التحكم في حركة مساحة العمل وتركيز النافذة من خلال بيان ربط المفاتيح النشط؛ راجع [اختصارات لوحة المفاتيح](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [                                                                        ﺮﻬﻈﻤﻟﺍ](/docs/user-guide/appearance/)
 - [                                                                     ﺕﺎﻋﻮﺿﻮﻤﻟﺍ](/docs/user-guide/appearance/)
 - [                                                                   ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ](/docs/argvus-taskbar/taskbar/)

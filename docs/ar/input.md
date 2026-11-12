@@ -1,34 +1,34 @@
 ---
-title: Mouse and touchpad
+title: الماوس ولوحة اللمس
 description:                                       .ARGVUS ﻲﻓ ﺲﻤﻠﻟﺍ ﺔﺣﻮﻟﻭ ﺮﺷﺆﻤﻟﺍ ﻙﻮﻠﺳ ﻦﻳﻮﻜﺗ
 ---
 
 .`argvus control-center input` ﻞﻴﻐﺸﺘﺑ ﻢﻗ ﻭﺃ ،**ﺲﻤﻠﻟﺍ ﺔﺣﻮﻟﻭ ﺓﺭﺄﻔﻟﺍ → ﺔﻘﻄﻨﻤﻟﺍﻭ ﺔﻴﻤﻴﻠﻗﻹ﻿ﺍ ﺕﺍﺩﺍ
 
-## Mouse
+## الفأر
 
                                             :ﺔﺤﻔﺼﻟﺍ ﻒﺸﻜﺗ ،ﺭﺄﻓ ﻑﺎﺸﺘﻛﺍ ﻢﺘﻳ ﺎﻣﺪﻨﻋ
 
-- sensitivity from `-1.0` to `1.0`;
+- الحساسية من `-1.0` إلى `1.0`؛
 -                                       ؛ﻱﻮﺘﺴﻤﻟﺍ ﻭﺃ ﻲﻔﻴﻜﺘﻟﺍ ﻉﺭﺎﺴﺘﻠﻟ ﻲﺼﺨﺸﻟﺍ ﻒﻠﻤﻟﺍ
 -                       ;10.0 ﻰﻟﺇ `0.1` ﻦﻣ ﺮﻳﺮﻤﺘﻟﺍ ﻞﻣﺎﻋ
-- natural scrolling;
+- التمرير الطبيعي.
 - .ﻯﺮﺴﻴﻟﺍ ﺪﻴﻠﻟ ﺭﺍﺭﺯﻷ﻿ﺍ ﻂﻴﻄﺨﺗ
 
 ARGVUS.  ﻝﺎﺧﺩﺇ ﻒﻠﻣ ﺪﺟﻮﻳ ﻻ﻿ ﺎﻣﺪﻨﻋ ﻲﻟﺎﺤﻟﺍ ﻥّﻮﻜﻤﻟﺍ ﺔﻤﻴﻗ ﺔﺤﻔﺼﻟﺍ ﺃﺮﻘﺗ
 
-## Touchpad
+## لوحة اللمس
 
 .ﺲﻤﻟ ﺔﺣﻮﻟ ﺩ
 
 ## ﺓﺰﻬﺟﻷ﻿ﺍ ﻰﻠﻋ ﺓﺪﻤﺘﻌﻤﻟﺍ ﻢﻜﺤﺘﻟﺍ ﺮﺻﺎﻨﻋ
 
-Advanced mouse controls backed by `10.0` `ratbag`  are shown only for supported devices. ARGVUS does not claim that every mouse supports DPI, profiles or polling changes. If a device is not detected or the optional device service is unavailable, those controls cannot be applied by this page.
+يتم عرض عناصر التحكم المتقدمة في الماوس المدعومة بـ `10.0` `ratbag` فقط للأجهزة المدعومة. ARGVUS لا يدعي أن كل ماوس يدعم DPI أو ملفات التعريف أو تغييرات الاستقصاء. إذا لم يتم اكتشاف جهاز أو كانت خدمة الجهاز الاختيارية غير متوفرة، فلا يمكن تطبيق عناصر التحكم هذه من خلال هذه الصفحة.
 
 ## ﻦﻴﻴﻌﺗ ﺓﺩﺎﻋﺇﻭ ﺓﺮﺑﺎﺜﻤﻟﺍ
 
 
 
-See  for the installed and user paths.(/docs/components/argvus-control-center/) and  for the installed and user paths.(/docs/user-guide/where-to-configure/).
+راجع المسار المثبت ومسار المستخدم.(/docs/components/argvus-control-center/) وراجع المسار المثبت ومسار المستخدم.(/docs/user-guide/where-to-configure/).
 
                                                                           ﺮﻈﻧﺍ[                                                                   ﻢﻜﺤﺘﻟﺍ ﺰﻛﺮﻣ](/docs/components/argvus-control-center/)                                                                             ﻭ[                                                          ءﺎﻴﺷﻷ﻿ﺍ ﻦﻳﻮﻜﺗ ﻢﺘﻳ ﻦﻳﺃ](/docs/user-guide/where-to-configure/).

@@ -110,6 +110,6 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 ```
 パッケージ化されたソースとヘルパーは`/usr/share/argvus/hyprland/`の下にあります。`~/.config/argvus/data/generated/`の下に生成されたファイルは派生状態です。生成された出力を直接編集するのではなく、所有する設定またはオーバーライドフラグメントを編集してください。
 
-Control Centerワークフローについては[Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/)]を参照し、完全な設定パスの参照については[file locations](/docs/reference/file-locations/)]を参照してください。
+Control Centerワークフローについては[Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/)を参照し、完全な設定パスの参照については[file locations](/docs/reference/file-locations/)を参照してください。
 
 ShadowレンダリングパワーはHyprlandを呼び出す前に1〜4（デフォルトは4）に制限されます。これには従来のエフェクト投影も含まれます。これは、古いARGVUSリリースで受け入れられる値が、Hyprland 0.57の起動を妨げることを防ぐためです。

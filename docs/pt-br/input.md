@@ -5,7 +5,7 @@ description: Configure o comportamento do ponteiro e do touchpad no ARGVUS.
 
 Abra **Control Center → Localidade e região → Mouse e touchpad**, ou execute `argvus control-center input`.
 
-## Mouse
+## Rato
 
 Quando um mouse é detectado, a página oferece:
 

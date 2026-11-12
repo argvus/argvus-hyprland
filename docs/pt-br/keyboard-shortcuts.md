@@ -91,7 +91,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 
 | Atalho | Descrição |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | Terminais |
 | `SUPER + [` | Terminal suspenso (scratchpad em workspace especial; pressione de novo para ocultar) |
 | `SUPER + Space` | Gerenciador de arquivos |
 | `SUPER + CTRL + Space` | Monitor do sistema |
@@ -149,7 +149,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + F1` | Abrir Sobre o ARGVUS |
 | `SUPER + ALT + C` | Abrir o Control Center |
 | `SUPER + P` | Seletor de cores (Color Picker) |
-| `SUPER + .` | Emoji Picker |
+| `SUPER + .` | Seletor de Emoji |
 | `SUPER + H` | Histórico no Clipboard |
 | `SUPER + Shift + H` | Apagar histórico do Clipboard |
 

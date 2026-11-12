@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: Pintasan keyboard
 description: Temukan pintasan yang disediakan oleh konfigurasi ARGVUS Hyprland.
 ---
 
@@ -29,168 +29,168 @@ Beberapa aksi bawaan yang berguna meliputi memindahkan fokus dan ruang kerja, me
 
 Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprland/keybindings.json`) dengan tombol default mereka. Perubahan Anda sendiri di Control Center menggantikan tombol yang ditampilkan di sini untuk pengikatan yang terpengaruh, dan pengikatan yang dinonaktifkan tidak berjalan.
 
-### Navigation
+### Navigasi
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | Fokuskan jendela ubin berdasarkan arah |
+| `SUPER + Right Arrow` | Fokuskan jendela ubin berdasarkan arah |
+| `SUPER + Up Arrow` | Fokuskan jendela ubin berdasarkan arah |
+| `SUPER + Down Arrow` | Fokuskan jendela ubin berdasarkan arah |
+| `SUPER + CTRL + Left Arrow` | Fokus siklus antar jendela (ubin dan mengambang) |
+| `SUPER + CTRL + Right Arrow` | Fokus siklus antar jendela (ubin dan mengambang) |
 
-### Workspaces
+### Ruang kerja
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | Perpindahan antar area kerja |
+| `CTRL + ALT + Left Arrow` | Perpindahan antar area kerja |
+| `Mouse extra button (mouse:276)` | Perpindahan antar area kerja |
+| `Mouse side button (mouse:275)` | Perpindahan antar area kerja |
+| `SUPER + 1` | Ruang Kerja 1 |
+| `SUPER + 2` | Ruang Kerja 2 |
+| `SUPER + 3` | Ruang Kerja 3 |
+| `SUPER + 4` | Ruang Kerja 4 |
+| `SUPER + 5` | Ruang Kerja 5 |
+| `SUPER + 6` | Ruang Kerja 6 |
+| `SUPER + 7` | Ruang Kerja 7 |
+| `SUPER + 8` | Ruang Kerja 8 |
+| `SUPER + 9` | Ruang Kerja 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9` | Membuka proyek di posisi itu dari `argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | Pindahkan jendela ke desktop 1 |
+| `SUPER + Shift + 2` | Pindahkan jendela ke desktop 2 |
+| `SUPER + Shift + 3` | Pindahkan jendela ke desktop 3 |
+| `SUPER + Shift + 4` | Pindahkan jendela ke desktop 4 |
+| `SUPER + Shift + 5` | Pindahkan jendela ke desktop 5 |
+| `SUPER + Shift + 6` | Pindahkan jendela ke desktop 6 |
+| `SUPER + Shift + 7` | Pindahkan jendela ke desktop 7 |
+| `SUPER + Shift + 8` | Pindahkan jendela ke desktop 8 |
+| `SUPER + Shift + 9` | Pindahkan jendela ke desktop 9 |
 
-### Windows
+### jendela
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | Maksimalkan jendela (alihkan) |
+| `SUPER + Q` | Tutup jendela |
+| `SUPER + Shift + Space` | Aktifkan/Nonaktifkan Jendela Mengambang |
+| `SUPER + F` | Jendela layar penuh |
+| `SUPER + E` | Pisahkan tombol vertikal/horizontal |
+| `SUPER + W` | Kelompokkan/Pisahkan ke dalam tab |
+| `SUPER + Tab` | Menavigasi antar tab |
+| `SUPER + Shift + Left Arrow` | Pindahkan jendela |
+| `SUPER + Shift + Right Arrow` | Pindahkan jendela |
+| `SUPER + Shift + Up Arrow` | Pindahkan jendela |
+| `SUPER + Shift + Down Arrow` | Pindahkan jendela |
+| `SUPER + Left mouse button (mouse:272)` | Tarik jendela (hanya jendela mengambang) |
+| `SUPER + Right mouse button (mouse:273)` | Mode pengubahan ukuran jendela (hanya jendela mengambang) |
+| `SUPER + R` | Masuk ke mode pengubahan ukuran jendela (hanya jendela mengambang) |
 
-### Applications
+### Aplikasi
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
 | `SUPER + Enter` | Terminal |
 | `SUPER + [` | Catatan tempel terminal (menu tarik-turun di ruang kerja khusus; tekan lagi untuk menyembunyikan) |
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | Manajer File |
+| `SUPER + CTRL + Space` | Pemantau sistem |
+| `SUPER + Shift + D` | Menu perangkat yang dapat dilepas |
+| `SUPER + Shift + F` | Fokus ARGVUS (Pomodoro dan sesi fokus) |
+| `SUPER + Shift + C` | ARGVUS Jam (jam, timer dan alarm) |
+| `SUPER + D` | Peluncur Program |
+| `SUPER + B` | Peramban Bawaan |
+| `SUPER + C` | Kalkulator |
+| `SUPER + ALT + S` | Pemilih host SSH (`argvus ssh`) |
+| `SUPER + ALT + N` | Pemilih cuplikan (`argvus snippets`) |
 | `SUPER + ALT + G`| Pemilih proyek, lalu git TUI (lazygit atau gitui) di proyek yang dipilih (`argvus git`) |
 
 ### Media
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | Naikkan volume |
+| `Volume Down` | Volume turun |
+| `Mute` | Bisukan |
+| `Brightness Up` | Kecerahan |
+| `Brightness Down` | Kecerahan turun |
+| `Play/Pause` | Putar/Jeda |
+| `Next Track` | Lagu berikutnya |
+| `Previous Track` | Lagu sebelumnya |
+| `Stop` | Hentikan jalur |
 
 ### Tangkapan layar dan perekaman
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | Tangkap area yang dipilih |
+| `SUPER + Print` | Tangkap jendela terfokus |
+| `SUPER + Shift + Print` | Tangkap seluruh layar |
+| `SUPER + G` | Perekaman layar Start/Pause/Resume |
+| `SUPER + Shift + G` | Hentikan dan simpan rekaman layar |
 
-### Session
+### Sesi
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | Sistem kunci |
+| `SUPER + escape` | Keluar dari sistem |
+| `SUPER + Shift + R` | Muat ulang Hyprland |
+| `SUPER + Shift + S` | Mematikan/menghidupkan monitor (bukan menangguhkan sistem) |
+| `SUPER + Shift + L` | Pilih batas waktu penguncian ketidakaktifan |
+| `SUPER + ALT + W` | Alihkan Tetap Terjaga |
 
-### System
+### Sistem
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Lembar Cheat Hyprland |
+| `SUPER + CTRL + /` | Lembar Curang Kitty |
+| `SUPER + F1` | Buka Tentang ARGVUS |
+| `SUPER + ALT + C` | Buka Pusat Kontrol |
+| `SUPER + P` | Pemilih Warna |
+| `SUPER + .` | Pemilih Emoji |
+| `SUPER + H` | Riwayat Papan Klip |
+| `SUPER + Shift + H` | Hapus Riwayat Papan Klip |
 
-### Widgets
+### Widget
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | Buka/Tutup sidebar notifikasi |
+| `Middle mouse button (mouse:274)` | Buka/Tutup sidebar notifikasi |
+| `SUPER + Backspace` | Alihkan Waybar atas |
+| `SUPER + Shift + W` | Konfigurasikan lokasi cuaca |
+| `SUPER + ALT + Up Arrow` | Pindahkan bilah tugas ke atas |
+| `SUPER + ALT + Down Arrow` | Pindahkan bilah tugas ke bawah |
 
-### Appearance
+### Penampilan
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | Buka wallpaper Pusat Kontrol |
+| `SUPER + Shift + T` | Buka pemilih tema |
+| `SUPER + Shift + M` | Buka pemilih mode Lengket/Spasi |
 | `SUPER + F5` | Beralih antara tema ARGVUS Dark dan ARGVUS Light |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | Beralih animasi |
+| `SUPER + Shift + B` | Buka pemilih kecerahan dan tombol Lampu Malam |
 
 ### Mode ubah ukuran (setelah SUPER + R)
 
 Shortcut ini hanya berfungsi saat mode ubah ukuran aktif. `Esc` atau `Enter` keluar dari mode.
 
-| Shortcut | Description |
+| Pintasan | Deskripsi |
 | --- | --- |
-| `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Right Arrow` | Ubah ukuran |
+| `Left Arrow` | Ubah ukuran |
+| `Up Arrow` | Ubah ukuran |
+| `Down Arrow` | Ubah ukuran |
+| `Shift + Right Arrow` | Pindahkan jendela |
+| `Shift + Left Arrow` | Pindahkan jendela |
+| `Shift + Up Arrow` | Pindahkan jendela |
+| `Shift + Down Arrow` | Pindahkan jendela |
+| `escape` | Keluar dari mode pengubahan ukuran |
+| `Enter` | Keluar dari mode pengubahan ukuran |
 
 
 Lihat [Windows dan tata letak](/docs/argvus-hyprland/windows-and-layout/) untuk perilaku jendela melayang dan area kerja serta [Pusat Kontrol](/docs/components/argvus-control-center/) untuk alur kerja pengaturan.

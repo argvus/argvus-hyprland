@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: کی بورڈ شارٹ کٹس
 description: ARGVUS Hyprland ۔ﮟﯾﺮﮐ ﺵﻼ﻿ﺗ ﺲﭩﮐ ﭦﺭﺎﺷ ﮦﺩﺮﮐ ﻢﮨﺍﺮﻓ ﮯﻌﯾﺭﺫ ﮯﮐ ﻦﺸﯾﺮﮕﯿﻔﻨﮐ
 ---
 
@@ -27,173 +27,173 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 
 ##                                                            ﻞﺒﯿﭨ ﭧﮐ ﭦﺭﺎﺷ ﭧﻟﺎﻔﯾﮈ
 
-                       ) ﮯﮨ ﺎﺘﯾﺩ ﺖﺳﺮﮩﻓ ﯽﮐ ﺰﮕﻧﮉﻨﺋﺎﺑ ﯽﮐ ﭧﺴﯿﻓ ﯽﻨﯿﻣ ﯼﺩﺎﯿﻨﺑ ﻝﻭﺪﺟ ﮧﯾ`/usr/share/argvus/hyprland/keybindings.json`۔ﯽﮔ ﮟﯿﻠﭼ ﮟﯿﮩﻧ ﺰﮕﻧﮉﻨﺋﺎﺑ ﻝﺎﻌﻓ ﺮﯿﻏ ﺭﻭﺍ ،ﮟﯿﮨ ﯽﺘﯾﺩ ﺮﮐ ﻞﯾﺪﺒﺗ ﻮﮐ ﺰﯿﮐ ﮯﯿﻟ ﮯﮐ ﺰﮕﻧﮉﻨﺋﺎﺑ 
+                       ) ﮯﮨ ﺎﺘﯾﺩ ﺖﺳﺮﮩﻓ ﯽﮐ ﺰﮕﻧﮉﻨﺋﺎﺑ ﯽﮐ ﭧﺴﯿﻓ ﯽﻨﯿﻣ ﯼﺩﺎﯿﻨﺑ ﻝﻭﺪﺟ ﮧﯾ`/usr/share/argvus/hyprland/keybindings.json`۔ﯽﮔ ﮟﯿﻠﭼ ﮟﯿﮩﻧ ﺰﮕﻧﮉﻨﺋﺎﺑ ﻝﺎﻌﻓ ﺮﯿﻏ ﺭﻭﺍ ،ﮟﯿﮨ ﯽﺘﯾﺩ ﺮﮐ ﻞﯾﺪﺒﺗ ﻮﮐ ﺰﯿﮐ ﮯﯿﻟ ﮯﮐ ﺰﮕﻧﮉﻨﺋﺎﺑ
 
-### Navigation
+### نیویگیشن
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | سمت کے لحاظ سے ٹائل والی کھڑکی پر فوکس کریں |
+| `SUPER + Right Arrow` | سمت کے لحاظ سے ٹائل والی کھڑکی پر فوکس کریں |
+| `SUPER + Up Arrow` | سمت کے لحاظ سے ٹائل والی کھڑکی پر فوکس کریں |
+| `SUPER + Down Arrow` | سمت کے لحاظ سے ٹائل والی کھڑکی پر فوکس کریں |
+| `SUPER + CTRL + Left Arrow` | کھڑکیوں کے درمیان سائیکل کا فوکس (ٹائل شدہ اور تیرتا ہوا) |
+| `SUPER + CTRL + Right Arrow` | کھڑکیوں کے درمیان سائیکل کا فوکس (ٹائل شدہ اور تیرتا ہوا) |
 
-### Workspaces
+### کام کی جگہیں
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | کام کے علاقوں کے درمیان منتقل ہونا |
+| `CTRL + ALT + Left Arrow` | کام کے علاقوں کے درمیان منتقل ہونا |
+| `Mouse extra button (mouse:276)` | کام کے علاقوں کے درمیان منتقل ہونا |
+| `Mouse side button (mouse:275)` | کام کے علاقوں کے درمیان منتقل ہونا |
+| `SUPER + 1` | ورک اسپیس 1 |
+| `SUPER + 2` | ورک اسپیس 2 |
+| `SUPER + 3` | ورک اسپیس 3 |
+| `SUPER + 4` | ورک اسپیس 4 |
+| `SUPER + 5` | ورک اسپیس 5 |
+| `SUPER + 6` | ورک اسپیس 6 |
+| `SUPER + 7` | ورک اسپیس 7 |
+| `SUPER + 8` | ورک اسپیس 8 |
+| `SUPER + 9` | ورک اسپیس 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9`                                                ﮯﮨ ﺎﺘﻟﻮﮭﮐ ﺮﭘ ﻡﺎﻘﻣ ﺱﺍ ﮧﺑﻮﺼﻨﻣ | `argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | ونڈو کو ڈیسک ٹاپ 1 پر منتقل کریں |
+| `SUPER + Shift + 2` | ونڈو کو ڈیسک ٹاپ 2 پر منتقل کریں |
+| `SUPER + Shift + 3` | ونڈو کو ڈیسک ٹاپ 3 پر منتقل کریں |
+| `SUPER + Shift + 4` | ونڈو کو ڈیسک ٹاپ 4 پر منتقل کریں |
+| `SUPER + Shift + 5` | ونڈو کو ڈیسک ٹاپ 5 پر منتقل کریں۔
+| `SUPER + Shift + 6` | ونڈو کو ڈیسک ٹاپ 6 پر منتقل کریں |
+| `SUPER + Shift + 7` | ونڈو کو ڈیسک ٹاپ 7 پر منتقل کریں |
+| `SUPER + Shift + 8` | ونڈو کو ڈیسک ٹاپ 8 پر منتقل کریں |
+| `SUPER + Shift + 9` | ونڈو کو ڈیسک ٹاپ 9 پر منتقل کریں۔
 
-### Windows
+### ونڈوز
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | ونڈو کو زیادہ سے زیادہ بنائیں (ٹوگل) |
+| `SUPER + Q` | کھڑکی بند کرو |
+| `SUPER + Shift + Space` | فلوٹنگ ونڈو کو فعال/غیر فعال کریں |
+| `SUPER + F` | فل سکرین ونڈو |
+| `SUPER + E` | عمودی/افقی ٹوگل تقسیم کریں |
+| `SUPER + W` | ٹیبز میں گروپ/انگروپ |
+| `SUPER + Tab` | ٹیبز کے درمیان نیویگیٹ کریں |
+| `SUPER + Shift + Left Arrow` | ونڈو کو منتقل کریں |
+| `SUPER + Shift + Right Arrow` | ونڈو کو منتقل کریں |
+| `SUPER + Shift + Up Arrow` | ونڈو کو منتقل کریں |
+| `SUPER + Shift + Down Arrow` | ونڈو کو منتقل کریں |
+| `SUPER + Left mouse button (mouse:272)` | ونڈو کو گھسیٹیں (صرف تیرتی کھڑکی) |
+| `SUPER + Right mouse button (mouse:273)` | ونڈو ری سائز موڈ (صرف فلوٹنگ ونڈو) |
+| `SUPER + R` | ونڈو ری سائز موڈ درج کریں (صرف فلوٹنگ ونڈو) |
 
-### Applications
+### ایپلی کیشنز
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | ٹرمینل |
 | `SUPER + [`| (ﮟﯿﺋﺎﺑﺩ ﮦﺭﺎﺑﻭﺩ ﮯﯿﻟ ﮯﮐ ﮯﻧﺎﭙﮭﭼ ؛ﻥﺅﺍﮈ ﭖﺍﺭﮈ ﺮﭘ ﺲﯿﭙﺳﺍ ﮎﺭﻭ ﯽﺻﻮﺼﺧ) ﮉﯿﭘ ﭻﯾﺮﮑﺳﺍ ﻞﻨﯿﻣﺮ
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | فائل مینیجر |
+| `SUPER + CTRL + Space` | سسٹم مانیٹر |
+| `SUPER + Shift + D` | ہٹنے والا آلات کا مینو |
+| `SUPER + Shift + F` | ARGVUS فوکس (پومودورو اور فوکس سیشن) |
+| `SUPER + Shift + C` | ARGVUS Clock (گھڑی، ٹائمر اور الارم) |
+| `SUPER + D` | پروگرام لانچر |
+| `SUPER + B` | ڈیفالٹ براؤزر |
+| `SUPER + C` | کیلکولیٹر |
+| `SUPER + ALT + S` | SSH میزبان چننے والا (`argvus ssh`) |
+| `SUPER + ALT + N` | اسنیپٹ چننے والا (`argvus snippets`) |
 | `SUPER + ALT + G`        ) (gitui ﺎﯾ lazygit) TUI ﭧﮔ ﮟﯿﻣ ﭧﮑﯿﺟﻭﺮﭘ ﮦﺩﺮﮐ ﺐﺨﺘﻨﻣ ﺮﮭﭘ ،ﺮﮑﭘ ﭧﮑﯿﺟﻭﺮﭘ | `argvus git`) |
 
-### Media
+### میڈیا
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | والیوم اپ |
+| `Volume Down` | والیوم نیچے |
+| `Mute` | خاموش |
+| `Brightness Up` | چمک اپ |
+| `Brightness Down` | چمک نیچے |
+| `Play/Pause` | چلائیں/روکیں |
+| `Next Track` | اگلا ٹریک |
+| `Previous Track` | پچھلا ٹریک |
+| `Stop` | سٹاپ ٹریک |
 
 ###                                                       ﮓﻧﮈﺭﺎﮑﯾﺭ ﺭﻭﺍ ﺲﭨﺎﺷ ﻦﯾﺮﮑﺳﺍ
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | منتخب علاقے پر قبضہ |
+| `SUPER + Print` | کیپچر فوکسڈ ونڈو |
+| `SUPER + Shift + Print` | پوری سکرین پر قبضہ |
+| `SUPER + G` | /Pause/Resume اسکرین ریکارڈنگ شروع کریں |
+| `SUPER + Shift + G` | اسکرین ریکارڈنگ کو روکیں اور محفوظ کریں |
 
-### Session
+### سیشن
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | لاک سسٹم |
+| `SUPER + escape` | ایگزٹ سسٹم |
+| `SUPER + Shift + R` | Hyprland کو دوبارہ لوڈ کریں |
+| `SUPER + Shift + S` | مانیٹر کو آف/آن کریں (سسٹم کو معطل نہ کریں) |
+| `SUPER + Shift + L` | غیر فعالی لاک ٹائم آؤٹ کا انتخاب کریں |
+| `SUPER + ALT + W` | ٹوگل کریں جاگتے رہیں |
 
-### System
+### سسٹم
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Hyprland چیٹ شیٹس |
+| `SUPER + CTRL + /` | کٹی چیٹ شیٹس |
+| `SUPER + F1` | ARGVUS کے بارے میں کھولیں |
+| `SUPER + ALT + C` | کھولیں کنٹرول سینٹر |
+| `SUPER + P` | رنگ چنندہ |
+| `SUPER + .` | ایموجی چنندہ |
+| `SUPER + H` | کلپ بورڈ کی تاریخ |
+| `SUPER + Shift + H` | کلپ بورڈ کی تاریخ صاف کریں |
 
-### Widgets
+### وجیٹس
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | نوٹیفکیشن سائڈبار کھولیں/بند کریں |
+| `Middle mouse button (mouse:274)` | نوٹیفکیشن سائڈبار کھولیں/بند کریں |
+| `SUPER + Backspace` | ٹوگل Waybar ٹاپ |
+| `SUPER + Shift + W` | موسم کے مقام کو ترتیب دیں |
+| `SUPER + ALT + Up Arrow` | ٹاسک بار کو اوپر لے جائیں |
+| `SUPER + ALT + Down Arrow` | ٹاسک بار کو نیچے منتقل کریں |
 
-### Appearance
+### ظاہری شکل
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | کنٹرول سینٹر وال پیپر کھولیں |
+| `SUPER + Shift + T` | تھیم سلیکٹر کھولیں |
+| `SUPER + Shift + M` | سٹکی/اسپیسڈ موڈ چنندہ کھولیں |
 | `SUPER + F5`| ARGVUS ﺭﻭﺍ ﮎﺭﺍﮈ ARGVUS ﮟﯾﺮﮐ ﭻﺋﻮﺳ ﻥﺎﯿﻣﺭﺩ ﮯﮐ ﺰﻤﯿﮭﺗ ﭧﺋﻻ﻿ |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | متحرک تصاویر کو ٹوگل کریں |
+| `SUPER + Shift + B` | برائٹنس سلیکٹر کھولیں اور نائٹ لائٹ ٹوگل |
 
 ###                                      (ﺪﻌﺑ ﮯﮐ SUPER + R) ﮈﻮﻣ ﺎﮐ ﮯﻧﺮﮐ ﻞﯾﺪﺒﺗ ﺰﺋﺎﺳ
 
 ۔ﮯﮨ ﺎﺘﯾﺩ ﮌﻮﮭﭼ ﮈﻮﻣ Enter ﺎﯾ `Esc` ۔ﻮﮨ ﻝﺎﻌﻓ ﮈﻮﻣ resize ﺐ
 
-| Shortcut | Description |
+| شارٹ کٹ | تفصیل |
 | --- | --- |
 |  `Enter` `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Left Arrow` | سائز تبدیل کریں |
+| `Up Arrow` | سائز تبدیل کریں |
+| `Down Arrow` | سائز تبدیل کریں |
+| `Shift + Right Arrow` | ونڈو کو منتقل کریں |
+| `Shift + Left Arrow` | ونڈو کو منتقل کریں |
+| `Shift + Up Arrow` | ونڈو کو منتقل کریں |
+| `Shift + Down Arrow` | ونڈو کو منتقل کریں |
+| `escape` | ری سائز موڈ سے باہر نکلیں |
+| `Enter` | ری سائز موڈ سے باہر نکلیں |
 
 
-See [Windows and layout](#default-shortcut-table) for floating and workspace behavior and [Control Center](/docs/argvus-hyprland/windows-and-layout/) for the settings workflow.
+فلوٹنگ اور ورک اسپیس رویے کے لیے [Windows and layout](#default-shortcut-table) اور سیٹنگز ورک فلو کے لیے [Control Center](/docs/argvus-hyprland/windows-and-layout/) دیکھیں۔
 
 ## ﭧﺋﻻ﻿ ﭧﺋﺎﻧ
 
@@ -206,10 +206,10 @@ See [Windows and layout](#default-shortcut-table) for floating and workspace beh
 
 
 
-## 
+##
 
 
 
 
 
-Some useful built-in actions include moving focus and workspaces, toggling floating windows, screenshots and recording, opening the launcher/terminal, changing appearance, locking the session, controlling media and reloading Hyprland. The default bindings are listed in the [default shortcut table](/docs/components/argvus-control-center/) below; the Control Center page shows the bindings as they are currently configured.
+کچھ مفید بلٹ ان ایکشنز میں فوکس اور ورک اسپیس کو موونگ کرنا، فلوٹنگ ونڈوز کو ٹوگل کرنا، اسکرین شاٹس اور ریکارڈنگ، لانچر/ٹرمینل کھولنا، ظاہری شکل بدلنا، سیشن کو لاک کرنا، میڈیا کو کنٹرول کرنا اور Hyprland کو دوبارہ لوڈ کرنا شامل ہیں۔ ڈیفالٹ بائنڈنگز نیچے [ڈیفالٹ شارٹ کٹ ٹیبل](/docs/components/argvus-control-center/) میں درج ہیں؛ کنٹرول سینٹر کا صفحہ بائنڈنگز کو دکھاتا ہے جیسا کہ وہ فی الحال کنفیگر ہیں۔

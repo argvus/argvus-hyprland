@@ -36,18 +36,18 @@ Questi sono valori predefiniti, non limiti. Le pagine Spazi finestra e Spazi bar
 
 Ogni controllo è indipendente e si trova sulla pagina elencata qui:
 
-- **Barra delle applicazioni → Posizione** — posizione della barra delle applicazioni, in alto o in basso. 
-- **Barra delle applicazioni → Spazi** — margini della barra delle applicazioni in alto, a sinistra, a destra e in basso, ciascuno da `0` a `100`. Sticky imposta il margine inferiore a `2`; Spaced usa `18`. 
-- **Barra delle applicazioni → Icone** — se il gruppo di utilità della barra delle applicazioni utilizza un comportamento automatico o sempre espanso. 
-- **Hyprland → Finestre → Spazi** — gap interno e gap esterni in alto/sinistra/destra/basso, ciascuno da `0` a `100`. 
-- **Hyprland → Bordi** — bordi generali: abilita angoli arrotondati; quando abilitato, l'arrotondamento è selezionabile da `2` a `10`. Qui si imposta anche lo spessore del bordo, da `0` a `10`. 
+- **Barra delle applicazioni → Posizione** — posizione della barra delle applicazioni, in alto o in basso.
+- **Barra delle applicazioni → Spazi** — margini della barra delle applicazioni in alto, a sinistra, a destra e in basso, ciascuno da `0` a `100`. Sticky imposta il margine inferiore a `2`; Spaced usa `18`.
+- **Barra delle applicazioni → Icone** — se il gruppo di utilità della barra delle applicazioni utilizza un comportamento automatico o sempre espanso.
+- **Hyprland → Finestre → Spazi** — gap interno e gap esterni in alto/sinistra/destra/basso, ciascuno da `0` a `100`.
+- **Hyprland → Bordi** — bordi generali: abilita angoli arrotondati; quando abilitato, l'arrotondamento è selezionabile da `2` a `10`. Qui si imposta anche lo spessore del bordo, da `0` a `10`.
 - **Hyprland → Bordi → Ombra** — l'ombra della finestra, disattivata per impostazione predefinita. Imposta l'intervallo, la potenza di rendering, angoli netti, offset e scala, e il suo colore segue l'accento del tema con alfa `99` a meno che non venga digitato un colore.
 
 Questi valori vengono scritti nello stato di aspetto di ARGVUS, e `argvus-config` li proietta nei file generati da Hyprland che poi la sessione applica. Un margine della barra delle applicazioni cambia la posizione della superficie della shell; un gap esterno della finestra cambia l'area delle finestre affiancate. Possono produrre una distanza visiva simile, ma cambiare uno non cambia l'altro.
 
 ## Finestre e spazi di lavoro
 
-Le finestre affiancate sono organizzate da Hyprland nello spazio di lavoro attivo. ARGVUS supporta anche finestre utilitarie flottanti; `SUPER + SHIFT + Space` passa la finestra in focus tra i layout affiancato e flottante. Il movimento degli spazi di lavoro e il focus delle finestre sono controllati dal manifesto dei tasti attivo; vedere [Scorciatoie da tastiera](/docs/argvus-hyprland/keyboard-shortcuts/)].
+Le finestre affiancate sono organizzate da Hyprland nello spazio di lavoro attivo. ARGVUS supporta anche finestre utilitarie flottanti; `SUPER + SHIFT + Space` passa la finestra in focus tra i layout affiancato e flottante. Il movimento degli spazi di lavoro e il focus delle finestre sono controllati dal manifesto dei tasti attivo; vedere [Scorciatoie da tastiera](/docs/argvus-hyprland/keyboard-shortcuts/).
 
 La configurazione preconfezionata apre il Centro di Controllo, Snake e Disk Usage Analyzer come finestre galleggianti e centrate. Disk Usage Analyzer utilizza la stessa geometria iniziale `1399 × 920` del popup della memoria della barra delle applicazioni, applicata dalla sua regola di classe finestra all'apertura della finestra. ARGVUS Focus e ARGVUS Clock sono popup GTK layer-shell ancorati accanto alla barra delle applicazioni, quindi non sono finestre a mosaico e non utilizzano le regole delle finestre di Hyprland. La scheda della sveglia dell'orologio è una superficie layer separata (`argvus-clock-alarm`).
 

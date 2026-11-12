@@ -28,4 +28,4 @@ description: 在 ARGVUS 中配置指针和触控板的行为。
 
 设置会作为用户状态存储，并为会话重新生成 Hyprland 输入片段。请在页面提供重置操作时使用该操作；不要直接编辑生成的片段。当会话无法重新加载相关设备状态时，某个设置仅可应用于当前合成器。
 
-请参阅 [控制中心](/docs/components/argvus-control-center/)] 和 [配置位置](/docs/user-guide/where-to-configure/)]。
+请参阅 [控制中心](/docs/components/argvus-control-center/) 和 [配置位置](/docs/user-guide/where-to-configure/)。

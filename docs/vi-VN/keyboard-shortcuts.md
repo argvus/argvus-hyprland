@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: Phím tắt
 description: Tìm các phím tắt được cung cấp bởi cấu hình ARGVUS Hyprland.
 ---
 
@@ -27,168 +27,168 @@ Tệp manifest cơ bản và các cheatsheet đã cài đặt nằm dưới  `ar
 
 Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvus/hyprland/keybindings.json`) cùng với các phím mặc định của chúng. Các thay đổi của bạn trong Trung tâm Điều khiển sẽ thay thế các phím được hiển thị ở đây cho các liên kết bị ảnh hưởng, và các liên kết bị vô hiệu hóa sẽ không hoạt động.
 
-### Navigation
+### Điều hướng
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | Cửa sổ lát gạch tập trung theo hướng |
+| `SUPER + Right Arrow` | Cửa sổ lát gạch tập trung theo hướng |
+| `SUPER + Up Arrow` | Cửa sổ lát gạch tập trung theo hướng |
+| `SUPER + Down Arrow` | Cửa sổ lát gạch tập trung theo hướng |
+| `SUPER + CTRL + Left Arrow` | Lấy nét theo chu kỳ giữa các cửa sổ (lát gạch và nổi) |
+| `SUPER + CTRL + Right Arrow` | Lấy nét theo chu kỳ giữa các cửa sổ (lát gạch và nổi) |
 
-### Workspaces
+### Không gian làm việc
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | Di chuyển giữa các khu vực làm việc |
+| `CTRL + ALT + Left Arrow` | Di chuyển giữa các khu vực làm việc |
+| `Mouse extra button (mouse:276)` | Di chuyển giữa các khu vực làm việc |
+| `Mouse side button (mouse:275)` | Di chuyển giữa các khu vực làm việc |
+| `SUPER + 1` | Không gian làm việc 1 |
+| `SUPER + 2` | Không gian làm việc 2 |
+| `SUPER + 3` | Không gian làm việc 3 |
+| `SUPER + 4` | Không gian làm việc 4 |
+| `SUPER + 5` | Không gian làm việc 5 |
+| `SUPER + 6` | Không gian làm việc 6 |
+| `SUPER + 7` | Không gian làm việc 7 |
+| `SUPER + 8` | Không gian làm việc 8 |
+| `SUPER + 9` | Không gian làm việc 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9` | Mở dự án ở vị trí đó của `argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | Di chuyển cửa sổ sang màn hình nền 1 |
+| `SUPER + Shift + 2` | Di chuyển cửa sổ sang màn hình nền 2 |
+| `SUPER + Shift + 3` | Di chuyển cửa sổ sang màn hình nền 3 |
+| `SUPER + Shift + 4` | Di chuyển cửa sổ sang màn hình nền 4 |
+| `SUPER + Shift + 5` | Di chuyển cửa sổ sang màn hình nền 5 |
+| `SUPER + Shift + 6` | Di chuyển cửa sổ sang màn hình nền 6 |
+| `SUPER + Shift + 7` | Di chuyển cửa sổ sang màn hình nền 7 |
+| `SUPER + Shift + 8` | Di chuyển cửa sổ sang màn hình nền 8 |
+| `SUPER + Shift + 9` | Di chuyển cửa sổ sang màn hình nền 9 |
 
-### Windows
+### cửa sổ
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | Phóng to cửa sổ (chuyển đổi) |
+| `SUPER + Q` | Đóng cửa sổ |
+| `SUPER + Shift + Space` | Bật/Tắt Cửa sổ nổi |
+| `SUPER + F` | Cửa sổ toàn màn hình |
+| `SUPER + E` | Chuyển đổi chia dọc/ngang |
+| `SUPER + W` | Nhóm/Ungroup thành các tab |
+| `SUPER + Tab` | Điều hướng giữa các tab |
+| `SUPER + Shift + Left Arrow` | Di chuyển cửa sổ |
+| `SUPER + Shift + Right Arrow` | Di chuyển cửa sổ |
+| `SUPER + Shift + Up Arrow` | Di chuyển cửa sổ |
+| `SUPER + Shift + Down Arrow` | Di chuyển cửa sổ |
+| `SUPER + Left mouse button (mouse:272)` | Kéo cửa sổ (chỉ cửa sổ nổi) |
+| `SUPER + Right mouse button (mouse:273)` | Chế độ thay đổi kích thước cửa sổ (chỉ cửa sổ nổi) |
+| `SUPER + R` | Vào chế độ thay đổi kích thước cửa sổ (chỉ cửa sổ nổi) |
 
-### Applications
+### Ứng dụng
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | Nhà ga |
 | `SUPER + [` | Bảng ghi chú tạm của Terminal (mở từ menu thả xuống trên không gian làm việc đặc biệt; nhấn lần nữa để ẩn) |
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | Trình quản lý tệp |
+| `SUPER + CTRL + Space` | Giám sát hệ thống |
+| `SUPER + Shift + D` | Menu thiết bị di động |
+| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro và các phiên tập trung) |
+| `SUPER + Shift + C` | Đồng hồ ARGVUS (đồng hồ, hẹn giờ và báo thức) |
+| `SUPER + D` | Trình khởi chạy chương trình |
+| `SUPER + B` | Trình duyệt mặc định |
+| `SUPER + C` | Máy tính |
+| `SUPER + ALT + S` | Bộ chọn máy chủ SSH (`argvus ssh`) |
+| `SUPER + ALT + N` | Bộ chọn đoạn mã (`argvus snippets`) |
 | `SUPER + ALT + G` | Bộ chọn dự án, sau đó git TUI (lazygit hoặc gitui) trong dự án đã chọn (`argvus git`) |
 
-### Media
+### Phương tiện truyền thông
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | Tăng âm lượng |
+| `Volume Down` | Giảm âm lượng |
+| `Mute` | Tắt tiếng |
+| `Brightness Up` | Tăng độ sáng |
+| `Brightness Down` | Giảm độ sáng |
+| `Play/Pause` | Phát/Tạm dừng |
+| `Next Track` | Bài hát tiếp theo |
+| `Previous Track` | Bài hát trước |
+| `Stop` | Dừng theo dõi |
 
 ### Ảnh chụp màn hình và ghi hình
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | Chụp khu vực đã chọn |
+| `SUPER + Print` | Chụp cửa sổ lấy nét |
+| `SUPER + Shift + Print` | Chụp toàn bộ màn hình |
+| `SUPER + G` | Ghi màn hình Start/Pause/Resume |
+| `SUPER + Shift + G` | Dừng và lưu ghi màn hình |
 
-### Session
+### Phiên
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | Hệ thống khóa |
+| `SUPER + escape` | Hệ thống thoát |
+| `SUPER + Shift + R` | Tải lại Hyprland |
+| `SUPER + Shift + S` | Tắt/bật màn hình (không tạm dừng hệ thống) |
+| `SUPER + Shift + L` | Chọn thời gian chờ khóa không hoạt động |
+| `SUPER + ALT + W` | Chuyển đổi Giữ tỉnh táo |
 
-### System
+### Hệ thống
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Bảng tính Hyprland |
+| `SUPER + CTRL + /` | Bảng tính Kitty |
+| `SUPER + F1` | Mở Giới thiệu về ARGVUS |
+| `SUPER + ALT + C` | Trung tâm điều khiển mở |
+| `SUPER + P` | Bộ chọn màu |
+| `SUPER + .` | Bộ chọn biểu tượng cảm xúc |
+| `SUPER + H` | Lịch sử bảng nhớ tạm |
+| `SUPER + Shift + H` | Xóa lịch sử bảng nhớ tạm |
 
-### Widgets
+### Widget
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | Thanh bên thông báo Mở/Đóng |
+| `Middle mouse button (mouse:274)` | Thanh bên thông báo Mở/Đóng |
+| `SUPER + Backspace` | Chuyển đổi đầu Waybar |
+| `SUPER + Shift + W` | Cấu hình vị trí thời tiết |
+| `SUPER + ALT + Up Arrow` | Di chuyển thanh tác vụ lên trên cùng |
+| `SUPER + ALT + Down Arrow` | Di chuyển thanh tác vụ xuống dưới cùng |
 
-### Appearance
+### Ngoại hình
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | Hình nền Trung tâm điều khiển mở |
+| `SUPER + Shift + T` | Mở bộ chọn chủ đề |
+| `SUPER + Shift + M` | Mở bộ chọn chế độ Chú ý/Dải cách |
 | `SUPER + F5` | Chuyển đổi giữa các chủ đề ARGVUS Dark và ARGVUS Light |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | Chuyển đổi hình ảnh động |
+| `SUPER + Shift + B` | Mở bộ chọn độ sáng và chuyển đổi Ánh sáng ban đêm |
 
 ### Chế độ thay đổi kích thước (sau SUPER + R)
 
 Các phím tắt này chỉ hoạt động khi chế độ thay đổi kích thước đang bật.`Esc` or `Enter`rời chế độ.
 
-| Shortcut | Description |
+| Phím tắt | Mô tả |
 | --- | --- |
-| `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Right Arrow` | Thay đổi kích thước |
+| `Left Arrow` | Thay đổi kích thước |
+| `Up Arrow` | Thay đổi kích thước |
+| `Down Arrow` | Thay đổi kích thước |
+| `Shift + Right Arrow` | Di chuyển cửa sổ |
+| `Shift + Left Arrow` | Di chuyển cửa sổ |
+| `Shift + Up Arrow` | Di chuyển cửa sổ |
+| `Shift + Down Arrow` | Di chuyển cửa sổ |
+| `escape` | Thoát chế độ thay đổi kích thước |
+| `Enter` | Thoát chế độ thay đổi kích thước |
 
 
 
@@ -209,7 +209,7 @@ Những phím này áp dụng bên trong **Control Center > System Administratio
 
 Trong Gói, `/` tập trung vào thanh **Tìm kiếm** ở trên cùng. `Enter` tại đó gửi các tìm kiếm cài đặt Chính thức/AUR; danh sách gỡ bỏ và cập nhật được lọc khi bạn gõ. `Down` di chuyển đến kết quả, `Up` trên kết quả đầu tiên trở lại Tìm kiếm, và `Esc` trong Tìm kiếm giữ nguyên truy vấn và quay lại danh sách. Nhấn Enter trên một kết quả thực hiện hành động gói của nó.
 
-See  for the installed and user paths.(/docs/argvus-hyprland/windows-and-layout/) for the installed and user paths. for the installed and user paths.(/docs/components/argvus-control-center/) for the installed and user paths.
+Xem đường dẫn người dùng và cài đặt.(/docs/argvus-hyprland/windows-and-layout/) để biết đường dẫn người dùng và cài đặt. cho các đường dẫn đã cài đặt và người dùng.(/docs/components/argvus-control-center/) cho các đường dẫn đã cài đặt và người dùng.
 
 Run argvus control-center shortcuts create or argvus control-center shortcuts list to open either page. For advanced submaps, mouse bindings or flags, [bindings.lua](/docs/argvus-hyprland/hyprland-overrides/) remains available. Never edit the generated fragments.
 Một số hành động tích hợp sẵn hữu ích bao gồm di chuyển tiêu điểm và không gian làm việc, chuyển đổi cửa sổ nổi, chụp ảnh màn hình và ghi hình, mở trình khởi chạy/terminal, thay đổi giao diện, khóa phiên, điều khiển phương tiện và nạp lại Hyprland. Các phím tắt mặc định được liệt kê trong[bảng phím tắt mặc định](#default-shortcut-table)dưới đây; trang Trung tâm điều khiển hiển thị các liên kết như chúng đang được cấu hình hiện tại.

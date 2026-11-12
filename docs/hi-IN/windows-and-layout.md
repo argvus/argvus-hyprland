@@ -1,5 +1,5 @@
 ---
-title: Windows and layout
+title: विंडोज़ और लेआउट
 description: ARGVUS में अंतराल, सीमाएँ, मोड और पैनल स्थान को समझें।
 ---
 
@@ -27,7 +27,7 @@ ARGVUS टाइल और फ्लोटिंग विंडो प्ले
 
 बंडल किए गए थीम मोड दो प्रारंभिक ज्यामितियाँ प्रदान करते हैं:
 
-| Mode | Window behavior | Surface treatment |
+| मोड | विंडो व्यवहार | भूतल उपचार |
 | --- | --- | --- |
 | चिपचिपा | आंतरिक अंतर `2`, बाहरी अंतर `0`डिफ़ॉल्ट रूप से | वर्गाकार, कॉम्पैक्ट और स्क्रीन के किनारे के करीब |
 | फैला हुआ | आंतरिक अंतर `10`, बाहरी अंतर `18`डिफ़ॉल्ट रूप से | गोल, छायांकित और अधिक विशाल; टास्कबार/शेल मार्जिन डिफ़ॉल्ट रूप से`18` |
@@ -76,7 +76,7 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 परिवर्तन ARGVUS उपस्थिति/सेशन एकीकरण के माध्यम से लागू किए जाते हैं। जहाँ उपलब्ध हो, पेज की रीसेट क्रिया का उपयोग करें; उत्पन्न किए गए Hyprland फ़ाइलों को सीधे संपादित न करें।
 
-## Related
+## संबंधित
 
 
 ## विंडो वॉबल
@@ -134,10 +134,10 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 
 `SUPER + Alt + Space` वैश्विक टाइल/फ्लोटिंग मोード को टॉगल करता है, जो टास्कबार और कंट्रोल सेंटर जैसी प्राथमिकता का उपयोग करता है। समान कमांड `argvus config window-mode toggle` है। एक साथ कई बार बुलाने पर इन्हें क्रमबद्ध किया जाता है; टॉगलिंग में सहेजी गई प्राथमिकता का उपयोग होता है, भले ही एप्लिकेशन पेंडिंग हो। शॉर्टकट को कीबोर्ड शॉर्टकट में बदल या अक्षम किया जा सकता है; `SUPER + Shift + Space` अपनी व्यक्तिगत विंडो क्रिया बनाए रखता है।
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
- for the installed and user paths. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+प्रत्येक नियम में 1 से 10 तक एक कार्यक्षेत्र और एक कक्षा सूची होती है। कक्षाओं में प्रविष्टियाँ विंडो क्लास (केस सेंसिटिव) से मेल खाने वाले नियमित अभिव्यक्ति हैं, उदाहरण के लिए [Cc]ode.* या Jetbrains-.*। केवल अक्षर, अंक और ._*+?-|^$ स्वीकार किए जाते हैं। argvus-config generate/hypr/window-rules.lua पर नियम लिखता है, जिसे Hyprland कॉन्फ़िगरेशन लोड करता है। डिफ़ॉल्ट को बदले बिना नियमों को बदलने के लिए, अपने ARGVUS डेटा निर्देशिका मेंनियम.lua में hl.window_rule कॉल जोड़ें; वे जेनरेट किए गए नियमों के बाद लोड होते हैं।
+ स्थापित और उपयोगकर्ता पथों के लिए। स्थापित और उपयोगकर्ता पथों के लिए। (https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+टाइल वाली खिड़कियाँ सक्रिय कार्यक्षेत्र पर Hyprland द्वारा व्यवस्थित की जाती हैं। ARGVUS फ्लोटिंग यूटिलिटी विंडो का भी समर्थन करता है; सुपर + शिफ्ट + स्पेस टाइल और फ्लोटिंग लेआउट के बीच फोकस्ड विंडो को टॉगल करता है। कार्यक्षेत्र की गति और विंडो फोकस को सक्रिय कीबाइंडिंग मेनिफ़ेस्ट द्वारा नियंत्रित किया जाता है; [कीबोर्ड शॉर्टकट](/docs/argvus-hyprland/keyboard-shortcuts/) देखें।
 - [दिखावट](/docs/user-guide/appearance/)
 - [थीम्स](/docs/user-guide/appearance/)
 - [टास्कबार](/docs/argvus-taskbar/taskbar/)

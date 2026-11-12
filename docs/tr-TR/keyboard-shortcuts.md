@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: Klavye kısayolları
 description: ARGVUS Hyprland yapılandırması tarafından sağlanan kısayolları bulun.
 ---
 
@@ -29,168 +29,168 @@ Bazı kullanışlı yerleşik eylemler arasında odak ve çalışma alanlarını
 
 Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsayılan tuşlarıyla bağlamalarını listeler. Kontrol Merkezi'ndeki kendi değişiklikleriniz, burada gösterilen tuşların etkilenen bağlamalar için yerini alır ve devre dışı bırakılmış bağlamalar çalışmaz.
 
-### Navigation
+### Navigasyon
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + Left Arrow` | Focus tiled window by direction |
-| `SUPER + Right Arrow` | Focus tiled window by direction |
-| `SUPER + Up Arrow` | Focus tiled window by direction |
-| `SUPER + Down Arrow` | Focus tiled window by direction |
-| `SUPER + CTRL + Left Arrow` | Cycle focus between windows (tiled and floating) |
-| `SUPER + CTRL + Right Arrow` | Cycle focus between windows (tiled and floating) |
+| `SUPER + Left Arrow` | Döşemeli pencereyi yöne göre odakla |
+| `SUPER + Right Arrow` | Döşemeli pencereyi yöne göre odakla |
+| `SUPER + Up Arrow` | Döşemeli pencereyi yöne göre odakla |
+| `SUPER + Down Arrow` | Döşemeli pencereyi yöne göre odakla |
+| `SUPER + CTRL + Left Arrow` | Pencereler arasında odaklamayı değiştir (döşenmiş ve kayan) |
+| `SUPER + CTRL + Right Arrow` | Pencereler arasında odaklamayı değiştir (döşenmiş ve kayan) |
 
-### Workspaces
+### Çalışma alanları
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `CTRL + ALT + Right Arrow` | Moving between work areas |
-| `CTRL + ALT + Left Arrow` | Moving between work areas |
-| `Mouse extra button (mouse:276)` | Moving between work areas |
-| `Mouse side button (mouse:275)` | Moving between work areas |
-| `SUPER + 1` | Workspace 1 |
-| `SUPER + 2` | Workspace 2 |
-| `SUPER + 3` | Workspace 3 |
-| `SUPER + 4` | Workspace 4 |
-| `SUPER + 5` | Workspace 5 |
-| `SUPER + 6` | Workspace 6 |
-| `SUPER + 7` | Workspace 7 |
-| `SUPER + 8` | Workspace 8 |
-| `SUPER + 9` | Workspace 9 |
+| `CTRL + ALT + Right Arrow` | Çalışma alanları arasında geçiş |
+| `CTRL + ALT + Left Arrow` | Çalışma alanları arasında geçiş |
+| `Mouse extra button (mouse:276)` | Çalışma alanları arasında geçiş |
+| `Mouse side button (mouse:275)` | Çalışma alanları arasında geçiş |
+| `SUPER + 1` | Çalışma Alanı 1 |
+| `SUPER + 2` | Çalışma Alanı 2 |
+| `SUPER + 3` | Çalışma Alanı 3 |
+| `SUPER + 4` | Çalışma Alanı 4 |
+| `SUPER + 5` | Çalışma Alanı 5 |
+| `SUPER + 6` | Çalışma Alanı 6 |
+| `SUPER + 7` | Çalışma Alanı 7 |
+| `SUPER + 8` | Çalışma Alanı 8 |
+| `SUPER + 9` | Çalışma Alanı 9 |
 | `SUPER + CTRL + 1` to `SUPER + CTRL + 9` | Projeyi o konumda açar`argvus projects` |
-| `SUPER + Shift + 1` | Move window to desktop 1 |
-| `SUPER + Shift + 2` | Move window to desktop 2 |
-| `SUPER + Shift + 3` | Move window to desktop 3 |
-| `SUPER + Shift + 4` | Move window to desktop 4 |
-| `SUPER + Shift + 5` | Move window to desktop 5 |
-| `SUPER + Shift + 6` | Move window to desktop 6 |
-| `SUPER + Shift + 7` | Move window to desktop 7 |
-| `SUPER + Shift + 8` | Move window to desktop 8 |
-| `SUPER + Shift + 9` | Move window to desktop 9 |
+| `SUPER + Shift + 1` | Pencereyi masaüstüne taşı 1 |
+| `SUPER + Shift + 2` | Pencereyi masaüstüne taşı 2 |
+| `SUPER + Shift + 3` | Pencereyi masaüstüne taşı 3 |
+| `SUPER + Shift + 4` | Pencereyi masaüstüne taşı 4 |
+| `SUPER + Shift + 5` | Pencereyi masaüstüne taşı 5 |
+| `SUPER + Shift + 6` | Pencereyi masaüstüne taşı 6 |
+| `SUPER + Shift + 7` | Pencereyi masaüstüne taşı 7 |
+| `SUPER + Shift + 8` | Pencereyi masaüstüne taşı 8 |
+| `SUPER + Shift + 9` | Pencereyi masaüstüne taşı 9 |
 
 ### Windows
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + S` | Maximize window (toggle) |
-| `SUPER + Q` | Close window |
-| `SUPER + Shift + Space` | Enable/Disable Floating Window |
-| `SUPER + F` | Full screen window |
-| `SUPER + E` | Split vertical/horizontal toggle |
-| `SUPER + W` | Group/Ungroup into tabs |
-| `SUPER + Tab` | Navigate between tabs |
-| `SUPER + Shift + Left Arrow` | Move window |
-| `SUPER + Shift + Right Arrow` | Move window |
-| `SUPER + Shift + Up Arrow` | Move window |
-| `SUPER + Shift + Down Arrow` | Move window |
-| `SUPER + Left mouse button (mouse:272)` | Drag window (floating window only) |
-| `SUPER + Right mouse button (mouse:273)` | Window resize mode (floating window only) |
-| `SUPER + R` | Enter window resize mode (floating window only) |
+| `SUPER + S` | Pencereyi büyüt (aç/kapat) |
+| `SUPER + Q` | Pencereyi kapat |
+| `SUPER + Shift + Space` | Kayan Pencereyi Etkinleştir/Devre Dışı Bırak |
+| `SUPER + F` | Tam ekran pencere |
+| `SUPER + E` | Dikey/yatay bölünmüş geçiş |
+| `SUPER + W` | Sekmeler halinde grupla/grubu çöz |
+| `SUPER + Tab` | Sekmeler arasında gezinin |
+| `SUPER + Shift + Left Arrow` | Pencereyi taşı |
+| `SUPER + Shift + Right Arrow` | Pencereyi taşı |
+| `SUPER + Shift + Up Arrow` | Pencereyi taşı |
+| `SUPER + Shift + Down Arrow` | Pencereyi taşı |
+| `SUPER + Left mouse button (mouse:272)` | Pencereyi sürükleyin (yalnızca kayan pencere) |
+| `SUPER + Right mouse button (mouse:273)` | Pencere yeniden boyutlandırma modu (yalnızca kayan pencere) |
+| `SUPER + R` | Pencere yeniden boyutlandırma moduna girin (yalnızca kayan pencere) |
 
-### Applications
+### Uygulamalar
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + Enter` | Terminal |
+| `SUPER + Enter` | terminali |
 | `SUPER + [` | Terminal not defteri (özel bir çalışma alanında açılır menü; gizlemek için tekrar basın) |
-| `SUPER + Space` | File Manager |
-| `SUPER + CTRL + Space` | System monitor |
-| `SUPER + Shift + D` | Removable devices menu |
-| `SUPER + Shift + F` | ARGVUS Focus (Pomodoro and focus sessions) |
-| `SUPER + Shift + C` | ARGVUS Clock (clock, timers and alarms) |
-| `SUPER + D` | Program Launcher |
-| `SUPER + B` | Default Browser |
-| `SUPER + C` | Calculator |
-| `SUPER + ALT + S` | SSH host picker (`argvus ssh`) |
-| `SUPER + ALT + N` | Snippet picker (`argvus snippets`) |
+| `SUPER + Space` | Dosya Yöneticisi |
+| `SUPER + CTRL + Space` | Sistem monitörü |
+| `SUPER + Shift + D` | Çıkarılabilir cihazlar menüsü |
+| `SUPER + Shift + F` | ARGVUS Odaklanma (Pomodoro ve odaklanma oturumları) |
+| `SUPER + Shift + C` | ARGVUS Saat (saat, zamanlayıcılar ve alarmlar) |
+| `SUPER + D` | Program Başlatıcı |
+| `SUPER + B` | Varsayılan Tarayıcı |
+| `SUPER + C` | Hesap Makinesi |
+| `SUPER + ALT + S` | SSH ana bilgisayar seçici (`argvus ssh`) |
+| `SUPER + ALT + N` | Parçacık seçici (`argvus snippets`) |
 | `SUPER + ALT + G` | Proje seçici, sonra seçilen projede git TUI (lazygit veya gitui) (`argvus git`) |
 
-### Media
+### Medya
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `XF86AudioRaiseVolume` | Volume up |
-| `Volume Down` | Volume down |
-| `Mute` | Mute |
-| `Brightness Up` | Brightness up |
-| `Brightness Down` | Brightness down |
-| `Play/Pause` | Play/Pause |
-| `Next Track` | Next track |
-| `Previous Track` | Previous track |
-| `Stop` | Stop track |
+| `XF86AudioRaiseVolume` | Sesi aç |
+| `Volume Down` | Sesi kıs |
+| `Mute` | Sessiz |
+| `Brightness Up` | Parlaklık artır |
+| `Brightness Down` | Parlaklık azaldı |
+| `Play/Pause` | Oynat/Duraklat |
+| `Next Track` | Sonraki parça |
+| `Previous Track` | Önceki parça |
+| `Stop` | Parçayı durdur |
 
 ### Ekran görüntüleri ve kayıt
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `Print` | Capture selected area |
-| `SUPER + Print` | Capture focused window |
-| `SUPER + Shift + Print` | Capture entire screen |
-| `SUPER + G` | Start/Pause/Resume screen recording |
-| `SUPER + Shift + G` | Stop and save screen recording |
+| `Print` | Seçilen alanı yakala |
+| `SUPER + Print` | Odaklanmış pencereyi yakala |
+| `SUPER + Shift + Print` | Tüm ekranı yakala |
+| `SUPER + G` | Start/Pause/Resume ekran kaydı |
+| `SUPER + Shift + G` | Ekran kaydını durdurun ve kaydedin |
 
-### Session
+### Oturum
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
-| `SUPER + Shift + R` | Reload Hyprland |
-| `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
-| `SUPER + ALT + W` | Toggle Keep Awake |
+| `SUPER + L` | Kilit sistemi |
+| `SUPER + escape` | Çıkış sistemi |
+| `SUPER + Shift + R` | Hyprland'yu yeniden yükle |
+| `SUPER + Shift + S` | Monitörü kapatıp açın (sistemi askıya almayın) |
+| `SUPER + Shift + L` | Hareketsizlik kilidi zaman aşımını seçin |
+| `SUPER + ALT + W` | Uyanık Tutmayı Değiştir |
 
-### System
+### Sistem
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
-| `SUPER + F1` | Open About ARGVUS |
-| `SUPER + ALT + C` | Open Control Center |
-| `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
-| `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
+| `SUPER + Shift + /` | Hyprland Hile Sayfaları |
+| `SUPER + CTRL + /` | Kitty Hile Sayfaları |
+| `SUPER + F1` | Açık ARGVUS Hakkında |
+| `SUPER + ALT + C` | Kontrol Merkezini Aç |
+| `SUPER + P` | Renk Seçici |
+| `SUPER + .` | Emoji Seçici |
+| `SUPER + H` | Pano Geçmişi |
+| `SUPER + Shift + H` | Pano Geçmişini Temizle |
 
-### Widgets
+### Widget'lar
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + ,` | Open/Close notification sidebar |
-| `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
-| `SUPER + Shift + W` | Configure weather location |
-| `SUPER + ALT + Up Arrow` | Move taskbar to top |
-| `SUPER + ALT + Down Arrow` | Move taskbar to bottom |
+| `SUPER + ,` | Bildirim kenar çubuğunu aç/kapat |
+| `Middle mouse button (mouse:274)` | Bildirim kenar çubuğunu aç/kapat |
+| `SUPER + Backspace` | Waybar'yu değiştir üst |
+| `SUPER + Shift + W` | Hava durumu konumunu yapılandırın |
+| `SUPER + ALT + Up Arrow` | Görev çubuğunu yukarıya taşı |
+| `SUPER + ALT + Down Arrow` | Görev çubuğunu aşağıya taşı |
 
-### Appearance
+### Görünüm
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + Y` | Open Control Center wallpapers |
-| `SUPER + Shift + T` | Open theme selector |
-| `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
+| `SUPER + Y` | Kontrol Merkezi duvar kağıtlarını açın |
+| `SUPER + Shift + T` | Tema seçiciyi aç |
+| `SUPER + Shift + M` | Yapışkan/Aralıklı mod seçiciyi aç |
 | `SUPER + F5` | ARGVUS Dark ve ARGVUS Light temaları arasında geçiş yap |
-| `SUPER + F6` | Toggle animations |
-| `SUPER + Shift + B` | Open brightness selector and Night Light toggle |
+| `SUPER + F6` | Animasyonları aç / kapat |
+| `SUPER + Shift + B` | Parlaklık seçiciyi ve Gece Işığı geçişini açın |
 
 ### Boyutlandırma modu (SUPER + R'den sonra)
 
 Bu kısayollar yalnızca yeniden boyutlandırma modu etkinken çalışır. `Esc` veya `Enter` modu bırakır.
 
-| Shortcut | Description |
+| Kısayol | Açıklama |
 | --- | --- |
-| `Right Arrow` | Resize |
-| `Left Arrow` | Resize |
-| `Up Arrow` | Resize |
-| `Down Arrow` | Resize |
-| `Shift + Right Arrow` | Move window |
-| `Shift + Left Arrow` | Move window |
-| `Shift + Up Arrow` | Move window |
-| `Shift + Down Arrow` | Move window |
-| `escape` | Exit resize mode |
-| `Enter` | Exit resize mode |
+| `Right Arrow` | Yeniden Boyutlandır |
+| `Left Arrow` | Yeniden Boyutlandır |
+| `Up Arrow` | Yeniden Boyutlandır |
+| `Down Arrow` | Yeniden Boyutlandır |
+| `Shift + Right Arrow` | Pencereyi taşı |
+| `Shift + Left Arrow` | Pencereyi taşı |
+| `Shift + Up Arrow` | Pencereyi taşı |
+| `Shift + Down Arrow` | Pencereyi taşı |
+| `escape` | Yeniden boyutlandırma modundan çık |
+| `Enter` | Yeniden boyutlandırma modundan çık |
 
 
 Yüzen ve çalışma alanı davranışı için [Windows ve düzen](/docs/argvus-hyprland/windows-and-layout/) bölümüne ve ayarlar iş akışı için [Kontrol Merkezi](/docs/components/argvus-control-center/) bölümüne bakın.

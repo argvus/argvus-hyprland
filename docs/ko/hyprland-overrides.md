@@ -110,6 +110,6 @@ grep -E "Hyprland Lua config|failed validation|using user Lua|fallback" \
 ```
 패키지된 소스와 헬퍼는 `/usr/share/argvus/hyprland/`에 있습니다. `~/.config/argvus/data/generated/` 아래의 생성된 파일은 파생 상태이므로, 생성된 출력을 직접 편집하지 말고 소유 설정이나 오버라이드 프래그먼트를 편집하세요.
 
-Control Center 워크플로우에 대한 [키보드 단축키](/docs/argvus-hyprland/keyboard-shortcuts/)] 및 전체 구성 경로 참조에 대한 [파일 위치](/docs/reference/file-locations/)]를 참조하세요.
+Control Center 워크플로우에 대한 [키보드 단축키](/docs/argvus-hyprland/keyboard-shortcuts/) 및 전체 구성 경로 참조에 대한 [파일 위치](/docs/reference/file-locations/)를 참조하세요.
 
 Shadow 렌더 파워는 Hyprland를 호출하기 전에 1–4(기본 4)로 제한됩니다. 여기에는 레거시 이펙트 프로젝션도 포함됩니다. 이는 이전 ARGVUS 릴리스에서 허용하는 값이 Hyprland 0.57에서 시작을 차단하는 것을 방지합니다.

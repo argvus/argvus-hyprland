@@ -1,11 +1,11 @@
 ---
-title: Windows and layout
+title: উইন্ডোজ এবং লেআউট
 description: ARGVUS-এ ফাঁক, সীমানা, মোড এবং প্যানেল স্পেস বুঝুন।
 ---
 
 ARGVUS টাইলড এবং ফ্লোটিং উইন্ডো প্লেসমেন্টের জন্য Hyprland ব্যবহার করে। ব্যবহারকারীর মুখোমুখি লেআউট কন্ট্রোল তিনটি কন্ট্রোল সেন্টার পৃষ্ঠায় থাকে: **Control Center → Appearance → Taskbar** (অবস্থান, স্পেস এবং আইকন), **Control Center → Desktop & Input → Hyprland → Windows → Spaces** এবং **Control Center → Desktop & Input → Hyprland → Borders**।
 
-## 
+##
 
 ```text
 ┌────────────────────────────────────┐
@@ -27,7 +27,7 @@ ARGVUS টাইলড এবং ফ্লোটিং উইন্ডো প্
 
 বান্ডেল করা থিম মোডগুলি দুটি প্রাথমিক জ্যামিতি প্রদান করে:
 
-| Mode | Window behavior | Surface treatment |
+| মোড | জানালার আচরণ | পৃষ্ঠ চিকিত্সা |
 | --- | --- | --- |
 | স্টিকি | অভ্যন্তরীণ ফাঁক `2`, বাহ্যিক ফাঁক `0`ডিফল্ট অনুযায়ী | বর্গাকার, কমপ্যাক্ট এবং স্ক্রিনের কিনারার কাছে |
 | ফাঁকা | অভ্যন্তরীণ ফাঁক `10`, বাহ্যিক ফাঁক `18`ডিফল্ট হিসেবে | গোলাকার, ছায়াযুক্ত এবং আরও প্রশস্ত; টাস্কবার/শেল মার্জিনের ডিফল্ট মান হলো `18` |
@@ -76,7 +76,7 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 পরিবর্তনগুলি ARGVUS চেহারা/সেশন ইন্টিগ্রেশনের মাধ্যমে প্রযোজ্য হয়। যেখানে উপলব্ধ থাকে সেখানে পৃষ্ঠার রিসেট অ্যাকশন ব্যবহার করুন; সরাসরি তৈরি করা Hyprland ফাইলগুলি সম্পাদনা করবেন না।
 
-## Related
+## সম্পর্কিত
 
 
 ## উইন্ডোর দোলনা
@@ -134,10 +134,10 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 
 `SUPER + Alt + Space` গ্লোবাল টাইল/ফ্লোটিং মোড পরিবর্তন করে, টাস্কবার এবং কন্ট্রোল সেন্টারের একই পছন্দ ব্যবহার করে। সমতুল্য কমান্ড হল `argvus config window-mode toggle`। একসাথে কলগুলো সিরিয়ালাইজ করা হয়; টগল করা সংরক্ষিত পছন্দ ব্যবহার করে, এমনকি যখন অ্যাপ্লিকেশন পেন্ডিং থাকে। শর্টকাট কীবোর্ড শর্টকাটে পরিবর্তন বা নিষ্ক্রিয় করা যেতে পারে; `SUPER + Shift + Space` এর পৃথক-উইন্ডো অ্যাকশন বজায় রাখে।
 
-Each rule has a workspace from 1 to 10 and a classes list. Entries in classes are regular expressions matched against the window class (case sensitive), for example [Cc]ode.* or jetbrains-.*. Only letters, digits and ._*+?-|^$ are accepted. argvus-config writes the rules to generated/hypr/window-rules.lua, which the Hyprland configuration loads. To replace the rules without changing the defaults, add hl.window_rule calls to rules.lua in your ARGVUS data directory; those load after the generated rules.
+প্রতিটি নিয়মে 1 থেকে 10 পর্যন্ত একটি কর্মক্ষেত্র এবং একটি ক্লাস তালিকা রয়েছে। ক্লাসের এন্ট্রিগুলি হল উইন্ডো ক্লাসের (কেস সংবেদনশীল) সাথে মিলে যাওয়া রেগুলার এক্সপ্রেশন, উদাহরণস্বরূপ [Cc]ode.* বা jetbrains-.*। শুধুমাত্র অক্ষর, অঙ্ক এবং ._*+?-|^$ গ্রহণ করা হয়। argvus-config generated/hypr/window-rules.lua-এ নিয়ম লিখে, যা Hyprland কনফিগারেশন লোড হয়। ডিফল্ট পরিবর্তন না করে নিয়মগুলি প্রতিস্থাপন করতে, hl.window_rule কলগুলিকে নিয়মগুলিতে যোগ করুন। lua আপনার ARGVUS ডেটা ডিরেক্টরিতে; উত্পন্ন নিয়ম পরে যারা লোড.
 ইনস্টল করা এবং ব্যবহারকারী পথের জন্য। for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
 
-Tiled windows are arranged by Hyprland on the active workspace. ARGVUS also supports floating utility windows; SUPER + SHIFT + Space toggles the focused window between tiled and floating layouts. Workspace movement and window focus are controlled by the active keybinding manifest; see [Keyboard shortcuts](/docs/argvus-hyprland/keyboard-shortcuts/).
+সক্রিয় কর্মক্ষেত্রে Hyprland দ্বারা টালিযুক্ত উইন্ডোগুলি সাজানো হয়েছে। ARGVUS এছাড়াও ভাসমান ইউটিলিটি উইন্ডো সমর্থন করে; SUPER + SHIFT + Space টাইল্ড এবং ভাসমান লেআউটগুলির মধ্যে ফোকাস করা উইন্ডোটিকে টগল করে৷ ওয়ার্কস্পেস আন্দোলন এবং উইন্ডো ফোকাস সক্রিয় কীবাইন্ডিং ম্যানিফেস্ট দ্বারা নিয়ন্ত্রিত হয়; দেখুন [কীবোর্ড শর্টকাট](/docs/argvus-hyprland/keyboard-shortcuts/)।
 - [দৃশ্যমানতা](/docs/user-guide/appearance/)
 - [থিমস](/docs/user-guide/appearance/)
 - [টাস্কবার](/docs/argvus-taskbar/taskbar/)

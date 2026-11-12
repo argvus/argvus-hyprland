@@ -14,13 +14,13 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 
 사용자 정의 단축키는 편집, 활성/비활성 및 삭제 시 확인이 필요합니다. 동일한 컨텍스트에서 활성화된 단축키와 충돌하는 경우 교체 확인이 필요하며, 보호된 바인딩은 교체할 수 없습니다. 공식 기본값을 복원하면 사용자 정의 기록은 보존됩니다. 복원 시 활성화된 사용자 정의 단축키와 충돌할 경우 먼저 해당 사용자 정의 단축키를 변경하거나 비활성화하십시오. 사용자 정의 정의는 `/hyprland/custom_shortcuts`에 `$XDG_CONFIG_HOME/argvus/config/hyprland.json` 아래 저장됩니다. 생성된 `data/generated/hypr/custom-shortcuts.lua`는 기존 보호 로더와 함께 로드되며, 잘못된 등록은 나머지 구성을 중단하지 않고 기록됩니다. 저장 실패 시 초안은 보존되며, 애플리케이션 실패 시 레코드가 저장되었다고 보고되고 재시도가 가능합니다.
 
-`argvus control-center shortcuts create` 또는 `argvus control-center shortcuts list`를 실행하여 해당 페이지를 엽니다. 고급 서브맵, 마우스 바인딩 또는 플래그의 경우 [`bindings.lua`](/docs/argvus-hyprland/hyprland-overrides/)]가 계속 사용 가능합니다. 생성된 조각은 절대로 편집하지 마십시오.
+`argvus control-center shortcuts create` 또는 `argvus control-center shortcuts list`를 실행하여 해당 페이지를 엽니다. 고급 서브맵, 마우스 바인딩 또는 플래그의 경우 [`bindings.lua`](/docs/argvus-hyprland/hyprland-overrides/)가 계속 사용 가능합니다. 생성된 조각은 절대로 편집하지 마십시오.
 
 ## 현재 참조
 
 기본 매니페스트와 설치된 치트시트는 `/usr/share/argvus/hyprland/`에 있습니다. 활성 사용자 오버라이드는 매니페스트를 대체하는 것이 아니라 Control Center에서 선택된 항목을 변경합니다. 이것이 버전별로 수동으로 복사된 목록이 오래될 수 있는 이유입니다.
 
-몇 가지 유용한 내장 동작에는 포커스 및 작업 공간 이동, 플로팅 창 전환, 스크린샷 및 녹화, 런처/터미널 열기, 외관 변경, 세션 잠금, 미디어 제어 및 Hyprland 재시작이 포함됩니다. 기본 단축키는 아래 [기본 단축키 표](#default-shortcut-table)]에 나와 있으며, 제어 센터 페이지에는 현재 설정된 대로 단축키가 표시됩니다.
+몇 가지 유용한 내장 동작에는 포커스 및 작업 공간 이동, 플로팅 창 전환, 스크린샷 및 녹화, 런처/터미널 열기, 외관 변경, 세션 잠금, 미디어 제어 및 Hyprland 재시작이 포함됩니다. 기본 단축키는 아래 [기본 단축키 표](#default-shortcut-table)에 나와 있으며, 제어 센터 페이지에는 현재 설정된 대로 단축키가 표시됩니다.
 
 `SUPER + Shift + R`는 명시적인 런타임 재시작입니다: 이는 Hyprland를 재시작하고 ARGVUS 작업 표시줄, 제어판 및 위젯 텔레메트리 서비스를 다시 시작합니다. 설정 기반 재시작은 조건부로 유지되며, 정식 상태가 변경되지 않은 경우 그래픽 재시작은 건너뜁니다.
 
@@ -190,7 +190,7 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 | `Enter` | 크기 조정 모드 종료 |
 
 
-[Windows and layout](/docs/argvus-hyprland/windows-and-layout/)]에서 플로팅 및 작업 공간 동작을 확인하고 [Control Center](/docs/components/argvus-control-center/)]에서 설정 워크플로를 확인하세요.
+[Windows and layout](/docs/argvus-hyprland/windows-and-layout/)에서 플로팅 및 작업 공간 동작을 확인하고 [Control Center](/docs/components/argvus-control-center/)에서 설정 워크플로를 확인하세요.
 
 ## 나이트 라이트
 
