@@ -12,7 +12,7 @@ depends=(
   'argvus-launcher'
   'bash'
   'gpu-screen-recorder'
-  'hyprland=0.57.0'
+  'hyprland>=0.57.0'
   'hyprshot'
   'jq'
   'libnotify'
@@ -26,7 +26,7 @@ optdepends=('argvus-session: session lifecycle controller used by reload keybind
 provides=('argvus-shell')
 conflicts=('argvus-shell')
 replaces=('argvus-shell')
-makedepends=('gcc' 'pkgconf' 'patch' 'hyprland=0.57.0')
+makedepends=('gcc' 'pkgconf' 'patch' 'hyprland>=0.57.0')
 _plugins_commit=d2427d4d15b36df40468f5a58bbd67cdba19835d
 options=('!debug')
 source=(
