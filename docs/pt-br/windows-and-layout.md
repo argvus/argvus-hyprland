@@ -106,9 +106,9 @@ A chave global de Animações desativa o Wobble sem perder suas configurações
 individuais. Os valores canônicos ficam em `effects.wobble_*` no estado do ARGVUS;
 `hypr/state.lua` é gerado e não deve ser editado manualmente.
 
-O recurso exige Hyprland **0.57.0 ou superior**, garantido pela dependência do
+O recurso exige Hyprland **>=0.57.0 ou superior**, garantido pela dependência do
 pacote `argvus-hyprland`. A versão 0.56 não é compatível com esta configuração.
-O máximo de intensidade segue o [código da versão 0.57.0](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+O máximo de intensidade segue o [código da versão >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 que limita o valor a `2`, embora a documentação mais recente possa indicar `3`.
 
 ## Modo global de janelas
@@ -133,7 +133,7 @@ Uma segunda Waybar aparece em cada monitor, na borda oposta à taskbar principal
 
 A minimização usa o workspace reservado `special:argvus-minimized`. Não use esse workspace manualmente. O processo `argvus windows service` registra identidade, workspace/monitor de origem, geometria, tela cheia/maximização e fixação em um registro de runtime separado por instância do compositor, em `$XDG_RUNTIME_DIR/argvus`. Os registros sobrevivem ao reinício do serviço ou reload da configuração, mas não atravessam sessões do compositor. Fechar uma janela remove seu registro. Se um monitor desaparecer, a restauração usa uma saída disponível. Uma barra de recuperação ausente ou com falha impede novas minimizações; falhas de restauração preservam o registro e a barra de recuperação.
 
-A sessão gerencia `argvus-windows.service` e `argvus-window-bar.service`. O segundo mantém sua Waybar inativa em mosaico. O plugin hyprbars é distribuído por `argvus-hyprland`, compilado para a ABI do Hyprland 0.57.0 em x86_64; não é compilado no diretório pessoal do usuário. Recompile o plugin ao atualizar a ABI do compositor.
+A sessão gerencia `argvus-windows.service` e `argvus-window-bar.service`. O segundo mantém sua Waybar inativa em mosaico. O plugin hyprbars é distribuído por `argvus-hyprland`, compilado para a ABI do Hyprland >=0.57.0 em x86_64; não é compilado no diretório pessoal do usuário. Recompile o plugin ao atualizar a ABI do compositor.
 
 Comandos: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` e `minimize|restore|activate|maximize|close ADDRESS`. Os endereços das janelas vêm da listagem. `position top --persist` salva/projeta a preferência sem reiniciar a barra principal. Detalhes de erros vão para o journal; falhas de ações visíveis também exibem uma notificação traduzida.
 

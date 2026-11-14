@@ -100,7 +100,7 @@ Công tắc Animations toàn cầu ức chế Wobble trong khi vẫn giữ các 
 . Các giá trị chuẩn nằm dưới `effects.wobble_*` trong trạng thái ARGVUS;
 `hypr/state.lua` được tạo ra và không được chỉnh sửa thủ công.
 
-Điều này yêu cầu Hyprland **0.57.0 hoặc mới hơn**, được thực thi bởi `argvus-hyprland`'s
+Điều này yêu cầu Hyprland **>=0.57.0 hoặc mới hơn**, được thực thi bởi `argvus-hyprland`'s
 phụ thuộc vào gói. Phiên bản 0.56 không được hỗ trợ cho cấu hình này. Cường độ tối đa
 giới hạn nó ở `2`, mặc dù tài liệu mới hơn có thể liệt kê `3`. Chế độ cửa sổ toàn cầu
 
@@ -126,7 +126,7 @@ Một thanh Waybar thứ hai xuất hiện trên mỗi màn hình, ở cạnh đ
 
 Việc thu gọn sử dụng không gian làm việc `special:argvus-minimized` đã được dành riêng. Không sử dụng không gian làm việc đó một cách thủ công. Quá trình `argvus windows service` ghi nhận danh tính, không gian làm việc/màn hình gốc, hình học, chế độ toàn màn hình/tối đa hóa và trạng thái ghim trong một đăng ký thời gian chạy cụ thể cho từng phiên bản compositor dưới `$XDG_RUNTIME_DIR/argvus`. Bản ghi tồn tại sau khi dịch vụ khởi động lại hoặc tải lại cấu hình, nhưng không vượt quá các phiên bản compositor. Đóng cửa sổ sẽ xóa bản ghi của nó. Nếu một màn hình biến mất, việc khôi phục sẽ sử dụng một đầu ra có sẵn. Thanh phục hồi bị mất hoặc thất bại sẽ ngăn việc thu gọn mới; việc khôi phục thất bại sẽ giữ lại bản ghi và thanh phục hồi.
 
-Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Waybar của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland 0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
+Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Waybar của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland >=0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, và `minimize|restore|activate|maximize|close ADDRESS`. Các địa chỉ cửa sổ được lấy từ danh sách. `position top --persist` lưu/truyền sở thích mà không cần khởi động lại thanh chính. Chi tiết cấu hình và lỗi thời gian chạy được ghi vào nhật ký; các thất bại hành động hiển thị cũng hiện thông báo đã được dịch.
 
@@ -135,11 +135,11 @@ Trong **Spaced + Floating**, các cửa sổ tuân theo khoảng trống bên ng
 `SUPER + Alt + Space` chuyển đổi chế độ Toàn cầu Tile/Nổi, sử dụng cùng một tùy chọn với thanh tác vụ và Trung tâm Điều khiển. Lệnh tương đương là `argvus config window-mode toggle`. Các lần gọi đồng thời được xếp hàng; việc chuyển đổi sử dụng tùy chọn đã lưu ngay cả khi ứng dụng đang chờ. Phím tắt có thể được thay đổi hoặc vô hiệu hóa trong Phím tắt Bàn phím; `SUPER + Shift + Space` giữ hành động cho từng cửa sổ riêng lẻ.
 
 Mỗi quy tắc có một không gian làm việc từ 1 đến 10 và một danh sách lớp. Các mục trong lớp là các biểu thức chính quy được khớp với lớp cửa sổ (phân biệt chữ hoa chữ thường), ví dụ: [Cc]ode.* hoặc jetbrains-.*. Chỉ chấp nhận các chữ cái, chữ số và ._*+?-|^$. argvus-config ghi các quy tắc vào generate/hypr/window-rules.lua, cấu hình Hyprland sẽ tải. Để thay thế các quy tắc mà không thay đổi giá trị mặc định, hãy thêm lệnh gọi hl.window_rule vào quy tắc.lua trong thư mục dữ liệu ARGVUS của bạn; những tải đó sau các quy tắc được tạo.
- cho các đường dẫn cài đặt và người dùng. cho đường dẫn đã cài đặt và người dùng.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+ cho các đường dẫn cài đặt và người dùng. cho đường dẫn đã cài đặt và người dùng.(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 Các cửa sổ lát gạch được sắp xếp theo Hyprland trên không gian làm việc đang hoạt động. ARGVUS cũng hỗ trợ các cửa sổ tiện ích nổi; SUPER + SHIFT + Space chuyển đổi cửa sổ tập trung giữa bố cục xếp chồng và bố cục nổi. Chuyển động của không gian làm việc và tiêu điểm cửa sổ được kiểm soát bởi bảng kê khai liên kết phím đang hoạt động; xem [Phím tắt](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Bề ngoài](/docs/user-guide/appearance/)
 - [Chủ đề](/docs/user-guide/appearance/)
 - [Thanh tác vụ](/docs/argvus-taskbar/taskbar/)
 - [Bảng điều khiển](/docs/argvus-control-panel/)
-cường độ tối đa theo[phát hành mã nguồn 0.57.0](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+cường độ tối đa theo[phát hành mã nguồn >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

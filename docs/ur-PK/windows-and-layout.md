@@ -156,11 +156,11 @@ In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭ�
 ہر اصول میں 1 سے 10 تک ایک ورک اسپیس اور کلاسز کی فہرست ہوتی ہے۔ کلاسوں میں اندراجات ونڈو کلاس (کیس سینسیٹو) کے خلاف مماثل ریگولر ایکسپریشنز ہیں، مثال کے طور پر [Cc]ode.* یا jetbrains-.*۔ صرف حروف، ہندسے اور ._*+?-|^$ قبول کیے جاتے ہیں۔ argvus-config generated/hypr/window-rules.lua پر قواعد لکھتا ہے، جو Hyprland کنفیگریشن لوڈ ہوتا ہے۔ ڈیفالٹس کو تبدیل کیے بغیر قواعد کو تبدیل کرنے کے لیے، hl.window_rule کالز کو قواعد میں شامل کریں۔lua اپنی ARGVUS ڈیٹا ڈائرکٹری میں؛ پیدا کردہ قوانین کے بعد وہ لوڈ.
 
 ہر اصول میں 1 سے 10 تک ایک ورک اسپیس اور کلاسز کی فہرست ہوتی ہے۔ کلاسوں میں اندراجات ونڈو کلاس (کیس سینسیٹو) کے خلاف مماثل ریگولر ایکسپریشنز ہیں، مثال کے طور پر [Cc]ode.* یا jetbrains-.*۔ صرف حروف، ہندسے اور ._*+?-|^$ قبول کیے جاتے ہیں۔ argvus-config generated/hypr/window-rules.lua پر قواعد لکھتا ہے، جو Hyprland کنفیگریشن لوڈ ہوتا ہے۔ ڈیفالٹس کو تبدیل کیے بغیر قواعد کو تبدیل کرنے کے لیے، hl.window_rule کالز کو قواعد میں شامل کریں۔lua اپنی ARGVUS ڈیٹا ڈائرکٹری میں؛ پیدا کردہ قوانین کے بعد وہ لوڈ.
- انسٹال اور صارف کے راستوں کے لیے۔ انسٹال کردہ اور صارف کے راستوں کے لیے۔(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)،
+ انسٹال اور صارف کے راستوں کے لیے۔ انسٹال کردہ اور صارف کے راستوں کے لیے۔(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp)،
 
 ٹائل شدہ کھڑکیوں کو Hyprland کے ذریعہ فعال ورک اسپیس پر ترتیب دیا گیا ہے۔ ARGVUS فلوٹنگ یوٹیلیٹی ونڈوز کو بھی سپورٹ کرتا ہے۔ SUPER + SHIFT + Space فوکسڈ ونڈو کو ٹائلڈ اور فلوٹنگ لے آؤٹ کے درمیان ٹوگل کرتا ہے۔ ورک اسپیس کی نقل و حرکت اور ونڈو فوکس کو فعال کی بائنڈنگ مینی فیسٹ کے ذریعے کنٹرول کیا جاتا ہے۔ دیکھیں [کی بورڈ شارٹ کٹس](/docs/argvus-hyprland/keyboard-shortcuts/)۔
 - [                                                                     ﻞﮑﺷ ﯼﺮﮨﺎﻇ](/docs/user-guide/appearance/)
 - [                                                                       ﺕﺎﻋﻮﺿﻮﻣ](/docs/user-guide/appearance/)
 - [                                                                      ﺭﺎﺑ ﮏﺳﺎﭨ](/docs/argvus-taskbar/taskbar/)
 - [                                                                   ﻞﻨﯿﭘ ﻝﻭﺮﭩﻨﮐ](/docs/argvus-control-panel/)
-                                                     ﺪﻌﺑ ﮯﮐ ﮦﺩﺎﯾﺯ ﮯﺳ ﮦﺩﺎﯾﺯ ﺕﺪﺷ[                                                            ﺬﺧﺎﻣ 0.57.0 ﯽﺗﺭﺍﺪﺻ](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+                                                     ﺪﻌﺑ ﮯﮐ ﮦﺩﺎﯾﺯ ﮯﺳ ﮦﺩﺎﯾﺯ ﺕﺪﺷ[                                                            ﺬﺧﺎﻣ >=0.57.0 ﯽﺗﺭﺍﺪﺻ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

@@ -100,7 +100,7 @@ argvus control-center hyprland animations windows
 সেটিংসকে বজায় রাখে। প্রাথমিক মানগুলি ARGVUS অবস্থায় `effects.wobble_*`-এর অধীনে থাকে;
 `hypr/state.lua` তৈরি হয় এবং ম্যানুয়ালি সম্পাদনা করা যাবে না।
 
-এর জন্য Hyprland **0.57.0 বা এর পরের সংস্করণ** প্রয়োজন, যা `argvus-hyprland`-এর
+এর জন্য Hyprland **>=0.57.0 বা এর পরের সংস্করণ** প্রয়োজন, যা `argvus-hyprland`-এর
 প্যাকেজ নির্ভরতা। সংস্করণ 0.56 এই কনফিগারেশনের জন্য সমর্থিত নয়।
 যা এটি `2` পর্যন্ত সীমাবদ্ধ করে, যদিও নতুন ডকুমেন্টেশন `3` তালিকাভুক্ত করতে পারে।
 
@@ -126,7 +126,7 @@ argvus control-center hyprland animations windows
 
 ন্যূনতমকরণ সংরক্ষিত `special:argvus-minimized` ওয়ার্কস্পেস ব্যবহার করে। ম্যানুয়ালি সেই ওয়ার্কস্পেস ব্যবহার করবেন না। `argvus windows service` প্রসেসটি পরিচয়, মূল ওয়ার্কস্পেস/মনিটর, জ্যামিতি, ফুলস্ক্রিন/সর্বাধিকীকরণ এবং পিন অবস্থাকে `$XDG_RUNTIME_DIR/argvus` এর অধীনে কম্পোজিটর-উপস্থিতি-নির্দিষ্ট রানটাইম রেজিস্ট্রিতে রেকর্ড করে। রেকর্ডগুলি একটি সার্ভিস পুনরায় চালু বা কনফিগারেশন পুনঃলোডের পর বাঁচে, তবে কম্পোজিটর সেশন অতিক্রম করে না। একটি উইন্ডো বন্ধ করলে তার রেকর্ড মুছে যায়। যদি একটি মনিটর অদৃশ্য হয়, পুনরুদ্ধার একটি উপলব্ধ আউটপুট ব্যবহার করে। একটি হারানো বা ব্যর্থ পুনরুদ্ধার বার নতুন ন্যূনতমকরণকে বাধা দেয়; ব্যর্থ পুনরুদ্ধার রেকর্ড এবং পুনরুদ্ধার বার রক্ষা করে।
 
-সেশনটি `argvus-windows.service` এবং `argvus-window-bar.service`-এর মালিক। পরে এটি তার Waybar শিশুটি Tile-এ নিষ্ক্রিয় রাখে। hyprbars প্লাগইনটি `argvus-hyprland` দ্বারা bundled, Hyprland 0.57.0 ABI-এর জন্য x86_64-এ তৈরি; এটি ব্যবহারকারীর হোম ডিরেক্টরিতে compiled নয়। কম্পোজিটর ABI আপডেট দিয়ে প্লাগইনটি পুনর্নির্মাণ করুন।
+সেশনটি `argvus-windows.service` এবং `argvus-window-bar.service`-এর মালিক। পরে এটি তার Waybar শিশুটি Tile-এ নিষ্ক্রিয় রাখে। hyprbars প্লাগইনটি `argvus-hyprland` দ্বারা bundled, Hyprland >=0.57.0 ABI-এর জন্য x86_64-এ তৈরি; এটি ব্যবহারকারীর হোম ডিরেক্টরিতে compiled নয়। কম্পোজিটর ABI আপডেট দিয়ে প্লাগইনটি পুনর্নির্মাণ করুন।
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, এবং `minimize|restore|activate|maximize|close ADDRESS`। উইন্ডোর ঠিকানা তালিকা থেকে আসে। `position top --persist` পছন্দ সংরক্ষণ/প্রকল্প করে মূল বার পুনরায় শুরু না করেই। কনফিগারেশন এবং রUNTIME ত্রুটি বিশদ জার্নালে লেখা হয়; দৃশ্যমান কর্ম ব্যর্থতাগুলিও অনূদিত নোটিফিকেশন দেখায়।
 
@@ -135,11 +135,11 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 `SUPER + Alt + Space` গ্লোবাল টাইল/ফ্লোটিং মোড পরিবর্তন করে, টাস্কবার এবং কন্ট্রোল সেন্টারের একই পছন্দ ব্যবহার করে। সমতুল্য কমান্ড হল `argvus config window-mode toggle`। একসাথে কলগুলো সিরিয়ালাইজ করা হয়; টগল করা সংরক্ষিত পছন্দ ব্যবহার করে, এমনকি যখন অ্যাপ্লিকেশন পেন্ডিং থাকে। শর্টকাট কীবোর্ড শর্টকাটে পরিবর্তন বা নিষ্ক্রিয় করা যেতে পারে; `SUPER + Shift + Space` এর পৃথক-উইন্ডো অ্যাকশন বজায় রাখে।
 
 প্রতিটি নিয়মে 1 থেকে 10 পর্যন্ত একটি কর্মক্ষেত্র এবং একটি ক্লাস তালিকা রয়েছে। ক্লাসের এন্ট্রিগুলি হল উইন্ডো ক্লাসের (কেস সংবেদনশীল) সাথে মিলে যাওয়া রেগুলার এক্সপ্রেশন, উদাহরণস্বরূপ [Cc]ode.* বা jetbrains-.*। শুধুমাত্র অক্ষর, অঙ্ক এবং ._*+?-|^$ গ্রহণ করা হয়। argvus-config generated/hypr/window-rules.lua-এ নিয়ম লিখে, যা Hyprland কনফিগারেশন লোড হয়। ডিফল্ট পরিবর্তন না করে নিয়মগুলি প্রতিস্থাপন করতে, hl.window_rule কলগুলিকে নিয়মগুলিতে যোগ করুন। lua আপনার ARGVUS ডেটা ডিরেক্টরিতে; উত্পন্ন নিয়ম পরে যারা লোড.
-ইনস্টল করা এবং ব্যবহারকারী পথের জন্য। for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+ইনস্টল করা এবং ব্যবহারকারী পথের জন্য। for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 সক্রিয় কর্মক্ষেত্রে Hyprland দ্বারা টালিযুক্ত উইন্ডোগুলি সাজানো হয়েছে। ARGVUS এছাড়াও ভাসমান ইউটিলিটি উইন্ডো সমর্থন করে; SUPER + SHIFT + Space টাইল্ড এবং ভাসমান লেআউটগুলির মধ্যে ফোকাস করা উইন্ডোটিকে টগল করে৷ ওয়ার্কস্পেস আন্দোলন এবং উইন্ডো ফোকাস সক্রিয় কীবাইন্ডিং ম্যানিফেস্ট দ্বারা নিয়ন্ত্রিত হয়; দেখুন [কীবোর্ড শর্টকাট](/docs/argvus-hyprland/keyboard-shortcuts/)।
 - [দৃশ্যমানতা](/docs/user-guide/appearance/)
 - [থিমস](/docs/user-guide/appearance/)
 - [টাস্কবার](/docs/argvus-taskbar/taskbar/)
 - [কন্ট্রোল প্যানেল](/docs/argvus-control-panel/)
-সর্বাধিক তীব্রতা অনুসরণ করে [রিলিজ করা 0.57.0 সোর্স](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+সর্বাধিক তীব্রতা অনুসরণ করে [রিলিজ করা >=0.57.0 সোর্স](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

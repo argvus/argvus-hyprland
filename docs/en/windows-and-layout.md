@@ -105,9 +105,9 @@ The global Animations switch suppresses Wobble while retaining its individual
 settings. The canonical values live under `effects.wobble_*` in ARGVUS state;
 `hypr/state.lua` is generated and must not be edited manually.
 
-This requires Hyprland **0.57.0 or newer**, enforced by `argvus-hyprland`'s
+This requires Hyprland **>=0.57.0 or newer**, enforced by `argvus-hyprland`'s
 package dependency. Version 0.56 is unsupported for this configuration. The
-intensity maximum follows the [released 0.57.0 source](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+intensity maximum follows the [released >=0.57.0 source](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 which limits it to `2`, even though newer documentation may list `3`.
 
 ## Global window mode
@@ -132,7 +132,7 @@ A second Waybar appears on every monitor, on the edge opposite the main taskbar.
 
 Minimization uses the reserved `special:argvus-minimized` workspace. Do not use that workspace manually. The `argvus windows service` process records identity, original workspace/monitor, geometry, fullscreen/maximization and pin state in a compositor-instance-specific runtime registry under `$XDG_RUNTIME_DIR/argvus`. Records survive a service restart or config reload, but do not cross compositor sessions. Closing a window removes its record. If a monitor disappears, restoration uses an available output. A missing or failed recovery bar prevents new minimizations; failed restoration retains the record and recovery bar.
 
-The session owns `argvus-windows.service` and `argvus-window-bar.service`. The latter keeps its Waybar child dormant in Tile. The hyprbars plugin is bundled by `argvus-hyprland`, built for the Hyprland 0.57.0 ABI on x86_64; it is not compiled in the user's home directory. Rebuild the plugin with a compositor ABI update.
+The session owns `argvus-windows.service` and `argvus-window-bar.service`. The latter keeps its Waybar child dormant in Tile. The hyprbars plugin is bundled by `argvus-hyprland`, built for the Hyprland >=0.57.0 ABI on x86_64; it is not compiled in the user's home directory. Rebuild the plugin with a compositor ABI update.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, and `minimize|restore|activate|maximize|close ADDRESS`. The window addresses come from the list. `position top --persist` stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
 

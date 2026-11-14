@@ -126,7 +126,7 @@ Her monitörde, ana görev çubuğunun karşı tarafındaki kenarda ikinci bir W
 
 Minimize etme, rezerve edilmiş `special:argvus-minimized` çalışma alanını kullanır. Bu çalışma alanını manuel olarak kullanmayın. `argvus windows service` işlemi, kimliği, orijinal çalışma alanını/monitörü, geometrisini, tam ekran/masimleştirme ve sabitleme durumunu `$XDG_RUNTIME_DIR/argvus` altında her kompozitör örneğine özgü bir çalışma zamanı kaydında kaydeder. Kayıtlar bir servis yeniden başlatması veya yapılandırma yeniden yüklemesini geçirir, ancak kompozitör oturumlarını geçmez. Bir pencere kapatıldığında kaydı silinir. Bir monitör kaybolursa, geri yükleme mevcut bir çıktı kullanır. Eksik veya başarısız bir geri kazanım çubuğu, yeni minimize işlemlerini engeller; başarısız geri yükleme kaydı ve geri kazanım çubuğunu korur.
 
-Oturum `argvus-windows.service` ve `argvus-window-bar.service` adlı öğelere sahiptir. İkincisi Waybar alt öğesini Tile içinde pasif tutar. hyprbars eklentisi `argvus-hyprland` tarafından paketlenmiştir, Hyprland 0.57.0 ABI için x86_64 üzerinde oluşturulmuştur; kullanıcı ev dizininde derlenmemiştir. Eklentiyi bir compositor ABI güncellemesi ile yeniden derleyin.
+Oturum `argvus-windows.service` ve `argvus-window-bar.service` adlı öğelere sahiptir. İkincisi Waybar alt öğesini Tile içinde pasif tutar. hyprbars eklentisi `argvus-hyprland` tarafından paketlenmiştir, Hyprland >=0.57.0 ABI için x86_64 üzerinde oluşturulmuştur; kullanıcı ev dizininde derlenmemiştir. Eklentiyi bir compositor ABI güncellemesi ile yeniden derleyin.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` ve `minimize|restore|activate|maximize|close ADDRESS`. Pencere adresleri listeden gelir. `position top --persist` tercihi ana çubuğu yeniden başlatmadan kaydeder/projeler. Yapılandırma ve çalışma zamanı hata detayları günlük dosyasına yazılır; görülebilen işlem hataları ayrıca çevrilmiş bir bildirim gösterir.
 
@@ -135,11 +135,11 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 `SUPER + Alt + Space`, görev çubuğu ve Kontrol Merkezi ile aynı tercihi kullanarak genel Kare/Kayan modu açar veya kapatır. Eşdeğer komut `argvus config window-mode toggle`'dir. Eşzamanlı çağrılar sıraya konur; görev beklemede olsa bile geçiş kaydedilen tercihi kullanır. Kısayol, Klavye Kısayollarında değiştirilebilir veya devre dışı bırakılabilir; `SUPER + Shift + Space` kendi tek pencere eylemini korur.
 
 Her kuralın 1'den 10'a kadar bir çalışma alanı ve bir sınıf listesi vardır. Sınıflardaki girişler, pencere sınıfına (büyük/küçük harfe duyarlı) göre eşleşen düzenli ifadelerdir; örneğin [Cc]ode.* veya jetbrains-.*. Yalnızca harfler, rakamlar ve ._*+?-|^$ kabul edilir. argvus-config, kuralları Hyprland yapılandırmasının yüklediği created/hypr/window-rules.lua öğesine yazar. Varsayılanları değiştirmeden kuralları değiştirmek için, ARGVUS veri dizininizdeki kurallara.lua hl.window_rule çağrılarını ekleyin; bunlar oluşturulan kurallardan sonra yüklenir.
- yüklü ve kullanıcı yolları için. yüklü ve kullanıcı yolları için.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+ yüklü ve kullanıcı yolları için. yüklü ve kullanıcı yolları için.(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 Döşenmiş pencereler etkin çalışma alanında Hyprland tarafından düzenlenir. ARGVUS aynı zamanda değişken yardımcı program pencerelerini de destekler; SUPER + SHIFT + Space, odaklanılan pencerede döşenmiş ve kayan düzenler arasında geçiş yapar. Çalışma alanı hareketi ve pencere odağı, etkin tuş bağlama bildirimi tarafından kontrol edilir; bkz. [Klavye kısayolları](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Görünüm](/docs/user-guide/appearance/)
 - [Temalar](/docs/user-guide/appearance/)
 - [Görev Çubuğu](/docs/argvus-taskbar/taskbar/)
 - [Denetim Masası](/docs/argvus-control-panel/)
-yoğunluk maksimumu şunu takip eder[0.57.0 kaynağı yayınlandı](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+yoğunluk maksimumu şunu takip eder[>=0.57.0 kaynağı yayınlandı](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

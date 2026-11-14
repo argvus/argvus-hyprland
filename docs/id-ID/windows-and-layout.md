@@ -100,7 +100,7 @@ Sakelar Animasi global menekan Wobble sambil mempertahankan pengaturan
 individualnya. Nilai kanonik berada di bawah `effects.wobble_*` dalam keadaan ARGVUS;
 `hypr/state.lua` dihasilkan dan tidak boleh diedit secara manual.
 
-Ini memerlukan Hyprland **0.57.0 atau lebih baru**, ditegakkan oleh `argvus-hyprland`'s
+Ini memerlukan Hyprland **>=0.57.0 atau lebih baru**, ditegakkan oleh `argvus-hyprland`'s
 ketergantungan paket. Versi 0.56 tidak didukung untuk konfigurasi ini. Maksimum intensitas
 yang membatasinya hingga `2`, meskipun dokumentasi baru mungkin mencantumkan `3`. Mode jendela global
 
@@ -126,7 +126,7 @@ Sebuah Waybar kedua muncul di setiap monitor, di sisi yang berlawanan dengan tas
 
 Minimisasi menggunakan workspace cadangan `special:argvus-minimized`. Jangan gunakan workspace itu secara manual. Proses `argvus windows service` mencatat identitas, workspace/monitor asli, geometri, layar penuh/maksimalisasi, dan status pin dalam registry runtime spesifik-instansi compositor di bawah `$XDG_RUNTIME_DIR/argvus`. Catatan tetap ada saat layanan dimulai ulang atau konfigurasi dimuat ulang, tetapi tidak melintasi sesi compositor. Menutup jendela menghapus catatannya. Jika sebuah monitor hilang, pemulihan menggunakan output yang tersedia. Bar pemulihan yang hilang atau gagal mencegah minimisasi baru; pemulihan yang gagal mempertahankan catatan dan bar pemulihan.
 
-Sesi memiliki `argvus-windows.service` dan `argvus-window-bar.service`. Yang terakhir menjaga child Waybar-nya tetap dorman di Tile. Plugin hyprbars dibundel oleh `argvus-hyprland`, dibuat untuk Hyprland 0.57.0 ABI di x86_64; itu tidak dikompilasi di direktori home pengguna. Bangun ulang plugin dengan pembaruan ABI compositor.
+Sesi memiliki `argvus-windows.service` dan `argvus-window-bar.service`. Yang terakhir menjaga child Waybar-nya tetap dorman di Tile. Plugin hyprbars dibundel oleh `argvus-hyprland`, dibuat untuk Hyprland >=0.57.0 ABI di x86_64; itu tidak dikompilasi di direktori home pengguna. Bangun ulang plugin dengan pembaruan ABI compositor.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, dan `minimize|restore|activate|maximize|close ADDRESS`. Alamat jendela berasal dari daftar. `position top --persist` menyimpan/memproyeksikan preferensi tanpa memulai ulang bilah utama. Detail konfigurasi dan kesalahan runtime dicatat di jurnal; kegagalan tindakan yang terlihat juga menampilkan notifikasi yang diterjemahkan.
 
@@ -135,11 +135,11 @@ Dalam **Spaced + Floating**, jendela menghormati celah luar dan area yang dicada
 `SUPER + Alt + Space` mengalihkan mode Tile/Floating global, menggunakan preferensi yang sama seperti taskbar dan Control Center. Perintah yang setara adalah `argvus config window-mode toggle`. Pemanggilan bersamaan dijalankan secara berurutan; pengalihan menggunakan preferensi yang tersimpan walaupun aplikasi sedang menunggu. Pintasan dapat diubah atau dinonaktifkan di Pintasan Keyboard; `SUPER + Shift + Space` mempertahankan aksi jendela individualnya.
 
 Setiap aturan memiliki ruang kerja dari 1 hingga 10 dan daftar kelas. Entri dalam kelas adalah ekspresi reguler yang dicocokkan dengan kelas jendela (peka huruf besar/kecil), misalnya [Cc]ode.* atau jetbrains-.*. Hanya huruf, angka dan ._*+?-|^$ yang diterima. argvus-config menulis aturan ke generate/hypr/window-rules.lua, yang mana konfigurasi Hyprland dimuat. Untuk mengganti aturan tanpa mengubah default, tambahkan panggilan hl.window_rule ke rule.lua di direktori data ARGVUS Anda; itu dimuat setelah aturan yang dihasilkan.
-untuk jalur yang terpasang dan pengguna. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+untuk jalur yang terpasang dan pengguna. for the installed and user paths.(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 Jendela ubin disusun berdasarkan Hyprland pada ruang kerja aktif. ARGVUS juga mendukung jendela utilitas mengambang; SUPER + SHIFT + Spasi mengalihkan jendela fokus antara tata letak ubin dan mengambang. Pergerakan ruang kerja dan fokus jendela dikendalikan oleh manifes pengikatan tombol aktif; lihat [Pintasan keyboard](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Penampilan](/docs/user-guide/appearance/)
 - [Tema](/docs/user-guide/appearance/)
 - [Bilah tugas](/docs/argvus-taskbar/taskbar/)
 - [Panel Kontrol](/docs/argvus-control-panel/)
-intensitas maksimum mengikuti [rilis sumber 0.57.0](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+intensitas maksimum mengikuti [rilis sumber >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

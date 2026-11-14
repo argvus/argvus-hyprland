@@ -104,7 +104,7 @@ argvus control-center hyprland animations windows
           ؛ARGVUS ﺔﻟﺎﺣ ﻲﻓ `effects.wobble_*` ﺖﺤﺗ ﺪﺟﻮﺗ ﺔﻴﻧﻮﻧﺎﻘﻟﺍ ﻢﻴﻘﻟﺍ .ﺕﺍﺩﺍﺪﻋﻹ﻿ﺍ
                              . ًﺎﻳﻭﺪﻳ ﻪﻠﻳﺪﻌﺗ ﻡﺪﻋ ﺐﺠﻳﻭ `hypr/state.lua` ءﺎﺸﻧﺇ ﻢﺗ
 
-       `argvus-hyprland`'s ﺔﻄﺳﺍﻮﺑ ﺽﻭﺮﻔﻣ ،**ﺙﺪﺣﺃ ﻭﺃ Hyprland **0.57.0 ﺐﻠﻄﺘﻳ ﺍﺬﻫ
+       `argvus-hyprland`'s ﺔﻄﺳﺍﻮﺑ ﺽﻭﺮﻔﻣ ،**ﺙﺪﺣﺃ ﻭﺃ Hyprland **>=0.57.0 ﺐﻠﻄﺘﻳ ﺍﺬﻫ
                         ـﻟﺍ .ﻦﻳﻮﻜﺘﻟﺍ ﺍﺬﻬﻟ ﻡﻮﻋﺪﻣ ﺮﻴﻏ 0.56 ﺭﺍﺪﺻﻹ﻿ﺍ .ﺔﻣﺰﺤﻟﺍ ﺩﺎﻤﺘﻋﺍ
 .3 ﺝﺭﺪﺗ ﺪﻗ ﺙﺪﺣﻷ﻿ﺍ ﻖﺋﺎﺛﻮﻟﺍ ﻥﺃ ﻦﻣ ﻢﻏﺮﻟﺍ ﻰﻠﻋ ،`2` ﻰﻠ
 
@@ -141,11 +141,11 @@ Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG
 تحتوي كل قاعدة على مساحة عمل من 1 إلى 10 وقائمة فئات. الإدخالات في الفئات هي تعبيرات عادية تتم مطابقتها لفئة النافذة (حساسة لحالة الأحرف)، على سبيل المثال [Cc]ode.* أو jetbrains-.*. يتم قبول الحروف والأرقام و._*+?-|^$ فقط. argvus- يكتب التكوين القواعد إلى generator/hypr/window-rules.lua، والتي يقوم التكوين Hyprland بتحميلها. لاستبدال القواعد دون تغيير الإعدادات الافتراضية، قم بإضافة استدعاءات hl.window_rule إلى القواعد.lua في دليل البيانات ARGVUS الخاص بك؛ تلك التحميل بعد القواعد التي تم إنشاؤها.
 
 تحتوي كل قاعدة على مساحة عمل من 1 إلى 10 وقائمة فئات. الإدخالات في الفئات هي تعبيرات عادية تتم مطابقتها لفئة النافذة (حساسة لحالة الأحرف)، على سبيل المثال [Cc]ode.* أو jetbrains-.*. يتم قبول الحروف والأرقام و._*+?-|^$ فقط. argvus- يكتب التكوين القواعد إلى generator/hypr/window-rules.lua، والتي يقوم التكوين Hyprland بتحميلها. لاستبدال القواعد دون تغيير الإعدادات الافتراضية، قم بإضافة استدعاءات hl.window_rule إلى القواعد.lua في دليل البيانات ARGVUS الخاص بك؛ تلك التحميل بعد القواعد التي تم إنشاؤها.
-للمسارات المثبتة والمستخدم. للمسارات المثبتة ومسارات المستخدم.(https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)،
+للمسارات المثبتة والمستخدم. للمسارات المثبتة ومسارات المستخدم.(https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp)،
 
 يتم ترتيب النوافذ المتجانبة بواسطة Hyprland في مساحة العمل النشطة. ARGVUS يدعم أيضًا نوافذ الأدوات المساعدة العائمة؛ SUPER + SHIFT + Space لتبديل النافذة التي تم التركيز عليها بين التخطيطات المتجانبة والعائمة. يتم التحكم في حركة مساحة العمل وتركيز النافذة من خلال بيان ربط المفاتيح النشط؛ راجع [اختصارات لوحة المفاتيح](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [                                                                        ﺮﻬﻈﻤﻟﺍ](/docs/user-guide/appearance/)
 - [                                                                     ﺕﺎﻋﻮﺿﻮﻤﻟﺍ](/docs/user-guide/appearance/)
 - [                                                                   ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ](/docs/argvus-taskbar/taskbar/)
 - [                                                                   ﻢﻜﺤﺘﻟﺍ ﺔﺣﻮﻟ](/docs/argvus-control-panel/)
-                                                                 ﻊﺒﺘﺗ ﺓﺪﺷ ﻰﺼﻗﺃ[                                                        0.57.0 ﺭﺪﺼﻤﻟﺍ ﺭﺍﺪﺻﺇ ﻢﺗ](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp),
+                                                                 ﻊﺒﺘﺗ ﺓﺪﺷ ﻰﺼﻗﺃ[                                                        >=0.57.0 ﺭﺪﺼﻤﻟﺍ ﺭﺍﺪﺻﺇ ﻢﺗ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),

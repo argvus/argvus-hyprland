@@ -93,7 +93,7 @@ Wobbleはデフォルトで無効になっています。ARGVUSのデフォル�
 
 グローバルなAnimationsスイッチは、個別の設定を保持しながらWobbleを抑制します。正式な値はARGVUS状態の`effects.wobble_*`に存在し、`hypr/state.lua`は生成され、手動で編集してはいけません。
 
-これはHyprland **0.57.0以降** を必要とし、`argvus-hyprland`のパッケージ依存関係によって強制されます。バージョン0.56はこの構成ではサポートされていません。強度の最大値は[リリースされた0.57.0ソース](https://github.com/hyprwm/Hyprland/blob/v0.57.0/src/config/values/ConfigValues.cpp)に従っており、`2`までに制限されています。新しいドキュメントでは`3`が記載されている場合があります。
+これはHyprland **>=0.57.0以降** を必要とし、`argvus-hyprland`のパッケージ依存関係によって強制されます。バージョン0.56はこの構成ではサポートされていません。強度の最大値は[リリースされた>=0.57.0ソース](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp)に従っており、`2`までに制限されています。新しいドキュメントでは`3`が記載されている場合があります。
 
 ## グローバルウィンドウモード
 
@@ -117,7 +117,7 @@ Wobbleはデフォルトで無効になっています。ARGVUSのデフォル�
 
 最小化は予約済みの`special:argvus-minimized`ワークスペースを使用します。そのワークスペースを手動で使用しないでください。`argvus windows service`プロセスは、識別情報、元のワークスペース/モニター、ジオメトリ、フルスクリーン/最大化およびピン状態を、`$XDG_RUNTIME_DIR/argvus`の下にあるコンポジターインスタンス固有の実行時レジストリに記録します。記録はサービスの再起動や設定の再読み込みによっても保持されますが、コンポジターセッションを超えることはありません。ウィンドウを閉じると、その記録は削除されます。モニターが消えた場合、復元には利用可能な出力が使用されます。バーが存在しないか復元に失敗した場合、新しい最小化はできません。復元に失敗した場合、記録と復元バーは保持されます。
 
-セッションは`argvus-windows.service`および`argvus-window-bar.service`を所有します。後者はWaybarの子プロセスをTileで休止状態に保ちます。hyprbarsプラグインは`argvus-hyprland`で同梱されており、x86_64上のHyprland 0.57.0 ABI向けにビルドされています。ユーザーのホームディレクトリではコンパイルされていません。コンポジターのABIが更新された場合、プラグインを再ビルドしてください。コマンド: `argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all`、および `minimize|restore|activate|maximize|close ADDRESS`。ウィンドウアドレスはリストから取得されます。`position top --persist` はメインバーを再起動せずに設定を保存/適用します。構成および実行時のエラーの詳細はジャーナルに書き込まれます。表示されるアクションの失敗も翻訳された通知として表示されます。
+セッションは`argvus-windows.service`および`argvus-window-bar.service`を所有します。後者はWaybarの子プロセスをTileで休止状態に保ちます。hyprbarsプラグインは`argvus-hyprland`で同梱されており、x86_64上のHyprland >=0.57.0 ABI向けにビルドされています。ユーザーのホームディレクトリではコンパイルされていません。コンポジターのABIが更新された場合、プラグインを再ビルドしてください。コマンド: `argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all`、および `minimize|restore|activate|maximize|close ADDRESS`。ウィンドウアドレスはリストから取得されます。`position top --persist` はメインバーを再起動せずに設定を保存/適用します。構成および実行時のエラーの詳細はジャーナルに書き込まれます。表示されるアクションの失敗も翻訳された通知として表示されます。
 
 **Spaced + Floating** では、ウィンドウは外側のギャップと両方のバーによって確保された領域を尊重します。ボーダーとタイトルを含む境界は、同じウィンドウボーダー内にタイトルが配置されます。ARGVUS コントロールを使った最大化は、この領域をマージン付きで埋めます。復元するとサービス再起動後も以前のジオメトリを回復します。フルスクリーンは依然として出力全体を使用します。フローティングウィンドウは重なり合う可能性があります。タイル内の内部ギャップはそれらを分離しません。
 

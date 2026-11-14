@@ -48,6 +48,14 @@ arch_check_hyprland_payload() {
 
 arch_package_hyprland_payload() {
 	local source_root="${srcdir}/${pkgname}-${pkgver}"
+  local compositor_package dependency
+  compositor_package="$(pacman -Q hyprland)" || return 1
+  compositor_package="${compositor_package#hyprland }"
+  for dependency in "${!depends[@]}"; do
+    if [[ "${depends[dependency]}" == hyprland* ]]; then
+      depends[dependency]="hyprland=${compositor_package}"
+    fi
+  done
 
 	install -Dm755 "${srcdir}/hyprland-plugins-${_plugins_commit}/hyprbars/hyprbars.so" \
 		"${pkgdir}/usr/lib/argvus/hyprland/hyprbars.so"
@@ -72,5 +80,12 @@ arch_prepare_hyprbars() {
 }
 
 arch_build_hyprbars() {
-  make -C "${srcdir}/hyprland-plugins-${_plugins_commit}/hyprbars" all
+  local headers_version
+  headers_version="$(pkg-config --modversion hyprland)" || return 1
+  if (( $(vercmp "$headers_version" "0.57.0") < 0 )); then
+    printf 'error: hyprbars requires Hyprland >=0.57.0 headers; found %s\n' "$headers_version" >&2
+    return 1
+  fi
+  # The upstream target does not track installed header dependencies.
+  make -B -C "${srcdir}/hyprland-plugins-${_plugins_commit}/hyprbars" all
 }
