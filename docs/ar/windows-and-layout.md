@@ -149,3 +149,9 @@ Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG
 - [                                                                   ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ](/docs/argvus-taskbar/taskbar/)
 - [                                                                   ﻢﻜﺤﺘﻟﺍ ﺔﺣﻮﻟ](/docs/argvus-control-panel/)
                                                                  ﻊﺒﺘﺗ ﺓﺪﺷ ﻰﺼﻗﺃ[                                                        >=0.57.0 ﺭﺪﺼﻤﻟﺍ ﺭﺍﺪﺻﺇ ﻢﺗ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

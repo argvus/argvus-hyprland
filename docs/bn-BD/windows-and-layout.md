@@ -143,3 +143,9 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 - [টাস্কবার](/docs/argvus-taskbar/taskbar/)
 - [কন্ট্রোল প্যানেল](/docs/argvus-control-panel/)
 সর্বাধিক তীব্রতা অনুসরণ করে [রিলিজ করা >=0.57.0 সোর্স](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

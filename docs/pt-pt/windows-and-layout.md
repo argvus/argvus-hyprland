@@ -140,3 +140,9 @@ Comandos: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as áreas reservadas pelas duas barras. O cálculo inclui a borda e o título, que fica dentro da mesma borda da janela. Maximizar pelos controles ARGVUS ocupa essa área com margens; restaurar recupera a geometria anterior, inclusive após reiniciar o serviço. Ecrã cheia continua usando o monitor inteiro. Janelas flutuantes podem se sobrepor; os espaços internos do mosaico não separam essas janelas.
 
 `SUPER + Alt + Espaço` alterna o modo global entre mosaico e flutuante, usando a mesma preferência da taskbar e do Control Center. O comando equivalente é `argvus config window-mode toggle`. Acionamentos simultâneos são serializados; a alternância considera a preferência salva, mesmo quando sua aplicação está pendente. O atalho pode ser alterado ou desativado em Atalhos de teclado; `SUPER + Shift + Espaço` mantém a ação individual.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

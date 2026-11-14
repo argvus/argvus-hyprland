@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/share/argvus/hyprland/config/hyprland.lua
+
+[Action]
+Description = Reloading active ARGVUS compositor configurations...
+When = PostTransaction
+Exec = /usr/bin/bash -c 'result=0; for runtime in /run/user/[0-9]*; do test -S "$runtime/bus" || continue; uid=${runtime##*/}; user=$(getent passwd "$uid") || continue; user=${user%%:*}; runuser -u "$user" -- env XDG_RUNTIME_DIR="$runtime" DBUS_SESSION_BUS_ADDRESS="unix:path=$runtime/bus" systemctl --user try-restart argvus-session-reload.service || result=1; done; exit "$result"'

@@ -69,6 +69,8 @@ arch_package_hyprland_payload() {
 	find "${pkgdir}/usr/share/argvus/hyprland" -type f -name '*.sh' -exec chmod 755 {} +
 	install -Dm644 "${source_root}/src/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook" \
 		"${pkgdir}/usr/share/libalpm/hooks/95-argvus-ai-hyprland.hook"
+	install -Dm644 "${source_root}/src/usr/share/libalpm/hooks/96-argvus-hyprland-reload.hook" \
+		"${pkgdir}/usr/share/libalpm/hooks/96-argvus-hyprland-reload.hook"
 	install -Dm644 "${source_root}/LICENSE" \
 		"${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

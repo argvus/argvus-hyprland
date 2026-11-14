@@ -139,3 +139,9 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 In **Spaced + Floating**, windows respect outer gaps and the areas reserved by both bars. The bounds include the border and title, which sits inside the same window border. Maximizing through ARGVUS controls fills this area with margins; restoring recovers the previous geometry, including after a service restart. Fullscreen still uses the whole output. Floating windows may overlap; tiling inner gaps do not separate them.
 
 `SUPER + Alt + Space` toggles the global Tile/Floating mode, using the same preference as the taskbar and Control Center. The equivalent command is `argvus config window-mode toggle`. Concurrent invocations are serialized; toggling uses the saved preference even when application is pending. The shortcut can be changed or disabled in Keyboard Shortcuts; `SUPER + Shift + Space` keeps its individual-window action.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

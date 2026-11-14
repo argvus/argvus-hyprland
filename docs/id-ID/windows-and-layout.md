@@ -143,3 +143,9 @@ Jendela ubin disusun berdasarkan Hyprland pada ruang kerja aktif. ARGVUS juga me
 - [Bilah tugas](/docs/argvus-taskbar/taskbar/)
 - [Panel Kontrol](/docs/argvus-control-panel/)
 intensitas maksimum mengikuti [rilis sumber >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

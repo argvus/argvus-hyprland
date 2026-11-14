@@ -122,3 +122,9 @@ La sessione possiede `argvus-windows.service` e `argvus-window-bar.service`. Que
 In **Spaziato + Fluttuante**, le finestre rispettano i margini esterni e le aree riservate da entrambe le barre. I confini includono il bordo e il titolo, che si trova all'interno dello stesso bordo della finestra. La massimizzazione tramite ARGVUS controlla riempie quest'area con margini; il ripristino recupera la geometria precedente, anche dopo il riavvio di un servizio. Lo schermo intero utilizza comunque l'intero output. Le finestre fluttuanti possono sovrapporsi; gli spazi interni nella disposizione a piastrelle non le separano.
 
 `SUPER + Alt + Space` attiva o disattiva la modalità Tile/Fluttuante globale, utilizzando la stessa preferenza della barra delle applicazioni e del Centro di Controllo. Il comando equivalente è `argvus config window-mode toggle`. Le invocazioni concorrenti vengono serializzate; l'attivazione utilizza la preferenza salvata anche quando l'applicazione è in attesa. La scorciatoia può essere cambiata o disabilitata nelle Scorciatoie da tastiera; `SUPER + Shift + Space` mantiene la sua azione a finestra singola.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

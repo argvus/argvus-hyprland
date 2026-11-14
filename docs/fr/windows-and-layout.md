@@ -122,3 +122,9 @@ La session possède `argvus-windows.service` et `argvus-window-bar.service`. Ce 
 En **Espacé + Flottant**, les fenêtres respectent les marges extérieures et les zones réservées par les deux barres. Les limites incluent la bordure et le titre, qui se situe à l'intérieur de la même bordure de fenêtre. La maximisation via les contrôles ARGVUS remplit cette zone avec des marges ; la restauration récupère la géométrie précédente, y compris après le redémarrage d'un service. Le plein écran utilise toujours toute la sortie. Les fenêtres flottantes peuvent se chevaucher ; les interstices internes du carrelage ne les séparent pas.
 
 `SUPER + Alt + Space` bascule le mode tuile/flottant global, en utilisant la même préférence que la barre des tâches et le Centre de contrôle. La commande équivalente est `argvus config window-mode toggle`. Les invocations concurrentes sont sérialisées ; le basculement utilise la préférence enregistrée même lorsque l'application est en attente. Le raccourci peut être modifié ou désactivé dans les Raccourcis clavier ; `SUPER + Shift + Space` conserve son action pour une fenêtre individuelle.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

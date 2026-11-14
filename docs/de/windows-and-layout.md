@@ -122,3 +122,9 @@ Die Sitzung besitzt `argvus-windows.service` und `argvus-window-bar.service`. Le
 In **Spaced + Floating** respektieren Fenster äußere Abstände und die von beiden Leisten reservierten Bereiche. Die Begrenzungen beinhalten Rahmen und Titel, der innerhalb desselben Fensterrahmens sitzt. Maximieren über ARGVUS-Steuerungen füllt diesen Bereich mit Rand; Wiederherstellen bringt die vorherige Geometrie zurück, auch nach einem Dienstneustart. Vollbild nutzt weiterhin die gesamte Ausgabe. Schwebende Fenster können sich überlappen; innere Lücken im Kachelmodus trennen sie nicht.
 
 `SUPER + Alt + Space` schaltet den globalen Kachel-/Schwebemodus um und verwendet dieselbe Einstellung wie die Taskleiste und das Kontrollzentrum. Der entsprechende Befehl ist `argvus config window-mode toggle`. Gleichzeitige Aufrufe werden serialisiert; das Umschalten verwendet die gespeicherte Einstellung, auch wenn die Anwendung aussteht. Die Verknüpfung kann in den Tastaturkürzeln geändert oder deaktiviert werden; `SUPER + Shift + Space` behält ihre Aktion für einzelne Fenster bei.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

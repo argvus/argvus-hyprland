@@ -164,3 +164,9 @@ In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭ�
 - [                                                                      ﺭﺎﺑ ﮏﺳﺎﭨ](/docs/argvus-taskbar/taskbar/)
 - [                                                                   ﻞﻨﯿﭘ ﻝﻭﺮﭩﻨﮐ](/docs/argvus-control-panel/)
                                                      ﺪﻌﺑ ﮯﮐ ﮦﺩﺎﯾﺯ ﮯﺳ ﮦﺩﺎﯾﺯ ﺕﺪﺷ[                                                            ﺬﺧﺎﻣ >=0.57.0 ﯽﺗﺭﺍﺪﺻ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

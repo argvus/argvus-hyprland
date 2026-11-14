@@ -143,3 +143,9 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 - [टास्कबार](/docs/argvus-taskbar/taskbar/)
 - [कंट्रोल पैनल](/docs/argvus-control-panel/)
 तीव्रता अधिकतम का पालन करता है[>=0.57.0 स्रोत जारी किया](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

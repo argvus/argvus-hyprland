@@ -143,3 +143,9 @@ Các cửa sổ lát gạch được sắp xếp theo Hyprland trên không gian
 - [Thanh tác vụ](/docs/argvus-taskbar/taskbar/)
 - [Bảng điều khiển](/docs/argvus-control-panel/)
 cường độ tối đa theo[phát hành mã nguồn >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

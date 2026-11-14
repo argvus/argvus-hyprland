@@ -121,3 +121,9 @@ La sesión posee `argvus-windows.service` y `argvus-window-bar.service`. Esta ú
 En **Espaciado + Flotante**, las ventanas respetan los huecos exteriores y las áreas reservadas por ambas barras. Los límites incluyen el borde y el título, que se encuentra dentro del mismo borde de la ventana. Maximizar a través de ARGVUS llena esta área con márgenes; restaurar recupera la geometría anterior, incluso después de reiniciar un servicio. La pantalla completa aún utiliza toda la salida. Las ventanas flotantes pueden superponerse; los huecos internos en mosaico no las separan.
 
 `SUPER + Alt + Space` alterna el modo global de Azulejo/Flotante, utilizando la misma preferencia que la barra de tareas y el Centro de Control. El comando equivalente es `argvus config window-mode toggle`. Las invocaciones concurrentes se serializan; alternar utiliza la preferencia guardada incluso cuando la aplicación está pendiente. El atajo se puede cambiar o desactivar en Atajos de Teclado; `SUPER + Shift + Space` mantiene su acción de ventana individual.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

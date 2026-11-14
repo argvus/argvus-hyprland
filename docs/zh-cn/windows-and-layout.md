@@ -122,3 +122,9 @@ Wobble 默认情况下是禁用的。其 ARGVUS 默认值为：刚度 `100`、�
 在 **Spaced + Floating** 模式下，窗口会遵循外部间隙和两个栏位预留的区域。边界包括边框和标题，标题位于同一窗口边框内。通过 ARGVUS 控制最大化时，会用边距填充该区域；恢复时会拾回之前的几何状态，包括服务重启后。全屏模式仍使用整个输出区域。浮动窗口可能重叠；铺砖模式中的内部间隙不会将它们分开。
 
 `SUPER + Alt + Space` 切换全局平铺/浮动模式，使用与任务栏和控制中心相同的偏好设置。等效命令是 `argvus config window-mode toggle`。并发调用会序列化；即使应用程序待处理，切换也会使用已保存的偏好设置。快捷键可以在键盘快捷方式中更改或禁用；`SUPER + Shift + Space` 保持其单个窗口操作。
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

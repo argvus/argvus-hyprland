@@ -123,3 +123,9 @@ Wobble은 기본적으로 비활성화되어 있습니다. 그 ARGVUS 기본값�
 **Spaced + Floating** 모드에서는 윈도우가 외부 간격과 두 바에서 예약된 영역을 존중합니다. 경계는 테두리와 제목을 포함하며, 제목은 같은 윈도우 테두리 안에 위치합니다. ARGVUS 컨트롤을 통해 최대화하면 이 영역이 여백과 함께 채워지고, 복원하면 서비스 재시작 후에도 이전 기하 구조를 복원합니다. 전체 화면 모드는 여전히 전체 출력 영역을 사용합니다. 플로팅 윈도우는 겹칠 수 있으며, 타일링 내부 간격은 윈도우를 분리하지 않습니다.
 
 `SUPER + Alt + Space`는 전역 타일/플로팅 모드를 전환하며, 작업 표시줄 및 제어 센터와 동일한 환경 설정을 사용합니다. 동등한 명령은 `argvus config window-mode toggle`입니다. 동시에 호출되는 경우 직렬 처리되며, 애플리케이션이 대기 중일 때도 저장된 환경 설정을 사용하여 전환합니다. 바로 가기는 키보드 단축키에서 변경하거나 비활성화할 수 있으며, `SUPER + Shift + Space`는 개별 창 동작을 유지합니다.
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```

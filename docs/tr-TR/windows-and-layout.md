@@ -143,3 +143,9 @@ Döşenmiş pencereler etkin çalışma alanında Hyprland tarafından düzenlen
 - [Görev Çubuğu](/docs/argvus-taskbar/taskbar/)
 - [Denetim Masası](/docs/argvus-control-panel/)
 yoğunluk maksimumu şunu takip eder[>=0.57.0 kaynağı yayınlandı](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
+
+`96-argvus-hyprland-reload.hook` (`PostTransaction`):
+
+```text
+pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
+```
