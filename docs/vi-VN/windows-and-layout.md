@@ -23,6 +23,8 @@ ARGVUS sử dụng Hyprland để sắp xếp cửa sổ dạng lát và nổi. 
 - **Bo tròn** là một phần của chế độ trực quan được chọn. Nó thay đổi hình dạng góc cửa sổ thay vì di chuyển cửa sổ.
 - **Đặt trước bảng điều khiển và lề hiển thị** là những mối quan tâm riêng biệt: một bảng điều khiển có thể chiếm chỗ hoặc sử dụng không gian một cách trực quan trong khi Hyprland vẫn sắp xếp cửa sổ theo trạng thái khoảng cách đang hoạt động.
 
+Menu Rofi chỉ làm mờ nền hiển thị; vùng trong suốt bên ngoài không làm mờ màn hình nền trong Sticky và Spaced.
+
 ## Chế độ Dính và Chế độ Cách đều
 
 Các chế độ giao diện đi kèm cung cấp hai hình học khởi đầu:

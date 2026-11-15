@@ -23,6 +23,8 @@ ARGVUS uses Hyprland for tiled and floating window placement. The user-facing la
 - **Rounding** is part of the selected visual mode. It changes the window corner shape rather than moving the window.
 - **Panel reservation and visible margin** are separate concerns: a panel can occupy or visually use space while Hyprland still lays out windows according to the active spacing state.
 
+Rofi menus blur only their visible background. The transparent area outside the menu does not blur the desktop in either Sticky or Spaced mode.
+
 ## Sticky and Spaced modes
 
 The bundled theme modes provide two starting geometries:

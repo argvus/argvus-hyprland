@@ -34,6 +34,8 @@ Paketlenmiş tema modları iki başlangıç geometrisi sağlar:
 
 Bunlar varsayılanlardır, sınırlar değildir. Pencere boşlukları ve Görev Çubuğu boşlukları sayfaları, pencere boşluklarını ve görev çubuğu kenar boşluklarını bağımsız olarak depolayabilir. Bir tema veya mod değiştirmek, farklı etkili düzen değerlerini gösterebilir.
 
+Rofi menüleri yalnızca görünür arka planlarını bulanıklaştırır; Sticky ve Spaced modlarında dışarıdaki saydam alan masaüstünü bulanıklaştırmaz.
+
 ## Düzen kontrolleri
 
 Her kontrol bağımsızdır ve burada listelenen sayfada bulunur:

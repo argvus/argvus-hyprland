@@ -21,6 +21,8 @@ ARGVUS utiliza Hyprland para la colocación de ventanas en mosaico y flotantes. 
 - **Redondeo** es parte del modo visual seleccionado. Cambia la forma de las esquinas de la ventana en lugar de mover la ventana.
 - **Reserva de panel y margen visible** son preocupaciones separadas: un panel puede ocupar o usar espacio visualmente mientras Hyprland aún organiza las ventanas de acuerdo al estado de espaciado activo.
 
+Los menús de Rofi desenfocan solo su fondo visible; el área transparente exterior no desenfoca el escritorio en Sticky ni en Spaced.
+
 ## Modos Pegajoso y Espaciado
 
 Los modos de tema incluidos proporcionan dos geometrías iniciales:

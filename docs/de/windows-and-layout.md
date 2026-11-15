@@ -21,6 +21,8 @@ ARGVUS verwendet Hyprland für die Platzierung von gekachelten und schwebenden F
 - **Abrundung** ist Teil des ausgewählten visuellen Modus. Sie verändert die Form der Fensterkante, ohne das Fenster zu verschieben.
 - **Panel-Reservierung und sichtbarer Rand** sind getrennte Aspekte: Ein Panel kann Platz einnehmen oder visuell nutzen, während Hyprland die Fenster weiterhin gemäß dem aktiven Abstandszustand anordnet.
 
+Rofi-Menüs verwischen nur ihren sichtbaren Hintergrund. Der transparente Bereich außerhalb des Menüs verwischt den Desktop weder im Sticky- noch im Spaced-Modus.
+
 ## Feste und Abstand-Modi
 
 Die mitgelieferten Themenmodi bieten zwei Ausgangsgeometrien:

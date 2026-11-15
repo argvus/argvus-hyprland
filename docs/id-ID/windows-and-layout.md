@@ -23,6 +23,8 @@ ARGVUS menggunakan Hyprland untuk penempatan jendela terpetak dan mengambang. Ko
 - **Pembulatan** adalah bagian dari mode visual yang dipilih. Ini mengubah bentuk sudut jendela daripada memindahkan jendela.
 - **Reservasi panel dan margin yang terlihat** adalah hal yang terpisah: sebuah panel dapat menempati atau menggunakan ruang secara visual sementara Hyprland masih menata jendela sesuai dengan status spasi aktif.
 
+Menu Rofi hanya memburamkan latar yang terlihat; area transparan di luar menu tidak memburamkan desktop dalam Sticky maupun Spaced.
+
 ## Mode Sticky dan Spaced
 
 Mode tema bawaan menyediakan dua geometri awal:

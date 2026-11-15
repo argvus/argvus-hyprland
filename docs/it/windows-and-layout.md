@@ -21,6 +21,8 @@ ARGVUS utilizza Hyprland per la gestione delle finestre a piastrelle e flottanti
 - **Rounding** fa parte della modalità visiva selezionata. Cambia la forma degli angoli della finestra piuttosto che spostare la finestra.
 - **Riserva del pannello e margine visibile** sono questioni separate: un pannello può occupare o usare visivamente lo spazio mentre Hyprland continua a disporre le finestre secondo lo stato di spaziatura attivo.
 
+I menu Rofi sfocano solo il proprio sfondo visibile. L’area trasparente esterna al menu non sfoca il desktop, sia in modalità Sticky sia in modalità Spaced.
+
 ## Modalità Sticky e Spaced
 
 Le modalità di tema incluse forniscono due geometrie iniziali:

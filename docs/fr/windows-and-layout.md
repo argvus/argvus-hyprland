@@ -21,6 +21,8 @@ ARGVUS utilise Hyprland pour le placement des fenêtres en mosaïque et flottant
 - **Arrondis** font partie du mode visuel sélectionné. Ils changent la forme des coins de la fenêtre plutôt que de déplacer la fenêtre.
 - **Réservation du panneau et marge visible** sont des préoccupations distinctes : un panneau peut occuper ou utiliser visiblement de l'espace tandis que Hyprland dispose encore les fenêtres selon l'état d'espacement actif.
 
+Les menus Rofi ne floutent que leur fond visible. La zone transparente hors du menu ne floute pas le bureau, en mode Sticky comme en mode Spaced.
+
 ## Modes collant et espacé
 
 Les modes de thème inclus fournissent deux géométries de départ :
