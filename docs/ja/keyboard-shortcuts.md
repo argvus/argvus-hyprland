@@ -205,3 +205,9 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 これらのキーは、Hyprland 全体に対してではなく、**Control Center > System Administration > Packages** 内で適用されます。`F8` はトランザクション端末を再度開き、`Esc` はプロセスを停止せずに非表示にし、`Shift+PageUp/PageDown` は履歴をスクロールし、`Shift+End` はライブ出力に戻り、`Ctrl+C` はフォーカスされている子プロセスを中断します。インストールされているチートシートには同じキーが含まれています。
 
 Packages では、`/` が最上部の **Search** バーにフォーカスします。そこでは `Enter` により Official/AUR のインストール検索が実行され、削除および更新リストは入力に応じてフィルターされます。`Down` は結果に移動し、`Up` は最初の結果で Search に戻り、`Esc` は Search 内でクエリを保持してリストに戻ります。結果で Enter を押すと、そのパッケージのアクションが実行されます。
+
+### モニターごとのワークスペース移動
+
+前後への移動は、フォーカス中のモニターに存在するワークスペースを循環します。数値順の後に、名前付きとプロジェクトを元の名前順で並べます。タスクバーのスクロールはポインター下のモニターを使用します。特殊ワークスペースは対象外で、開いている間は移動しません。数字ショートカットはグローバル ID を維持します。割り当ては `/displays/workspaces` に保存されます。
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

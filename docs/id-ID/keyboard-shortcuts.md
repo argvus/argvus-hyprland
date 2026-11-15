@@ -211,3 +211,9 @@ Paket argvus-ai opsional memiliki /usr/share/argvus/ai/hyprland.lua. Hyprland me
 Kunci ini berlaku di dalam **Control Center > System Administration > Packages**, bukan secara global untuk Hyprland. `F8` membuka kembali terminal transaksi, `Esc` menyembunyikannya tanpa menghentikan proses, `Shift+PageUp/PageDown` menggulir riwayat, `Shift+End` kembali ke output langsung, dan `Ctrl+C` menghentikan anak yang sedang fokus. Cheat sheet yang terpasang mencakup kunci yang sama.
 
 Di Paket, `/` memfokuskan bilah **Cari** atas. `Enter` di sana mengirimkan pencarian instalasi Official/AUR; daftar penghapusan dan pembaruan memfilter saat Anda mengetik. `Down` pindah ke hasil, `Up` pada hasil pertama kembali ke Cari, dan `Esc` di Cari mempertahankan kueri dan kembali ke daftar. Tekan Enter pada hasil menjalankan aksi paketnya.
+
+### Navigasi per monitor
+
+Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfokus: numerik dahulu, lalu nama dan proyek menurut nama asli. Gulir bilah memakai monitor di bawah penunjuk. Ruang khusus dikecualikan dan menghentikan siklus saat terbuka. Pintasan angka tetap memakai ID global. Penetapan tetap di `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

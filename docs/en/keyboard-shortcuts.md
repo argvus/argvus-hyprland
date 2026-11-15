@@ -211,3 +211,9 @@ The optional argvus-ai package owns /usr/share/argvus/ai/hyprland.lua. Hyprland 
 These keys apply inside **Control Center > System Administration > Packages**, rather than to Hyprland globally. `F8` reopens the transaction terminal, `Esc` hides it without stopping the process, `Shift+PageUp/PageDown` scroll history, `Shift+End` returns to live output and `Ctrl+C` interrupts the focused child. The installed cheatsheet includes the same keys.
 
 In Packages, `/` focuses the top **Search** bar. `Enter` there submits Official/AUR installation searches; removal and update lists filter as you type. `Down` moves to results, `Up` on the first result returns to Search, and `Esc` in Search preserves the query and returns to the list. Enter on a result performs its package action.
+
+### Monitor-local workspace navigation
+
+Next/previous cycles existing numeric workspaces, then named workspaces and projects in native-name order, on the focused monitor only. Taskbar scrolling uses the monitor under the pointer. Cycling wraps; special workspaces are excluded and an open special workspace pauses navigation. Numeric shortcuts retain global IDs. Assignments remain in `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

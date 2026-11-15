@@ -206,3 +206,9 @@ Il pacchetto opzionale argvus-ai possiede /usr/share/argvus/ai/hyprland.lua. Hyp
 Questi tasti si applicano all'interno di **Centro di Controllo > Amministrazione di Sistema > Pacchetti**, piuttosto che a Hyprland in generale. `F8` riapre il terminale di transazione, `Esc` lo nasconde senza interrompere il processo, `Shift+PageUp/PageDown` scorre la cronologia, `Shift+End` ritorna all'output in tempo reale e `Ctrl+C` interrompe il processo figlio focalizzato. Il foglio di riferimento installato include gli stessi tasti.
 
 Nei Pacchetti, `/` mette a fuoco la barra di **Ricerca** in alto. `Enter` lì invia ricerche di installazione Official/AUR; le liste di rimozione e aggiornamento si filtrano mentre si digita. `Down` si sposta ai risultati, `Up` sul primo risultato ritorna alla Ricerca, e `Esc` nella Ricerca preserva la query e ritorna alla lista. Premi Invio su un risultato per eseguire l'azione del pacchetto.
+
+### Navigazione per monitor
+
+Successivo/precedente scorre solo gli spazi esistenti del monitor attivo: prima numerici, poi nomi e progetti ordinati per nome nativo, tornando all’inizio. Lo scorrimento sulla barra usa il monitor sotto il puntatore. Gli spazi speciali sono esclusi e sospendono il ciclo quando aperti. Le scorciatoie numeriche mantengono gli ID globali. Le assegnazioni restano in `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

@@ -13,7 +13,7 @@ ATALHO                          DESCRIÇÃO
      SUPER + Alt + Space        = Alternar modo global de janelas em mosaico/flutuantes
 03 - SUPER + ←→↑↓               = Focar janela tileada por direção
 04 - SUPER + Ctrl + ←→          = Ciclar foco entre janelas (tileadas e flutuantes)
-05 - Ctrl + Alt + ←→  ou        = Circular entre áreas de trabalho
+05 - Ctrl + Alt + ←→  ou        = Circular entre áreas de trabalho do monitor em foco
      Mouse 4 / Mouse 5
 06 - SUPER + r                  = Entrar modo redimensionar janela (apenas flutuante)
      ←→↑↓                       = Redimensionar

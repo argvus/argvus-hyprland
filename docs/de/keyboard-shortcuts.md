@@ -205,3 +205,9 @@ Das optionale argvus-ai-Paket besitzt /usr/share/argvus/ai/hyprland.lua. Hyprlan
 Diese Tasten gelten innerhalb von **Control Center > System Administration > Packages**, und nicht global für Hyprland. `F8` öffnet das Transaktionsterminal erneut, `Esc` blendet es aus, ohne den Prozess zu stoppen, `Shift+PageUp/PageDown` scrollt die Historie, `Shift+End` kehrt zur Live-Ausgabe zurück und `Ctrl+C` unterbricht das fokussierte Kind. Das installierte Spickzettel enthält die gleichen Tasten.
 
 In Packages fokussiert `/` die oberste **Suchleiste**. `Enter` führt dort Suchabfragen für Official/AUR-Installationen aus; Listen für Entfernen und Aktualisieren filtern während der Eingabe. `Down` bewegt sich zu den Ergebnissen, `Up` springt beim ersten Ergebnis zurück zur Suche, und `Esc` behält in der Suche die Abfrage und kehrt zur Liste zurück. Enter bei einem Ergebnis führt die Aktion des Pakets aus.
+
+### Arbeitsbereichswechsel pro Monitor
+
+Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierten Monitors: zuerst numerische, dann benannte und Projekte nach nativem Namen, mit Umlauf. Scrollen auf der Taskleiste verwendet den Monitor unter dem Zeiger. Spezielle Arbeitsbereiche sind ausgeschlossen und unterbrechen den Wechsel, solange sie geöffnet sind. Ziffernkürzel behalten globale IDs. Zuordnungen bleiben in `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

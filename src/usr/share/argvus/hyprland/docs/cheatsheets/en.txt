@@ -13,7 +13,7 @@ SHORTCUT                        DESCRIPTION
      SUPER + Alt + Space        = Toggle global Tile/Floating window mode
 03 - SUPER + ←→↑↓               = Focus tiled window by direction
 04 - SUPER + Ctrl + ←→          = Cycle focus between windows (tiled and floating)
-05 - Ctrl + Alt + ←→  or        = Moving between work areas
+05 - Ctrl + Alt + ←→  or        = Moving between work areas (focused monitor)
      Mouse 4 / Mouse 5
 06 - SUPER + r                  = Enter window resize mode (floating window only)
      ←→↑↓                       = Resize

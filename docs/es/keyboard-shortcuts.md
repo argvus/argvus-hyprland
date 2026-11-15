@@ -205,3 +205,9 @@ El paquete opcional argvus-ai posee /usr/share/argvus/ai/hyprland.lua. Hyprland 
 Estas teclas se aplican dentro de **Centro de Control > Administración del Sistema > Paquetes**, en lugar de aplicarse a Hyprland globalmente. `F8` vuelve a abrir la terminal de transacciones, `Esc` la oculta sin detener el proceso, `Shift+PageUp/PageDown` desplaza el historial, `Shift+End` vuelve a la salida en vivo y `Ctrl+C` interrumpe el hijo enfocado. La hoja de trucos instalada incluye las mismas teclas.
 
 En Paquetes, `/` enfoca la barra de **Búsqueda** superior. `Enter` allí envía búsquedas de instalación Oficial/AUR; las listas de eliminación y actualización se filtran mientras escribes. `Down` se mueve a los resultados, `Up` en el primer resultado regresa a Búsqueda, y `Esc` en Búsqueda conserva la consulta y regresa a la lista. Enter en un resultado realiza la acción del paquete.
+
+### Navegación por monitor
+
+Siguiente/anterior recorre solo los espacios existentes del monitor enfocado: primero numéricos, después nombres y proyectos por nombre nativo, volviendo al inicio. La rueda sobre la barra usa el monitor bajo el puntero. Los espacios especiales se excluyen y detienen el ciclo mientras están abiertos. Los atajos numéricos conservan IDs globales. Las asignaciones siguen en `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

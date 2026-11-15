@@ -206,3 +206,9 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 이 키들은 Hyprland 전체가 아니라 **Control Center > System Administration > Packages** 안에서 적용됩니다. `F8`은 거래 터미널을 다시 열고, `Esc`은 프로세스를 멈추지 않고 숨기며, `Shift+PageUp/PageDown`는 기록을 스크롤하고, `Shift+End`는 실시간 출력을 반환하며, `Ctrl+C`는 포커스된 자식 프로세스를 중단합니다. 설치된 치트시트에는 동일한 키가 포함되어 있습니다.
 
 Packages에서는 `/`가 상단 **검색** 바에 포커스를 맞춥니다. `Enter`는 공식/AUR 설치 검색을 제출하며, 제거 및 업데이트 목록은 입력하면 필터링됩니다. `Down`는 결과로 이동하고, `Up`는 첫 번째 결과에서 검색으로 돌아가며, `Esc`는 검색에서 쿼리를 유지하고 목록으로 돌아갑니다. 결과에서 Enter를 누르면 해당 패키지 작업이 수행됩니다.
+
+### 모니터별 작업 공간 이동
+
+이전/다음은 포커스된 모니터의 기존 작업 공간만 순환합니다. 숫자 공간 다음에 이름 있는 공간과 프로젝트를 원래 이름순으로 배치합니다. 작업 표시줄 스크롤은 포인터 아래 모니터를 사용합니다. 특수 공간은 제외되며 열려 있는 동안 순환을 멈춥니다. 숫자 단축키는 전역 ID를 유지합니다. 할당은 `/displays/workspaces`에 남습니다.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

@@ -211,3 +211,9 @@ Yüzen ve çalışma alanı davranışı için [Windows ve düzen](/docs/argvus-
 Bu tuşlar, Hyprland genelinde değil, **Kontrol Merkezi > Sistem Yönetimi > Paketler** içinde uygulanır. `F8` işlem terminalini yeniden açar, `Esc` işlemi durdurmadan gizler, `Shift+PageUp/PageDown` geçmişi kaydırır, `Shift+End` canlı çıktıya döner ve `Ctrl+C` odaklanmış çocuğu keser. Yüklü olan hile sayfası aynı tuşları içerir.
 
 Paketlerde, `/` üst **Arama** çubuğuna odaklanır. `Enter` burada Resmi/AUR kurulum aramalarını gönderir; kaldırma ve güncelleme listeleri yazdıkça filtrelenir. `Down` sonuçlara geçer, `Up` ilk sonuca basıldığında Aramaya döner ve `Esc` Aramada sorguyu korur ve listeye döner. Bir sonuca Enter tuşuna basmak, paketin işlemini gerçekleştirir.
+
+### Monitöre göre gezinme
+
+Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanlarını döngüyle gezer: önce sayısal alanlar, ardından özgün ada göre adlandırılmış alanlar ve projeler. Görev çubuğunu kaydırmak işaretçinin altındaki monitörü kullanır. Özel alanlar dışlanır ve açıkken gezinmeyi durdurur. Sayısal kısayollar genel kimlikleri korur. Atamalar `/displays/workspaces` içinde kalır.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

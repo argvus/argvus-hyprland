@@ -214,3 +214,9 @@ Xem đường dẫn người dùng và cài đặt.(/docs/argvus-hyprland/window
 Run argvus control-center shortcuts create or argvus control-center shortcuts list to open either page. For advanced submaps, mouse bindings or flags, [bindings.lua](/docs/argvus-hyprland/hyprland-overrides/) remains available. Never edit the generated fragments.
 Một số hành động tích hợp sẵn hữu ích bao gồm di chuyển tiêu điểm và không gian làm việc, chuyển đổi cửa sổ nổi, chụp ảnh màn hình và ghi hình, mở trình khởi chạy/terminal, thay đổi giao diện, khóa phiên, điều khiển phương tiện và nạp lại Hyprland. Các phím tắt mặc định được liệt kê trong[bảng phím tắt mặc định](#default-shortcut-table)dưới đây; trang Trung tâm điều khiển hiển thị các liên kết như chúng đang được cấu hình hiện tại.
 Xem[Cửa sổ và bố cục](/docs/argvus-hyprland/windows-and-layout/)cho hành vi nổi và không gian làm việc và [Trung tâm điều khiển](/docs/components/argvus-control-center/)cho quy trình cài đặt.
+
+### Điều hướng theo màn hình
+
+Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đang được chọn: số trước, rồi tên và dự án theo tên gốc. Cuộn trên thanh tác vụ dùng màn hình dưới con trỏ. Không gian đặc biệt bị loại và tạm dừng chu kỳ khi mở. Phím tắt số giữ ID toàn cục. Phân công vẫn ở `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

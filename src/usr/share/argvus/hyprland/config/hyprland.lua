@@ -1535,42 +1535,13 @@ _argvus_bind("focus.cycle_left", mod .. " + CTRL + left", function()
 end)
 
 -- Cycle workspaces in loop (like GNOME) -----------------------------------------------------------
-local function get_sorted_workspaces()
-  local workspaces = hl.get_workspaces()
-  local ws_ids = {}
-
-  for _, ws in ipairs(workspaces) do
-    if ws.id > 0 then
-      table.insert(ws_ids, ws.id)
-    end
-  end
-
-  table.sort(ws_ids)
-  return ws_ids
-end
-
 local function cycle_workspace(offset)
-  local active = hl.get_active_workspace()
-  if not active then
+  local ok, policy = pcall(dofile, _system_config .. "/hyprland/lua/workspaces.lua")
+  if not ok then
+    print("ARGVUS: cannot load workspace navigation: " .. tostring(policy))
     return
   end
-
-  local ws_ids = get_sorted_workspaces()
-  if #ws_ids == 0 then
-    return
-  end
-
-  for i, id in ipairs(ws_ids) do
-    if id == active.id then
-      local target_index = ((i - 1 + offset) % #ws_ids) + 1
-
-      hl.dispatch(hl.dsp.focus({
-        workspace = ws_ids[target_index],
-      }))
-
-      return
-    end
-  end
+  policy.cycle(offset, "focused")
 end
 
 local function workspace_next()
