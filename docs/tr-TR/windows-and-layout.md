@@ -34,7 +34,6 @@ Paketlenmiş tema modları iki başlangıç geometrisi sağlar:
 
 Bunlar varsayılanlardır, sınırlar değildir. Pencere boşlukları ve Görev Çubuğu boşlukları sayfaları, pencere boşluklarını ve görev çubuğu kenar boşluklarını bağımsız olarak depolayabilir. Bir tema veya mod değiştirmek, farklı etkili düzen değerlerini gösterebilir.
 
-Rofi menüleri yalnızca görünür arka planlarını bulanıklaştırır; Sticky ve Spaced modlarında dışarıdaki saydam alan masaüstünü bulanıklaştırmaz.
 
 ## Düzen kontrolleri
 
@@ -151,3 +150,5 @@ yoğunluk maksimumu şunu takip eder[>=0.57.0 kaynağı yayınlandı](https://gi
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+Sticky ve Spaced modlarında Rofi bulanıklığı çubuklar ve kenarlar dahil menü monitörünün tamamını kaplar. Menü ortada kalır ve genel bulanıklık ayarına uyar.

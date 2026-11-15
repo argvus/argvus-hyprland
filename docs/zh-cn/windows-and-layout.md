@@ -22,7 +22,6 @@ ARGVUS 使用 Hyprland 进行平铺和浮动窗口放置。面向用户的布局
 - **圆角** 是所选视觉模式的一部分。它改变窗口的角形状，而不是移动窗口。
 - **面板预留和可见边距** 是独立的问题：面板可以占用空间或视觉上使用空间，同时 Hyprland 仍然根据活动间距状态布局窗口。
 
-Rofi 菜单仅模糊其可见背景。在 Sticky 和 Spaced 模式下，菜单外的透明区域都不会模糊桌面。
 
 ## 粘性模式与间距模式
 
@@ -130,3 +129,5 @@ Wobble 默认情况下是禁用的。其 ARGVUS 默认值为：刚度 `100`、�
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+在 Sticky 和 Spaced 模式下，Rofi 模糊覆盖菜单所在的整个显示器，包括栏和边距。菜单保持居中，并遵循全局模糊设置。

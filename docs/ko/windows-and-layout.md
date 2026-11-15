@@ -21,7 +21,6 @@ ARGVUS는 타일 및 플로팅 창 배치를 위해 Hyprland를 사용합니다.
 - **둥글기(Rounding)**는 선택된 시각 모드의 일부입니다. 창을 이동시키는 대신 창 모서리 모양을 변경합니다.
 - **패널 예약 및 보이는 여백(Panel reservation and visible margin)**은 별개의 문제입니다. 패널은 공간을 차지하거나 시각적으로 사용할 수 있지만, Hyprland는 여전히 활성화된 간격 상태에 따라 창을 배치합니다.
 
-Rofi 메뉴는 보이는 배경에만 흐림 효과를 적용합니다. Sticky와 Spaced 모드 모두 메뉴 밖의 투명한 영역은 데스크톱을 흐리게 하지 않습니다。
 
 ## 스티키(Sticky) 및 간격(Spaced) 모드
 
@@ -131,3 +130,5 @@ Wobble은 기본적으로 비활성화되어 있습니다. 그 ARGVUS 기본값�
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+Sticky와 Spaced에서 Rofi 흐림 효과는 표시줄과 여백을 포함한 메뉴 모니터 전체를 덮습니다. 메뉴는 중앙에 유지되며 전역 흐림 설정을 따릅니다.

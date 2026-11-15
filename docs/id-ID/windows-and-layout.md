@@ -23,7 +23,6 @@ ARGVUS menggunakan Hyprland untuk penempatan jendela terpetak dan mengambang. Ko
 - **Pembulatan** adalah bagian dari mode visual yang dipilih. Ini mengubah bentuk sudut jendela daripada memindahkan jendela.
 - **Reservasi panel dan margin yang terlihat** adalah hal yang terpisah: sebuah panel dapat menempati atau menggunakan ruang secara visual sementara Hyprland masih menata jendela sesuai dengan status spasi aktif.
 
-Menu Rofi hanya memburamkan latar yang terlihat; area transparan di luar menu tidak memburamkan desktop dalam Sticky maupun Spaced.
 
 ## Mode Sticky dan Spaced
 
@@ -151,3 +150,5 @@ intensitas maksimum mengikuti [rilis sumber >=0.57.0](https://github.com/hyprwm/
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+Dalam Sticky dan Spaced, blur Rofi mencakup seluruh monitor menu, termasuk bilah dan margin. Menu tetap di tengah dan mengikuti pengaturan blur global.

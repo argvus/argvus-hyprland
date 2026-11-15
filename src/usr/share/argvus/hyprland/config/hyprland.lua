@@ -1207,9 +1207,6 @@ if _blur_enabled then
   end
 end
 
--- Rofi uses a transparent surface outside the menu. Exclude those pixels from blur.
-hl.layer_rule({ match = { namespace = "argvus-launcher|rofi" }, ignore_alpha = 0 })
-
 -- The color picker is a layer surface; keep it immediate even when window animations are enabled.
 hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
 

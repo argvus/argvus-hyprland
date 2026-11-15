@@ -23,7 +23,6 @@ description:                        .ARGVUS ﻲﻓ ﺕﺎﺣﻮﻠﻟﺍ ﺔﺣ�
 - .ﺓﺬﻓﺎﻨﻟﺍ ﻚﻳﺮﺤﺗ ﻦﻣ ًﻻ﻿ﺪﺑ ﺓﺬﻓﺎﻨﻟﺍ ﺔﻳﻭﺍﺯ ﻞﻜﺷ ﺮﻴﻐﻳ ﻪﻧﺇ .ﺩﺪﺤﻤﻟﺍ ﺽﺮﻌﻟ
 - .ﻂﺸﻨﻟﺍ ﺪﻋﺎﺒﺘﻟﺍ ﺔﻟﺎﺤﻟ ﺎًﻘﻓﻭ ﺬﻓﺍﻮﻨﻟﺍ ﻢﻈﻨﻳ Hyprland ﻞﻈﻳ ﺎﻤﻨﻴﺑ ﺎًﻳﺮﺼﺑ ﺔﺣﺎﺴﻤﻟﺍ ﻡﺪﺨﺘﺴﺗ
 
-تطبق قوائم Rofi التمويه على خلفيتها المرئية فقط. لا تؤدي المنطقة الشفافة خارج القائمة إلى تمويه سطح المكتب في وضعي Sticky وSpaced.
 
 ##                                                       ﺔﻗﺮﻔﻤﻟﺍﻭ ﺔﻘﺻﻼ﻿ﻟﺍ ﺕﺎﻴﻌﺿﻮﻟﺍ
 
@@ -157,3 +156,5 @@ Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+يغطي تمويه Rofi كامل شاشة القائمة بما فيها الأشرطة والهوامش في Sticky وSpaced. تبقى القائمة في الوسط وتتبع إعداد التمويه العام.

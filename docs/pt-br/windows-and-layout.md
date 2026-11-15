@@ -23,7 +23,6 @@ O ARGVUS usa o Hyprland para posicionar janelas tileadas e flutuantes. Os contro
 * **Arredondamento** faz parte do modo visual selecionado. Ele altera o formato dos cantos, não move a janela.
 * **Reserva do painel e margem visível** são conceitos separados: um painel pode usar espaço visual enquanto o Hyprland organiza janelas segundo o estado de espaçamento ativo.
 
-Os menus do Rofi desfocam apenas seu fundo visível. A área transparente fora do menu não desfoca a área de trabalho nos modos Sticky e Spaced.
 
 ## Modos Sticky e Spaced
 
@@ -148,3 +147,5 @@ No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as á
 ```text
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
+
+O Rofi usa uma superfície transparente em tela cheia: o blur cobre todo o monitor do menu, incluindo barras e margens, em Sticky e Spaced. O menu permanece centralizado e respeita o controle global de blur.
