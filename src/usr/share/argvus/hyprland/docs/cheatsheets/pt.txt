@@ -38,6 +38,7 @@ ATALHO                          DESCRIÇÃO
 23 - SUPER + BackSpace          = Oculta/Mostra Waybar top
 24 - SUPER + y                  = Abre Control Center > Appearance > Wallpapers
 25 - SUPER + Shift + T          = Abre o seletor de temas
+     /                          = Foca/desfoca a busca (dentro do seletor de temas)
 26 - SUPER + Shift + M          = Abre o seletor de modos
 27 - SUPER + Shift + L          = Escolhe o tempo de bloqueio por inatividade
 28 - SUPER + Alt + w            = Ativa/Desativa manter acordado

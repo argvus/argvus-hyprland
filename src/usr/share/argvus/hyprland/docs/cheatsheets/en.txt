@@ -38,6 +38,7 @@ SHORTCUT                        DESCRIPTION
 23 - SUPER + BackSpace          = Toggle Waybar top
 24 - SUPER + y                  = Opens Control Center > Appearance > Wallpapers
 25 - SUPER + Shift + T          = Opens the selector themes
+     /                          = Focuses/unfocuses search (inside the theme selector)
 26 - SUPER + Shift + M          = Open the mode selector
 27 - SUPER + Shift + L          = Choose the inactivity lock timeout
 28 - SUPER + Alt + w            = Toggle Keep Awake
