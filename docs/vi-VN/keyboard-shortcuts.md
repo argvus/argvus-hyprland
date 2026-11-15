@@ -220,3 +220,11 @@ Xem[Cửa sổ và bố cục](/docs/argvus-hyprland/windows-and-layout/)cho hà
 Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đang được chọn: số trước, rồi tên và dự án theo tên gốc. Cuộn trên thanh tác vụ dùng màn hình dưới con trỏ. Không gian đặc biệt bị loại và tạm dừng chu kỳ khi mở. Phím tắt số giữ ID toàn cục. Phân công vẫn ở `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Trình khởi chạy và tìm kiếm
+
+`SUPER + D` → `argvus launcher`
+
+Trình khởi chạy chính dùng Quickshell/QML và công cụ Rust cục bộ để tìm ứng dụng, cửa sổ, cài đặt, thao tác, dự án, máy chủ SSH, tệp và phím tắt. Lập chỉ mục ban đầu bị tắt; cần chọn thư mục rõ ràng. Chỉ tên và đường dẫn được lập chỉ mục, không đọc nội dung tài liệu. Tệp gần đây dựa vào bản ghi XDG. Tệp ẩn bị loại trừ mặc định và không đi theo liên kết tượng trưng của thư mục. Các menu Rofi chuyên dụng vẫn có sẵn.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

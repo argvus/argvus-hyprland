@@ -211,3 +211,11 @@ In Packages fokussiert `/` die oberste **Suchleiste**. `Enter` führt dort Sucha
 Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierten Monitors: zuerst numerische, dann benannte und Projekte nach nativem Namen, mit Umlauf. Scrollen auf der Taskleiste verwendet den Monitor unter dem Zeiger. Spezielle Arbeitsbereiche sind ausgeschlossen und unterbrechen den Wechsel, solange sie geöffnet sind. Ziffernkürzel behalten globale IDs. Zuordnungen bleiben in `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Starter und Suche
+
+`SUPER + D` → `argvus launcher`
+
+Der Hauptstarter verwendet Quickshell/QML mit einer lokalen Rust-Suche für Apps, Fenster, Einstellungen, Aktionen, Projekte, SSH-Ziele, Dateien und Tastenkürzel. Die Indizierung ist zunächst deaktiviert; Ordner müssen ausdrücklich ausgewählt werden. Nur Namen und Pfade werden indiziert, keine Dokumentinhalte. Zuletzt verwendete Dateien stammen aus dem XDG-Verzeichnis. Versteckte Dateien sind standardmäßig ausgeschlossen; Verzeichnis-Symlinks werden nicht verfolgt. Spezialisierte Rofi-Menüs bleiben verfügbar.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

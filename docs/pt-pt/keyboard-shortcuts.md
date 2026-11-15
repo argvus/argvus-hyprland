@@ -217,3 +217,11 @@ Em Pacotes, `/` foca a barra **Buscar** do topo. `Enter` nela envia consultas de
 Seguinte/anterior percorre os workspaces existentes apenas no monitor em foco: primeiro os numéricos, depois os nomeados e projetos por nome nativo, regressando ao início no final. A deslocação na barra usa o monitor sob o ponteiro. Workspaces especiais são excluídos e suspendem o ciclo enquanto abertos. Atalhos numéricos mantêm IDs globais. As associações permanecem em `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Launcher e Pesquisa
+
+`SUPER + D` → `argvus launcher`
+
+O launcher principal usa Quickshell/QML com um motor local de pesquisa em Rust. Pesquisa aplicações, janelas abertas, definições, ações, projetos, hosts SSH, ficheiros e atalhos. A indexação começa desativada; escolha as pastas explicitamente. Apenas nomes e caminhos são indexados, nunca o conteúdo dos documentos. Ficheiros recentes dependem do registo XDG. Ficheiros ocultos são excluídos por predefinição e ligações simbólicas de diretórios não são seguidas. Os menus especializados do Rofi continuam disponíveis.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

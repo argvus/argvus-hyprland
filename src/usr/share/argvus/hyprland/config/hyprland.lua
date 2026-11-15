@@ -1391,8 +1391,8 @@ _argvus_bind("appearance.animations", mod .. " + F6", hl.dsp.exec_cmd("argvus ef
 -- Finder ------------------------------------------------------------------------------------------
 local _launcher_bin = _get_default("launcher")
 local _launcher_cmd
-if _launcher_bin == "rofi" or _launcher_bin == "" then
-  _launcher_cmd = "argvus launcher --config " .. rofi_config
+if _launcher_bin == "argvus" or _launcher_bin == "rofi" or _launcher_bin == "" then
+  _launcher_cmd = "argvus launcher"
 else
   _launcher_cmd = _launcher_bin .. " --show drun"
 end

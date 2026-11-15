@@ -211,3 +211,11 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 上一个/下一个仅循环切换焦点显示器上已有的工作区：先按数字排序，再按原始名称排列命名工作区和项目。任务栏滚动使用指针所在的显示器。特殊工作区不参与循环，打开时暂停切换。数字快捷键保留全局 ID。显示器分配仍保存在 `/displays/workspaces`。
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## 启动器与搜索
+
+`SUPER + D` → `argvus launcher`
+
+主启动器采用 Quickshell/QML 和本地 Rust 搜索引擎，可查找应用、窗口、设置、操作、项目、SSH 主机、文件和快捷键。文件索引默认关闭，需明确选择文件夹。仅索引名称和路径，不读取文档内容。最近文件来自 XDG 记录。默认排除隐藏文件，不跟随目录符号链接。专用 Rofi 菜单继续可用。
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

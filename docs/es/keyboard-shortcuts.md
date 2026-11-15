@@ -211,3 +211,11 @@ En Paquetes, `/` enfoca la barra de **Búsqueda** superior. `Enter` allí envía
 Siguiente/anterior recorre solo los espacios existentes del monitor enfocado: primero numéricos, después nombres y proyectos por nombre nativo, volviendo al inicio. La rueda sobre la barra usa el monitor bajo el puntero. Los espacios especiales se excluyen y detienen el ciclo mientras están abiertos. Los atajos numéricos conservan IDs globales. Las asignaciones siguen en `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Lanzador y búsqueda
+
+`SUPER + D` → `argvus launcher`
+
+El lanzador principal usa Quickshell/QML con un motor local en Rust. Busca aplicaciones, ventanas, ajustes, acciones, proyectos, hosts SSH, archivos y atajos. La indexación empieza desactivada y requiere carpetas elegidas explícitamente. Solo indexa nombres y rutas, nunca el contenido. Los archivos recientes dependen del registro XDG. Excluye archivos ocultos por defecto y no sigue enlaces simbólicos de directorios. Los menús especializados de Rofi siguen disponibles.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

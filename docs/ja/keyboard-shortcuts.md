@@ -211,3 +211,11 @@ Packages では、`/` が最上部の **Search** バーにフォーカスしま�
 前後への移動は、フォーカス中のモニターに存在するワークスペースを循環します。数値順の後に、名前付きとプロジェクトを元の名前順で並べます。タスクバーのスクロールはポインター下のモニターを使用します。特殊ワークスペースは対象外で、開いている間は移動しません。数字ショートカットはグローバル ID を維持します。割り当ては `/displays/workspaces` に保存されます。
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## ランチャーと検索
+
+`SUPER + D` → `argvus launcher`
+
+メインランチャーは Quickshell/QML とローカルの Rust 検索エンジンを使用し、アプリ、ウィンドウ、設定、操作、プロジェクト、SSH ホスト、ファイル、ショートカットを検索します。索引化は初期状態で無効で、対象フォルダーの明示的な選択が必要です。名前とパスのみを索引化し、文書の内容は読み取りません。最近のファイルは XDG の履歴に依存します。隠しファイルは標準で除外し、ディレクトリーのシンボリックリンクはたどりません。専用の Rofi メニューも引き続き利用できます。
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

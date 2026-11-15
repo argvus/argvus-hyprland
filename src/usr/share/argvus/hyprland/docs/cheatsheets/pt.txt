@@ -61,7 +61,7 @@ ATALHO                                 DESCRIÇÃO
 41 - SUPER + Ctrl + Space       = Monitor do sistema
 42 - SUPER + Shift + D          = Menu de dispositivos removíveis
 43 - SUPER + b                  = Navegador padrão
-44 - SUPER + d                  = Lançador de programas
+44 - SUPER + d                  = Launcher universal
 45 - SUPER + c                  = Calculadora
 46 - SUPER + Ctrl + /?          = Cheatsheets do Kitty
 47 - SUPER + Shift + ?          = Cheatsheets do ARGVUS

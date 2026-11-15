@@ -217,3 +217,11 @@ In Packages, `/` focuses the top **Search** bar. `Enter` there submits Official/
 Next/previous cycles existing numeric workspaces, then named workspaces and projects in native-name order, on the focused monitor only. Taskbar scrolling uses the monitor under the pointer. Cycling wraps; special workspaces are excluded and an open special workspace pauses navigation. Numeric shortcuts retain global IDs. Assignments remain in `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Launcher and Search
+
+`SUPER + D` → `argvus launcher`
+
+The main launcher uses Quickshell/QML with a local Rust search engine. It searches applications, open windows, settings, actions, projects, SSH hosts, files and shortcuts. File indexing starts disabled; select folders explicitly. Only names and paths are indexed, never document contents. Recent files depend on the XDG recent-file registry. Hidden files are excluded by default, and directory symlinks are not followed. Specialized Rofi menus remain available.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

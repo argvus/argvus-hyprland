@@ -217,3 +217,11 @@ Paketlerde, `/` üst **Arama** çubuğuna odaklanır. `Enter` burada Resmi/AUR k
 Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanlarını döngüyle gezer: önce sayısal alanlar, ardından özgün ada göre adlandırılmış alanlar ve projeler. Görev çubuğunu kaydırmak işaretçinin altındaki monitörü kullanır. Özel alanlar dışlanır ve açıkken gezinmeyi durdurur. Sayısal kısayollar genel kimlikleri korur. Atamalar `/displays/workspaces` içinde kalır.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Başlatıcı ve Arama
+
+`SUPER + D` → `argvus launcher`
+
+Ana başlatıcı Quickshell/QML ve yerel Rust arama motoruyla uygulama, pencere, ayar, eylem, proje, SSH sunucusu, dosya ve kısayol arar. Dizinleme başlangıçta kapalıdır; klasörleri açıkça seçin. Yalnızca adlar ve yollar dizinlenir, belge içerikleri okunmaz. Son dosyalar XDG kaydına bağlıdır. Gizli dosyalar varsayılan olarak dışlanır ve dizin sembolik bağlantıları izlenmez. Özel Rofi menüleri kullanılabilir.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

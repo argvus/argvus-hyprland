@@ -212,3 +212,11 @@ Packages에서는 `/`가 상단 **검색** 바에 포커스를 맞춥니다. `En
 이전/다음은 포커스된 모니터의 기존 작업 공간만 순환합니다. 숫자 공간 다음에 이름 있는 공간과 프로젝트를 원래 이름순으로 배치합니다. 작업 표시줄 스크롤은 포인터 아래 모니터를 사용합니다. 특수 공간은 제외되며 열려 있는 동안 순환을 멈춥니다. 숫자 단축키는 전역 ID를 유지합니다. 할당은 `/displays/workspaces`에 남습니다.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## 실행기 및 검색
+
+`SUPER + D` → `argvus launcher`
+
+기본 실행기는 Quickshell/QML과 로컬 Rust 검색 엔진으로 앱, 창, 설정, 작업, 프로젝트, SSH 호스트, 파일, 단축키를 검색합니다. 색인은 기본적으로 꺼져 있으며 폴더를 명시적으로 선택해야 합니다. 이름과 경로만 색인하고 문서 내용은 읽지 않습니다. 최근 파일은 XDG 기록에 따릅니다. 숨김 파일은 기본적으로 제외하며 디렉터리 심볼릭 링크를 따라가지 않습니다. 전용 Rofi 메뉴도 계속 사용할 수 있습니다.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).

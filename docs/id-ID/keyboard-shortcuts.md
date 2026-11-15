@@ -217,3 +217,11 @@ Di Paket, `/` memfokuskan bilah **Cari** atas. `Enter` di sana mengirimkan penca
 Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfokus: numerik dahulu, lalu nama dan proyek menurut nama asli. Gulir bilah memakai monitor di bawah penunjuk. Ruang khusus dikecualikan dan menghentikan siklus saat terbuka. Pintasan angka tetap memakai ID global. Penetapan tetap di `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+## Peluncur dan Pencarian
+
+`SUPER + D` → `argvus launcher`
+
+Peluncur utama memakai Quickshell/QML dan mesin Rust lokal untuk aplikasi, jendela, pengaturan, tindakan, proyek, host SSH, berkas, dan pintasan. Pengindeksan awalnya nonaktif; pilih folder secara eksplisit. Hanya nama dan jalur yang diindeks, bukan isi dokumen. Berkas terbaru bergantung pada catatan XDG. Berkas tersembunyi dikecualikan secara bawaan dan symlink direktori tidak diikuti. Menu khusus Rofi tetap tersedia.
+
+`/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
