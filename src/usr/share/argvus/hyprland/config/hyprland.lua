@@ -1210,6 +1210,10 @@ end
 -- The color picker is a layer surface; keep it immediate even when window animations are enabled.
 hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
 
+-- Theme and layout selectors are full-screen layer surfaces; keep them immediate as well.
+hl.layer_rule({ match = { namespace = "argvus-theme-selector" }, no_anim = true })
+hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, no_anim = true })
+
 -- Window Rules  -----------------------------------------------------------------------------------
 -- Transparency is a client-side contract: any surface that wants the wallpaper
 -- visible behind it renders its own background with alpha from the
