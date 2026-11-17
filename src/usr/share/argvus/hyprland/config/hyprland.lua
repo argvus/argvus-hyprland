@@ -1207,6 +1207,10 @@ if _blur_enabled then
   end
 end
 
+-- Rofi renders a fullscreen transparent surface around its menu. Exclude that
+-- transparent area from blur so opening the emoji picker leaves the desktop sharp.
+hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.01, animation = "fade" })
+
 -- The color picker is a layer surface; keep it immediate even when window animations are enabled.
 hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
 

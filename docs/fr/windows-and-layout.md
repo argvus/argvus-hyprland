@@ -130,7 +130,7 @@ En **Espacé + Flottant**, les fenêtres respectent les marges extérieures et l
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Rofi floute tout le moniteur du menu, barres et marges comprises, en Sticky et Spaced. Le menu reste centré et respecte le réglage global du flou.
+Les menus Rofi, dont le sélecteur d’émojis (`SUPER + .`), laissent le bureau net autour du menu. Les pixels entièrement transparents sont exclus du flou ; dans le menu, le flou suit toujours les réglages du lanceur et les réglages globaux. Rofi utilise un fondu fixe, y compris pour les menus d’émojis et d’alimentation ; la vitesse et l’activation suivent les réglages globaux de Hyprland.
 
 `argvus calculator`: S’ouvre toujours dans une petite fenêtre flottante centrée (370 × 420) ; le mode scientifique peut l’agrandir.
 

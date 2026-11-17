@@ -148,7 +148,7 @@ No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as á
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-O Rofi usa uma superfície transparente em ecrã inteiro: o desfoque cobre todo o monitor do menu, incluindo barras e margens, em Sticky e Spaced. O menu permanece centrado e respeita o controlo global de desfoque.
+Os menus Rofi, incluindo o seletor de emoji (`SUPER + .`), mantêm nítida a área do ecrã fora do menu. Os píxeis totalmente transparentes são excluídos do desfoque; o desfoque dentro do menu continua a seguir as definições do lançador e globais. O Rofi usa um estilo fade fixo, incluindo os menus de emoji e energia; a velocidade e a ativação das animações continuam a seguir as definições globais do Hyprland.
 
 `argvus calculator`: Abre sempre numa janela flutuante pequena e centrada (370 × 420); o modo científico pode expandi-la.
 
