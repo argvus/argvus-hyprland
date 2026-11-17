@@ -158,3 +158,5 @@ Menu Rofi, termasuk pemilih emoji (`SUPER + .`), menjaga desktop di luar menu te
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle mengikuti radius sudut jendela yang berlaku dan pengaturan blur global Hyprland. Saat animasi aktif, transisi selalu memakai fade.

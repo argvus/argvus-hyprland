@@ -158,3 +158,5 @@ Menu Rofi, bao gồm bộ chọn emoji (`SUPER + .`), giữ màn hình bên ngo�
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle tuân theo bán kính bo góc thực tế của cửa sổ và thiết lập làm mờ toàn cục của Hyprland. Khi bật hoạt ảnh, ứng dụng luôn dùng hiệu ứng mờ dần.

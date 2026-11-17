@@ -137,3 +137,5 @@ Rofi 菜单（包括 `SUPER + .` 表情选择器）不会模糊菜单外的桌�
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle 遵循窗口实际的圆角半径和 Hyprland 的全局模糊设置。启用动画时始终使用淡入淡出。

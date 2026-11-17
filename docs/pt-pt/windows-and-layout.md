@@ -155,3 +155,5 @@ Os menus Rofi, incluindo o seletor de emoji (`SUPER + .`), mantêm nítida a ár
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+O ARGVUS Lifecycle segue o arredondamento efetivo das janelas e o desfoque global do Hyprland. Utiliza sempre o estilo de transição gradual quando as animações estão ativas.

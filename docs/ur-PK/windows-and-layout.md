@@ -179,3 +179,5 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle ونڈو کے کناروں کے مؤثر رداس اور Hyprland کی عمومی دھندلاہٹ کی ترتیبات پر عمل کرتا ہے۔ اینیمیشن فعال ہونے پر ہمیشہ فیڈ استعمال ہوتا ہے۔

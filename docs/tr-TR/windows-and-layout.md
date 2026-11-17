@@ -158,3 +158,5 @@ Emoji seçici (`SUPER + .`) dahil Rofi menüleri, menü dışındaki masaüstün
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle, etkin pencere köşe yarıçapını ve Hyprland genel bulanıklık ayarlarını izler. Animasyonlar açıkken her zaman solma geçişini kullanır.

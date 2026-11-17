@@ -158,3 +158,5 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle উইন্ডোর কার্যকর কোণের ব্যাসার্ধ এবং Hyprland-এর বৈশ্বিক ব্লার সেটিং অনুসরণ করে। অ্যানিমেশন চালু থাকলে সব সময় ফেড ব্যবহার করে।

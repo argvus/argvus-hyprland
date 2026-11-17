@@ -138,3 +138,5 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle은 창의 실제 모서리 반경과 Hyprland의 전역 흐림 설정을 따릅니다. 애니메이션이 켜져 있으면 항상 페이드를 사용합니다.

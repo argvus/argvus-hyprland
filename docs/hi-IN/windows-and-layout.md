@@ -158,3 +158,5 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 `SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
 
 ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
+
+ARGVUS Lifecycle विंडो के प्रभावी कोने के रेडियस और Hyprland की वैश्विक ब्लर सेटिंग का पालन करता है। ऐनिमेशन चालू होने पर हमेशा फ़ेड का उपयोग होता है।
