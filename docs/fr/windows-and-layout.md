@@ -54,7 +54,7 @@ La configuration packagée ouvre le Centre de Contrôle, Snake et l'Analyseur d'
 
 Le Panneau de Contrôle utilise une surface de couche plein écran pendant que son modal est ouvert. Les règles packagées flottent, centrent et épinglent les fenêtres de l'agent Polkit, du portail GTK et de KDialog afin que les dialogues lancés par le panneau restent au-dessus du modal et puissent recevoir des entrées.
 
-`hyprpicker`, ouvert avec `SUPER + P`, ainsi que les sélecteurs de thème et de disposition n'utilisent pas les animations de calque de Hyprland. Les autres animations continuent à suivre les paramètres globaux.
+`hyprpicker`, ouvert avec `SUPER + P`, n'utilise pas les animations de calque de Hyprland. Les sélecteurs de thème et de disposition utilisent un fondu à l'ouverture et à la fermeture. Les autres animations continuent à suivre les paramètres globaux.
 
 ### Placement des espaces de travail pour les navigateurs et les IDE
 

@@ -56,7 +56,7 @@ The packaged configuration opens the Control Center, Snake and Disk Usage Analyz
 
 The Control Panel uses a full-monitor layer surface while its modal is open. The packaged rules float, center and pin the Polkit agent, GTK portal and KDialog windows so dialogs launched by the panel stay above the modal and can receive input.
 
-`hyprpicker`, opened with `SUPER + P`, and the theme and layout selectors do not use Hyprland layer animations. Other animations continue to follow the global settings.
+`hyprpicker`, opened with `SUPER + P`, does not use Hyprland layer animations. The theme and layout selectors use a fade animation when they open and close. Other animations continue to follow the global settings.
 
 ### Workspace placement for browsers and IDEs
 
