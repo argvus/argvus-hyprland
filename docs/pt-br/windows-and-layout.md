@@ -149,3 +149,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 O Rofi usa uma superfície transparente em tela cheia: o blur cobre todo o monitor do menu, incluindo barras e margens, em Sticky e Spaced. O menu permanece centralizado e respeita o controle global de blur.
+
+`argvus calculator`: Sempre abre em uma janela flutuante pequena e centralizada (370 × 420); o modo científico pode expandi-la.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

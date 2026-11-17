@@ -152,3 +152,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Dalam Sticky dan Spaced, blur Rofi mencakup seluruh monitor menu, termasuk bilah dan margin. Menu tetap di tengah dan mengikuti pengaturan blur global.
+
+`argvus calculator`: Selalu terbuka sebagai jendela mengambang kecil di tengah (370 × 420); mode ilmiah dapat memperbesarnya.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

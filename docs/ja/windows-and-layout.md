@@ -131,3 +131,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky と Spaced では、Rofi のぼかしがバーや余白を含むメニューのモニター全体を覆います。メニューは中央に表示され、ぼかしの全体設定に従います。
+
+`argvus calculator`: 常に中央の小さなフローティングウィンドウ（370 × 420）で開きます。関数モードでは拡大できます。
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

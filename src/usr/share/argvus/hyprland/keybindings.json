@@ -27,7 +27,7 @@
     {"id":"app.snippets","category":"applications","description_key":"keybindings.action.snippets","keys":"SUPER + ALT + N","action":"argvus snippets"},
     {"id":"app.git","category":"applications","description_key":"keybindings.action.git","keys":"SUPER + ALT + G","action":"argvus git"},
     {"id":"app.browser","category":"applications","description_key":"keybindings.action.browser","keys":"SUPER + B","action":"xdg-open https://"},
-    {"id":"app.calculator","category":"applications","description_key":"keybindings.action.calculator","keys":"SUPER + C","action":"rofi calculator"},
+    {"id":"app.calculator","category":"applications","description_key":"keybindings.action.calculator","keys":"SUPER + C","action":"argvus calculator"},
     {"id":"window.maximize","category":"windows","description_key":"keybindings.action.maximize","keys":"SUPER + S","action":"dispatcher:fullscreen:maximized:toggle"},
     {"id":"window.close","category":"windows","description_key":"keybindings.action.close_window","keys":"SUPER + Q","action":"dispatcher:close"},
     {"id":"window.toggle_floating","category":"windows","description_key":"keybindings.action.toggle_floating","keys":"SUPER + SHIFT + Space","action":"dispatcher:float:toggle"},

@@ -152,3 +152,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky ও Spaced মোডে Rofi মেনুর পুরো মনিটর বার ও মার্জিনসহ ঝাপসা করে। মেনু কেন্দ্রে থাকে এবং বৈশ্বিক ব্লার সেটিং অনুসরণ করে।
+
+`argvus calculator`: সবসময় কেন্দ্রে ছোট ভাসমান উইন্ডোতে (370 × 420) খোলে; বৈজ্ঞানিক মোড এটি বড় করতে পারে।
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

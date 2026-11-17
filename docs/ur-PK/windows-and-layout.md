@@ -173,3 +173,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky اور Spaced میں Rofi کا دھندلاپن بار اور حاشیوں سمیت مینو کے پورے مانیٹر پر ہوتا ہے۔ مینو درمیان میں رہتا ہے اور عمومی دھندلاپن کی ترتیب پر عمل کرتا ہے۔
+
+`argvus calculator`: ہمیشہ درمیان میں چھوٹی تیرتی ونڈو (370 × 420) میں کھلتا ہے؛ سائنسی موڈ اسے بڑا کر سکتا ہے۔
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

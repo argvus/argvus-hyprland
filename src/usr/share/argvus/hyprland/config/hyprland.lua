@@ -1242,6 +1242,19 @@ end
 hl.window_rule({ match = { class = ".*pavucontrol.*" }, float = true })
 hl.window_rule({ match = { class = "org.gnome.FileRoller" }, float = true })
 hl.window_rule({ match = { class = "org.gnome.Calculator" }, float = true })
+-- ARGVUS applications may raise their existing window on activation.
+hl.window_rule({
+  name = "argvus-application-activation",
+  match = { class = "^((org|sh|com)\\.argvus\\..*|argvus[-.].*)$" },
+  focus_on_activate = true,
+})
+-- Keep the calculator compact even when the desktop uses tiled placement.
+hl.window_rule({
+  match = { class = "^org\\.argvus\\.Calculator$" },
+  float = true,
+  size = "370 420",
+  center = true,
+})
 hl.window_rule({ match = { class = "nm-connection-editor" }, float = true })
 hl.window_rule({
   match = { class = "kitty", title = ".*nmtui.*" },
@@ -1728,11 +1741,7 @@ _argvus_bind("system.emoji_picker", mod .. " + period", hl.dsp.exec_cmd("argvus 
 _argvus_bind("system.color_picker", mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Calculator --------------------------------------------------------------------------------------
-_argvus_bind(
-  "app.calculator",
-  mod .. " + C",
-  hl.dsp.exec_cmd("rofi -config " .. rofi_config .. " -show calc -modi calc -no-show-match -no-sort")
-)
+_argvus_bind("app.calculator", mod .. " + C", hl.dsp.exec_cmd("argvus calculator"))
 
 -- Exit Hyprland -----------------------------------------------------------------------------------
 _argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd("argvus hypr-power-menu"))

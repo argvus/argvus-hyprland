@@ -130,3 +130,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Rofi desenfoca todo el monitor del menú, incluidas barras y márgenes, en Sticky y Spaced. El menú permanece centrado y respeta el ajuste global de desenfoque.
+
+`argvus calculator`: Siempre se abre en una ventana flotante pequeña y centrada (370 × 420); el modo científico puede ampliarla.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

@@ -152,3 +152,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Trong Sticky và Spaced, hiệu ứng mờ Rofi phủ toàn bộ màn hình chứa menu, gồm thanh và lề. Menu vẫn ở giữa và tuân theo cài đặt mờ toàn cục.
+
+`argvus calculator`: Luôn mở trong cửa sổ nổi nhỏ ở giữa (370 × 420); chế độ khoa học có thể mở rộng cửa sổ.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

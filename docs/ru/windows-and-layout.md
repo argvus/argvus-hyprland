@@ -131,3 +131,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Rofi размывает весь монитор меню, включая панели и поля, в Sticky и Spaced. Меню остаётся по центру; глобальная настройка размытия сохраняет силу.
+
+`argvus calculator`: Всегда открывается в небольшом плавающем окне по центру (370 × 420); научный режим может увеличить его.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

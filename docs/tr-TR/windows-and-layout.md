@@ -152,3 +152,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky ve Spaced modlarında Rofi bulanıklığı çubuklar ve kenarlar dahil menü monitörünün tamamını kaplar. Menü ortada kalır ve genel bulanıklık ayarına uyar.
+
+`argvus calculator`: Her zaman ortalanmış küçük bir kayan pencere (370 × 420) olarak açılır; bilimsel mod büyütebilir.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

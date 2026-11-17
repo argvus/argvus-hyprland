@@ -158,3 +158,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 يغطي تمويه Rofi كامل شاشة القائمة بما فيها الأشرطة والهوامش في Sticky وSpaced. تبقى القائمة في الوسط وتتبع إعداد التمويه العام.
+
+`argvus calculator`: تفتح دائمًا في نافذة عائمة صغيرة في الوسط (370 × 420)؛ يمكن للوضع العلمي تكبيرها.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

@@ -131,3 +131,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 在 Sticky 和 Spaced 模式下，Rofi 模糊覆盖菜单所在的整个显示器，包括栏和边距。菜单保持居中，并遵循全局模糊设置。
+
+`argvus calculator`: 始终以居中的小型浮动窗口打开（370 × 420）；科学模式可扩大窗口。
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

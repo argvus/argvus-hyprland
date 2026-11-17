@@ -152,3 +152,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky और Spaced में Rofi का धुंधलापन बार और किनारों सहित मेनू वाले पूरे मॉनिटर को ढकता है। मेनू बीच में रहता है और वैश्विक धुंधलापन सेटिंग का पालन करता है।
+
+`argvus calculator`: हमेशा बीच में छोटी तैरती विंडो (370 × 420) में खुलता है; वैज्ञानिक मोड इसे बड़ा कर सकता है।
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

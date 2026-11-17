@@ -149,3 +149,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 O Rofi usa uma superfície transparente em ecrã inteiro: o desfoque cobre todo o monitor do menu, incluindo barras e margens, em Sticky e Spaced. O menu permanece centrado e respeita o controlo global de desfoque.
+
+`argvus calculator`: Abre sempre numa janela flutuante pequena e centrada (370 × 420); o modo científico pode expandi-la.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

@@ -132,3 +132,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Sticky와 Spaced에서 Rofi 흐림 효과는 표시줄과 여백을 포함한 메뉴 모니터 전체를 덮습니다. 메뉴는 중앙에 유지되며 전역 흐림 설정을 따릅니다.
+
+`argvus calculator`: 항상 중앙의 작은 플로팅 창(370 × 420)으로 열립니다. 공학용 모드에서는 확대할 수 있습니다.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

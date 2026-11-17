@@ -131,3 +131,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Rofi floute tout le moniteur du menu, barres et marges comprises, en Sticky et Spaced. Le menu reste centré et respecte le réglage global du flou.
+
+`argvus calculator`: S’ouvre toujours dans une petite fenêtre flottante centrée (370 × 420) ; le mode scientifique peut l’agrandir.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

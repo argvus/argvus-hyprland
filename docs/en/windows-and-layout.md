@@ -148,3 +148,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Rofi uses a fullscreen transparent surface: blur covers the entire menu monitor, including bars and margins, in Sticky and Spaced. The menu stays centered; global blur settings still apply.
+
+`argvus calculator`: Always opens as a small, centered floating window (370 × 420); scientific mode can expand it.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).

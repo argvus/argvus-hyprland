@@ -131,3 +131,9 @@ pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reloa
 ```
 
 Rofi verwischt im Sticky- und Spaced-Modus den gesamten Menümonitor einschließlich Leisten und Rändern. Das Menü bleibt zentriert; die globale Unschärfeeinstellung gilt weiterhin.
+
+`argvus calculator`: Öffnet sich immer als kleines, zentriertes schwebendes Fenster (370 × 420); der wissenschaftliche Modus kann es vergrößern.
+
+`SUPER + C` → `argvus calculator` (ARGVUS / GTK4).
+
+ARGVUS: `focus_on_activate = true` (`org.argvus.*`, `sh.argvus.*`, `com.argvus.*`, `argvus-*`, `argvus.*`).
