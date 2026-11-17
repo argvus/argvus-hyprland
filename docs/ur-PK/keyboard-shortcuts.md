@@ -133,8 +133,8 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 
 | شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + L` | لاک سسٹم |
-| `SUPER + escape` | ایگزٹ سسٹم |
+| `SUPER + L` | لاک سسٹم (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland کو دوبارہ لوڈ کریں |
 | `SUPER + Shift + S` | مانیٹر کو آف/آن کریں (سسٹم کو معطل نہ کریں) |
 | `SUPER + Shift + L` | غیر فعالی لاک ٹائم آؤٹ کا انتخاب کریں |

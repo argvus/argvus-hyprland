@@ -151,7 +151,7 @@ cường độ tối đa theo[phát hành mã nguồn >=0.57.0](https://github.c
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Menu Rofi, bao gồm bộ chọn emoji (`SUPER + .`), giữ màn hình bên ngoài menu rõ nét. Các điểm ảnh hoàn toàn trong suốt được loại khỏi hiệu ứng mờ; bên trong menu vẫn áp dụng cài đặt trình khởi chạy và cài đặt chung. Rofi dùng kiểu fade cố định, kể cả menu emoji và nguồn; tốc độ và trạng thái bật hoạt ảnh vẫn theo cài đặt chung của Hyprland.
+Menu Rofi, bao gồm bộ chọn emoji (`SUPER + .`), giữ màn hình bên ngoài menu rõ nét. Các điểm ảnh hoàn toàn trong suốt được loại khỏi hiệu ứng mờ; bên trong menu vẫn áp dụng cài đặt trình khởi chạy và cài đặt chung. Rofi dùng kiểu fade cố định; tốc độ và trạng thái bật hoạt ảnh vẫn theo cài đặt chung của Hyprland.
 
 `argvus calculator`: Luôn mở trong cửa sổ nổi nhỏ ở giữa (370 × 420); chế độ khoa học có thể mở rộng cửa sổ.
 

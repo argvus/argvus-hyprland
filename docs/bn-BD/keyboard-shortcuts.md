@@ -133,8 +133,8 @@ description: ARGVUS Hyprland কনফিগারেশন দ্বারা �
 
 | শর্টকাট | বর্ণনা |
 | --- | --- |
-| `SUPER + L` | লক সিস্টেম |
-| `SUPER + escape` | প্রস্থান সিস্টেম |
+| `SUPER + L` | লক সিস্টেম (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland পুনরায় লোড করুন |
 | `SUPER + Shift + S` | মনিটর বন্ধ/চালু করুন (সাসপেন্ড সিস্টেম নয়) |
 | `SUPER + Shift + L` | নিষ্ক্রিয়তা লক টাইমআউট নির্বাচন করুন |

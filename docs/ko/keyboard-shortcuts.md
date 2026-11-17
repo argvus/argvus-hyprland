@@ -130,8 +130,8 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 
 | 바로가기 | 설명 |
 | --- | --- |
-| `SUPER + L` | 시스템 잠금 |
-| `SUPER + escape` | 시스템 종료 |
+| `SUPER + L` | 시스템 잠금 (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland 재시작 |
 | `SUPER + Shift + S` | 모니터 끄기/켜기 (시스템 절전 아님) |
 | `SUPER + Shift + L` | 비활성 잠금 시간 선택 |

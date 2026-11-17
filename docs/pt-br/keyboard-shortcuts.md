@@ -133,8 +133,8 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 
 | Atalho | Descrição |
 | --- | --- |
-| `SUPER + L` | Bloquear sistema |
-| `SUPER + escape` | Sair do sistema |
+| `SUPER + L` | Bloquear sistema (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recarregar Hyprland |
 | `SUPER + Shift + S` | Desligar/Ligar monitor (não é suspender) |
 | `SUPER + Shift + L` | Escolhe o tempo de bloqueio por inatividade |

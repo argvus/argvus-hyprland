@@ -133,8 +133,8 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 
 | Shortcut | Description |
 | --- | --- |
-| `SUPER + L` | Lock system |
-| `SUPER + escape` | Exit system |
+| `SUPER + L` | Lock system (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Reload Hyprland |
 | `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
 | `SUPER + Shift + L` | Choose inactivity lock timeout |

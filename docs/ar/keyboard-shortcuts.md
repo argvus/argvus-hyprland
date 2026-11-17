@@ -133,8 +133,8 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 
 | الاختصار | الوصف |
 | --- | --- |
-| `SUPER + L` | نظام القفل |
-| `SUPER + escape` | نظام الخروج |
+| `SUPER + L` | نظام القفل (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | تحديث هايبرلاند |
 | `SUPER + Shift + S` | إيقاف تشغيل/تشغيل الشاشة (وليس تعليق النظام) |
 | `SUPER + Shift + L` | اختر مهلة قفل عدم النشاط |

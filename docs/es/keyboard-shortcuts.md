@@ -130,8 +130,8 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 
 | Atajo | Descripción |
 | --- | --- |
-| `SUPER + L` | Bloquear sistema |
-| `SUPER + escape` | Salir del sistema |
+| `SUPER + L` | Bloquear sistema (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recargar Hyprland |
 | `SUPER + Shift + S` | Apagar/encender monitor (no suspender sistema) |
 | `SUPER + Shift + L` | Elegir tiempo de espera para el bloqueo por inactividad |

@@ -47,9 +47,9 @@ SHORTCUT                        DESCRIPTION
 31 - SUPER + F5                 = Toggles between ARGVUS Dark and ARGVUS Light themes
 32 - SUPER + F6                 = Toggle visual effects
 33 - SUPER + F1                 = Open About ARGVUS
-34 - SUPER + l                  = Lock system
+34 - SUPER + l                  = Lock system (argvus lock)
 35 - SUPER + Shift + S          = Turn monitor off/on (not suspend system)
-36 - SUPER + Esc                = Exit system
+36 - SUPER + Esc                = ARGVUS Lifecycle
 37 - SUPER + Shift + R          = Reload Hyprland
 38 - SUPER + Alt + ↑/↓          = Move taskbar to top/bottom
 

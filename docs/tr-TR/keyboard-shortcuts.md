@@ -133,8 +133,8 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 
 | Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + L` | Kilit sistemi |
-| `SUPER + escape` | Çıkış sistemi |
+| `SUPER + L` | Kilit sistemi (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland'yu yeniden yükle |
 | `SUPER + Shift + S` | Monitörü kapatıp açın (sistemi askıya almayın) |
 | `SUPER + Shift + L` | Hareketsizlik kilidi zaman aşımını seçin |

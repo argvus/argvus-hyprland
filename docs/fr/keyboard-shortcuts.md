@@ -130,8 +130,8 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 
 | Raccourci | Description |
 | --- | --- |
-| `SUPER + L` | Verrouiller le système |
-| `SUPER + escape` | Quitter le système |
+| `SUPER + L` | Verrouiller le système (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recharger Hyprland |
 | `SUPER + Shift + S` | Éteindre/Allumer le moniteur (ne pas mettre le système en suspension) |
 | `SUPER + Shift + L` | Choisir le délai de verrouillage en cas d’inactivité |

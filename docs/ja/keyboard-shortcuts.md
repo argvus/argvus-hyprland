@@ -130,8 +130,8 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 
 | ショートカット | 説明 |
 | --- | --- |
-| `SUPER + L` | システムをロック |
-| `SUPER + escape` | システムを終了 |
+| `SUPER + L` | システムをロック (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland をリロード |
 | `SUPER + Shift + S` | モニターをオン/オフにする（システムはサスペンドしない） |
 | `SUPER + Shift + L` | 非アクティブ時のロックタイムアウトを選択 |

@@ -148,7 +148,7 @@ No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as á
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Os menus Rofi, incluindo o seletor de emoji (`SUPER + .`), mantêm nítida a área da tela fora do menu. Pixels totalmente transparentes são excluídos do blur; o blur dentro do menu continua seguindo as configurações do launcher e globais. O Rofi usa estilo fade fixo, incluindo os menus de emoji e energia; a velocidade e a ativação das animações ainda seguem as configurações globais do Hyprland.
+Os menus Rofi, incluindo o seletor de emoji (`SUPER + .`), mantêm nítida a área da tela fora do menu. Pixels totalmente transparentes são excluídos do blur; o blur dentro do menu continua seguindo as configurações do launcher e globais. O Rofi usa estilo fade fixo, incluindo o menu de emoji; a velocidade e a ativação das animações ainda seguem as configurações globais do Hyprland.
 
 `argvus calculator`: Sempre abre em uma janela flutuante pequena e centralizada (370 × 420); o modo científico pode expandi-la.
 

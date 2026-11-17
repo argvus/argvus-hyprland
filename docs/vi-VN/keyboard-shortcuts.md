@@ -131,8 +131,8 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 
 | Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + L` | Hệ thống khóa |
-| `SUPER + escape` | Hệ thống thoát |
+| `SUPER + L` | Hệ thống khóa (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Tải lại Hyprland |
 | `SUPER + Shift + S` | Tắt/bật màn hình (không tạm dừng hệ thống) |
 | `SUPER + Shift + L` | Chọn thời gian chờ khóa không hoạt động |

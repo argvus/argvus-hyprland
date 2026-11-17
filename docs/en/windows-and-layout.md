@@ -147,7 +147,7 @@ In **Spaced + Floating**, windows respect outer gaps and the areas reserved by b
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Rofi menus, including the emoji picker (`SUPER + .`), leave the desktop outside the menu sharp. Fully transparent pixels are excluded from blur; blur inside the menu still follows the launcher and global settings. Rofi uses a fixed fade style, including the emoji and power menus; animation speed and enablement still follow Hyprland’s global settings.
+Rofi menus, including the emoji picker (`SUPER + .`), leave the desktop outside the menu sharp. Fully transparent pixels are excluded from blur; blur inside the menu still follows the launcher and global settings. Rofi uses a fixed fade style, including the emoji menu; animation speed and enablement still follow Hyprland’s global settings.
 
 `argvus calculator`: Always opens as a small, centered floating window (370 × 420); scientific mode can expand it.
 

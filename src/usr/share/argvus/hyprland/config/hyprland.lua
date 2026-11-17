@@ -1181,6 +1181,7 @@ hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 10, bezie
 -- ARGVUS surfaces are blurred. A surface without a switch follows the global
 -- blur state.
 local _blur_layer_surfaces = {
+  { namespace = "argvus-lifecycle" },
   { namespace = "argvus-taskbar", surface = "taskbar" },
   -- SidebarWindow pins argvus-control-panel. Older builds fall back to the
   -- Quickshell default namespace, so keep matching that too.
@@ -1748,10 +1749,10 @@ _argvus_bind("system.color_picker", mod .. " + P", hl.dsp.exec_cmd("hyprpicker -
 _argvus_bind("app.calculator", mod .. " + C", hl.dsp.exec_cmd("argvus calculator"))
 
 -- Exit Hyprland -----------------------------------------------------------------------------------
-_argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd("argvus hypr-power-menu"))
+_argvus_bind("session.exit", mod .. " + escape", hl.dsp.exec_cmd("argvus-lifecycle"))
 
 -- Lock session ------------------------------------------------------------------------------------
-_argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd("argvus hypr-power-menu --lock"))
+_argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd("argvus lock"))
 
 -- Reload Hyprland ---------------------------------------------------------------------------------
 _argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus sessionctl reload"))

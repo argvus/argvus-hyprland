@@ -130,7 +130,7 @@ In **Spaced + Floating** respektieren Fenster äußere Abstände und die von bei
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Rofi-Menüs, einschließlich der Emoji-Auswahl (`SUPER + .`), lassen den Desktop außerhalb des Menüs scharf. Vollständig transparente Pixel werden von der Unschärfe ausgeschlossen; innerhalb des Menüs gelten weiterhin die Launcher- und globalen Einstellungen. Rofi verwendet einen festen Fade-Stil, auch für Emoji- und Energiemenüs; Geschwindigkeit und Aktivierung folgen weiterhin den globalen Hyprland-Einstellungen.
+Rofi-Menüs, einschließlich der Emoji-Auswahl (`SUPER + .`), lassen den Desktop außerhalb des Menüs scharf. Vollständig transparente Pixel werden von der Unschärfe ausgeschlossen; innerhalb des Menüs gelten weiterhin die Launcher- und globalen Einstellungen. Rofi verwendet einen festen Fade-Stil; Geschwindigkeit und Aktivierung folgen weiterhin den globalen Hyprland-Einstellungen.
 
 `argvus calculator`: Öffnet sich immer als kleines, zentriertes schwebendes Fenster (370 × 420); der wissenschaftliche Modus kann es vergrößern.
 

@@ -133,8 +133,8 @@ description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वा�
 
 | शॉर्टकट | विवरण |
 | --- | --- |
-| `SUPER + L` | लॉक सिस्टम |
-| `SUPER + escape` | निकास प्रणाली |
+| `SUPER + L` | लॉक सिस्टम (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland पुनः लोड करें |
 | `SUPER + Shift + S` | मॉनिटर को बंद/चालू करें (सिस्टम को निलंबित नहीं करें) |
 | `SUPER + Shift + L` | निष्क्रियता लॉक टाइमआउट चुनें |

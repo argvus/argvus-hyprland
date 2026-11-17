@@ -130,8 +130,8 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 
 | Scorciatoia | Descrizione |
 | --- | --- |
-| `SUPER + L` | Blocca sistema |
-| `SUPER + escape` | Esci dal sistema |
+| `SUPER + L` | Blocca sistema (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Ricarica Hyprland |
 | `SUPER + Shift + S` | Spegni/accendi monitor (non sospendere il sistema) |
 | `SUPER + Shift + L` | Scegli timeout per blocco inattività |

@@ -130,8 +130,8 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 
 | Tastenkombination | Beschreibung |
 | --- | --- |
-| `SUPER + L` | System sperren |
-| `SUPER + escape` | System beenden |
+| `SUPER + L` | System sperren (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland neu laden |
 | `SUPER + Shift + S` | Monitor aus-/einschalten (System nicht in Standby) |
 | `SUPER + Shift + L` | Zeitüberschreitung für Inaktivitätssperre wählen |

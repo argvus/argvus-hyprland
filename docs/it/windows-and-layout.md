@@ -130,7 +130,7 @@ In **Spaziato + Fluttuante**, le finestre rispettano i margini esterni e le aree
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-I menu Rofi, incluso il selettore emoji (`SUPER + .`), mantengono nitido il desktop esterno al menu. I pixel completamente trasparenti sono esclusi dalla sfocatura; nel menu restano valide le impostazioni del launcher e quelle globali. Rofi usa uno stile fade fisso, anche per i menu emoji e alimentazione; velocità e attivazione seguono le impostazioni globali di Hyprland.
+I menu Rofi, incluso il selettore emoji (`SUPER + .`), mantengono nitido il desktop esterno al menu. I pixel completamente trasparenti sono esclusi dalla sfocatura; nel menu restano valide le impostazioni del launcher e quelle globali. Rofi usa uno stile fade fisso; velocità e attivazione seguono le impostazioni globali di Hyprland.
 
 `argvus calculator`: Si apre sempre in una piccola finestra flottante centrata (370 × 420); la modalità scientifica può ampliarla.
 

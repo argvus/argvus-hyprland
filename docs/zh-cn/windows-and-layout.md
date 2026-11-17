@@ -130,7 +130,7 @@ Wobble 默认情况下是禁用的。其 ARGVUS 默认值为：刚度 `100`、�
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Rofi 菜单（包括 `SUPER + .` 表情选择器）不会模糊菜单外的桌面。完全透明的像素不参与模糊；菜单内部的模糊仍遵循启动器和全局设置。 Rofi（包括表情和电源菜单）使用固定淡入淡出样式；速度和启用状态仍遵循 Hyprland 全局设置。
+Rofi 菜单（包括 `SUPER + .` 表情选择器）不会模糊菜单外的桌面。完全透明的像素不参与模糊；菜单内部的模糊仍遵循启动器和全局设置。 Rofi使用固定淡入淡出样式；速度和启用状态仍遵循 Hyprland 全局设置。
 
 `argvus calculator`: 始终以居中的小型浮动窗口打开（370 × 420）；科学模式可扩大窗口。
 

@@ -133,8 +133,8 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 
 | Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + L` | Sistem kunci |
-| `SUPER + escape` | Keluar dari sistem |
+| `SUPER + L` | Sistem kunci (`argvus lock`) |
+| `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Muat ulang Hyprland |
 | `SUPER + Shift + S` | Mematikan/menghidupkan monitor (bukan menangguhkan sistem) |
 | `SUPER + Shift + L` | Pilih batas waktu penguncian ketidakaktifan |
