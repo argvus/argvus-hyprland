@@ -141,14 +141,15 @@ description: Найдите сочетания клавиш, предостав�
 
 | Сочетание клавиш | Описание |
 | --- | --- |
-| `SUPER + Shift + /` | Cheatsheets Hyprland |
-| `SUPER + CTRL + /` | Cheatsheets Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Открыть «О программе ARGVUS» |
 | `SUPER + ALT + C` | Открыть Центр управления |
 | `SUPER + P` | Пипетка цвета |
 | `SUPER + .` | Выбор эмодзи |
 | `SUPER + H` | История буфера обмена |
 | `SUPER + Shift + H` | Очистить историю буфера обмена |
+
+`↑ / ↓` Навигация · `Tab` Сменить панель · `/` Поиск · `Esc` Закрыть
 
 ### Виджеты
 

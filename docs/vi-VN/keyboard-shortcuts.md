@@ -18,7 +18,7 @@ Các phím tắt tùy chỉnh có thể được chỉnh sửa, bật/tắt và 
 
 ## Tham chiếu hiện tại
 
-Tệp manifest cơ bản và các cheatsheet đã cài đặt nằm dưới  `argvus control-center shortcuts create`  `argvus control-center shortcuts list`  `bindings.lua` `/usr/share/argvus/hyprland/`. Ghi đè người dùng đang hoạt động không phải là một manifest thay thế: nó thay đổi các mục được chọn trong Trung tâm Điều khiển. Đây là lý do tại sao một danh sách được sao chép thủ công, theo phiên bản, có thể trở nên lỗi thời.
+Tệp manifest cơ bản và các ARGVUS Keybindings đã cài đặt nằm dưới  `argvus control-center shortcuts create`  `argvus control-center shortcuts list`  `bindings.lua` `/usr/share/argvus/hyprland/`. Ghi đè người dùng đang hoạt động không phải là một manifest thay thế: nó thay đổi các mục được chọn trong Trung tâm Điều khiển. Đây là lý do tại sao một danh sách được sao chép thủ công, theo phiên bản, có thể trở nên lỗi thời.
 
 
 `SUPER + Shift + R` là việc tải lại runtime rõ ràng: nó tải lại Hyprland và khởi động lại thanh tác vụ ARGVUS, Control Panel và các dịch vụ Widget Telemetry. Các lần tải lại theo cấu hình vẫn phụ thuộc điều kiện và bỏ qua việc tải lại đồ họa khi trạng thái chuẩn không thay đổi.
@@ -142,14 +142,15 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 
 | Phím tắt | Mô tả |
 | --- | --- |
-| `SUPER + Shift + /` | Bảng tính Hyprland |
-| `SUPER + CTRL + /` | Bảng tính Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Mở Giới thiệu về ARGVUS |
 | `SUPER + ALT + C` | Trung tâm điều khiển mở |
 | `SUPER + P` | Bộ chọn màu |
 | `SUPER + .` | Bộ chọn biểu tượng cảm xúc |
 | `SUPER + H` | Lịch sử bảng nhớ tạm |
 | `SUPER + Shift + H` | Xóa lịch sử bảng nhớ tạm |
+
+`↑ / ↓` Di chuyển · `Tab` Đổi bảng · `/` Tìm kiếm · `Esc` Đóng
 
 ### Widget
 
@@ -205,7 +206,7 @@ Gói tùy chọn argvus-ai sở hữu /usr/share/argvus/ai/hyprland.lua. Hyprlan
 
 ## Gói hàng tại bến
 
-Những phím này áp dụng bên trong **Control Center > System Administration > Packages**, thay vì áp dụng toàn cục cho Hyprland. `F8` mở lại terminal giao dịch, `Esc` ẩn nó mà không dừng tiến trình, `Shift+PageUp/PageDown` cuộn lịch sử, `Shift+End` trở về đầu ra trực tiếp và `Ctrl+C` ngắt đứa con được tập trung. Bảng một lược (cheatsheet) đã cài đặt bao gồm cùng các phím này.
+Những phím này áp dụng bên trong **Control Center > System Administration > Packages**, thay vì áp dụng toàn cục cho Hyprland. `F8` mở lại terminal giao dịch, `Esc` ẩn nó mà không dừng tiến trình, `Shift+PageUp/PageDown` cuộn lịch sử, `Shift+End` trở về đầu ra trực tiếp và `Ctrl+C` ngắt đứa con được tập trung. Bảng một lược (ARGVUS Keybindings) đã cài đặt bao gồm cùng các phím này.
 
 Trong Gói, `/` tập trung vào thanh **Tìm kiếm** ở trên cùng. `Enter` tại đó gửi các tìm kiếm cài đặt Chính thức/AUR; danh sách gỡ bỏ và cập nhật được lọc khi bạn gõ. `Down` di chuyển đến kết quả, `Up` trên kết quả đầu tiên trở lại Tìm kiếm, và `Esc` trong Tìm kiếm giữ nguyên truy vấn và quay lại danh sách. Nhấn Enter trên một kết quả thực hiện hành động gói của nó.
 

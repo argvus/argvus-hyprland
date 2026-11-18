@@ -144,14 +144,15 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 
 | شارٹ کٹ | تفصیل |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland چیٹ شیٹس |
-| `SUPER + CTRL + /` | کٹی چیٹ شیٹس |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | ARGVUS کے بارے میں کھولیں |
 | `SUPER + ALT + C` | کھولیں کنٹرول سینٹر |
 | `SUPER + P` | رنگ چنندہ |
 | `SUPER + .` | ایموجی چنندہ |
 | `SUPER + H` | کلپ بورڈ کی تاریخ |
 | `SUPER + Shift + H` | کلپ بورڈ کی تاریخ صاف کریں |
+
+`↑ / ↓` نیویگیٹ کریں · `Tab` پینل بدلیں · `/` تلاش · `Esc` بند کریں
 
 ### وجیٹس
 

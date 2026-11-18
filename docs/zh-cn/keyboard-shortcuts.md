@@ -141,14 +141,15 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 
 | 快捷键 | 描述 |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland 速查表 |
-| `SUPER + CTRL + /` | Kitty 速查表 |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | 打开 ARGVUS 关于页面 |
 | `SUPER + ALT + C` | 打开控制中心 |
 | `SUPER + P` | 颜色选择器 |
 | `SUPER + .` | 表情选择器 |
 | `SUPER + H` | 剪贴板历史 |
 | `SUPER + Shift + H` | 清除剪贴板历史 |
+
+`↑ / ↓` 导航 · `Tab` 切换面板 · `/` 搜索 · `Esc` 关闭
 
 ### 小部件
 

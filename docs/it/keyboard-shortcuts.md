@@ -18,7 +18,7 @@ Esegui `argvus control-center shortcuts create` o `argvus control-center shortcu
 
 ## Riferimento attuale
 
-Il manifesto di base e le cheatsheet installate si trovano sotto `/usr/share/argvus/hyprland/`. La sovrascrittura utente attiva non è un manifesto sostitutivo: modifica le voci selezionate nel Centro di Controllo. Ecco perché un elenco specifico per versione, copiato manualmente, può diventare obsoleto.
+Il manifesto di base e le ARGVUS Keybindings installate si trovano sotto `/usr/share/argvus/hyprland/`. La sovrascrittura utente attiva non è un manifesto sostitutivo: modifica le voci selezionate nel Centro di Controllo. Ecco perché un elenco specifico per versione, copiato manualmente, può diventare obsoleto.
 
 Alcune azioni integrate utili includono lo spostamento del focus e degli spazi di lavoro, l'attivazione/disattivazione delle finestre flottanti, screenshot e registrazione, apertura del launcher/terminale, cambiamento dell'aspetto, blocco della sessione, controllo dei media e ricaricamento di Hyprland. I collegamenti predefiniti sono elencati nella [tabella dei collegamenti predefiniti](#default-shortcut-table) qui sotto; la pagina del Centro di Controllo mostra i collegamenti così come sono attualmente configurati.
 
@@ -141,14 +141,15 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 
 | Scorciatoia | Descrizione |
 | --- | --- |
-| `SUPER + Shift + /` | Cheat sheet di Hyprland |
-| `SUPER + CTRL + /` | Cheat sheet di Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Apri Informazioni su ARGVUS |
 | `SUPER + ALT + C` | Apri Centro di Controllo |
 | `SUPER + P` | Selettore di Colori |
 | `SUPER + .` | Selettore di Emoji |
 | `SUPER + H` | Cronologia Appunti |
 | `SUPER + Shift + H` | Cancella Cronologia Appunti |
+
+`↑ / ↓` Sfoglia · `Tab` Cambia pannello · `/` Ricerca · `Esc` Chiudi
 
 ### Widget
 

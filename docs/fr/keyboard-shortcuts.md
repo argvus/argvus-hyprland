@@ -141,14 +141,15 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 
 | Raccourci | Description |
 | --- | --- |
-| `SUPER + Shift + /` | Fiches pratiques Hyprland |
-| `SUPER + CTRL + /` | Fiches pratiques Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Ouvrir À propos de ARGVUS |
 | `SUPER + ALT + C` | Ouvrir le Centre de contrôle |
 | `SUPER + P` | Sélecteur de couleur |
 | `SUPER + .` | Sélecteur d’emoji |
 | `SUPER + H` | Historique du presse-papiers |
 | `SUPER + Shift + H` | Effacer l’historique du presse-papiers |
+
+`↑ / ↓` Naviguer · `Tab` Changer de panneau · `/` Recherche · `Esc` Fermer
 
 ### Widgets
 

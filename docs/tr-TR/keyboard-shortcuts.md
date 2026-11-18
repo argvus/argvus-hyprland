@@ -144,14 +144,15 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 
 | Kısayol | Açıklama |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Hile Sayfaları |
-| `SUPER + CTRL + /` | Kitty Hile Sayfaları |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Açık ARGVUS Hakkında |
 | `SUPER + ALT + C` | Kontrol Merkezini Aç |
 | `SUPER + P` | Renk Seçici |
 | `SUPER + .` | Emoji Seçici |
 | `SUPER + H` | Pano Geçmişi |
 | `SUPER + Shift + H` | Pano Geçmişini Temizle |
+
+`↑ / ↓` Gezin · `Tab` Panel değiştir · `/` Arama · `Esc` Kapat
 
 ### Widget'lar
 

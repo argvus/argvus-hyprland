@@ -19,7 +19,7 @@ Jalankan `argvus control-center shortcuts create` atau `argvus control-center sh
 
 ## Referensi saat ini
 
-Manifest dasar dan cheatsheets yang terpasang berada di bawah `/usr/share/argvus/hyprland/`. Override pengguna aktif bukanlah manifest pengganti: itu mengubah entri yang dipilih di Control Center. Inilah sebabnya mengapa daftar yang disalin secara manual dan spesifik versi dapat menjadi usang.
+Manifest dasar dan ARGVUS Keybindings yang terpasang berada di bawah `/usr/share/argvus/hyprland/`. Override pengguna aktif bukanlah manifest pengganti: itu mengubah entri yang dipilih di Control Center. Inilah sebabnya mengapa daftar yang disalin secara manual dan spesifik versi dapat menjadi usang.
 
 Beberapa aksi bawaan yang berguna meliputi memindahkan fokus dan ruang kerja, mengalihkan jendela mengambang, menangkap layar dan merekam, membuka peluncur/terminal, mengubah tampilan, mengunci sesi, mengontrol media, dan memuat ulang Hyprland. Binding default tercantum dalam [tabel pintasan default](#default-shortcut-table) di bawah ini; halaman Control Center menampilkan binding sebagaimana yang telah dikonfigurasi saat ini.
 
@@ -144,14 +144,15 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 
 | Pintasan | Deskripsi |
 | --- | --- |
-| `SUPER + Shift + /` | Lembar Cheat Hyprland |
-| `SUPER + CTRL + /` | Lembar Curang Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Buka Tentang ARGVUS |
 | `SUPER + ALT + C` | Buka Pusat Kontrol |
 | `SUPER + P` | Pemilih Warna |
 | `SUPER + .` | Pemilih Emoji |
 | `SUPER + H` | Riwayat Papan Klip |
 | `SUPER + Shift + H` | Hapus Riwayat Papan Klip |
+
+`↑ / ↓` Navigasi · `Tab` Ganti panel · `/` Cari · `Esc` Tutup
 
 ### Widget
 
@@ -208,7 +209,7 @@ Paket argvus-ai opsional memiliki /usr/share/argvus/ai/hyprland.lua. Hyprland me
 
 ## Paket terminal
 
-Kunci ini berlaku di dalam **Control Center > System Administration > Packages**, bukan secara global untuk Hyprland. `F8` membuka kembali terminal transaksi, `Esc` menyembunyikannya tanpa menghentikan proses, `Shift+PageUp/PageDown` menggulir riwayat, `Shift+End` kembali ke output langsung, dan `Ctrl+C` menghentikan anak yang sedang fokus. Cheat sheet yang terpasang mencakup kunci yang sama.
+Kunci ini berlaku di dalam **Control Center > System Administration > Packages**, bukan secara global untuk Hyprland. `F8` membuka kembali terminal transaksi, `Esc` menyembunyikannya tanpa menghentikan proses, `Shift+PageUp/PageDown` menggulir riwayat, `Shift+End` kembali ke output langsung, dan `Ctrl+C` menghentikan anak yang sedang fokus. ARGVUS Keybindings yang terpasang mencakup kunci yang sama.
 
 Di Paket, `/` memfokuskan bilah **Cari** atas. `Enter` di sana mengirimkan pencarian instalasi Official/AUR; daftar penghapusan dan pembaruan memfilter saat Anda mengetik. `Down` pindah ke hasil, `Up` pada hasil pertama kembali ke Cari, dan `Esc` di Cari mempertahankan kueri dan kembali ke daftar. Tekan Enter pada hasil menjalankan aksi paketnya.
 

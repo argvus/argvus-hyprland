@@ -19,7 +19,7 @@ Run `argvus control-center shortcuts create` or `argvus control-center shortcuts
 
 ## Current reference
 
-The base manifest and installed cheatsheets are under `/usr/share/argvus/hyprland/`. The active user override is not a replacement manifest: it changes the entries selected in Control Center. This is why a version-specific, manually copied list can become stale.
+The base JSON manifest is under `/usr/share/argvus/hyprland/`. The active user override is not a replacement manifest: it changes the entries selected in Control Center. This is why a version-specific, manually copied list can become stale.
 
 Some useful built-in actions include moving focus and workspaces, toggling floating windows, screenshots and recording, opening the launcher/terminal, changing appearance, locking the session, controlling media and reloading Hyprland. The default bindings are listed in the [default shortcut table](#default-shortcut-table) below; the Control Center page shows the bindings as they are currently configured.
 
@@ -144,14 +144,15 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 
 | Shortcut | Description |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Cheatsheets |
-| `SUPER + CTRL + /` | Kitty Cheatsheets |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Open About ARGVUS |
 | `SUPER + ALT + C` | Open Control Center |
 | `SUPER + P` | Color Picker |
 | `SUPER + .` | Emoji Picker |
 | `SUPER + H` | Clipboard History |
 | `SUPER + Shift + H` | Clear Clipboard History |
+
+`↑ / ↓` Navigate · `Tab` Switch panel · `/` Search · `Esc` Close
 
 ### Widgets
 
@@ -208,7 +209,7 @@ The optional argvus-ai package owns /usr/share/argvus/ai/hyprland.lua. Hyprland 
 
 ## Packages terminal
 
-These keys apply inside **Control Center > System Administration > Packages**, rather than to Hyprland globally. `F8` reopens the transaction terminal, `Esc` hides it without stopping the process, `Shift+PageUp/PageDown` scroll history, `Shift+End` returns to live output and `Ctrl+C` interrupts the focused child. The installed cheatsheet includes the same keys.
+These keys apply inside **Control Center > System Administration > Packages**, rather than to Hyprland globally. `F8` reopens the transaction terminal, `Esc` hides it without stopping the process, `Shift+PageUp/PageDown` scroll history, `Shift+End` returns to live output and `Ctrl+C` interrupts the focused child. ARGVUS Keybindings includes the same keys.
 
 In Packages, `/` focuses the top **Search** bar. `Enter` there submits Official/AUR installation searches; removal and update lists filter as you type. `Down` moves to results, `Up` on the first result returns to Search, and `Esc` in Search preserves the query and returns to the list. Enter on a result performs its package action.
 

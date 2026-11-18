@@ -141,14 +141,15 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 
 | Atajo | Descripción |
 | --- | --- |
-| `SUPER + Shift + /` | Hojas de trucos de Hyprland |
-| `SUPER + CTRL + /` | Hojas de trucos de Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Abrir Acerca de ARGVUS |
 | `SUPER + ALT + C` | Abrir Centro de Control |
 | `SUPER + P` | Selector de color |
 | `SUPER + .` | Selección de emoji |
 | `SUPER + H` | Historial del portapapeles |
 | `SUPER + Shift + H` | Borrar historial del portapapeles |
+
+`↑ / ↓` Navegar · `Tab` Cambiar de panel · `/` Buscar · `Esc` Cerrar
 
 ### widgets
 

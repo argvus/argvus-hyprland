@@ -144,14 +144,15 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 
 | الاختصار | الوصف |
 | --- | --- |
-| `SUPER + Shift + /` | أوراق الغش في هايبرلاند |
-| `SUPER + CTRL + /` | أوراق غش كيتي |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | افتح حول ARGVUS |
 | `SUPER + ALT + C` | فتح مركز التحكم |
 | `SUPER + P` | منتقي الألوان |
 | `SUPER + .` | منتقي الرموز التعبيرية |
 | `SUPER + H` | تاريخ الحافظة |
 | `SUPER + Shift + H` | مسح محفوظات الحافظة |
+
+`↑ / ↓` تنقّل · `Tab` بدّل اللوحة · `/` البحث · `Esc` إغلاق
 
 ### الحاجيات
 

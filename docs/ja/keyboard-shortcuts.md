@@ -141,14 +141,15 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 
 | ショートカット | 説明 |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland チートシート |
-| `SUPER + CTRL + /` | Kitty チートシート |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | ARGVUS についてを開く |
 | `SUPER + ALT + C` | コントロールセンターを開く |
 | `SUPER + P` | カラーピッカー |
 | `SUPER + .` | 絵文字ピッカー |
 | `SUPER + H` | クリップボード履歴 |
 | `SUPER + Shift + H` | クリップボード履歴をクリア |
+
+`↑ / ↓` 移動 · `Tab` パネル切替 · `/` 検索 · `Esc` 閉じる
 
 ### ウィジェット
 

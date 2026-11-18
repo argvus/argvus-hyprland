@@ -18,7 +18,7 @@ Führen Sie `argvus control-center shortcuts create` oder `argvus control-center
 
 ## Aktueller Bezug
 
-Das Basismanifest und die installierten Cheatsheets befinden sich unter `/usr/share/argvus/hyprland/`. Die aktive Benutzerüberschreibung ist kein Ersatzmanifest: Sie ändert die im Control Center ausgewählten Einträge. Aus diesem Grund kann eine versionsspezifische, manuell kopierte Liste veralten.
+Das Basismanifest und die installierten ARGVUS Keybindings befinden sich unter `/usr/share/argvus/hyprland/`. Die aktive Benutzerüberschreibung ist kein Ersatzmanifest: Sie ändert die im Control Center ausgewählten Einträge. Aus diesem Grund kann eine versionsspezifische, manuell kopierte Liste veralten.
 
 Einige nützliche integrierte Aktionen umfassen das Verschieben des Fokus und der Arbeitsbereiche, das Umschalten von schwebenden Fenstern, Screenshots und Aufnahmen, das Öffnen des Launchers/Terminals, das Ändern des Erscheinungsbildes, das Sperren der Sitzung, die Steuerung von Medien und das Neuladen von Hyprland. Die Standardbelegungen sind in der unten stehenden [Standard-Tastenkürzeltabelle](#default-shortcut-table) aufgelistet; die Seite des Kontrollzentrums zeigt die Belegungen so, wie sie derzeit konfiguriert sind.
 
@@ -141,14 +141,15 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 
 | Tastenkombination | Beschreibung |
 | --- | --- |
-| `SUPER + Shift + /` | Hyprland Spickzettel |
-| `SUPER + CTRL + /` | Kitty Spickzettel |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Über ARGVUS öffnen |
 | `SUPER + ALT + C` | Systemsteuerung öffnen |
 | `SUPER + P` | Farbpicker |
 | `SUPER + .` | Emoji-Picker |
 | `SUPER + H` | Zwischenablage-Verlauf |
 | `SUPER + Shift + H` | Zwischenablage-Verlauf löschen |
+
+`↑ / ↓` Navigieren · `Tab` Bereich wechseln · `/` Suchen · `Esc` Schließen
 
 ### Widgets
 

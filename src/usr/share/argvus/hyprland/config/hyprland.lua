@@ -1200,6 +1200,9 @@ hl.layer_rule({ match = { namespace = "argvus-loading-theme" }, no_anim = true }
 hl.layer_rule({ match = { namespace = "selection" }, no_anim = true })
 
 if _blur_enabled then
+  if _effect_state("blur_control-center_enabled") ~= false then
+    hl.layer_rule({ match = { namespace = "argvus-keybindings" }, blur = true })
+  end
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
     if surface == nil or _theme_effect_enabled(surface .. ".blur", _blur_default) then
@@ -1222,6 +1225,7 @@ hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
 -- Fade both selectors while keeping the color picker immediate.
 hl.layer_rule({ match = { namespace = "argvus-theme-selector" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, animation = "fade" })
+hl.layer_rule({ match = { namespace = "argvus-keybindings" }, animation = "fade" })
 
 -- Window Rules  -----------------------------------------------------------------------------------
 -- Transparency is a client-side contract: any surface that wants the wallpaper
@@ -1340,15 +1344,8 @@ hl.window_rule({
 
 -- ================ Keybindings ================
 
--- All cheatsheets -----------------------------------------------------------------------------------------------------
-_argvus_bind(
-  "system.hyprland_cheatsheet",
-  mod .. " + SHIFT + question",
-  hl.dsp.exec_cmd("argvus cheatsheets-hypr hypr")
-)
-
--- Cheatsheets Kitty -------------------------------------------------------------------------------
-_argvus_bind("system.kitty_cheatsheet", mod .. " + CTRL + slash", hl.dsp.exec_cmd("argvus cheatsheets-launcher kitty"))
+-- Keyboard shortcuts reference
+_argvus_bind("system.keybindings", mod .. " + SHIFT + question", hl.dsp.exec_cmd("argvus keybindings"))
 
 -- About ARGVUS ------------------------------------------------------------------------------------
 _argvus_bind("system.about", mod .. " + F1", hl.dsp.exec_cmd("argvus --about"))

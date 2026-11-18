@@ -19,7 +19,7 @@ Execute `argvus control-center shortcuts create` ou `argvus control-center short
 
 ## Referência atual
 
-O manifesto base e os cheatsheets instalados ficam em `/usr/share/argvus/hyprland/`. O override do usuário não substitui o manifesto: ele altera as entradas selecionadas no Control Center. Por isso, uma lista copiada manualmente pode ficar desatualizada.
+O manifesto base e os ARGVUS Keybindings instalados ficam em `/usr/share/argvus/hyprland/`. O override do usuário não substitui o manifesto: ele altera as entradas selecionadas no Control Center. Por isso, uma lista copiada manualmente pode ficar desatualizada.
 
 Algumas ações incluídas são mover foco e áreas de trabalho, alternar janelas flutuantes, capturas e gravação, abrir lançador/terminal, alterar aparência, bloquear a sessão, controlar mídia e recarregar o Hyprland. Os atalhos padrão estão listados na [tabela de atalhos padrão](#tabela-de-atalhos-padrão) abaixo; a página do Control Center mostra os atalhos como estão configurados atualmente.
 
@@ -144,14 +144,15 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 
 | Atalho | Descrição |
 | --- | --- |
-| `SUPER + Shift + /` | Cheatsheets do Hyprland |
-| `SUPER + CTRL + /` | Cheatsheets do Kitty |
+| `SUPER + Shift + ?` | ARGVUS Keybindings (`argvus keybindings`) |
 | `SUPER + F1` | Abrir Sobre o ARGVUS |
 | `SUPER + ALT + C` | Abrir o Control Center |
 | `SUPER + P` | Seletor de cores (Color Picker) |
 | `SUPER + .` | Seletor de Emoji |
 | `SUPER + H` | Histórico no Clipboard |
 | `SUPER + Shift + H` | Apagar histórico do Clipboard |
+
+`↑ / ↓` Navegar · `Tab` Trocar painel · `/` Buscar · `Esc` Fechar
 
 ### Widgets
 
@@ -208,7 +209,7 @@ O pacote opcional argvus-ai fornece /usr/share/argvus/ai/hyprland.lua. O Hyprlan
 
 ## Terminal de pacotes
 
-Estas teclas se aplicam dentro de **Control Center > System Administration > Packages**, não globalmente no Hyprland. `F8` reabre o terminal da transação, `Esc` oculta sem parar o processo, `Shift+PageUp/PageDown` percorre o histórico, `Shift+End` volta à saída atual e `Ctrl+C` interrompe o processo em foco. O cheatsheet instalado inclui as mesmas teclas.
+Estas teclas se aplicam dentro de **Control Center > System Administration > Packages**, não globalmente no Hyprland. `F8` reabre o terminal da transação, `Esc` oculta sem parar o processo, `Shift+PageUp/PageDown` percorre o histórico, `Shift+End` volta à saída atual e `Ctrl+C` interrompe o processo em foco. O ARGVUS Keybindings instalado inclui as mesmas teclas.
 
 Em Pacotes, `/` foca a barra **Buscar** do topo. `Enter` nela envia consultas de instalação aos repositórios/AUR; as listas de remoção e atualização filtram ao digitar. `↓` vai aos resultados, `↑` no primeiro resultado volta à busca e `Esc` na busca preserva a consulta e volta à lista. Enter num resultado executa a ação do pacote.
 
