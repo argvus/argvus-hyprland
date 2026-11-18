@@ -1214,7 +1214,7 @@ hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.01, animation =
 
 -- GTK animates Lifecycle. Suppress compositor snapshots on unmap so a
 -- lock or suspend cannot leave a fading image behind the lock screen.
-hl.layer_rule({ match = { namespace = "argvus-lifecycle" }, no_anim = true })
+hl.layer_rule({ match = { namespace = "argvus-lifecycle(-shield)?" }, no_anim = true })
 
 -- The color picker is a layer surface; keep it immediate even when window animations are enabled.
 hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
