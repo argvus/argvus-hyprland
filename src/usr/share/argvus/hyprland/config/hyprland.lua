@@ -1202,6 +1202,7 @@ hl.layer_rule({ match = { namespace = "selection" }, no_anim = true })
 if _blur_enabled then
   if _effect_state("blur_control-center_enabled") ~= false then
     hl.layer_rule({ match = { namespace = "argvus-keybindings" }, blur = true })
+    hl.layer_rule({ match = { namespace = "argvus-emoji" }, blur = true })
   end
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
@@ -1212,7 +1213,7 @@ if _blur_enabled then
 end
 
 -- Rofi renders a fullscreen transparent surface around its menu. Exclude that
--- transparent area from blur so opening the emoji picker leaves the desktop sharp.
+-- transparent area from blur so opening Rofi leaves the desktop sharp.
 hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.01, animation = "fade" })
 
 -- GTK animates Lifecycle. Suppress compositor snapshots on unmap so a
@@ -1226,6 +1227,7 @@ hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true })
 hl.layer_rule({ match = { namespace = "argvus-theme-selector" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-keybindings" }, animation = "fade" })
+hl.layer_rule({ match = { namespace = "argvus-emoji" }, animation = "fade" })
 
 -- Window Rules  -----------------------------------------------------------------------------------
 -- Transparency is a client-side contract: any surface that wants the wallpaper

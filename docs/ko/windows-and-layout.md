@@ -131,7 +131,7 @@ Wobble은 기본적으로 비활성화되어 있습니다. 그 ARGVUS 기본값�
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-이모지 선택기(`SUPER + .`)를 포함한 Rofi 메뉴는 메뉴 밖의 바탕 화면을 흐리게 하지 않습니다. 완전히 투명한 픽셀은 흐림에서 제외되며 메뉴 내부의 흐림은 런처 및 전역 설정을 따릅니다. Rofi는 고정 페이드 스타일을 사용합니다. 속도와 활성화는 Hyprland 전역 설정을 따릅니다.
+ARGVUS Emoji는 제어 센터의 흐림, 투명도 및 모서리 설정을 따릅니다. Rofi는 완전히 투명한 픽셀을 흐림에서 제외합니다. 두 표면 모두 Hyprland의 페이드 애니메이션을 사용합니다.
 
 `argvus calculator`: 항상 중앙의 작은 플로팅 창(370 × 420)으로 열립니다. 공학용 모드에서는 확대할 수 있습니다.
 

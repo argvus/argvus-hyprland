@@ -148,7 +148,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + F1` | Abrir Sobre o ARGVUS |
 | `SUPER + ALT + C` | Abrir o Control Center |
 | `SUPER + P` | Seletor de cores (Color Picker) |
-| `SUPER + .` | Seletor de Emoji |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Histórico no Clipboard |
 | `SUPER + Shift + H` | Apagar histórico do Clipboard |
 

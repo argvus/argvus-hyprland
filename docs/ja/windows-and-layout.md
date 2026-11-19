@@ -130,7 +130,7 @@ Wobbleはデフォルトで無効になっています。ARGVUSのデフォル�
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-絵文字ピッカー（`SUPER + .`）を含む Rofi メニューでは、メニュー外のデスクトップはぼかされません。完全に透明なピクセルはぼかしから除外され、メニュー内のぼかしはランチャーと全体の設定に従います。 Rofi は固定のフェードを使います。速度と有効化は Hyprland の全体設定に従います。
+ARGVUS Emoji はコントロールセンターのぼかし、透明度、角の設定に従います。Rofi は完全に透明なピクセルをぼかしの対象から外します。どちらのサーフェスも Hyprland のフェードを使用します。
 
 `argvus calculator`: 常に中央の小さなフローティングウィンドウ（370 × 420）で開きます。関数モードでは拡大できます。
 

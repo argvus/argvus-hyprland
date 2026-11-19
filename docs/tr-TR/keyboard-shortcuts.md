@@ -148,7 +148,7 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 | `SUPER + F1` | Açık ARGVUS Hakkında |
 | `SUPER + ALT + C` | Kontrol Merkezini Aç |
 | `SUPER + P` | Renk Seçici |
-| `SUPER + .` | Emoji Seçici |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Pano Geçmişi |
 | `SUPER + Shift + H` | Pano Geçmişini Temizle |
 

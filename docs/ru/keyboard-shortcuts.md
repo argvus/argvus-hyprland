@@ -145,7 +145,7 @@ description: Найдите сочетания клавиш, предостав�
 | `SUPER + F1` | Открыть «О программе ARGVUS» |
 | `SUPER + ALT + C` | Открыть Центр управления |
 | `SUPER + P` | Пипетка цвета |
-| `SUPER + .` | Выбор эмодзи |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | История буфера обмена |
 | `SUPER + Shift + H` | Очистить историю буфера обмена |
 

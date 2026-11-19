@@ -145,7 +145,7 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 | `SUPER + F1` | ARGVUS についてを開く |
 | `SUPER + ALT + C` | コントロールセンターを開く |
 | `SUPER + P` | カラーピッカー |
-| `SUPER + .` | 絵文字ピッカー |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | クリップボード履歴 |
 | `SUPER + Shift + H` | クリップボード履歴をクリア |
 

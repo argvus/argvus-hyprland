@@ -151,7 +151,7 @@ intensitas maksimum mengikuti [rilis sumber >=0.57.0](https://github.com/hyprwm/
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Menu Rofi, termasuk pemilih emoji (`SUPER + .`), menjaga desktop di luar menu tetap tajam. Piksel yang sepenuhnya transparan dikecualikan dari blur; blur di dalam menu tetap mengikuti pengaturan peluncur dan global. Rofi memakai gaya fade tetap; kecepatan dan pengaktifan animasi tetap mengikuti pengaturan global Hyprland.
+ARGVUS Emoji mengikuti pengaturan blur, transparansi, dan sudut di Pusat Kontrol. Rofi mengecualikan piksel yang sepenuhnya transparan dari blur. Kedua permukaan menggunakan animasi fade Hyprland.
 
 `argvus calculator`: Selalu terbuka sebagai jendela mengambang kecil di tengah (370 × 420); mode ilmiah dapat memperbesarnya.
 

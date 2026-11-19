@@ -148,7 +148,7 @@ description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वा�
 | `SUPER + F1` | ARGVUS के बारे में खोलें |
 | `SUPER + ALT + C` | नियंत्रण केंद्र खोलें |
 | `SUPER + P` | रंग बीनने वाला |
-| `SUPER + .` | इमोजी पिकर |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | क्लिपबोर्ड इतिहास |
 | `SUPER + Shift + H` | क्लिपबोर्ड इतिहास साफ़ करें |
 

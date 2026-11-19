@@ -145,7 +145,7 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 | `SUPER + F1` | ARGVUS 정보 열기 |
 | `SUPER + ALT + C` | 제어 센터 열기 |
 | `SUPER + P` | 색상 선택기 |
-| `SUPER + .` | 이모지 선택기 |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | 클립보드 기록 |
 | `SUPER + Shift + H` | 클립보드 기록 삭제 |
 

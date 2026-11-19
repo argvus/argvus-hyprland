@@ -145,7 +145,7 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | `SUPER + F1` | Apri Informazioni su ARGVUS |
 | `SUPER + ALT + C` | Apri Centro di Controllo |
 | `SUPER + P` | Selettore di Colori |
-| `SUPER + .` | Selettore di Emoji |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Cronologia Appunti |
 | `SUPER + Shift + H` | Cancella Cronologia Appunti |
 

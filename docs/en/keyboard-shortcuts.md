@@ -148,7 +148,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + F1` | Open About ARGVUS |
 | `SUPER + ALT + C` | Open Control Center |
 | `SUPER + P` | Color Picker |
-| `SUPER + .` | Emoji Picker |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Clipboard History |
 | `SUPER + Shift + H` | Clear Clipboard History |
 

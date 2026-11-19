@@ -148,7 +148,7 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 | `SUPER + F1` | Buka Tentang ARGVUS |
 | `SUPER + ALT + C` | Buka Pusat Kontrol |
 | `SUPER + P` | Pemilih Warna |
-| `SUPER + .` | Pemilih Emoji |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Riwayat Papan Klip |
 | `SUPER + Shift + H` | Hapus Riwayat Papan Klip |
 

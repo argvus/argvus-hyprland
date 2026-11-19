@@ -145,7 +145,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | `SUPER + F1` | 打开 ARGVUS 关于页面 |
 | `SUPER + ALT + C` | 打开控制中心 |
 | `SUPER + P` | 颜色选择器 |
-| `SUPER + .` | 表情选择器 |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | 剪贴板历史 |
 | `SUPER + Shift + H` | 清除剪贴板历史 |
 

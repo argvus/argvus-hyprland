@@ -146,7 +146,7 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 | `SUPER + F1` | Mở Giới thiệu về ARGVUS |
 | `SUPER + ALT + C` | Trung tâm điều khiển mở |
 | `SUPER + P` | Bộ chọn màu |
-| `SUPER + .` | Bộ chọn biểu tượng cảm xúc |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Lịch sử bảng nhớ tạm |
 | `SUPER + Shift + H` | Xóa lịch sử bảng nhớ tạm |
 

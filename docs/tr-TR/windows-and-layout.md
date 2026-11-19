@@ -151,7 +151,7 @@ yoğunluk maksimumu şunu takip eder[>=0.57.0 kaynağı yayınlandı](https://gi
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Emoji seçici (`SUPER + .`) dahil Rofi menüleri, menü dışındaki masaüstünü net tutar. Tamamen saydam pikseller bulanıklıktan çıkarılır; menü içindeki bulanıklık başlatıcı ve genel ayarları izler. Rofi sabit fade stili kullanır; hız ve etkinleştirme Hyprland genel ayarlarını izler.
+ARGVUS Emoji, Denetim Merkezi’nin bulanıklık, saydamlık ve köşe ayarlarını kullanır. Rofi tamamen saydam pikselleri bulanıklaştırmaz. Her iki yüzey de Hyprland’ın solma animasyonunu kullanır.
 
 `argvus calculator`: Her zaman ortalanmış küçük bir kayan pencere (370 × 420) olarak açılır; bilimsel mod büyütebilir.
 

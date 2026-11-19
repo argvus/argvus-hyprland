@@ -148,7 +148,7 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 | `SUPER + F1` | افتح حول ARGVUS |
 | `SUPER + ALT + C` | فتح مركز التحكم |
 | `SUPER + P` | منتقي الألوان |
-| `SUPER + .` | منتقي الرموز التعبيرية |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | تاريخ الحافظة |
 | `SUPER + Shift + H` | مسح محفوظات الحافظة |
 

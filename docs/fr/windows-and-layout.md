@@ -130,7 +130,7 @@ En **Espacé + Flottant**, les fenêtres respectent les marges extérieures et l
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Les menus Rofi, dont le sélecteur d’émojis (`SUPER + .`), laissent le bureau net autour du menu. Les pixels entièrement transparents sont exclus du flou ; dans le menu, le flou suit toujours les réglages du lanceur et les réglages globaux. Rofi utilise un fondu fixe ; la vitesse et l’activation suivent les réglages globaux de Hyprland.
+ARGVUS Emoji suit les réglages de flou, de transparence et d’arrondi du Centre de contrôle. Rofi exclut les pixels entièrement transparents du flou. Les deux surfaces utilisent le fondu de Hyprland.
 
 `argvus calculator`: S’ouvre toujours dans une petite fenêtre flottante centrée (370 × 420) ; le mode scientifique peut l’agrandir.
 

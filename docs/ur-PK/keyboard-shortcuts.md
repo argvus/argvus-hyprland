@@ -148,7 +148,7 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 | `SUPER + F1` | ARGVUS کے بارے میں کھولیں |
 | `SUPER + ALT + C` | کھولیں کنٹرول سینٹر |
 | `SUPER + P` | رنگ چنندہ |
-| `SUPER + .` | ایموجی چنندہ |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | کلپ بورڈ کی تاریخ |
 | `SUPER + Shift + H` | کلپ بورڈ کی تاریخ صاف کریں |
 

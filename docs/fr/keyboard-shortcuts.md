@@ -145,7 +145,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + F1` | Ouvrir À propos de ARGVUS |
 | `SUPER + ALT + C` | Ouvrir le Centre de contrôle |
 | `SUPER + P` | Sélecteur de couleur |
-| `SUPER + .` | Sélecteur d’emoji |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Historique du presse-papiers |
 | `SUPER + Shift + H` | Effacer l’historique du presse-papiers |
 

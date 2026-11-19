@@ -145,7 +145,7 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | `SUPER + F1` | Über ARGVUS öffnen |
 | `SUPER + ALT + C` | Systemsteuerung öffnen |
 | `SUPER + P` | Farbpicker |
-| `SUPER + .` | Emoji-Picker |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Zwischenablage-Verlauf |
 | `SUPER + Shift + H` | Zwischenablage-Verlauf löschen |
 

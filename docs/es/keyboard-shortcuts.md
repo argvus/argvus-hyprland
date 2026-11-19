@@ -145,7 +145,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + F1` | Abrir Acerca de ARGVUS |
 | `SUPER + ALT + C` | Abrir Centro de Control |
 | `SUPER + P` | Selector de color |
-| `SUPER + .` | Selección de emoji |
+| `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Historial del portapapeles |
 | `SUPER + Shift + H` | Borrar historial del portapapeles |
 

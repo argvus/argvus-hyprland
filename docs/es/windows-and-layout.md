@@ -129,7 +129,7 @@ En **Espaciado + Flotante**, las ventanas respetan los huecos exteriores y las �
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-Los menús Rofi, incluido el selector de emoji (`SUPER + .`), mantienen nítido el escritorio fuera del menú. Los píxeles totalmente transparentes se excluyen del desenfoque; dentro del menú se siguen aplicando los ajustes del lanzador y globales. Rofi usa un estilo fade fijo; la velocidad y la activación siguen los ajustes globales de Hyprland.
+ARGVUS Emoji sigue los ajustes de desenfoque, transparencia y esquinas del Centro de control. Rofi excluye los píxeles totalmente transparentes del desenfoque. Ambas superficies usan la animación de fundido de Hyprland.
 
 `argvus calculator`: Siempre se abre en una ventana flotante pequeña y centrada (370 × 420); el modo científico puede ampliarla.
 
