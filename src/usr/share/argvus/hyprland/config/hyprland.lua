@@ -1286,7 +1286,7 @@ hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true, cen
 hl.window_rule({ match = { class = "kdialog|org.kde.kdialog" }, float = true, center = true, pin = true })
 hl.window_rule({
   match = {
-    class = "argvus-cpu|argvus-mem|argvus-taskbar-cpu|argvus-taskbar-mem|cpu-temp-popup|gpu-temp-popup|argvus-du",
+    class = "argvus-system-monitor|argvus-cpu|argvus-mem|argvus-taskbar-cpu|argvus-taskbar-mem|cpu-temp-popup|gpu-temp-popup|argvus-du",
   },
   float = true,
   size = "1399 920",
@@ -1368,7 +1368,7 @@ _argvus_bind(
   "app.system_monitor",
   mod .. " + CTRL + Space",
   hl.dsp.exec_cmd(
-    "argvus tui-terminal --class argvus-system-monitor --term kitty --profile control-center -- argvus system-monitor"
+    "argvus tui-terminal --class argvus-system-monitor --term kitty --profile taskbar-monitor -- argvus system-monitor --panel"
   )
 )
 

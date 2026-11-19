@@ -94,7 +94,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + Enter` | Terminais |
 | `SUPER + [` | Terminal suspenso (scratchpad em workspace especial; Prima de novo para ocultar) |
 | `SUPER + Space` | Gestor de ficheiros |
-| `SUPER + CTRL + Space` | Monitor do sistema |
+| `SUPER + CTRL + Space` | ARGVUS System Monitor (janela flutuante) |
 | `SUPER + Shift + D` | Menu de dispositivos removíveis |
 | `SUPER + Shift + F` | ARGVUS Focus (Pomodoro e sessões de foco) |
 | `SUPER + Shift + C` | ARGVUS Clock (relógio, temporizadores e alarmes) |
