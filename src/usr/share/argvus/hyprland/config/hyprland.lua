@@ -1203,6 +1203,7 @@ if _blur_enabled then
   if _effect_state("blur_control-center_enabled") ~= false then
     hl.layer_rule({ match = { namespace = "argvus-keybindings" }, blur = true })
     hl.layer_rule({ match = { namespace = "argvus-emoji" }, blur = true })
+    hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, blur = true })
   end
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
@@ -1228,6 +1229,7 @@ hl.layer_rule({ match = { namespace = "argvus-theme-selector" }, animation = "fa
 hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-keybindings" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-emoji" }, animation = "fade" })
+hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, animation = "fade" })
 
 -- Window Rules  -----------------------------------------------------------------------------------
 -- Transparency is a client-side contract: any surface that wants the wallpaper
