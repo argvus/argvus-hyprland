@@ -157,7 +157,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + ,` | Ouvrir/Fermer la barre latérale de notifications |
 | `Middle mouse button (mouse:274)` | Ouvrir/Fermer la barre latérale de notifications |
 | `SUPER + Backspace` | Basculer la Waybar en haut |
-| `SUPER + Shift + W` | Configurer l'emplacement météo |
+| `SUPER + Shift + W` | ARGVUS Météo (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Déplacer la barre des tâches en haut |
 | `SUPER + ALT + Down Arrow` | Déplacer la barre des tâches en bas |
 

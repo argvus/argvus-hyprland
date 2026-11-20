@@ -157,7 +157,7 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | `SUPER + ,` | Apri/Chiudi la barra laterale delle notifiche |
 | `Middle mouse button (mouse:274)` | Apri/Chiudi la barra laterale delle notifiche |
 | `SUPER + Backspace` | Attiva/disattiva Waybar sopra |
-| `SUPER + Shift + W` | Configura la posizione del meteo |
+| `SUPER + Shift + W` | ARGVUS Tempo atmosferico (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Sposta la barra delle applicazioni in alto |
 | `SUPER + ALT + Down Arrow` | Sposta la barra delle applicazioni in basso |
 

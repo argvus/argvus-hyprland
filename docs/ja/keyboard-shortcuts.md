@@ -157,7 +157,7 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 | `SUPER + ,` | 通知サイドバーを開く/閉じる |
 | `Middle mouse button (mouse:274)` | 通知サイドバーを開く/閉じる |
 | `SUPER + Backspace` | Waybarを上部に切り替え |
-| `SUPER + Shift + W` | 天気の場所を設定 |
+| `SUPER + Shift + W` | ARGVUS 天気 (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | タスクバーを上に移動 |
 | `SUPER + ALT + Down Arrow` | タスクバーを下に移動 |
 

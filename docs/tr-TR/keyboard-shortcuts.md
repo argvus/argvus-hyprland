@@ -160,7 +160,7 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 | `SUPER + ,` | Bildirim kenar çubuğunu aç/kapat |
 | `Middle mouse button (mouse:274)` | Bildirim kenar çubuğunu aç/kapat |
 | `SUPER + Backspace` | Waybar'yu değiştir üst |
-| `SUPER + Shift + W` | Hava durumu konumunu yapılandırın |
+| `SUPER + Shift + W` | ARGVUS Hava (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Görev çubuğunu yukarıya taşı |
 | `SUPER + ALT + Down Arrow` | Görev çubuğunu aşağıya taşı |
 

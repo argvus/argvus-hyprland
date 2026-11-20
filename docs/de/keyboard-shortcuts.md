@@ -157,7 +157,7 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | `SUPER + ,` | Benachrichtigungsleiste öffnen/schließen |
 | `Middle mouse button (mouse:274)` | Benachrichtigungsleiste öffnen/schließen |
 | `SUPER + Backspace` | Waybar oben umschalten |
-| `SUPER + Shift + W` | Wetterstandort konfigurieren |
+| `SUPER + Shift + W` | ARGVUS Wetter (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Taskleiste nach oben verschieben |
 | `SUPER + ALT + Down Arrow` | Taskleiste nach unten verschieben |
 

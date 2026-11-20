@@ -157,7 +157,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + ,` | Abrir/Cerrar la barra lateral de notificaciones |
 | `Middle mouse button (mouse:274)` | Abrir/Cerrar la barra lateral de notificaciones |
 | `SUPER + Backspace` | Alternar Waybar superior |
-| `SUPER + Shift + W` | Configurar ubicación del clima |
+| `SUPER + Shift + W` | ARGVUS Clima (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Mover la barra de tareas a la parte superior |
 | `SUPER + ALT + Down Arrow` | Mover la barra de tareas a la parte inferior |
 

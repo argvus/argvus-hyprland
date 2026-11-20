@@ -160,7 +160,7 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 | `SUPER + ,` | فتح/إغلاق الشريط الجانبي للإشعارات |
 | `Middle mouse button (mouse:274)` | فتح/إغلاق الشريط الجانبي للإشعارات |
 | `SUPER + Backspace` | تبديل أعلى شريط الطريق |
-| `SUPER + Shift + W` | تكوين موقع الطقس |
+| `SUPER + Shift + W` | ARGVUS الطقس (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | انقل شريط المهام إلى الأعلى |
 | `SUPER + ALT + Down Arrow` | انقل شريط المهام إلى الأسفل |
 

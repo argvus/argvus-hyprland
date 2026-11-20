@@ -160,7 +160,7 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 | `SUPER + ,` | نوٹیفکیشن سائڈبار کھولیں/بند کریں |
 | `Middle mouse button (mouse:274)` | نوٹیفکیشن سائڈبار کھولیں/بند کریں |
 | `SUPER + Backspace` | ٹوگل Waybar ٹاپ |
-| `SUPER + Shift + W` | موسم کے مقام کو ترتیب دیں |
+| `SUPER + Shift + W` | ARGVUS موسم (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | ٹاسک بار کو اوپر لے جائیں |
 | `SUPER + ALT + Down Arrow` | ٹاسک بار کو نیچے منتقل کریں |
 
