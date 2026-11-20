@@ -150,7 +150,6 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + P` | Color Picker |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Clipboard History |
-| `SUPER + Shift + H` | Clear Clipboard History |
 
 `↑ / ↓` Navigate · `Tab` Switch panel · `/` Search · `Esc` Close
 
@@ -227,3 +226,5 @@ Next/previous cycles existing numeric workspaces, then named workspaces and proj
 The main launcher uses Quickshell/QML with a local Rust search engine. It searches applications, open windows, settings, actions, projects, SSH hosts, files and shortcuts. File indexing starts disabled; select folders explicitly. Only names and paths are indexed, never document contents. Recent files depend on the XDG recent-file registry. Hidden files are excluded by default, and directory symlinks are not followed. Specialized Rofi menus remain available.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Clipboard** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigate) · `/` (Search) · `Enter` (Copy) · `Delete` (Clear history) · `Esc` (Close)

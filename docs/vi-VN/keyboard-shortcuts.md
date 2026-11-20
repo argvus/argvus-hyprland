@@ -148,7 +148,6 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 | `SUPER + P` | Bộ chọn màu |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Lịch sử bảng nhớ tạm |
-| `SUPER + Shift + H` | Xóa lịch sử bảng nhớ tạm |
 
 `↑ / ↓` Di chuyển · `Tab` Đổi bảng · `/` Tìm kiếm · `Esc` Đóng
 
@@ -230,3 +229,5 @@ Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đ
 Trình khởi chạy chính dùng Quickshell/QML và công cụ Rust cục bộ để tìm ứng dụng, cửa sổ, cài đặt, thao tác, dự án, máy chủ SSH, tệp và phím tắt. Lập chỉ mục ban đầu bị tắt; cần chọn thư mục rõ ràng. Chỉ tên và đường dẫn được lập chỉ mục, không đọc nội dung tài liệu. Tệp gần đây dựa vào bản ghi XDG. Tệp ẩn bị loại trừ mặc định và không đi theo liên kết tượng trưng của thư mục. Các menu Rofi chuyên dụng vẫn có sẵn.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Bảng tạm** · `argvus clipboard` · `Super + H` · `↑` `↓` (Điều hướng) · `/` (Tìm kiếm) · `Enter` (Sao chép) · `Delete` (Xóa lịch sử) · `Esc` (Đóng)

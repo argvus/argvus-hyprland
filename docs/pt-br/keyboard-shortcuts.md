@@ -150,7 +150,6 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + P` | Seletor de cores (Color Picker) |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Histórico no Clipboard |
-| `SUPER + Shift + H` | Apagar histórico do Clipboard |
 
 `↑ / ↓` Navegar · `Tab` Trocar painel · `/` Buscar · `Esc` Fechar
 
@@ -227,3 +226,5 @@ Próximo/anterior percorre os workspaces existentes somente no monitor em foco: 
 O launcher principal usa Quickshell/QML com um motor local de busca em Rust. Pesquisa aplicativos, janelas abertas, configurações, ações, projetos, hosts SSH, arquivos e atalhos. A indexação começa desativada; escolha as pastas explicitamente. Somente nomes e caminhos são indexados, nunca o conteúdo dos documentos. Arquivos recentes dependem do registro XDG. Arquivos ocultos são excluídos por padrão e links simbólicos de diretórios não são seguidos. Os menus especializados do Rofi continuam disponíveis.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Clipboard** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navegar) · `/` (Buscar) · `Enter` (Copiar) · `Delete` (Limpar histórico) · `Esc` (Fechar)

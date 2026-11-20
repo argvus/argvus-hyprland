@@ -150,7 +150,6 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 | `SUPER + P` | Pemilih Warna |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Riwayat Papan Klip |
-| `SUPER + Shift + H` | Hapus Riwayat Papan Klip |
 
 `↑ / ↓` Navigasi · `Tab` Ganti panel · `/` Cari · `Esc` Tutup
 
@@ -227,3 +226,5 @@ Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfok
 Peluncur utama memakai Quickshell/QML dan mesin Rust lokal untuk aplikasi, jendela, pengaturan, tindakan, proyek, host SSH, berkas, dan pintasan. Pengindeksan awalnya nonaktif; pilih folder secara eksplisit. Hanya nama dan jalur yang diindeks, bukan isi dokumen. Berkas terbaru bergantung pada catatan XDG. Berkas tersembunyi dikecualikan secara bawaan dan symlink direktori tidak diikuti. Menu khusus Rofi tetap tersedia.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Papan klip** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigasi) · `/` (Cari) · `Enter` (Salin) · `Delete` (Hapus riwayat) · `Esc` (Tutup)

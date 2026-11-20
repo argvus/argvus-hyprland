@@ -150,7 +150,6 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 | `SUPER + P` | رنگ چنندہ |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | کلپ بورڈ کی تاریخ |
-| `SUPER + Shift + H` | کلپ بورڈ کی تاریخ صاف کریں |
 
 `↑ / ↓` نیویگیٹ کریں · `Tab` پینل بدلیں · `/` تلاش · `Esc` بند کریں
 
@@ -229,3 +228,5 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 مرکزی لانچر Quickshell/QML اور مقامی Rust سرچ انجن سے ایپس، ونڈوز، ترتیبات، کارروائیاں، منصوبے، SSH میزبان، فائلیں اور شارٹ کٹس تلاش کرتا ہے۔ اشاریہ سازی شروع میں بند ہے؛ فولڈر واضح طور پر منتخب کریں۔ صرف نام اور راستے شامل ہوتے ہیں، دستاویز کا مواد نہیں۔ حالیہ فائلیں XDG ریکارڈ پر منحصر ہیں۔ پوشیدہ فائلیں بطورِ طے شدہ خارج ہیں اور ڈائریکٹری سم لنکس کی پیروی نہیں ہوتی۔ مخصوص Rofi مینو دستیاب رہتے ہیں۔
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS کلپ بورڈ** · `argvus clipboard` · `Super + H` · `↑` `↓` (نیویگیٹ کریں) · `/` (تلاش کریں) · `Enter` (کاپی کریں) · `Delete` (تاریخ صاف کریں) · `Esc` (بند کریں)

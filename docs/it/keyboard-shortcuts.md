@@ -147,7 +147,6 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | `SUPER + P` | Selettore di Colori |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Cronologia Appunti |
-| `SUPER + Shift + H` | Cancella Cronologia Appunti |
 
 `↑ / ↓` Sfoglia · `Tab` Cambia pannello · `/` Ricerca · `Esc` Chiudi
 
@@ -222,3 +221,5 @@ Successivo/precedente scorre solo gli spazi esistenti del monitor attivo: prima 
 Il lanciatore principale usa Quickshell/QML con un motore locale Rust per applicazioni, finestre, impostazioni, azioni, progetti, host SSH, file e scorciatoie. L’indicizzazione è inizialmente disattivata e richiede cartelle scelte esplicitamente. Indicizza solo nomi e percorsi, mai il contenuto. I file recenti dipendono dal registro XDG. I file nascosti sono esclusi per impostazione predefinita e i collegamenti simbolici alle cartelle non vengono seguiti. I menu Rofi specializzati restano disponibili.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Appunti** · `argvus clipboard` · `Super + H` · `↑` `↓` (Naviga) · `/` (Cerca) · `Enter` (Copia) · `Delete` (Cancella cronologia) · `Esc` (Chiudi)

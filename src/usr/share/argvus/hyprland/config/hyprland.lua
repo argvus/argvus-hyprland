@@ -31,32 +31,6 @@ local function _first_existing(paths)
   return paths[1]
 end
 
-local function _config_path(relative_path, legacy_path)
-  if not legacy_path then
-    local script = relative_path:match("/sh/([^/]+)$")
-    legacy_path = script and ("scripts/argvus/" .. script) or relative_path
-  end
-  return _first_existing({
-    _config_home .. "/" .. legacy_path,
-    _config_home .. "/" .. relative_path,
-    _data_home .. "/" .. legacy_path,
-    _data_home .. "/" .. relative_path,
-    _state_home .. "/" .. legacy_path,
-    _state_home .. "/" .. relative_path,
-    _generated_config .. "/" .. legacy_path,
-    _generated_config .. "/" .. relative_path,
-    _system_config .. "/" .. relative_path,
-  })
-end
-
--- Rofi themes are mutable ARGVUS config, not native ~/.config/launcher files.
--- Keep every Hyprland-launched Rofi action on the same precedence used by
--- paths_config: native legacy override, ARGVUS user copy, generated copy,
--- then the packaged launcher config.
-local function _rofi_config_path()
-  return _config_path("launcher/config/config.rasi", "rofi/config.rasi")
-end
-
 -- A broken user override must not stop the rest of the configuration from
 -- loading, so the error is reported and the remaining files still load.
 local function _load_user_override(relative_path)
@@ -784,7 +758,6 @@ if _tui_file_managers[_file_manager_cmd] then
 else
   file_manager = _file_manager_cmd
 end
-local rofi_config = string.format("%q", _rofi_config_path())
 
 -- Global configuration ----------------------------------------------------------------------------
 hl.config({
@@ -1203,6 +1176,7 @@ if _blur_enabled then
   if _effect_state("blur_control-center_enabled") ~= false then
     hl.layer_rule({ match = { namespace = "argvus-keybindings" }, blur = true })
     hl.layer_rule({ match = { namespace = "argvus-emoji" }, blur = true })
+    hl.layer_rule({ match = { namespace = "argvus-clipboard" }, blur = true, ignore_alpha = 0.01 })
     hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, blur = true })
   end
   for _, layer in ipairs(_blur_layer_surfaces) do
@@ -1229,6 +1203,7 @@ hl.layer_rule({ match = { namespace = "argvus-theme-selector" }, animation = "fa
 hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-keybindings" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-emoji" }, animation = "fade" })
+hl.layer_rule({ match = { namespace = "argvus-clipboard" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, animation = "fade" })
 
 -- Window Rules  -----------------------------------------------------------------------------------
@@ -1651,22 +1626,7 @@ _argvus_bind("record.toggle", mod .. " + G", hl.dsp.exec_cmd("argvus hypr-screen
 _argvus_bind("record.stop", mod .. " + SHIFT + G", hl.dsp.exec_cmd("argvus hypr-screenshot --video-full-stop"))
 
 -- Clipboard history -------------------------------------------------------------------------------
-_argvus_bind(
-  "system.clipboard",
-  mod .. " + H",
-  hl.dsp.exec_cmd(
-    "cliphist list | rofi -config "
-      .. rofi_config
-      .. ' -dmenu -i -p "$(argvus i18n get hyprland clipboard.search)" | cliphist decode | wl-copy'
-  )
-)
-_argvus_bind(
-  "system.clipboard_clear",
-  mod .. " + SHIFT + H",
-  hl.dsp.exec_cmd(
-    'cliphist wipe && notify-send "$(argvus i18n get hyprland clipboard.title)" "$(argvus i18n get hyprland clipboard.history_erased)"'
-  )
-)
+_argvus_bind("system.clipboard", mod .. " + H", hl.dsp.exec_cmd("argvus clipboard"))
 
 -- Screenshot / Print ------------------------------------------------------------------------------
 _argvus_bind("screenshot.region", "Print", hl.dsp.exec_cmd("argvus hypr-screenshot --image-region"))

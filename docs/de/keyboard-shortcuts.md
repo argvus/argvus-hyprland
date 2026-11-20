@@ -147,7 +147,6 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | `SUPER + P` | Farbpicker |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Zwischenablage-Verlauf |
-| `SUPER + Shift + H` | Zwischenablage-Verlauf löschen |
 
 `↑ / ↓` Navigieren · `Tab` Bereich wechseln · `/` Suchen · `Esc` Schließen
 
@@ -221,3 +220,5 @@ Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierte
 Der Hauptstarter verwendet Quickshell/QML mit einer lokalen Rust-Suche für Apps, Fenster, Einstellungen, Aktionen, Projekte, SSH-Ziele, Dateien und Tastenkürzel. Die Indizierung ist zunächst deaktiviert; Ordner müssen ausdrücklich ausgewählt werden. Nur Namen und Pfade werden indiziert, keine Dokumentinhalte. Zuletzt verwendete Dateien stammen aus dem XDG-Verzeichnis. Versteckte Dateien sind standardmäßig ausgeschlossen; Verzeichnis-Symlinks werden nicht verfolgt. Spezialisierte Rofi-Menüs bleiben verfügbar.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Zwischenablage** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigieren) · `/` (Suchen) · `Enter` (Kopieren) · `Delete` (Verlauf löschen) · `Esc` (Schließen)

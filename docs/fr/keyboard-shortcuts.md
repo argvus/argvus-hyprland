@@ -147,7 +147,6 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + P` | Sélecteur de couleur |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Historique du presse-papiers |
-| `SUPER + Shift + H` | Effacer l’historique du presse-papiers |
 
 `↑ / ↓` Naviguer · `Tab` Changer de panneau · `/` Recherche · `Esc` Fermer
 
@@ -222,3 +221,5 @@ Suivant/précédent parcourt uniquement les espaces existants de l’écran acti
 Le lanceur principal utilise Quickshell/QML et un moteur local en Rust. Il recherche applications, fenêtres, paramètres, actions, projets, hôtes SSH, fichiers et raccourcis. L’indexation est désactivée au départ et nécessite des dossiers choisis explicitement. Seuls les noms et chemins sont indexés, jamais le contenu. Les fichiers récents dépendent du registre XDG. Les fichiers cachés sont exclus par défaut et les liens symboliques de dossiers ne sont pas suivis. Les menus spécialisés Rofi restent disponibles.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Presse-papiers** · `argvus clipboard` · `Super + H` · `↑` `↓` (Naviguer) · `/` (Rechercher) · `Enter` (Copier) · `Delete` (Effacer l’historique) · `Esc` (Fermer)

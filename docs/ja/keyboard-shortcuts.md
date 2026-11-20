@@ -147,7 +147,6 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 | `SUPER + P` | カラーピッカー |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | クリップボード履歴 |
-| `SUPER + Shift + H` | クリップボード履歴をクリア |
 
 `↑ / ↓` 移動 · `Tab` パネル切替 · `/` 検索 · `Esc` 閉じる
 
@@ -221,3 +220,5 @@ Packages では、`/` が最上部の **Search** バーにフォーカスしま�
 メインランチャーは Quickshell/QML とローカルの Rust 検索エンジンを使用し、アプリ、ウィンドウ、設定、操作、プロジェクト、SSH ホスト、ファイル、ショートカットを検索します。索引化は初期状態で無効で、対象フォルダーの明示的な選択が必要です。名前とパスのみを索引化し、文書の内容は読み取りません。最近のファイルは XDG の履歴に依存します。隠しファイルは標準で除外し、ディレクトリーのシンボリックリンクはたどりません。専用の Rofi メニューも引き続き利用できます。
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS クリップボード** · `argvus clipboard` · `Super + H` · `↑` `↓` (移動) · `/` (検索) · `Enter` (コピー) · `Delete` (履歴を消去) · `Esc` (閉じる)

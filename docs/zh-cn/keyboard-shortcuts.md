@@ -147,7 +147,6 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | `SUPER + P` | 颜色选择器 |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | 剪贴板历史 |
-| `SUPER + Shift + H` | 清除剪贴板历史 |
 
 `↑ / ↓` 导航 · `Tab` 切换面板 · `/` 搜索 · `Esc` 关闭
 
@@ -221,3 +220,5 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 主启动器采用 Quickshell/QML 和本地 Rust 搜索引擎，可查找应用、窗口、设置、操作、项目、SSH 主机、文件和快捷键。文件索引默认关闭，需明确选择文件夹。仅索引名称和路径，不读取文档内容。最近文件来自 XDG 记录。默认排除隐藏文件，不跟随目录符号链接。专用 Rofi 菜单继续可用。
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS 剪贴板** · `argvus clipboard` · `Super + H` · `↑` `↓` (导航) · `/` (搜索) · `Enter` (复制) · `Delete` (清除历史记录) · `Esc` (关闭)

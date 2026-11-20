@@ -150,7 +150,6 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 | `SUPER + P` | Renk Seçici |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Pano Geçmişi |
-| `SUPER + Shift + H` | Pano Geçmişini Temizle |
 
 `↑ / ↓` Gezin · `Tab` Panel değiştir · `/` Arama · `Esc` Kapat
 
@@ -227,3 +226,5 @@ Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanların
 Ana başlatıcı Quickshell/QML ve yerel Rust arama motoruyla uygulama, pencere, ayar, eylem, proje, SSH sunucusu, dosya ve kısayol arar. Dizinleme başlangıçta kapalıdır; klasörleri açıkça seçin. Yalnızca adlar ve yollar dizinlenir, belge içerikleri okunmaz. Son dosyalar XDG kaydına bağlıdır. Gizli dosyalar varsayılan olarak dışlanır ve dizin sembolik bağlantıları izlenmez. Özel Rofi menüleri kullanılabilir.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Pano** · `argvus clipboard` · `Super + H` · `↑` `↓` (Gezin) · `/` (Ara) · `Enter` (Kopyala) · `Delete` (Geçmişi temizle) · `Esc` (Kapat)

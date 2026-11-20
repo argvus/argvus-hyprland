@@ -147,7 +147,6 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + P` | Selector de color |
 | `SUPER + .` | ARGVUS Emoji (`argvus emoji-picker`) |
 | `SUPER + H` | Historial del portapapeles |
-| `SUPER + Shift + H` | Borrar historial del portapapeles |
 
 `↑ / ↓` Navegar · `Tab` Cambiar de panel · `/` Buscar · `Esc` Cerrar
 
@@ -221,3 +220,5 @@ Siguiente/anterior recorre solo los espacios existentes del monitor enfocado: pr
 El lanzador principal usa Quickshell/QML con un motor local en Rust. Busca aplicaciones, ventanas, ajustes, acciones, proyectos, hosts SSH, archivos y atajos. La indexación empieza desactivada y requiere carpetas elegidas explícitamente. Solo indexa nombres y rutas, nunca el contenido. Los archivos recientes dependen del registro XDG. Excluye archivos ocultos por defecto y no sigue enlaces simbólicos de directorios. Los menús especializados de Rofi siguen disponibles.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
+
+**ARGVUS Portapapeles** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navegar) · `/` (Buscar) · `Enter` (Copiar) · `Delete` (Borrar historial) · `Esc` (Cerrar)
