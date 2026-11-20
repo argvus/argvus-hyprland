@@ -198,7 +198,7 @@ See [Windows and layout](/docs/argvus-hyprland/windows-and-layout/) for floating
 
 ## Night Light
 
-**SUPER + Shift + B** keeps the `appearance.brightness` action in the canonical keybinding manifest. Its Rofi brightness menu also offers Night Light when Hyprsunset is available. Configure temperature (1000–20000 K) and local start/end times in **Control Center > Desktop & Input > Displays > Night Light**. The quick action uses the shared CLI and does not reload Hyprland or change generated Lua.
+**SUPER + Shift + B** keeps the `appearance.brightness` action in the canonical keybinding manifest. Its GTK brightness picker also offers Night Light when Hyprsunset is available. Configure temperature (1000–20000 K) and local start/end times in **Control Center > Desktop & Input > Displays > Night Light**. The quick action uses the shared CLI and does not reload Hyprland or change generated Lua.
 
 
 With the optional argvus-ai package installed, SUPER + A opens the AI agents menu. The binding respects app.ai user overrides and disappears after package removal and compositor reload. Until reload the guarded action is inactive.
@@ -223,7 +223,7 @@ Next/previous cycles existing numeric workspaces, then named workspaces and proj
 
 `SUPER + D` → `argvus launcher`
 
-The main launcher uses Quickshell/QML with a local Rust search engine. It searches applications, open windows, settings, actions, projects, SSH hosts, files and shortcuts. File indexing starts disabled; select folders explicitly. Only names and paths are indexed, never document contents. Recent files depend on the XDG recent-file registry. Hidden files are excluded by default, and directory symlinks are not followed. Specialized Rofi menus remain available.
+The main launcher uses Quickshell/QML with a local Rust search engine. It searches applications, open windows, settings, actions, projects, SSH hosts, files and shortcuts. File indexing starts disabled; select folders explicitly. Only names and paths are indexed, never document contents. Recent files depend on the XDG recent-file registry. Hidden files are excluded by default, and directory symlinks are not followed.
 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 

@@ -148,7 +148,7 @@ local _defaults_fallback = {
   video_player = "mpv",
   audio_player = "audacious",
   archive = "xarchiver",
-  launcher = "rofi",
+  launcher = "argvus",
 }
 
 local _default_values = {}
@@ -1160,7 +1160,7 @@ local _blur_layer_surfaces = {
   -- Quickshell default namespace, so keep matching that too.
   { namespace = "argvus-control-panel|quickshell", surface = "control-panel" },
   { namespace = "argvus-widget-telemetry", surface = "widget-telemetry" },
-  { namespace = "argvus-launcher|rofi", surface = "launcher" },
+  { namespace = "argvus-launcher", surface = "launcher" },
   { namespace = "dunst" },
 }
 
@@ -1189,9 +1189,6 @@ if _blur_enabled then
   end
 end
 
--- Rofi renders a fullscreen transparent surface around its menu. Exclude that
--- transparent area from blur so opening Rofi leaves the desktop sharp.
-hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.01, animation = "fade" })
 
 -- GTK animates Lifecycle. Suppress compositor snapshots on unmap so a
 -- lock or suspend cannot leave a fading image behind the lock screen.

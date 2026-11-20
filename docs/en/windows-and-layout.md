@@ -147,7 +147,7 @@ In **Spaced + Floating**, windows respect outer gaps and the areas reserved by b
 pacman → argvus-hyprland → systemctl --user try-restart argvus-session-reload.service
 ```
 
-ARGVUS Emoji follows the Control Center’s blur, transparency and corner settings. Rofi excludes fully transparent pixels from blur. Both surfaces use Hyprland’s fade animation.
+ARGVUS Emoji follows the Control Center’s blur, transparency and corner settings. The picker uses Hyprland’s fade animation.
 
 `argvus calculator`: Always opens as a small, centered floating window (370 × 420); scientific mode can expand it.
 

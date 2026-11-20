@@ -14,7 +14,6 @@ BORDERS_FILE="${STATE_DIR}/.borders"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
 WAYBAR_CSS="$(paths_config taskbar/config/argvus-taskbar.css)"
 WAYBAR_SYSINFO_CSS="$(paths_config widget-telemetry/config/argvus-widget-telemetry.css)"
-ROFI_THEME="$(paths_config launcher/config/theme.rasi)"
 DEFAULT_THEME="argvus-dark"
 MIN_ROUNDING=2
 MAX_ROUNDING=10
@@ -121,7 +120,6 @@ apply_file_rounding() {
 apply_waybar_rounding() {
   apply_file_rounding "$WAYBAR_CSS"
   apply_file_rounding "$WAYBAR_SYSINFO_CSS"
-  apply_file_rounding "$ROFI_THEME"
 }
 
 apply_runtime() {
