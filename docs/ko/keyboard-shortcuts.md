@@ -134,7 +134,7 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland 재시작 |
 | `SUPER + Shift + S` | 모니터 끄기/켜기 (시스템 절전 아님) |
-| `SUPER + Shift + L` | 비활성 잠금 시간 선택 |
+| `SUPER + Shift + L` | ARGVUS 잠금 대기 시간 (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Keep Awake 토글 |
 
 ### 시스템

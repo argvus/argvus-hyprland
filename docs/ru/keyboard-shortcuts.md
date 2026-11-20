@@ -134,7 +134,7 @@ description: Найдите сочетания клавиш, предостав�
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Перезагрузить Hyprland |
 | `SUPER + Shift + S` | Включить/выключить монитор (не переводить систему в спящий режим) |
-| `SUPER + Shift + L` | Выбрать время ожидания для блокировки при бездействии |
+| `SUPER + Shift + L` | ARGVUS Время до блокировки (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Переключить режим «Не спать» |
 
 ### Система

@@ -134,7 +134,7 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland neu laden |
 | `SUPER + Shift + S` | Monitor aus-/einschalten (System nicht in Standby) |
-| `SUPER + Shift + L` | Zeitüberschreitung für Inaktivitätssperre wählen |
+| `SUPER + Shift + L` | ARGVUS Sperrzeit (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Keep Awake umschalten |
 
 ### System

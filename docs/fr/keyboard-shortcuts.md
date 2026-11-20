@@ -134,7 +134,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recharger Hyprland |
 | `SUPER + Shift + S` | Éteindre/Allumer le moniteur (ne pas mettre le système en suspension) |
-| `SUPER + Shift + L` | Choisir le délai de verrouillage en cas d’inactivité |
+| `SUPER + Shift + L` | ARGVUS Délai de verrouillage (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Activer/Désactiver le mode Veille |
 
 ### Système

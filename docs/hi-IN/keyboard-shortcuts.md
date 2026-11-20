@@ -137,7 +137,7 @@ description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वा�
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland पुनः लोड करें |
 | `SUPER + Shift + S` | मॉनिटर को बंद/चालू करें (सिस्टम को निलंबित नहीं करें) |
-| `SUPER + Shift + L` | निष्क्रियता लॉक टाइमआउट चुनें |
+| `SUPER + Shift + L` | ARGVUS लॉक होने का समय (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | जागते रहो टॉगल करें |
 
 ### सिस्टम

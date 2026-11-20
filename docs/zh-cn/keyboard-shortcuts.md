@@ -134,7 +134,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | 重新加载 Hyprland |
 | `SUPER + Shift + S` | 打开/关闭显示器（不挂起系统） |
-| `SUPER + Shift + L` | 选择非活动锁定超时 |
+| `SUPER + Shift + L` | ARGVUS 锁屏等待时间 (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | 切换保持唤醒 |
 
 ### 系统

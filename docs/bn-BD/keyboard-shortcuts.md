@@ -137,7 +137,7 @@ description: ARGVUS Hyprland কনফিগারেশন দ্বারা �
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland পুনরায় লোড করুন |
 | `SUPER + Shift + S` | মনিটর বন্ধ/চালু করুন (সাসপেন্ড সিস্টেম নয়) |
-| `SUPER + Shift + L` | নিষ্ক্রিয়তা লক টাইমআউট নির্বাচন করুন |
+| `SUPER + Shift + L` | ARGVUS লকের সময়সীমা (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | টগল কিপ জাগ্রত |
 
 ### সিস্টেম

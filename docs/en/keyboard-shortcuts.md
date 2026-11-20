@@ -137,7 +137,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Reload Hyprland |
 | `SUPER + Shift + S` | Turn monitor off/on (not suspend system) |
-| `SUPER + Shift + L` | Choose inactivity lock timeout |
+| `SUPER + Shift + L` | ARGVUS Lock Timeout (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Toggle Keep Awake |
 
 ### System

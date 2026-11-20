@@ -134,7 +134,7 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland をリロード |
 | `SUPER + Shift + S` | モニターをオン/オフにする（システムはサスペンドしない） |
-| `SUPER + Shift + L` | 非アクティブ時のロックタイムアウトを選択 |
+| `SUPER + Shift + L` | ARGVUS ロックまでの時間 (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | 常時起動を切り替え |
 
 ### システム

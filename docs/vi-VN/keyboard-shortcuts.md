@@ -135,7 +135,7 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Tải lại Hyprland |
 | `SUPER + Shift + S` | Tắt/bật màn hình (không tạm dừng hệ thống) |
-| `SUPER + Shift + L` | Chọn thời gian chờ khóa không hoạt động |
+| `SUPER + Shift + L` | ARGVUS Thời gian chờ khóa (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Chuyển đổi Giữ tỉnh táo |
 
 ### Hệ thống

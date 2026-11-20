@@ -1177,6 +1177,7 @@ if _blur_enabled then
     hl.layer_rule({ match = { namespace = "argvus-keybindings" }, blur = true })
     hl.layer_rule({ match = { namespace = "argvus-emoji" }, blur = true })
     hl.layer_rule({ match = { namespace = "argvus-clipboard" }, blur = true, ignore_alpha = 0.01 })
+    hl.layer_rule({ match = { namespace = "argvus-lock-timeout" }, blur = true, ignore_alpha = 0.01 })
     hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, blur = true })
   end
   for _, layer in ipairs(_blur_layer_surfaces) do
@@ -1204,6 +1205,7 @@ hl.layer_rule({ match = { namespace = "argvus-layout-mode-selector" }, animation
 hl.layer_rule({ match = { namespace = "argvus-keybindings" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-emoji" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-clipboard" }, animation = "fade" })
+hl.layer_rule({ match = { namespace = "argvus-lock-timeout" }, animation = "fade" })
 hl.layer_rule({ match = { namespace = "argvus-ai-agents" }, animation = "fade" })
 
 -- Window Rules  -----------------------------------------------------------------------------------

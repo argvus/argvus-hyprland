@@ -137,7 +137,7 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | تحديث هايبرلاند |
 | `SUPER + Shift + S` | إيقاف تشغيل/تشغيل الشاشة (وليس تعليق النظام) |
-| `SUPER + Shift + L` | اختر مهلة قفل عدم النشاط |
+| `SUPER + Shift + L` | ARGVUS مهلة القفل (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | تبديل البقاء مستيقظا |
 
 ### النظام

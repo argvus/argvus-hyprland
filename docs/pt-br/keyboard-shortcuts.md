@@ -137,7 +137,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recarregar Hyprland |
 | `SUPER + Shift + S` | Desligar/Ligar monitor (não é suspender) |
-| `SUPER + Shift + L` | Escolhe o tempo de bloqueio por inatividade |
+| `SUPER + Shift + L` | ARGVUS Tempo de bloqueio (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Ativa/Desativa manter acordado |
 
 ### Sistema

@@ -137,7 +137,7 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Muat ulang Hyprland |
 | `SUPER + Shift + S` | Mematikan/menghidupkan monitor (bukan menangguhkan sistem) |
-| `SUPER + Shift + L` | Pilih batas waktu penguncian ketidakaktifan |
+| `SUPER + Shift + L` | ARGVUS Waktu tunggu penguncian (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Alihkan Tetap Terjaga |
 
 ### Sistem

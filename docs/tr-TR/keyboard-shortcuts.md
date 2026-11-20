@@ -137,7 +137,7 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Hyprland'yu yeniden yükle |
 | `SUPER + Shift + S` | Monitörü kapatıp açın (sistemi askıya almayın) |
-| `SUPER + Shift + L` | Hareketsizlik kilidi zaman aşımını seçin |
+| `SUPER + Shift + L` | ARGVUS Kilit zaman aşımı (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Uyanık Tutmayı Değiştir |
 
 ### Sistem

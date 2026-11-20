@@ -134,7 +134,7 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Ricarica Hyprland |
 | `SUPER + Shift + S` | Spegni/accendi monitor (non sospendere il sistema) |
-| `SUPER + Shift + L` | Scegli timeout per blocco inattività |
+| `SUPER + Shift + L` | ARGVUS Tempo di blocco (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Attiva/disattiva Mantieni Attivo |
 
 ### Sistema

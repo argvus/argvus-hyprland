@@ -134,7 +134,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | `SUPER + escape` | ARGVUS Lifecycle (`argvus-lifecycle`) |
 | `SUPER + Shift + R` | Recargar Hyprland |
 | `SUPER + Shift + S` | Apagar/encender monitor (no suspender sistema) |
-| `SUPER + Shift + L` | Elegir tiempo de espera para el bloqueo por inactividad |
+| `SUPER + Shift + L` | ARGVUS Tiempo de bloqueo (`argvus idle-timeout`) |
 | `SUPER + ALT + W` | Alternar Mantener Activo |
 
 ### Sistema
