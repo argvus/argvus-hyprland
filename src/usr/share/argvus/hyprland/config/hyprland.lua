@@ -1393,6 +1393,7 @@ _argvus_bind("appearance.wallpaper", mod .. " + Y", hl.dsp.exec_cmd("argvus --co
 
 -- Theme switcher ----------------------------------------------------------------------------------
 _argvus_bind("appearance.theme", mod .. " + SHIFT + T", hl.dsp.exec_cmd("argvus theme-switch"))
+_argvus_bind("appearance.accent", mod .. " + SHIFT + A", hl.dsp.exec_cmd("argvus config accent"))
 
 -- Sticky/Spaced layout mode (independent of theme) --------------------------------------------------
 -- Named "layout_mode" rather than "mode" to avoid colliding with the

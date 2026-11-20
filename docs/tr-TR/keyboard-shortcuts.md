@@ -171,6 +171,7 @@ Tablo, temel manifestonun (`/usr/share/argvus/hyprland/keybindings.json`) varsay
 | --- | --- |
 | `SUPER + Y` | Kontrol Merkezi duvar kağıtlarını açın |
 | `SUPER + Shift + T` | Tema seçiciyi aç |
+| `SUPER + Shift + A` | Vurgu rengi seçicisini aç |
 | `SUPER + Shift + M` | Yapışkan/Aralıklı mod seçiciyi aç |
 | `SUPER + F5` | ARGVUS Dark ve ARGVUS Light temaları arasında geçiş yap |
 | `SUPER + F6` | Animasyonları aç / kapat |

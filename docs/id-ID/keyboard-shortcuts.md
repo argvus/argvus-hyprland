@@ -171,6 +171,7 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 | --- | --- |
 | `SUPER + Y` | Buka wallpaper Pusat Kontrol |
 | `SUPER + Shift + T` | Buka pemilih tema |
+| `SUPER + Shift + A` | Buka pemilih warna aksen |
 | `SUPER + Shift + M` | Buka pemilih mode Lengket/Spasi |
 | `SUPER + F5` | Beralih antara tema ARGVUS Dark dan ARGVUS Light |
 | `SUPER + F6` | Beralih animasi |

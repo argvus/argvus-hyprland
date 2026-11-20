@@ -171,6 +171,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | --- | --- |
 | `SUPER + Y` | Open Control Center wallpapers |
 | `SUPER + Shift + T` | Open theme selector |
+| `SUPER + Shift + A` | Open accent color picker |
 | `SUPER + Shift + M` | Open Sticky/Spaced mode picker |
 | `SUPER + F5` | Toggle between the ARGVUS Dark and ARGVUS Light themes |
 | `SUPER + F6` | Toggle animations |

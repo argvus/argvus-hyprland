@@ -168,6 +168,7 @@ description: ARGVUS Hyprland の設定で提供されているショートカッ
 | --- | --- |
 | `SUPER + Y` | コントロールセンターの壁紙を開く |
 | `SUPER + Shift + T` | テーマセレクターを開く |
+| `SUPER + Shift + A` | アクセントカラーの選択画面を開く |
 | `SUPER + Shift + M` | スティッキー/スペースモードピッカーを開く |
 | `SUPER + F5` | ARGVUSダークとARGVUSライトのテーマを切り替え |
 | `SUPER + F6` | アニメーションを切り替え |

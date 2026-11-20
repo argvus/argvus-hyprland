@@ -171,6 +171,7 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 | --- | --- |
 | `SUPER + Y` | کنٹرول سینٹر وال پیپر کھولیں |
 | `SUPER + Shift + T` | تھیم سلیکٹر کھولیں |
+| `SUPER + Shift + A` | نمایاں رنگ کا انتخاب کھولیں |
 | `SUPER + Shift + M` | سٹکی/اسپیسڈ موڈ چنندہ کھولیں |
 | `SUPER + F5`| ARGVUS ﺭﻭﺍ ﮎﺭﺍﮈ ARGVUS ﮟﯾﺮﮐ ﭻﺋﻮﺳ ﻥﺎﯿﻣﺭﺩ ﮯﮐ ﺰﻤﯿﮭﺗ ﭧﺋﻻ﻿ |
 | `SUPER + F6` | متحرک تصاویر کو ٹوگل کریں |

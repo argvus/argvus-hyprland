@@ -168,6 +168,7 @@ Le tableau liste les raccourcis du manifeste de base (`/usr/share/argvus/hyprlan
 | --- | --- |
 | `SUPER + Y` | Ouvrir le Centre de contrôle des fonds d'écran |
 | `SUPER + Shift + T` | Ouvrir le sélecteur de thèmes |
+| `SUPER + Shift + A` | Ouvrir le sélecteur de couleur d’accentuation |
 | `SUPER + Shift + M` | Ouvrir le sélecteur de mode Collé/Espacé |
 | `SUPER + F5` | Basculer entre les thèmes ARGVUS Dark et ARGVUS Light |
 | `SUPER + F6` | Basculer les animations |

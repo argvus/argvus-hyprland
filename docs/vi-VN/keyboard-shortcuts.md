@@ -169,6 +169,7 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 | --- | --- |
 | `SUPER + Y` | Hình nền Trung tâm điều khiển mở |
 | `SUPER + Shift + T` | Mở bộ chọn chủ đề |
+| `SUPER + Shift + A` | Mở bộ chọn màu nhấn |
 | `SUPER + Shift + M` | Mở bộ chọn chế độ Chú ý/Dải cách |
 | `SUPER + F5` | Chuyển đổi giữa các chủ đề ARGVUS Dark và ARGVUS Light |
 | `SUPER + F6` | Chuyển đổi hình ảnh động |

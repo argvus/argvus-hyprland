@@ -168,6 +168,7 @@ La tabella elenca i collegamenti del manifesto base (`/usr/share/argvus/hyprland
 | --- | --- |
 | `SUPER + Y` | Apri i wallpaper del Centro di Controllo |
 | `SUPER + Shift + T` | Apri il selettore di temi |
+| `SUPER + Shift + A` | Apri il selettore del colore di accento |
 | `SUPER + Shift + M` | Apri il selettore modalità Sticky/Spaced |
 | `SUPER + F5` | Passa tra i temi ARGVUS Dark e ARGVUS Light |
 | `SUPER + F6` | Attiva/disattiva le animazioni |

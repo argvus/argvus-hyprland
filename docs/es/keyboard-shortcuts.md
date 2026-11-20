@@ -168,6 +168,7 @@ La tabla enumera las combinaciones del manifiesto base (`/usr/share/argvus/hyprl
 | --- | --- |
 | `SUPER + Y` | Abrir fondos de pantalla del Centro de Control |
 | `SUPER + Shift + T` | Abrir selector de temas |
+| `SUPER + Shift + A` | Abrir el selector de color de énfasis |
 | `SUPER + Shift + M` | Abrir selector de modo Fijo/Espaciado |
 | `SUPER + F5` | Alternar entre los temas ARGVUS Dark y ARGVUS Light |
 | `SUPER + F6` | Alternar animaciones |

@@ -168,6 +168,7 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | --- | --- |
 | `SUPER + Y` | Control Center Hintergrundbilder öffnen |
 | `SUPER + Shift + T` | Theme-Auswahl öffnen |
+| `SUPER + Shift + A` | Akzentfarbauswahl öffnen |
 | `SUPER + Shift + M` | Sticky/Spaced-Modus-Auswahl öffnen |
 | `SUPER + F5` | Zwischen den ARGVUS Dark- und ARGVUS Light-Themes umschalten |
 | `SUPER + F6` | Animationen umschalten |

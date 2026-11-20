@@ -168,6 +168,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | --- | --- |
 | `SUPER + Y` | 打开控制中心壁纸 |
 | `SUPER + Shift + T` | 打开主题选择器 |
+| `SUPER + Shift + A` | 打开强调色选择器 |
 | `SUPER + Shift + M` | 打开黏性/间距模式选择器 |
 | `SUPER + F5` | 切换 ARGVUS 深色与 ARGVUS 浅色主题 |
 | `SUPER + F6` | 切换动画效果 |

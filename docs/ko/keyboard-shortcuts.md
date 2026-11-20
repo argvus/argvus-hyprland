@@ -168,6 +168,7 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 | --- | --- |
 | `SUPER + Y` | 제어 센터 배경화면 열기 |
 | `SUPER + Shift + T` | 테마 선택기 열기 |
+| `SUPER + Shift + A` | 강조 색상 선택기 열기 |
 | `SUPER + Shift + M` | 스티키/스페이스 모드 선택기 열기 |
 | `SUPER + F5` | ARGVUS 다크와 ARGVUS 라이트 테마 간 전환 |
 | `SUPER + F6` | 애니메이션 토글 |
