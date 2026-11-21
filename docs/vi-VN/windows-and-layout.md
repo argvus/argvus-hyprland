@@ -127,7 +127,9 @@ Một thanh Waybar thứ hai xuất hiện trên mỗi màn hình, ở cạnh đ
 
 Việc thu gọn sử dụng không gian làm việc `special:argvus-minimized` đã được dành riêng. Không sử dụng không gian làm việc đó một cách thủ công. Quá trình `argvus windows service` ghi nhận danh tính, không gian làm việc/màn hình gốc, hình học, chế độ toàn màn hình/tối đa hóa và trạng thái ghim trong một đăng ký thời gian chạy cụ thể cho từng phiên bản compositor dưới `$XDG_RUNTIME_DIR/argvus`. Bản ghi tồn tại sau khi dịch vụ khởi động lại hoặc tải lại cấu hình, nhưng không vượt quá các phiên bản compositor. Đóng cửa sổ sẽ xóa bản ghi của nó. Nếu một màn hình biến mất, việc khôi phục sẽ sử dụng một đầu ra có sẵn. Thanh phục hồi bị mất hoặc thất bại sẽ ngăn việc thu gọn mới; việc khôi phục thất bại sẽ giữ lại bản ghi và thanh phục hồi.
 
-Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Waybar của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland >=0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
+Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Quickshell của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland >=0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
+
+Thanh tác vụ và tiện ích đo từ xa là các bề mặt độc lập trong tiến trình Quickshell do `argvus-bars.service` quản lý. Dùng `argvus-taskbar.service` và `argvus-widget-telemetry.service` để điều khiển từng bề mặt.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, và `minimize|restore|activate|maximize|close ADDRESS`. Các địa chỉ cửa sổ được lấy từ danh sách. `position top --persist` lưu/truyền sở thích mà không cần khởi động lại thanh chính. Chi tiết cấu hình và lỗi thời gian chạy được ghi vào nhật ký; các thất bại hành động hiển thị cũng hiện thông báo đã được dịch.
 

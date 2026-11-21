@@ -159,7 +159,7 @@ A tabela lista os atalhos do manifesto base (`/usr/share/argvus/hyprland/keybind
 | --- | --- |
 | `SUPER + ,` | Abre/Fecha sidebar de notificações |
 | `Middle mouse button (mouse:274)` | Abre/Fecha sidebar de notificações |
-| `SUPER + Backspace` | Oculta/Mostra Waybar top |
+| `SUPER + Backspace` | Oculta/mostra a taskbar |
 | `SUPER + Shift + W` | ARGVUS Clima (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Mover barra de tarefas para o topo |
 | `SUPER + ALT + Down Arrow` | Mover barra de tarefas para a parte inferior |

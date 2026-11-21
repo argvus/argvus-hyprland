@@ -1,6 +1,6 @@
 """Opt-in real-client regression in an isolated nested Hyprland.
 
-Set ARGVUS_TEST_ARGVUS, ARGVUS_TEST_HYPRBARS and ARGVUS_TEST_WAYBAR to built
+Set ARGVUS_TEST_ARGVUS, and ARGVUS_TEST_HYPRBARS to built
 artifacts. Optional ARGVUS_TEST_KEYBOARD names a virtual-keyboard test driver
 that presses SUPER + ALT + Space. Without it, mode changes use the CLI.
 Optional ARGVUS_TEST_POINTER names a click driver taking x, y, width, height.
@@ -21,9 +21,9 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parent.parent
 ARTIFACTS = [os.environ.get(key) for key in
-             ("ARGVUS_TEST_ARGVUS", "ARGVUS_TEST_HYPRBARS", "ARGVUS_TEST_WAYBAR")]
+             ("ARGVUS_TEST_ARGVUS", "ARGVUS_TEST_HYPRBARS")]
 
-@unittest.skipUnless(all(ARTIFACTS) and shutil.which("Hyprland") and shutil.which("foot"),
+@unittest.skipUnless(all(ARTIFACTS) and shutil.which("Hyprland") and shutil.which("foot") and shutil.which("qs"),
                      "built artifacts and a parent Wayland session are required")
 class WindowControls(unittest.TestCase):
     def test_real_windows_bar_and_recovery(self):
@@ -33,7 +33,6 @@ class WindowControls(unittest.TestCase):
             (root / "argvus").mkdir()
             (root / "bin").mkdir()
             (root / "bin/argvus").symlink_to(Path(ARTIFACTS[0]).resolve())
-            (root / "bin/waybar").symlink_to(Path(ARTIFACTS[2]).resolve())
             parent_display = os.environ.get("ARGVUS_TEST_PARENT_WAYLAND") or os.environ.get("WAYLAND_DISPLAY")
             if not parent_display:
                 self.skipTest("a parent Wayland display is required")
@@ -128,19 +127,19 @@ argvus_window_mode = dofile("''' + str(ROOT / "src/usr/share/argvus/hyprland/lua
                 until(lambda: not json.loads(cli("config", "window-mode", "status", "--json"))["pending"])
                 service = spawn([ARTIFACTS[0], "windows", "service"])
                 until(lambda: json.loads(cli("windows", "list", "--json")))
-                primary_config = root / "config/waybar/argvus-taskbar.jsonc"
-                primary_config.parent.mkdir(parents=True, exist_ok=True)
-                primary_style = root / "config/waybar/argvus-taskbar.css"
-                primary_style.write_text("""@define-color th-right02-bg #111316;
-@define-color th-foreground #eeeeee;
-@define-color th-border-rights #3590bd;
-@define-color th-decorate #3590bd;
-window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decorate; border-radius: 4px; }
-""")
-                primary_data = {"name":"argvus-taskbar", "position":"top", "layer":"top", "exclusive":True, "height":28, "modules-left":[]}
-                primary_config.write_text(json.dumps(primary_data))
-                spawn([ARTIFACTS[0], "windows", "bar"])
-                primary = spawn([ARTIFACTS[2], "--config", str(primary_config), "--style", str(primary_style)])
+                shared_runtime = root / "argvus/bars"
+                shared_runtime.mkdir()
+                for surface in ("taskbar", "window-bar"):
+                    (shared_runtime / f"{surface}.active").write_text("enabled\n")
+                presentation = shared_runtime / "presentation.json"
+                primary_data = {"position": "top", "height": 28}
+                def publish_presentation():
+                    pending = presentation.with_suffix(".tmp")
+                    pending.write_text(json.dumps({"taskbar": primary_data}))
+                    pending.replace(presentation)
+                publish_presentation()
+                shell_config = WORKSPACE / "de/argvus-taskbar/src/usr/share/argvus/taskbar/quickshell"
+                spawn(["qs", "-p", str(shell_config)])
                 until(lambda: "argvus-taskbar" in ipc("j/layers"))
                 for name in ["argvus-controls-normal", "argvus-controls-dialog"]:
                     spawn(["foot", "--app-id=" + name, "sh", "-c", "sleep 300"])
@@ -157,7 +156,7 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                     if not driver:
                         cli("windows", "toggle", normal)
                         return
-                    # Let the GTK consumer receive the preceding state update.
+                    # Let the Quickshell consumer receive the preceding state update.
                     time.sleep(.2)
                     entries = json.loads(cli("windows", "list", "--json"))["windows"]
                     index = next(index for index, window in enumerate(entries) if window["address"] == normal)
@@ -215,11 +214,8 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 self.assertFalse(next(window for window in clients() if window["address"] == normal)["floating"])
                 self.assertTrue(next(window for window in clients() if window["address"] == dialog)["floating"], clients())
                 cli("windows", "position", "bottom")
-                primary.terminate()
-                primary.wait(timeout=5)
                 primary_data["position"] = "bottom"
-                primary_config.write_text(json.dumps(primary_data))
-                primary = spawn([ARTIFACTS[2], "--config", str(primary_config), "--style", str(primary_style)])
+                publish_presentation()
                 self.assertEqual(json.loads(cli("windows", "list", "--json"))["position"], "bottom")
                 cli("config", "window-mode", "set", "floating")
                 until(lambda: json.loads(cli("windows", "list", "--json"))["ready"])
@@ -255,12 +251,10 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 layout_path = canonical / "layout.json"
                 layout_data = json.loads(layout_path.read_text())
                 layout_data["variant"] = "spaced"
+                layout_data["taskbar"].update({"margin_top": 16, "margin_bottom": 3, "margin_left": 18, "margin_right": 20})
                 layout_path.write_text(json.dumps(layout_data))
-                primary_data.update({"margin-top":16,"margin-bottom":3,"margin-left":18,"margin-right":20})
-                primary_config.write_text(json.dumps(primary_data))
-                primary.terminate()
-                primary.wait(timeout=5)
-                primary = spawn([ARTIFACTS[2], "--config", str(primary_config), "--style", str(primary_style)])
+                primary_data.update({"marginTop": 16, "marginBottom": 3, "marginLeft": 18, "marginRight": 20})
+                publish_presentation()
                 until(lambda: "argvus-taskbar" in ipc("j/layers"))
                 ipc('/eval hl.config({animations={enabled=false},general={gaps_out={top=18,right=18,bottom=2,left=18},border_size=2}}); local w=hl.get_window("address:' + normal + '"); hl.dispatch(hl.dsp.window.fullscreen_state({internal=0,client=0,window=w})); hl.dispatch(hl.dsp.window.resize({x=5000,y=5000,window=w})); hl.dispatch(hl.dsp.window.move({x=0,y=0,relative=false,window=w}))')
                 def visible_gaps():
@@ -279,9 +273,6 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                     return (window["at"][0] >= 20 and above >= 18 and below >= 18
                             and window["at"][0] + window["size"][0] <= monitor["width"] / monitor["scale"] - 20)
                 until(fits)
-                generated_bar = until(lambda: next((root / "argvus").glob("windows-*.bar.json"), None))
-                until(lambda: json.loads(generated_bar.read_text()).get("margin-bottom") == 16)
-                self.assertEqual(json.loads(generated_bar.read_text())["margin-top"], 3)
                 ipc('/eval local w=hl.get_window("address:' + normal + '"); hl.dispatch(hl.dsp.window.resize({x=300,y=200,window=w})); hl.dispatch(hl.dsp.window.move({x=100,y=150,relative=false,window=w}))')
                 until(fits)
                 before_maximize = next(window for window in clients() if window["address"] == normal)
@@ -291,11 +282,8 @@ window#waybar { background: #111316; color: #eeeeee; border: 2px solid @th-decor
                 self.assertEqual(next(window for window in clients() if window["address"] == normal)["fullscreen"], 0)
                 until(lambda: visible_gaps() == (18, 18))
                 cli("windows", "position", "top")
-                primary.terminate()
-                primary.wait(timeout=5)
                 primary_data["position"] = "top"
-                primary_config.write_text(json.dumps(primary_data))
-                primary = spawn([ARTIFACTS[2], "--config", str(primary_config), "--style", str(primary_style)])
+                publish_presentation()
                 ipc('/eval hl.config({general={gaps_out={top=15,right=18,bottom=18,left=18}}})')
                 until(lambda: visible_gaps() == (18, 18))
                 until(lambda: json.loads(cli("windows", "list", "--json"))["ready"])

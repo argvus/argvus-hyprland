@@ -190,6 +190,7 @@ write_effective_geometry() {
 }
 
 apply_waybar_margins() {
+  [ ! -f "$(paths_system_config taskbar/quickshell/shell.qml)" ] || return 0
   [ -n "${WAYBAR_TOP:-}" ] || return 0
   [ -n "${WAYBAR_POS:-}" ] || WAYBAR_POS="top"
   calculate_effective_geometry

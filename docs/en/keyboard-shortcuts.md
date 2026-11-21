@@ -159,7 +159,7 @@ The table lists the bindings of the base manifest (`/usr/share/argvus/hyprland/k
 | --- | --- |
 | `SUPER + ,` | Open/Close notification sidebar |
 | `Middle mouse button (mouse:274)` | Open/Close notification sidebar |
-| `SUPER + Backspace` | Toggle Waybar top |
+| `SUPER + Backspace` | Show/hide taskbar |
 | `SUPER + Shift + W` | ARGVUS Weather (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Move taskbar to top |
 | `SUPER + ALT + Down Arrow` | Move taskbar to bottom |

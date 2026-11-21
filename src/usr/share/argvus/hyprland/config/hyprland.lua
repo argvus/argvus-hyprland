@@ -1189,7 +1189,6 @@ if _blur_enabled then
   end
 end
 
-
 -- GTK animates Lifecycle. Suppress compositor snapshots on unmap so a
 -- lock or suspend cannot leave a fading image behind the lock screen.
 hl.layer_rule({ match = { namespace = "argvus-lifecycle(-shield)?" }, no_anim = true })
@@ -1361,7 +1360,7 @@ _argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd("argvus toggle
 _argvus_bind(
   "widget.taskbar_toggle",
   mod .. " + BackSpace",
-  hl.dsp.exec_cmd("systemctl --user kill --signal=SIGUSR1 argvus-taskbar.service")
+  hl.dsp.exec_cmd("argvus sessionctl bars-ipc taskbar toggle")
 )
 
 -- Wallpaper settings ------------------------------------------------------------------------------

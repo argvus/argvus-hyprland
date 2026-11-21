@@ -127,7 +127,9 @@ argvus control-center hyprland animations windows
 
 ন্যূনতমকরণ সংরক্ষিত `special:argvus-minimized` ওয়ার্কস্পেস ব্যবহার করে। ম্যানুয়ালি সেই ওয়ার্কস্পেস ব্যবহার করবেন না। `argvus windows service` প্রসেসটি পরিচয়, মূল ওয়ার্কস্পেস/মনিটর, জ্যামিতি, ফুলস্ক্রিন/সর্বাধিকীকরণ এবং পিন অবস্থাকে `$XDG_RUNTIME_DIR/argvus` এর অধীনে কম্পোজিটর-উপস্থিতি-নির্দিষ্ট রানটাইম রেজিস্ট্রিতে রেকর্ড করে। রেকর্ডগুলি একটি সার্ভিস পুনরায় চালু বা কনফিগারেশন পুনঃলোডের পর বাঁচে, তবে কম্পোজিটর সেশন অতিক্রম করে না। একটি উইন্ডো বন্ধ করলে তার রেকর্ড মুছে যায়। যদি একটি মনিটর অদৃশ্য হয়, পুনরুদ্ধার একটি উপলব্ধ আউটপুট ব্যবহার করে। একটি হারানো বা ব্যর্থ পুনরুদ্ধার বার নতুন ন্যূনতমকরণকে বাধা দেয়; ব্যর্থ পুনরুদ্ধার রেকর্ড এবং পুনরুদ্ধার বার রক্ষা করে।
 
-সেশনটি `argvus-windows.service` এবং `argvus-window-bar.service`-এর মালিক। পরে এটি তার Waybar শিশুটি Tile-এ নিষ্ক্রিয় রাখে। hyprbars প্লাগইনটি `argvus-hyprland` দ্বারা bundled, Hyprland >=0.57.0 ABI-এর জন্য x86_64-এ তৈরি; এটি ব্যবহারকারীর হোম ডিরেক্টরিতে compiled নয়। কম্পোজিটর ABI আপডেট দিয়ে প্লাগইনটি পুনর্নির্মাণ করুন।
+সেশনটি `argvus-windows.service` এবং `argvus-window-bar.service`-এর মালিক। পরে এটি তার Quickshell শিশুটি Tile-এ নিষ্ক্রিয় রাখে। hyprbars প্লাগইনটি `argvus-hyprland` দ্বারা bundled, Hyprland >=0.57.0 ABI-এর জন্য x86_64-এ তৈরি; এটি ব্যবহারকারীর হোম ডিরেক্টরিতে compiled নয়। কম্পোজিটর ABI আপডেট দিয়ে প্লাগইনটি পুনর্নির্মাণ করুন।
+
+টাস্কবার ও টেলিমেট্রি উইজেট `argvus-bars.service` পরিচালিত Quickshell প্রক্রিয়ার স্বাধীন সারফেস। প্রতিটি সারফেস নিয়ন্ত্রণ করতে `argvus-taskbar.service` ও `argvus-widget-telemetry.service` ব্যবহার করুন।
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, এবং `minimize|restore|activate|maximize|close ADDRESS`। উইন্ডোর ঠিকানা তালিকা থেকে আসে। `position top --persist` পছন্দ সংরক্ষণ/প্রকল্প করে মূল বার পুনরায় শুরু না করেই। কনফিগারেশন এবং রUNTIME ত্রুটি বিশদ জার্নালে লেখা হয়; দৃশ্যমান কর্ম ব্যর্থতাগুলিও অনূদিত নোটিফিকেশন দেখায়।
 

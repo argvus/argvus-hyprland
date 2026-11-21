@@ -118,7 +118,9 @@ Wobble 默认情况下是禁用的。其 ARGVUS 默认值为：刚度 `100`、�
 
 最小化使用保留的 `special:argvus-minimized` 工作区。请勿手动使用该工作区。`argvus windows service` 进程在特定合成器实例的运行时注册表中，在 `$XDG_RUNTIME_DIR/argvus` 下记录身份、原始工作区/显示器、几何形状、全屏/最大化和固定状态。记录在服务重启或配置重新加载后仍然存在，但不会跨合成器会话。关闭窗口会删除其记录。如果显示器消失，恢复将使用可用的输出。缺失或恢复栏失败会阻止新的最小化；恢复失败会保留记录和恢复栏。
 
-会话拥有 `argvus-windows.service` 和 `argvus-window-bar.service`。后者保持其 Waybar 子进程在 Tile 中休眠。hyprbars 插件由 `argvus-hyprland` 打包，为 x86_64 上的 Hyprland >=0.57.0 ABI 构建；它不是在用户的主目录中编译。请在更新合成器 ABI 后重新构建该插件。命令：`argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all` 和 `minimize|restore|activate|maximize|close ADDRESS`。窗口地址来自列表。`position top --persist` 存储/投影偏好设置而无需重启主栏。配置和运行时错误详情会记录到日志中；可见的操作失败也会显示翻译后的通知。
+会话拥有 `argvus-windows.service` 和 `argvus-window-bar.service`。后者保持其 Quickshell 子进程在 Tile 中休眠。hyprbars 插件由 `argvus-hyprland` 打包，为 x86_64 上的 Hyprland >=0.57.0 ABI 构建；它不是在用户的主目录中编译。请在更新合成器 ABI 后重新构建该插件。命令：`argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all` 和 `minimize|restore|activate|maximize|close ADDRESS`。窗口地址来自列表。`position top --persist` 存储/投影偏好设置而无需重启主栏。配置和运行时错误详情会记录到日志中；可见的操作失败也会显示翻译后的通知。
+
+任务栏和遥测组件是由 `argvus-bars.service` 管理的 Quickshell 进程中的独立界面。使用 `argvus-taskbar.service` 和 `argvus-widget-telemetry.service` 分别控制它们。
 
 在 **Spaced + Floating** 模式下，窗口会遵循外部间隙和两个栏位预留的区域。边界包括边框和标题，标题位于同一窗口边框内。通过 ARGVUS 控制最大化时，会用边距填充该区域；恢复时会拾回之前的几何状态，包括服务重启后。全屏模式仍使用整个输出区域。浮动窗口可能重叠；铺砖模式中的内部间隙不会将它们分开。
 

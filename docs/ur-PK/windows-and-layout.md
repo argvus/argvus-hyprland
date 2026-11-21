@@ -150,6 +150,8 @@ Commands:
 
 , `special:argvus-minimized`, and `argvus windows service`. The window addresses come from the list. `$XDG_RUNTIME_DIR/argvus` position top --persist  minimize|restore|activate|maximize|close ADDRESS  restore-all  position top|bottom  watch --json  argvus windows list --json  argvus-hyprland  argvus-window-bar.service  `argvus-windows.service`  stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
 
+ٹاسک بار اور ٹیلی میٹری ویجیٹ `argvus-bars.service` کے زیر انتظام Quickshell عمل کی الگ سطحیں ہیں۔ ہر سطح کو `argvus-taskbar.service` اور `argvus-widget-telemetry.service` سے کنٹرول کریں۔
+
 In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭﮈﺭﺎﺑ ﻭﮉﻧﻭ ﯽﺳﺍ ﻮﺟ ،ﮟﯿﮨ ﻞﻣﺎﺷ ﻞﭩﺋﺎﭨ
 
  `argvus-window-bar.service`  `argvus-hyprland`  `argvus windows list --json`  `watch --json`  `position top|bottom`  `restore-all`  `minimize|restore|activate|maximize|close ADDRESS`  `position top --persist` `SUPER + Alt + Space` ﮯﮨ ﮉﻧﺎﻤﮐ ﯼﻭﺎﺴﻣ ۔ﮯﮨ ﯽﺗﻮﮨ ﻝﺎﻤﻌﺘﺳﺍ ﺢﯿﺟﺮﺗ ﯽﮨﻭ ﯽﮐ ﺮﭩﻨﯿﺳ ﻝﻭﺮﭩﻨﮐ ﺭﻭﺍ ﺭﺎﺑ ﮏﺳﺎﭨ ﮟﯿﻣ ﺲﺟ`argvus config window-mode toggle` ؛ﮯﮨ ﺎﺘﮑﺳ ﺎﺟ ﺎﯿﮐ ﻝﺎﻌﻓ ﺮﯿﻏ ﺎﯾ ﻞﯾﺪﺒﺗ ﻮﮐ ﭧﮐ ﭦﺭﺎﺷ ﮟﯿﻣ ﺲﭩﮐ ﭦﺭﺎﺷ ﮈﺭﻮﺑ ﯽﮐ ۔ﮯﮨ ﯽﺗﺮﮐ ﻝﺎ`SUPER + Shift + Space`                                        ۔ﮯﮨ ﺎﺘﮭﮐﺭ ﺭﺍﺮﻗﺮﺑ ﻮﮐ ﻞﻤﻋ ﻭﮉﻧﻭ ﯼﺩﺮﻓ ﮯﻨﭘﺍ
