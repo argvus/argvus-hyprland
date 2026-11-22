@@ -1155,7 +1155,7 @@ hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 10, bezie
 -- blur state.
 local _blur_layer_surfaces = {
   { namespace = "argvus-lifecycle" },
-  { namespace = "argvus-taskbar", surface = "taskbar" },
+  { namespace = "argvus-taskbar-visual", surface = "taskbar" },
   -- SidebarWindow pins argvus-control-panel. Older builds fall back to the
   -- Quickshell default namespace, so keep matching that too.
   { namespace = "argvus-control-panel|quickshell", surface = "control-panel" },
@@ -1184,7 +1184,11 @@ if _blur_enabled then
   for _, layer in ipairs(_blur_layer_surfaces) do
     local surface = layer.surface
     if surface == nil or _theme_effect_enabled(surface .. ".blur", _blur_default) then
-      hl.layer_rule({ match = { namespace = layer.namespace }, blur = true })
+      if surface == "taskbar" then
+        hl.layer_rule({ match = { namespace = layer.namespace }, blur = true, ignore_alpha = 0.01 })
+      else
+        hl.layer_rule({ match = { namespace = layer.namespace }, blur = true })
+      end
     end
   end
 end
