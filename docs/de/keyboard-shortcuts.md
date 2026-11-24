@@ -156,7 +156,7 @@ Die Tabelle listet die Belegungen des Basismanifests (`/usr/share/argvus/hyprlan
 | --- | --- |
 | `SUPER + ,` | Benachrichtigungsleiste öffnen/schließen |
 | `Middle mouse button (mouse:274)` | Benachrichtigungsleiste öffnen/schließen |
-| `SUPER + Backspace` | Waybar oben umschalten |
+| `SUPER + Backspace` | Taskbar oben umschalten |
 | `SUPER + Shift + W` | ARGVUS Wetter (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Taskleiste nach oben verschieben |
 | `SUPER + ALT + Down Arrow` | Taskleiste nach unten verschieben |
@@ -194,7 +194,7 @@ Siehe [Windows und Layout](/docs/argvus-hyprland/windows-and-layout/) für das V
 
 ## Nachtlicht
 
-**SUPER + Shift + B** hält die `appearance.brightness`-Aktion im kanonischen Tastenbelegungsmanifest. Sein Rofi-Helligkeitsmenü bietet auch Night Light an, wenn Hyprsunset verfügbar ist. Konfigurieren Sie die Temperatur (1000–20000 K) und die lokalen Start-/Endzeiten in **Control Center > Desktop & Eingabe > Displays > Night Light**. Die Schnellaktion verwendet die gemeinsam genutzte CLI und lädt Hyprland nicht neu, noch ändert sie generiertes Lua.  
+**SUPER + Shift + B** hält die `appearance.brightness`-Aktion im kanonischen Tastenbelegungsmanifest. Sein Rofi-Helligkeitsmenü bietet auch Night Light an, wenn Hyprsunset verfügbar ist. Konfigurieren Sie die Temperatur (1000–20000 K) und die lokalen Start-/Endzeiten in **Control Center > Desktop & Eingabe > Displays > Night Light**. Die Schnellaktion verwendet die gemeinsam genutzte CLI und lädt Hyprland nicht neu, noch ändert sie generiertes Lua.
 
 Mit dem optionalen Paket argvus-ai installiert, öffnet SUPER + A das Menü der KI-Agenten. Die Tastenbelegung respektiert app.ai-Benutzerüberschreibungen und verschwindet nach der Deinstallation des Pakets und einem Neustart des Compositors. Bis zum Neustart ist die geschützte Aktion inaktiv.
 

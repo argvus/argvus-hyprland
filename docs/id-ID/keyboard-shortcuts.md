@@ -159,7 +159,7 @@ Tabel ini mencantumkan pengikatan dari manifest dasar (`/usr/share/argvus/hyprla
 | --- | --- |
 | `SUPER + ,` | Buka/Tutup sidebar notifikasi |
 | `Middle mouse button (mouse:274)` | Buka/Tutup sidebar notifikasi |
-| `SUPER + Backspace` | Alihkan Waybar atas |
+| `SUPER + Backspace` | Alihkan Taskbar atas |
 | `SUPER + Shift + W` | ARGVUS Cuaca (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Pindahkan bilah tugas ke atas |
 | `SUPER + ALT + Down Arrow` | Pindahkan bilah tugas ke bawah |

@@ -156,7 +156,7 @@ description: Найдите сочетания клавиш, предостав�
 | --- | --- |
 | `SUPER + ,` | Открыть/Закрыть панель уведомлений |
 | `Middle mouse button (mouse:274)` | Открыть/Закрыть панель уведомлений |
-| `SUPER + Backspace` | Переключить Waybar сверху |
+| `SUPER + Backspace` | Переключить Taskbar сверху |
 | `SUPER + Shift + W` | ARGVUS Погода (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Переместить панель задач вверх |
 | `SUPER + ALT + Down Arrow` | Переместить панель задач вниз |

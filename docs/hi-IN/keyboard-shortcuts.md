@@ -159,7 +159,7 @@ description: ARGVUS Hyprland कॉन्फ़िगरेशन द्वा�
 | --- | --- |
 | `SUPER + ,` | अधिसूचना साइडबार खोलें/बंद करें |
 | `Middle mouse button (mouse:274)` | अधिसूचना साइडबार खोलें/बंद करें |
-| `SUPER + Backspace` | Waybar को शीर्ष पर टॉगल करें |
+| `SUPER + Backspace` | Taskbar को शीर्ष पर टॉगल करें |
 | `SUPER + Shift + W` | ARGVUS मौसम (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | टास्कबार को शीर्ष पर ले जाएँ |
 | `SUPER + ALT + Down Arrow` | टास्कबार को नीचे ले जाएँ |

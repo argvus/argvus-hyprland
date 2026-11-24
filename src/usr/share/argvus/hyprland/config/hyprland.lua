@@ -302,21 +302,21 @@ local _spaces_path = _first_existing({
   _config_home .. "/.spaces",
 })
 local _spaces_file = io.open(_spaces_path)
-local _spaces_waybar_top = _layout_variant == "spaced" and 18 or 0
-local _spaces_waybar_left = _spaces_waybar_top
-local _spaces_waybar_right = _spaces_waybar_top
-local _spaces_waybar_bottom = _layout_variant == "spaced" and 18 or 2
-local _spaces_waybar_pos = "top"
-local _spaces_waybar_legacy
+local _spaces_taskbar_top = _layout_variant == "spaced" and 18 or 0
+local _spaces_taskbar_left = _spaces_taskbar_top
+local _spaces_taskbar_right = _spaces_taskbar_top
+local _spaces_taskbar_bottom = _layout_variant == "spaced" and 18 or 2
+local _spaces_taskbar_pos = "top"
+local _spaces_taskbar_legacy
 local _spaces_gaps_out_top = _layout_variant == "spaced" and 18 or 0
 local _spaces_gaps_out_left = _spaces_gaps_out_top
 local _spaces_gaps_out_right = _spaces_gaps_out_top
 local _spaces_gaps_out_bottom = _spaces_gaps_out_top
 local _spaces_gaps_out_legacy
-local _spaces_waybar_top_set = false
-local _spaces_waybar_left_set = false
-local _spaces_waybar_right_set = false
-local _spaces_waybar_bottom_set = false
+local _spaces_taskbar_top_set = false
+local _spaces_taskbar_left_set = false
+local _spaces_taskbar_right_set = false
+local _spaces_taskbar_bottom_set = false
 local _spaces_gaps_out_top_set = false
 local _spaces_gaps_out_left_set = false
 local _spaces_gaps_out_right_set = false
@@ -346,45 +346,45 @@ if _spaces_file then
       _spaces_gaps_out_bottom = tonumber(_val)
       _spaces_gaps_out_bottom_set = true
     end
-    if _key == "waybar" then
-      _spaces_waybar_legacy = tonumber(_val)
+    if _key == "taskbar" then
+      _spaces_taskbar_legacy = tonumber(_val)
     end
-    if _key == "waybar_top" then
-      _spaces_waybar_top = tonumber(_val)
-      _spaces_waybar_top_set = true
+    if _key == "taskbar_top" then
+      _spaces_taskbar_top = tonumber(_val)
+      _spaces_taskbar_top_set = true
     end
-    if _key == "waybar_left" then
-      _spaces_waybar_left = tonumber(_val)
-      _spaces_waybar_left_set = true
+    if _key == "taskbar_left" then
+      _spaces_taskbar_left = tonumber(_val)
+      _spaces_taskbar_left_set = true
     end
-    if _key == "waybar_right" then
-      _spaces_waybar_right = tonumber(_val)
-      _spaces_waybar_right_set = true
+    if _key == "taskbar_right" then
+      _spaces_taskbar_right = tonumber(_val)
+      _spaces_taskbar_right_set = true
     end
-    if _key == "waybar_bottom" then
-      _spaces_waybar_bottom = tonumber(_val)
-      _spaces_waybar_bottom_set = true
+    if _key == "taskbar_bottom" then
+      _spaces_taskbar_bottom = tonumber(_val)
+      _spaces_taskbar_bottom_set = true
     end
     local _pos_key, _pos_val = _line:match("^([%w_]+)=([%a]+)$")
-    if _pos_key == "waybar_pos" and (_pos_val == "top" or _pos_val == "bottom") then
-      _spaces_waybar_pos = _pos_val
+    if _pos_key == "taskbar_pos" and (_pos_val == "top" or _pos_val == "bottom") then
+      _spaces_taskbar_pos = _pos_val
     end
   end
   _spaces_file:close()
 end
 
-if _spaces_waybar_legacy then
-  if not _spaces_waybar_top_set then
-    _spaces_waybar_top = _spaces_waybar_legacy
+if _spaces_taskbar_legacy then
+  if not _spaces_taskbar_top_set then
+    _spaces_taskbar_top = _spaces_taskbar_legacy
   end
-  if not _spaces_waybar_left_set then
-    _spaces_waybar_left = _spaces_waybar_legacy
+  if not _spaces_taskbar_left_set then
+    _spaces_taskbar_left = _spaces_taskbar_legacy
   end
-  if not _spaces_waybar_right_set then
-    _spaces_waybar_right = _spaces_waybar_legacy
+  if not _spaces_taskbar_right_set then
+    _spaces_taskbar_right = _spaces_taskbar_legacy
   end
-  if not _spaces_waybar_bottom_set then
-    _spaces_waybar_bottom = _spaces_waybar_legacy
+  if not _spaces_taskbar_bottom_set then
+    _spaces_taskbar_bottom = _spaces_taskbar_legacy
   end
 end
 
@@ -442,10 +442,10 @@ then
   _spaces_effective_right = _spaces_gaps_out_right
   _spaces_effective_bottom = _spaces_gaps_out_bottom
   _spaces_effective_left = _spaces_gaps_out_left
-  if _spaces_waybar_pos == "top" then
-    _spaces_effective_top = math.max(0, _spaces_gaps_out_top - _spaces_waybar_bottom)
-  elseif _spaces_waybar_pos == "bottom" then
-    _spaces_effective_bottom = math.max(0, _spaces_gaps_out_bottom - _spaces_waybar_top)
+  if _spaces_taskbar_pos == "top" then
+    _spaces_effective_top = math.max(0, _spaces_gaps_out_top - _spaces_taskbar_bottom)
+  elseif _spaces_taskbar_pos == "bottom" then
+    _spaces_effective_bottom = math.max(0, _spaces_gaps_out_bottom - _spaces_taskbar_top)
   end
 end
 
@@ -1360,7 +1360,7 @@ _argvus_bind("app.clock", mod .. " + SHIFT + C", hl.dsp.exec_cmd("argvus clock")
 _argvus_bind("widget.sidebar", mod .. " + comma", hl.dsp.exec_cmd("argvus toggle-sidebar"))
 _argvus_bind("widget.sidebar_mouse", "mouse:274", hl.dsp.exec_cmd("argvus toggle-sidebar"), { mouse = true })
 
--- Toggle Waybar top -------------------------------------------------------------------------------
+-- Toggle Taskbar top -------------------------------------------------------------------------------
 _argvus_bind(
   "widget.taskbar_toggle",
   mod .. " + BackSpace",
@@ -1727,10 +1727,10 @@ _argvus_bind("session.lock", mod .. " + L", hl.dsp.exec_cmd("argvus lock"))
 -- Reload Hyprland ---------------------------------------------------------------------------------
 _argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus sessionctl reload"))
 
--- Move the waybar status bar to the top/bottom ----------------------------------------------------
--- Bind arrow keys to move the waybar; keep a single binding per direction
-_argvus_bind("widget.waybar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus windows position top"))
-_argvus_bind("widget.waybar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("argvus windows position bottom"))
+-- Move the taskbar status bar to the top/bottom ----------------------------------------------------
+-- Bind arrow keys to move the taskbar; keep a single binding per direction
+_argvus_bind("widget.taskbar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus windows position top"))
+_argvus_bind("widget.taskbar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("argvus windows position bottom"))
 
 -- User-created global shortcuts. Generated actions are data, never evaluated Lua.
 local _custom_shortcuts = _load_generated_table("hypr/custom-shortcuts.lua") or {}

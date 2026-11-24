@@ -159,7 +159,7 @@ description: ARGVUS Hyprland কনফিগারেশন দ্বারা �
 | --- | --- |
 | `SUPER + ,` | বিজ্ঞপ্তি সাইডবার খুলুন/বন্ধ করুন |
 | `Middle mouse button (mouse:274)` | বিজ্ঞপ্তি সাইডবার খুলুন/বন্ধ করুন |
-| `SUPER + Backspace` | টগল Waybar শীর্ষ |
+| `SUPER + Backspace` | টগল Taskbar শীর্ষ |
 | `SUPER + Shift + W` | ARGVUS আবহাওয়া (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | টাস্কবার শীর্ষে সরান |
 | `SUPER + ALT + Down Arrow` | টাস্কবার নীচে সরান |

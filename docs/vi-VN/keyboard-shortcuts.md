@@ -157,7 +157,7 @@ Bảng liệt kê các phím liên kết của tệp cơ sở (`/usr/share/argvu
 | --- | --- |
 | `SUPER + ,` | Thanh bên thông báo Mở/Đóng |
 | `Middle mouse button (mouse:274)` | Thanh bên thông báo Mở/Đóng |
-| `SUPER + Backspace` | Chuyển đổi đầu Waybar |
+| `SUPER + Backspace` | Chuyển đổi đầu Taskbar |
 | `SUPER + Shift + W` | ARGVUS Comment (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | Di chuyển thanh tác vụ lên trên cùng |
 | `SUPER + ALT + Down Arrow` | Di chuyển thanh tác vụ xuống dưới cùng |

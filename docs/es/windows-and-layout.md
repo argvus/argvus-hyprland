@@ -68,9 +68,9 @@ Cada regla tiene un `workspace` de 1 a 10 y una lista `classes`. Las entradas en
 
 ## Qué cambiar primero
 
-- Si las ventanas se sienten abarrotadas, aumente la separación entre ventanas o use el modo Espaciado. 
-- Si las ventanas parecen demasiado alejadas del borde de la pantalla, reduzca el espacio exterior/la barra de tareas o use el modo Pegajoso. 
-- Si la barra de tareas aparece desalineada después de cambiar su posición, revise la posición de la barra de tareas y los cuatro márgenes de la barra de tareas/shell juntos. 
+- Si las ventanas se sienten abarrotadas, aumente la separación entre ventanas o use el modo Espaciado.
+- Si las ventanas parecen demasiado alejadas del borde de la pantalla, reduzca el espacio exterior/la barra de tareas o use el modo Pegajoso.
+- Si la barra de tareas aparece desalineada después de cambiar su posición, revise la posición de la barra de tareas y los cuatro márgenes de la barra de tareas/shell juntos.
 - Si las ventanas se superponen a un panel visual, revise la configuración del panel y la barra de tareas antes de cambiar los espacios entre ventanas.
 
 Los cambios se aplican a través de la integración de apariencia/sesión de ARGVUS. Use la acción de restablecer de la página donde esté disponible; no edite directamente los archivos generados de Hyprland.
@@ -89,7 +89,7 @@ Abra **Escritorio y Entrada → Hyprland → Animaciones → Ventanas** y use lo
 ```sh
 argvus control-center hyprland animations windows
 ```
-El movimiento oscilante está desactivado por defecto. Sus valores predeterminados en ARGVUS son rigidez `100`, amortiguamiento `10`, masa `1`, intensidad `1` y resolución de malla `8`. La rigidez y la masa aceptan `0.0001–1000`, el amortiguamiento `0–1000`, la intensidad `0–2`, y la malla un número entero `2–32`. Una mayor resolución de malla aumenta el coste de renderizado. Usa las teclas de flecha para ajustar los valores o Enter para escribirlos. **Restaurar los valores predeterminados de Wobble** cambia el borrador; **Aplicar** guarda todas las ediciones pendientes de animación y recarga Hyprland una vez, sin reiniciar la sesión. Volver dentro de Animations mantiene el borrador compartido. 
+El movimiento oscilante está desactivado por defecto. Sus valores predeterminados en ARGVUS son rigidez `100`, amortiguamiento `10`, masa `1`, intensidad `1` y resolución de malla `8`. La rigidez y la masa aceptan `0.0001–1000`, el amortiguamiento `0–1000`, la intensidad `0–2`, y la malla un número entero `2–32`. Una mayor resolución de malla aumenta el coste de renderizado. Usa las teclas de flecha para ajustar los valores o Enter para escribirlos. **Restaurar los valores predeterminados de Wobble** cambia el borrador; **Aplicar** guarda todas las ediciones pendientes de animación y recarga Hyprland una vez, sin reiniciar la sesión. Volver dentro de Animations mantiene el borrador compartido.
 
 El interruptor global de Animations suprime Wobble mientras mantiene sus configuraciones individuales. Los valores canónicos se encuentran bajo `effects.wobble_*` en el estado ARGVUS; `hypr/state.lua` se genera y no debe editarse manualmente.
 
@@ -111,7 +111,7 @@ Si la aplicación está pendiente o falla, la interfaz lo distingue de la prefer
 
 El modo flotante añade una barra de título ARGVUS con **Minimizar**, **Maximizar / Restaurar** y **Cerrar** a las ventanas normales de la aplicación. Hacer doble clic en la barra de título alterna la maximización. La decoración adicional se oculta en Mosaico y pantalla completa. Las aplicaciones que dibujan sus propios controles pueden mostrar ambas barras; los controles ARGVUS uniformes son intencionales.
 
-Una segunda Waybar aparece en cada monitor, en el borde opuesto a la barra de tareas principal. Solo lista las ventanas del espacio de trabajo actual de ese monitor, incluyendo sus ventanas minimizadas. Las pestañas de grupo ocultas no crean entradas adicionales. Las entradas minimizadas conservan su asociación original con el monitor/espacio de trabajo. Haga clic en una ventana inactiva para activarla, en una ventana activa para minimizarla, o en una ventana minimizada para restaurarla; su menú contextual ofrece restaurar, minimizar, maximizar/restaurar y cerrar. Los íconos de aplicaciones desconocidas se reemplazan por un símbolo de ventana. Activar o restaurar una entrada preserva la posición del puntero. La barra secundaria utiliza el CSS primario efectivo (colores, fuentes, bordes y redondeo), con su altura y márgenes reflejados en el borde opuesto.
+Una segunda Taskbar aparece en cada monitor, en el borde opuesto a la barra de tareas principal. Solo lista las ventanas del espacio de trabajo actual de ese monitor, incluyendo sus ventanas minimizadas. Las pestañas de grupo ocultas no crean entradas adicionales. Las entradas minimizadas conservan su asociación original con el monitor/espacio de trabajo. Haga clic en una ventana inactiva para activarla, en una ventana activa para minimizarla, o en una ventana minimizada para restaurarla; su menú contextual ofrece restaurar, minimizar, maximizar/restaurar y cerrar. Los íconos de aplicaciones desconocidas se reemplazan por un símbolo de ventana. Activar o restaurar una entrada preserva la posición del puntero. La barra secundaria utiliza el CSS primario efectivo (colores, fuentes, bordes y redondeo), con su altura y márgenes reflejados en el borde opuesto.
 
 `SUPER + Alt + Up` coloca la barra principal en la parte superior y la barra de ventana en la parte inferior. `SUPER + Alt + Down` hace lo contrario. Repetir una dirección deja las posiciones sin cambios. Tile solo tiene la barra principal. Volver a Tile restaura todas las ventanas minimizadas antes de quitar la barra de ventana y luego preserva la política original de mosaico/flotante.
 

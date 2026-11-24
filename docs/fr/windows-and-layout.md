@@ -68,23 +68,23 @@ Chaque règle a un `workspace` de 1 à 10 et une liste `classes`. Les entrées d
 
 ## Ce qu'il faut changer en premier
 
-- Si les fenêtres semblent encombrées, augmentez l'espacement des fenêtres ou utilisez le mode Espacé.  
-- Si les fenêtres semblent trop éloignées du bord de l'écran, réduisez l'espacement extérieur/de la barre des tâches ou utilisez le mode Collant.  
-- Si la barre des tâches apparaît mal alignée après avoir changé sa position, vérifiez la position de la barre des tâches et les quatre marges de la barre des tâches/shell ensemble.  
-- Si les fenêtres chevauchent un panneau visuel, vérifiez les paramètres de disposition du panneau et de la barre des tâches avant de modifier les espaces entre les fenêtres.  
+- Si les fenêtres semblent encombrées, augmentez l'espacement des fenêtres ou utilisez le mode Espacé.
+- Si les fenêtres semblent trop éloignées du bord de l'écran, réduisez l'espacement extérieur/de la barre des tâches ou utilisez le mode Collant.
+- Si la barre des tâches apparaît mal alignée après avoir changé sa position, vérifiez la position de la barre des tâches et les quatre marges de la barre des tâches/shell ensemble.
+- Si les fenêtres chevauchent un panneau visuel, vérifiez les paramètres de disposition du panneau et de la barre des tâches avant de modifier les espaces entre les fenêtres.
 
-Les modifications sont appliquées via l'intégration apparence/session d'ARGVUS. Utilisez l'action de réinitialisation de la page lorsque disponible ; ne modifiez pas directement les fichiers Hyprland générés.  
+Les modifications sont appliquées via l'intégration apparence/session d'ARGVUS. Utilisez l'action de réinitialisation de la page lorsque disponible ; ne modifiez pas directement les fichiers Hyprland générés.
 
 ## Connexe
 
-- [Appearance](/docs/user-guide/appearance/)  
-- [Themes](/docs/user-guide/appearance/)  
-- [Taskbar](/docs/argvus-taskbar/taskbar/)  
-- [Panneau de Contrôle](/docs/argvus-control-panel/)  
+- [Appearance](/docs/user-guide/appearance/)
+- [Themes](/docs/user-guide/appearance/)
+- [Taskbar](/docs/argvus-taskbar/taskbar/)
+- [Panneau de Contrôle](/docs/argvus-control-panel/)
 
 ## Oscillation des fenêtres
 
-Ouvrez **Bureau & Entrée → Hyprland → Animations → Fenêtres** et utilisez les contrôles  
+Ouvrez **Bureau & Entrée → Hyprland → Animations → Fenêtres** et utilisez les contrôles
 **Oscillation**. Recherchez `wobble`, ou ouvrez la page directement :
 
 ```sh
@@ -112,7 +112,7 @@ Si l’application est en attente ou échoue, l’interface distingue cela de la
 
 Le mode flottant ajoute une barre de titre ARGVUS avec **Réduire**, **Agrandir / Restaurer** et **Fermer** aux fenêtres d’application normales. Un double-clic sur la barre de titre bascule la maximisation. La décoration supplémentaire est cachée en mode Mosaïque et plein écran. Les applications qui dessinent leurs propres contrôles peuvent afficher les deux barres ; les contrôles ARGVUS uniformes sont intentionnels.
 
-Une deuxième Waybar apparaît sur chaque moniteur, du côté opposé à la barre des tâches principale. Elle liste uniquement les fenêtres de l’espace de travail actuel de ce moniteur, y compris ses fenêtres minimisées. Les onglets de groupe cachés ne créent pas d’entrées supplémentaires. Les entrées minimisées conservent leur association originale avec le moniteur/l’espace de travail. Cliquez sur une fenêtre inactive pour l’activer, sur une fenêtre active pour la minimiser, ou sur une fenêtre minimisée pour la restaurer ; son menu contextuel offre restaurer, minimiser, maximiser/restaurer et fermer. Les icônes d’application inconnues sont remplacées par un symbole de fenêtre. L’activation ou la restauration d’une entrée préserve la position du pointeur. La barre secondaire utilise le CSS principal effectif (couleurs, polices, bordure et arrondis), avec sa hauteur et des marges reflétées sur le bord opposé.
+Une deuxième Taskbar apparaît sur chaque moniteur, du côté opposé à la barre des tâches principale. Elle liste uniquement les fenêtres de l’espace de travail actuel de ce moniteur, y compris ses fenêtres minimisées. Les onglets de groupe cachés ne créent pas d’entrées supplémentaires. Les entrées minimisées conservent leur association originale avec le moniteur/l’espace de travail. Cliquez sur une fenêtre inactive pour l’activer, sur une fenêtre active pour la minimiser, ou sur une fenêtre minimisée pour la restaurer ; son menu contextuel offre restaurer, minimiser, maximiser/restaurer et fermer. Les icônes d’application inconnues sont remplacées par un symbole de fenêtre. L’activation ou la restauration d’une entrée préserve la position du pointeur. La barre secondaire utilise le CSS principal effectif (couleurs, polices, bordure et arrondis), avec sa hauteur et des marges reflétées sur le bord opposé.
 
 `SUPER + Alt + Up` place la barre principale en haut et la barre de fenêtre en bas. `SUPER + Alt + Down` fait le contraire. Répéter une direction laisse les positions inchangées. Tile n'a que la barre principale. Revenir à Tile restaure toutes les fenêtres minimisées avant de supprimer la barre de fenêtre, puis préserve la politique originale de mosaïque/flottant.
 

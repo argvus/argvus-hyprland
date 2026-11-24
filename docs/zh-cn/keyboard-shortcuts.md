@@ -156,7 +156,7 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 | --- | --- |
 | `SUPER + ,` | 打开/关闭通知侧边栏 |
 | `Middle mouse button (mouse:274)` | 打开/关闭通知侧边栏 |
-| `SUPER + Backspace` | 切换 Waybar 顶部显示 |
+| `SUPER + Backspace` | 切换 Taskbar 顶部显示 |
 | `SUPER + Shift + W` | ARGVUS 天气 (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | 将任务栏移动到顶部 |
 | `SUPER + ALT + Down Arrow` | 将任务栏移动到底部 |

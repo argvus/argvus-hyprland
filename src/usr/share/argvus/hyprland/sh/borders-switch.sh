@@ -12,8 +12,8 @@ ARGVUS_MUTABLE_CONFIG=1
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 BORDERS_FILE="${STATE_DIR}/.borders"
 ACTIVE_FILE="${STATE_DIR}/.active-theme"
-WAYBAR_CSS="$(paths_config taskbar/config/argvus-taskbar.css)"
-WAYBAR_SYSINFO_CSS="$(paths_config widget-telemetry/config/argvus-widget-telemetry.css)"
+TASKBAR_CSS="$(paths_config taskbar/config/argvus-taskbar.css)"
+TASKBAR_SYSINFO_CSS="$(paths_config widget-telemetry/config/argvus-widget-telemetry.css)"
 DEFAULT_THEME="argvus-dark"
 MIN_ROUNDING=2
 MAX_ROUNDING=10
@@ -112,14 +112,14 @@ effective_values() {
 apply_file_rounding() {
   _rounding_file="$1"
   [ -f "$_rounding_file" ] || return 0
-  _waybar_rounding="$ROUNDING"
-  [ "$ROUNDED" = 1 ] || _waybar_rounding=0
-  sed -i -E "s|border-radius: [0-9]+(px)?;|border-radius: ${_waybar_rounding}px;|g" "$_rounding_file"
+  _taskbar_rounding="$ROUNDING"
+  [ "$ROUNDED" = 1 ] || _taskbar_rounding=0
+  sed -i -E "s|border-radius: [0-9]+(px)?;|border-radius: ${_taskbar_rounding}px;|g" "$_rounding_file"
 }
 
-apply_waybar_rounding() {
-  apply_file_rounding "$WAYBAR_CSS"
-  apply_file_rounding "$WAYBAR_SYSINFO_CSS"
+apply_taskbar_rounding() {
+  apply_file_rounding "$TASKBAR_CSS"
+  apply_file_rounding "$TASKBAR_SYSINFO_CSS"
 }
 
 apply_runtime() {
@@ -175,7 +175,7 @@ set_key() {
   esac
   write_state
   [ "$SET_PERSIST" -eq 1 ] && return 0
-  apply_waybar_rounding
+  apply_taskbar_rounding
 }
 
 reset_state() {
@@ -184,7 +184,7 @@ reset_state() {
   THICKNESS=""
   write_state
   effective_values
-  apply_waybar_rounding
+  apply_taskbar_rounding
   apply_runtime
 }
 
@@ -223,8 +223,8 @@ case "${1:-}" in
     set_key "$2" "$3"
     ;;
   --reset) reset_state ;;
-  --apply) effective_values; apply_waybar_rounding; apply_runtime ;;
-  --apply-static) effective_values; apply_waybar_rounding ;;
+  --apply) effective_values; apply_taskbar_rounding; apply_runtime ;;
+  --apply-static) effective_values; apply_taskbar_rounding ;;
   *)
     effective_values
     argvus_tr hyprland borders.usage >&2

@@ -156,7 +156,7 @@ description: ARGVUS Hyprland 설정에서 제공하는 단축키를 찾으세요
 | --- | --- |
 | `SUPER + ,` | 알림 사이드바 열기/닫기 |
 | `Middle mouse button (mouse:274)` | 알림 사이드바 열기/닫기 |
-| `SUPER + Backspace` | Waybar 상단 토글 |
+| `SUPER + Backspace` | Taskbar 상단 토글 |
 | `SUPER + Shift + W` | ARGVUS 날씨 (`argvus weather-location`) |
 | `SUPER + ALT + Up Arrow` | 작업 표시줄을 상단으로 이동 |
 | `SUPER + ALT + Down Arrow` | 작업 표시줄을 하단으로 이동 |
