@@ -56,8 +56,19 @@ return function(initial_mode, controls)
     end
   end
 
-  local function write_status()
-    atomic_write(status_path, applied .. "\n" .. last_error:gsub("[\r\n]", " ") .. "\n")
+  local function write_status(only_if_changed)
+    local contents = applied .. "\n" .. last_error:gsub("[\r\n]", " ") .. "\n"
+    if only_if_changed then
+      local current = io.open(status_path, "r")
+      if current then
+        local previous = current:read("*a")
+        current:close()
+        if previous == contents then
+          return
+        end
+      end
+    end
+    atomic_write(status_path, contents)
   end
 
   local function float_window(window)
@@ -210,7 +221,9 @@ return function(initial_mode, controls)
 
   local api = {
     apply = apply,
-    write_status = write_status,
+    write_status = function()
+      write_status(true)
+    end,
     is_floating = function()
       return mode == "floating"
     end,

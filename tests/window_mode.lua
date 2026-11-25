@@ -113,5 +113,32 @@ callbacks["window.open"](seventh)
 assert(seventh.floating)
 api.apply("tile")
 assert(seventh.floating, "decoration refresh must not replace a native floating origin")
+-- Polling status must preserve an identical marker and recreate a lost one.
+local status_path = assert(os.getenv("XDG_RUNTIME_DIR"))
+  .. "/argvus/window-mode-"
+  .. assert(os.getenv("HYPRLAND_INSTANCE_SIGNATURE"))
+  .. ".status"
+local original_open = io.open
+local writes = 0
+io.open = function(path, access)
+  if path == status_path .. ".tmp" and access == "w" then
+    writes = writes + 1
+  end
+  return original_open(path, access)
+end
+api.write_status()
+assert(writes == 0, "unchanged status must keep the current marker")
+assert(os.remove(status_path))
+api.write_status()
+assert(writes == 1, "missing status marker must be recreated")
+local marker = assert(io.open(status_path, "r"))
+assert(marker:read("*a") == "tile\n\n")
+marker:close()
+marker = assert(io.open(status_path, "w"))
+assert(marker:write("floating\n\n"))
+marker:close()
+api.write_status()
+assert(writes == 2, "stale status marker must be replaced")
+io.open = original_open
 hl = actual_hl
 print("ARGVUS window mode lifecycle: all assertions passed")

@@ -1,8 +1,34 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
+if [ "${1:-}" = "--video-full-status" ] && [ -z "${ARGVUS_BOOTSTRAP:-}" ]; then
+  _argvus_skip_app_defaults=1
+fi
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
+
+STATE_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.state"
+OUTPUT_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.output"
+RECORDING_UNIT="argvus-screen-recorder.service"
+
+recording_active() {
+  systemctl --user is-active --quiet "$RECORDING_UNIT" 2>/dev/null
+}
+
+if [ "${1:-}" = "--video-full-status" ]; then
+  if recording_active; then
+    STATE=$(cat "$STATE_FILE" 2>/dev/null)
+
+    if [ "$STATE" = "paused" ]; then
+      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$(argvus_tr hyprland screenshot.recording.paused)\",\"class\":\"paused\"}"
+    else
+      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$(argvus_tr hyprland screenshot.recording.started)\",\"class\":\"recording\"}"
+    fi
+  else
+    echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$(argvus_tr hyprland screenshot.recording.none)\",\"class\":\"stopped\"}"
+  fi
+  exit
+fi
 
 PICTURES=$(xdg-user-dir PICTURES)
 VIDEOS=$(xdg-user-dir VIDEOS)
@@ -24,13 +50,6 @@ PATH_IMAGES="$PICTURES/$FOLDER_IMAGES"
 FILENAME_IMAGE_DATETIME="$FILENAME_IMAGE $(date +%Y-%m-%d_%H-%M-%S).png"
 PATH_VIDEOS="$VIDEOS/$FOLDER_VIDEOS"
 FILENAME_VIDEO_DATETIME="$FILENAME_VIDEO $(date +%Y-%m-%d_%H-%M-%S).mkv"
-STATE_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.state"
-OUTPUT_FILE="$HYPR_CACHE_DIR/gpu-screen-recorder.output"
-RECORDING_UNIT="argvus-screen-recorder.service"
-
-recording_active() {
-  systemctl --user is-active --quiet "$RECORDING_UNIT" 2>/dev/null
-}
 
 recording_signal() {
   systemctl --user kill --kill-whom=main --signal="$1" "$RECORDING_UNIT" >/dev/null 2>&1
@@ -179,17 +198,4 @@ case "$1" in
       notify-send "$FILENAME_VIDEO_DATETIME" "$MSG_NO_RECORDING"
     fi
     ;;
---video-full-status)
-  if recording_active; then
-    STATE=$(cat "$STATE_FILE" 2>/dev/null)
-
-    if [ "$STATE" = "paused" ]; then
-      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_RECORDING_PAUSED\",\"class\":\"paused\"}"
-    else
-      echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_RECORDING_STARTED\",\"class\":\"recording\"}"
-    fi
-  else
-    echo "{\"text\":\"<span font_family='Symbols Nerd Font Mono'></span>\",\"tooltip\":\"$MSG_NO_RECORDING\",\"class\":\"stopped\"}"
-  fi
-  ;;
 esac
