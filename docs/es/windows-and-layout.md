@@ -79,8 +79,8 @@ Los cambios se aplican a través de la integración de apariencia/sesión de ARG
 
 - [Apariencia](/docs/user-guide/appearance/)
 - [Temas](/docs/user-guide/appearance/)
-- [Barra de tareas](/docs/argvus-taskbar/taskbar/)
-- [Panel de control](/docs/argvus-control-panel/)
+- [Barra de tareas](/docs/argvus-panels/taskbar/)
+- [Panel de control](/docs/argvus-panels/)
 
 ## Oscilación de ventanas
 
@@ -119,7 +119,7 @@ La minimización utiliza el espacio de trabajo reservado `special:argvus-minimiz
 
 La sesión posee `argvus-windows.service` y `argvus-window-bar.service`. Esta última mantiene su hijo Quickshell inactivo en Tile. El plugin hyprbars está incluido por `argvus-hyprland`, construido para la ABI de Hyprland >=0.57.0 en x86_64; no se compila en el directorio de inicio del usuario. Reconstruya el plugin con una actualización de ABI del compositor.Comandos: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` y `minimize|restore|activate|maximize|close ADDRESS`. Las direcciones de las ventanas provienen de la lista. `position top --persist` almacena/proyecta la preferencia sin reiniciar la barra principal. Los detalles de configuración y errores en tiempo de ejecución se escriben en el diario; las fallas visibles de acción también muestran una notificación traducida.
 
-La barra de tareas y la telemetría son superficies independientes del proceso Quickshell que administra `argvus-bars.service`. Usa `argvus-taskbar.service` y `argvus-widget-telemetry.service` para controlar cada superficie.
+La barra de tareas y la telemetría son superficies independientes del proceso Quickshell que administra `argvus-panels.service`. Usa `argvus-taskbar.service` y `argvus-widget-telemetry.service` para controlar cada superficie.
 
 En **Espaciado + Flotante**, las ventanas respetan los huecos exteriores y las áreas reservadas por ambas barras. Los límites incluyen el borde y el título, que se encuentra dentro del mismo borde de la ventana. Maximizar a través de ARGVUS llena esta área con márgenes; restaurar recupera la geometría anterior, incluso después de reiniciar un servicio. La pantalla completa aún utiliza toda la salida. Las ventanas flotantes pueden superponerse; los huecos internos en mosaico no las separan.
 

@@ -129,7 +129,7 @@ Minimisasi menggunakan workspace cadangan `special:argvus-minimized`. Jangan gun
 
 Sesi memiliki `argvus-windows.service` dan `argvus-window-bar.service`. Yang terakhir menjaga child Quickshell-nya tetap dorman di Tile. Plugin hyprbars dibundel oleh `argvus-hyprland`, dibuat untuk Hyprland >=0.57.0 ABI di x86_64; itu tidak dikompilasi di direktori home pengguna. Bangun ulang plugin dengan pembaruan ABI compositor.
 
-Bilah tugas dan widget telemetri adalah permukaan independen dalam proses Quickshell yang dikelola `argvus-bars.service`. Gunakan `argvus-taskbar.service` dan `argvus-widget-telemetry.service` untuk mengontrol masing-masing permukaan.
+Bilah tugas dan widget telemetri adalah permukaan independen dalam proses Quickshell yang dikelola `argvus-panels.service`. Gunakan `argvus-taskbar.service` dan `argvus-widget-telemetry.service` untuk mengontrol masing-masing permukaan.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, dan `minimize|restore|activate|maximize|close ADDRESS`. Alamat jendela berasal dari daftar. `position top --persist` menyimpan/memproyeksikan preferensi tanpa memulai ulang bilah utama. Detail konfigurasi dan kesalahan runtime dicatat di jurnal; kegagalan tindakan yang terlihat juga menampilkan notifikasi yang diterjemahkan.
 
@@ -143,8 +143,8 @@ untuk jalur yang terpasang dan pengguna. for the installed and user paths.(https
 Jendela ubin disusun berdasarkan Hyprland pada ruang kerja aktif. ARGVUS juga mendukung jendela utilitas mengambang; SUPER + SHIFT + Spasi mengalihkan jendela fokus antara tata letak ubin dan mengambang. Pergerakan ruang kerja dan fokus jendela dikendalikan oleh manifes pengikatan tombol aktif; lihat [Pintasan keyboard](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Penampilan](/docs/user-guide/appearance/)
 - [Tema](/docs/user-guide/appearance/)
-- [Bilah tugas](/docs/argvus-taskbar/taskbar/)
-- [Panel Kontrol](/docs/argvus-control-panel/)
+- [Bilah tugas](/docs/argvus-panels/taskbar/)
+- [Panel Kontrol](/docs/argvus-panels/)
 intensitas maksimum mengikuti [rilis sumber >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):

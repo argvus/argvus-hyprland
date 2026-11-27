@@ -129,7 +129,7 @@ argvus control-center hyprland animations windows
 
 সেশনটি `argvus-windows.service` এবং `argvus-window-bar.service`-এর মালিক। পরে এটি তার Quickshell শিশুটি Tile-এ নিষ্ক্রিয় রাখে। hyprbars প্লাগইনটি `argvus-hyprland` দ্বারা bundled, Hyprland >=0.57.0 ABI-এর জন্য x86_64-এ তৈরি; এটি ব্যবহারকারীর হোম ডিরেক্টরিতে compiled নয়। কম্পোজিটর ABI আপডেট দিয়ে প্লাগইনটি পুনর্নির্মাণ করুন।
 
-টাস্কবার ও টেলিমেট্রি উইজেট `argvus-bars.service` পরিচালিত Quickshell প্রক্রিয়ার স্বাধীন সারফেস। প্রতিটি সারফেস নিয়ন্ত্রণ করতে `argvus-taskbar.service` ও `argvus-widget-telemetry.service` ব্যবহার করুন।
+টাস্কবার ও টেলিমেট্রি উইজেট `argvus-panels.service` পরিচালিত Quickshell প্রক্রিয়ার স্বাধীন সারফেস। প্রতিটি সারফেস নিয়ন্ত্রণ করতে `argvus-taskbar.service` ও `argvus-widget-telemetry.service` ব্যবহার করুন।
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, এবং `minimize|restore|activate|maximize|close ADDRESS`। উইন্ডোর ঠিকানা তালিকা থেকে আসে। `position top --persist` পছন্দ সংরক্ষণ/প্রকল্প করে মূল বার পুনরায় শুরু না করেই। কনফিগারেশন এবং রUNTIME ত্রুটি বিশদ জার্নালে লেখা হয়; দৃশ্যমান কর্ম ব্যর্থতাগুলিও অনূদিত নোটিফিকেশন দেখায়।
 
@@ -143,8 +143,8 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 সক্রিয় কর্মক্ষেত্রে Hyprland দ্বারা টালিযুক্ত উইন্ডোগুলি সাজানো হয়েছে। ARGVUS এছাড়াও ভাসমান ইউটিলিটি উইন্ডো সমর্থন করে; SUPER + SHIFT + Space টাইল্ড এবং ভাসমান লেআউটগুলির মধ্যে ফোকাস করা উইন্ডোটিকে টগল করে৷ ওয়ার্কস্পেস আন্দোলন এবং উইন্ডো ফোকাস সক্রিয় কীবাইন্ডিং ম্যানিফেস্ট দ্বারা নিয়ন্ত্রিত হয়; দেখুন [কীবোর্ড শর্টকাট](/docs/argvus-hyprland/keyboard-shortcuts/)।
 - [দৃশ্যমানতা](/docs/user-guide/appearance/)
 - [থিমস](/docs/user-guide/appearance/)
-- [টাস্কবার](/docs/argvus-taskbar/taskbar/)
-- [কন্ট্রোল প্যানেল](/docs/argvus-control-panel/)
+- [টাস্কবার](/docs/argvus-panels/taskbar/)
+- [কন্ট্রোল প্যানেল](/docs/argvus-panels/)
 সর্বাধিক তীব্রতা অনুসরণ করে [রিলিজ করা >=0.57.0 সোর্স](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):

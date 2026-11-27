@@ -129,7 +129,7 @@ argvus control-center hyprland animations windows
 
 सत्र के पास `argvus-windows.service` और `argvus-window-bar.service` हैं। बाद वाला अपने Quickshell चाइल्ड को Tile में निष्क्रिय रखता है। hyprbars प्लगइन `argvus-hyprland` द्वारा बंडल किया गया है, जो Hyprland >=0.57.0 ABI के लिए x86_64 पर बनाया गया है; इसे उपयोगकर्ता के होम डायरेक्टरी में संकलित नहीं किया गया है। कंपोज़िटर ABI अपडेट के साथ प्लगइन को पुनर्निर्माण करें।
 
-टास्कबार और टेलीमेट्री विजेट `argvus-bars.service` के Quickshell प्रक्रम में स्वतंत्र सतहें हैं। प्रत्येक सतह को `argvus-taskbar.service` और `argvus-widget-telemetry.service` से नियंत्रित करें।
+टास्कबार और टेलीमेट्री विजेट `argvus-panels.service` के Quickshell प्रक्रम में स्वतंत्र सतहें हैं। प्रत्येक सतह को `argvus-taskbar.service` और `argvus-widget-telemetry.service` से नियंत्रित करें।
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, और `minimize|restore|activate|maximize|close ADDRESS`। विंडो पते सूची से आते हैं। `position top --persist` मुख्य बार को पुनः आरंभ किए बिना प्राथमिकता को संग्रहीत/प्रोजेक्ट करता है। कॉन्फ़िगरेशन और रनटाइम त्रुटि विवरण जर्नल में लिखे जाते हैं; दृश्य कार्रवाई विफलताएं भी अनुवादित सूचना दिखाती हैं।
 
@@ -143,8 +143,8 @@ Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `
 टाइल वाली खिड़कियाँ सक्रिय कार्यक्षेत्र पर Hyprland द्वारा व्यवस्थित की जाती हैं। ARGVUS फ्लोटिंग यूटिलिटी विंडो का भी समर्थन करता है; सुपर + शिफ्ट + स्पेस टाइल और फ्लोटिंग लेआउट के बीच फोकस्ड विंडो को टॉगल करता है। कार्यक्षेत्र की गति और विंडो फोकस को सक्रिय कीबाइंडिंग मेनिफ़ेस्ट द्वारा नियंत्रित किया जाता है; [कीबोर्ड शॉर्टकट](/docs/argvus-hyprland/keyboard-shortcuts/) देखें।
 - [दिखावट](/docs/user-guide/appearance/)
 - [थीम्स](/docs/user-guide/appearance/)
-- [टास्कबार](/docs/argvus-taskbar/taskbar/)
-- [कंट्रोल पैनल](/docs/argvus-control-panel/)
+- [टास्कबार](/docs/argvus-panels/taskbar/)
+- [कंट्रोल पैनल](/docs/argvus-panels/)
 तीव्रता अधिकतम का पालन करता है[>=0.57.0 स्रोत जारी किया](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):

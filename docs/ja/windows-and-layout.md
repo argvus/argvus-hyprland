@@ -79,8 +79,8 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 - [Appearance](/docs/user-guide/appearance/)
 - [Themes](/docs/user-guide/appearance/)
-- [Taskbar](/docs/argvus-taskbar/taskbar/)
-- [Control Panel](/docs/argvus-control-panel/)
+- [Taskbar](/docs/argvus-panels/taskbar/)
+- [Control Panel](/docs/argvus-panels/)
 
 ## ウィンドウの揺れ
 
@@ -120,7 +120,7 @@ Wobbleはデフォルトで無効になっています。ARGVUSのデフォル�
 
 セッションは`argvus-windows.service`および`argvus-window-bar.service`を所有します。後者はQuickshellの子プロセスをTileで休止状態に保ちます。hyprbarsプラグインは`argvus-hyprland`で同梱されており、x86_64上のHyprland >=0.57.0 ABI向けにビルドされています。ユーザーのホームディレクトリではコンパイルされていません。コンポジターのABIが更新された場合、プラグインを再ビルドしてください。コマンド: `argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all`、および `minimize|restore|activate|maximize|close ADDRESS`。ウィンドウアドレスはリストから取得されます。`position top --persist` はメインバーを再起動せずに設定を保存/適用します。構成および実行時のエラーの詳細はジャーナルに書き込まれます。表示されるアクションの失敗も翻訳された通知として表示されます。
 
-タスクバーとテレメトリは、`argvus-bars.service` が管理する Quickshell プロセス内の独立したサーフェスです。各サーフェスは `argvus-taskbar.service` と `argvus-widget-telemetry.service` で制御します。
+タスクバーとテレメトリは、`argvus-panels.service` が管理する Quickshell プロセス内の独立したサーフェスです。各サーフェスは `argvus-taskbar.service` と `argvus-widget-telemetry.service` で制御します。
 
 **Spaced + Floating** では、ウィンドウは外側のギャップと両方のバーによって確保された領域を尊重します。ボーダーとタイトルを含む境界は、同じウィンドウボーダー内にタイトルが配置されます。ARGVUS コントロールを使った最大化は、この領域をマージン付きで埋めます。復元するとサービス再起動後も以前のジオメトリを回復します。フルスクリーンは依然として出力全体を使用します。フローティングウィンドウは重なり合う可能性があります。タイル内の内部ギャップはそれらを分離しません。
 

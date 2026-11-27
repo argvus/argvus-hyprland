@@ -190,7 +190,7 @@ write_effective_geometry() {
 }
 
 apply_taskbar_margins() {
-  [ ! -f "$(paths_system_config taskbar/quickshell/shell.qml)" ] || return 0
+  [ ! -f "$(paths_system_config panels/qml/shell.qml)" ] || return 0
   [ -n "${TASKBAR_TOP:-}" ] || return 0
   [ -n "${TASKBAR_POS:-}" ] || TASKBAR_POS="top"
   calculate_effective_geometry

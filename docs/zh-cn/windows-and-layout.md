@@ -80,8 +80,8 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 - [外观](/docs/user-guide/appearance/)
 - [主题](/docs/user-guide/appearance/)
-- [任务栏](/docs/argvus-taskbar/taskbar/)
-- [控制面板](/docs/argvus-control-panel/)
+- [任务栏](/docs/argvus-panels/taskbar/)
+- [控制面板](/docs/argvus-panels/)
 
 ## 窗口晃动
 
@@ -120,7 +120,7 @@ Wobble 默认情况下是禁用的。其 ARGVUS 默认值为：刚度 `100`、�
 
 会话拥有 `argvus-windows.service` 和 `argvus-window-bar.service`。后者保持其 Quickshell 子进程在 Tile 中休眠。hyprbars 插件由 `argvus-hyprland` 打包，为 x86_64 上的 Hyprland >=0.57.0 ABI 构建；它不是在用户的主目录中编译。请在更新合成器 ABI 后重新构建该插件。命令：`argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all` 和 `minimize|restore|activate|maximize|close ADDRESS`。窗口地址来自列表。`position top --persist` 存储/投影偏好设置而无需重启主栏。配置和运行时错误详情会记录到日志中；可见的操作失败也会显示翻译后的通知。
 
-任务栏和遥测组件是由 `argvus-bars.service` 管理的 Quickshell 进程中的独立界面。使用 `argvus-taskbar.service` 和 `argvus-widget-telemetry.service` 分别控制它们。
+任务栏和遥测组件是由 `argvus-panels.service` 管理的 Quickshell 进程中的独立界面。使用 `argvus-taskbar.service` 和 `argvus-widget-telemetry.service` 分别控制它们。
 
 在 **Spaced + Floating** 模式下，窗口会遵循外部间隙和两个栏位预留的区域。边界包括边框和标题，标题位于同一窗口边框内。通过 ARGVUS 控制最大化时，会用边距填充该区域；恢复时会拾回之前的几何状态，包括服务重启后。全屏模式仍使用整个输出区域。浮动窗口可能重叠；铺砖模式中的内部间隙不会将它们分开。
 

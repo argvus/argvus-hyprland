@@ -129,7 +129,7 @@ Minimize etme, rezerve edilmiş `special:argvus-minimized` çalışma alanını 
 
 Oturum `argvus-windows.service` ve `argvus-window-bar.service` adlı öğelere sahiptir. İkincisi Quickshell alt öğesini Tile içinde pasif tutar. hyprbars eklentisi `argvus-hyprland` tarafından paketlenmiştir, Hyprland >=0.57.0 ABI için x86_64 üzerinde oluşturulmuştur; kullanıcı ev dizininde derlenmemiştir. Eklentiyi bir compositor ABI güncellemesi ile yeniden derleyin.
 
-Görev çubuğu ve telemetri bileşeni, `argvus-bars.service` tarafından yönetilen Quickshell sürecindeki bağımsız yüzeylerdir. Her yüzeyi `argvus-taskbar.service` ve `argvus-widget-telemetry.service` ile denetleyin.
+Görev çubuğu ve telemetri bileşeni, `argvus-panels.service` tarafından yönetilen Quickshell sürecindeki bağımsız yüzeylerdir. Her yüzeyi `argvus-taskbar.service` ve `argvus-widget-telemetry.service` ile denetleyin.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` ve `minimize|restore|activate|maximize|close ADDRESS`. Pencere adresleri listeden gelir. `position top --persist` tercihi ana çubuğu yeniden başlatmadan kaydeder/projeler. Yapılandırma ve çalışma zamanı hata detayları günlük dosyasına yazılır; görülebilen işlem hataları ayrıca çevrilmiş bir bildirim gösterir.
 
@@ -143,8 +143,8 @@ Her kuralın 1'den 10'a kadar bir çalışma alanı ve bir sınıf listesi vard�
 Döşenmiş pencereler etkin çalışma alanında Hyprland tarafından düzenlenir. ARGVUS aynı zamanda değişken yardımcı program pencerelerini de destekler; SUPER + SHIFT + Space, odaklanılan pencerede döşenmiş ve kayan düzenler arasında geçiş yapar. Çalışma alanı hareketi ve pencere odağı, etkin tuş bağlama bildirimi tarafından kontrol edilir; bkz. [Klavye kısayolları](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Görünüm](/docs/user-guide/appearance/)
 - [Temalar](/docs/user-guide/appearance/)
-- [Görev Çubuğu](/docs/argvus-taskbar/taskbar/)
-- [Denetim Masası](/docs/argvus-control-panel/)
+- [Görev Çubuğu](/docs/argvus-panels/taskbar/)
+- [Denetim Masası](/docs/argvus-panels/)
 yoğunluk maksimumu şunu takip eder[>=0.57.0 kaynağı yayınlandı](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):
