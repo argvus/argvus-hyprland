@@ -23,9 +23,6 @@ depends=(
   'xdg-user-dirs'
 )
 optdepends=('argvus-session: session lifecycle controller used by reload keybindings and spaces-switch')
-provides=('argvus-shell')
-conflicts=('argvus-shell')
-replaces=('argvus-shell')
 makedepends=('gcc' 'pkgconf' 'patch' 'hyprland>=0.57.0')
 _plugins_commit=d2427d4d15b36df40468f5a58bbd67cdba19835d
 options=('!debug')

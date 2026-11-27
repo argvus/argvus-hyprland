@@ -45,7 +45,7 @@ class WindowControls(unittest.TestCase):
                        ARGVUS_DATA_HOME=str(root / "config/argvus/data"),
                        XDG_STATE_HOME=str(root / "state"),
                        ARGVUS_I18N_DIR=str(WORKSPACE / "de/argvus/resources/locales"),
-                       ARGVUS_SYSTEM_CONFIG=str(WORKSPACE / "de/argvus-panels/src/usr/share/argvus"),
+                       ARGVUS_SYSTEM_CONFIG=str(WORKSPACE / "de/argvus-shell/src/usr/share/argvus"),
                        ARGVUS_HYPRBARS_PLUGIN=str(Path(ARTIFACTS[1]).resolve()), ARGVUS_NO_RUNTIME="1")
             config = root / "nested.lua"
             mode_path = root / "config/argvus/data/generated/hypr/window-mode.lua"
@@ -138,7 +138,7 @@ argvus_window_mode = dofile("''' + str(ROOT / "src/usr/share/argvus/hyprland/lua
                     pending.write_text(json.dumps({"taskbar": primary_data}))
                     pending.replace(presentation)
                 publish_presentation()
-                shell_config = WORKSPACE / "de/argvus-panels/src/usr/share/argvus/panels/qml"
+                shell_config = WORKSPACE / "de/argvus-shell/src/usr/share/argvus/shell/qml"
                 spawn(["qs", "-p", str(shell_config)])
                 until(lambda: "argvus-taskbar" in ipc("j/layers"))
                 for name in ["argvus-controls-normal", "argvus-controls-dialog"]:

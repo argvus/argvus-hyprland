@@ -79,8 +79,8 @@ Jede Regel hat eine `workspace` von 1 bis 10 und eine `classes`-Liste. Einträge
 
 - [Aussehen](/docs/user-guide/appearance/)
 - [Themen](/docs/user-guide/appearance/)
-- [Taskleiste](/docs/argvus-panels/taskbar/)
-- [Systemsteuerung](/docs/argvus-panels/)
+- [Taskleiste](/docs/argvus-shell/taskbar/)
+- [Systemsteuerung](/docs/argvus-shell/)
 
 ## Fensterwackeln
 
@@ -120,7 +120,7 @@ Die Minimierung verwendet den reservierten Arbeitsbereich `special:argvus-minimi
 
 Die Sitzung besitzt `argvus-windows.service` und `argvus-window-bar.service`. Letzterer hält sein Quickshell-Kind im Tile-Modus inaktiv. Das Hyprbars-Plugin wird von `argvus-hyprland` gebündelt, gebaut für die Hyprland >=0.57.0 ABI auf x86_64; es ist nicht im Home-Verzeichnis des Benutzers kompiliert. Bauen Sie das Plugin bei einem Update der Compositor-ABI neu.Befehle: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` und `minimize|restore|activate|maximize|close ADDRESS`. Die Fensteradressen stammen aus der Liste. `position top --persist` speichert/projektiert die Voreinstellung, ohne die Hauptleiste neu zu starten. Konfigurations- und Laufzeitfehlerdetails werden im Journal geschrieben; sichtbare Aktionsfehler zeigen ebenfalls eine übersetzte Benachrichtigung an.
 
-Taskleiste und Telemetrie sind unabhängige Oberflächen im Quickshell-Prozess von `argvus-panels.service`. Die Dienste `argvus-taskbar.service` und `argvus-widget-telemetry.service` steuern die einzelnen Oberflächen.
+Taskleiste und Telemetrie sind unabhängige Oberflächen im Quickshell-Prozess von `argvus-shell.service`. Die Dienste `argvus-taskbar.service` und `argvus-widget-telemetry.service` steuern die einzelnen Oberflächen.
 
 In **Spaced + Floating** respektieren Fenster äußere Abstände und die von beiden Leisten reservierten Bereiche. Die Begrenzungen beinhalten Rahmen und Titel, der innerhalb desselben Fensterrahmens sitzt. Maximieren über ARGVUS-Steuerungen füllt diesen Bereich mit Rand; Wiederherstellen bringt die vorherige Geometrie zurück, auch nach einem Dienstneustart. Vollbild nutzt weiterhin die gesamte Ausgabe. Schwebende Fenster können sich überlappen; innere Lücken im Kachelmodus trennen sie nicht.
 

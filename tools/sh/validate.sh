@@ -50,6 +50,9 @@ local_metadata="$(metadata packaging/arch/local/PKGBUILD)"
 for pkgbuild_dir in packaging/arch/remote packaging/arch/local; do
 	pkgbuild="$pkgbuild_dir/PKGBUILD"
 	[[ -f "$pkgbuild" ]] || die "missing $pkgbuild"
+	if grep -Eq '^(provides|conflicts|replaces)=.*argvus-shell' "$pkgbuild"; then
+		die "$pkgbuild must not claim or conflict with the argvus-shell package"
+	fi
 	(
 		cd "$pkgbuild_dir"
 		makepkg -p PKGBUILD --printsrcinfo >/dev/null

@@ -135,7 +135,7 @@ Spaced.
 
 Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG_RUNTIME_DIR/argvus argvus خدمة ويندوز `special:argvus-minimized` `argvus windows service` `$XDG_RUNTIME_DIR/argvus` `argvus-windows.service` `argvus-window-bar.service` `argvus-hyprland` `argvus windows list --json`، `watch --json`، `position top|bottom`، `restore-all`، و`minimize|restore|activate|maximize|close ADDRESS`. عناوين النافذة تأتي من القائمة. `position top --persist` يخزن/يعرض التفضيلات دون إعادة تشغيل الشريط الرئيسي. تتم كتابة تفاصيل أخطاء التكوين ووقت التشغيل إلى المجلة؛ تُظهر حالات فشل الإجراء المرئي أيضًا إشعارًا مترجمًا.
 
-شريط المهام وأداة القياس عن بُعد سطحان مستقلان في عملية Quickshell التي تديرها `argvus-panels.service`. استخدم `argvus-taskbar.service` و`argvus-widget-telemetry.service` للتحكم في كل سطح.
+شريط المهام وأداة القياس عن بُعد سطحان مستقلان في عملية Quickshell التي تديرها `argvus-shell.service`. استخدم `argvus-taskbar.service` و`argvus-widget-telemetry.service` للتحكم في كل سطح.
 
 
 
@@ -149,8 +149,8 @@ Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG
 يتم ترتيب النوافذ المتجانبة بواسطة Hyprland في مساحة العمل النشطة. ARGVUS يدعم أيضًا نوافذ الأدوات المساعدة العائمة؛ SUPER + SHIFT + Space لتبديل النافذة التي تم التركيز عليها بين التخطيطات المتجانبة والعائمة. يتم التحكم في حركة مساحة العمل وتركيز النافذة من خلال بيان ربط المفاتيح النشط؛ راجع [اختصارات لوحة المفاتيح](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [                                                                        ﺮﻬﻈﻤﻟﺍ](/docs/user-guide/appearance/)
 - [                                                                     ﺕﺎﻋﻮﺿﻮﻤﻟﺍ](/docs/user-guide/appearance/)
-- [                                                                   ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ](/docs/argvus-panels/taskbar/)
-- [                                                                   ﻢﻜﺤﺘﻟﺍ ﺔﺣﻮﻟ](/docs/argvus-panels/)
+- [                                                                   ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ](/docs/argvus-shell/taskbar/)
+- [                                                                   ﻢﻜﺤﺘﻟﺍ ﺔﺣﻮﻟ](/docs/argvus-shell/)
                                                                  ﻊﺒﺘﺗ ﺓﺪﺷ ﻰﺼﻗﺃ[                                                        >=0.57.0 ﺭﺪﺼﻤﻟﺍ ﺭﺍﺪﺻﺇ ﻢﺗ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):

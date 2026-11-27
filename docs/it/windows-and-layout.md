@@ -79,8 +79,8 @@ Le modifiche vengono applicate tramite l'integrazione aspetto/sessione di ARGVUS
 
 - [Aspetto](/docs/user-guide/appearance/)
 - [Temi](/docs/user-guide/appearance/)
-- [Barra delle applicazioni](/docs/argvus-panels/taskbar/)
-- [Pannello di controllo](/docs/argvus-panels/)
+- [Barra delle applicazioni](/docs/argvus-shell/taskbar/)
+- [Pannello di controllo](/docs/argvus-shell/)
 
 ## Oscillazione delle finestre
 
@@ -120,7 +120,7 @@ La minimizzazione utilizza lo spazio di lavoro riservato `special:argvus-minimiz
 
 La sessione possiede `argvus-windows.service` e `argvus-window-bar.service`. Quest'ultimo mantiene il suo figlio Quickshell inattivo in Tile. Il plugin hyprbars è incluso da `argvus-hyprland`, costruito per l'ABI Hyprland >=0.57.0 su x86_64; non è compilato nella directory home dell'utente. Ricompila il plugin con un aggiornamento dell'ABI del compositore.Comandi: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` e `minimize|restore|activate|maximize|close ADDRESS`. Gli indirizzi delle finestre provengono dalla lista. `position top --persist` memorizza/proietta la preferenza senza riavviare la barra principale. I dettagli degli errori di configurazione e runtime vengono scritti nel registro; i fallimenti delle azioni visibili mostrano anche una notifica tradotta.
 
-La barra delle applicazioni e la telemetria sono superfici indipendenti del processo Quickshell gestito da `argvus-panels.service`. Usa `argvus-taskbar.service` e `argvus-widget-telemetry.service` per controllare ogni superficie.
+La barra delle applicazioni e la telemetria sono superfici indipendenti del processo Quickshell gestito da `argvus-shell.service`. Usa `argvus-taskbar.service` e `argvus-widget-telemetry.service` per controllare ogni superficie.
 
 In **Spaziato + Fluttuante**, le finestre rispettano i margini esterni e le aree riservate da entrambe le barre. I confini includono il bordo e il titolo, che si trova all'interno dello stesso bordo della finestra. La massimizzazione tramite ARGVUS controlla riempie quest'area con margini; il ripristino recupera la geometria precedente, anche dopo il riavvio di un servizio. Lo schermo intero utilizza comunque l'intero output. Le finestre fluttuanti possono sovrapporsi; gli spazi interni nella disposizione a piastrelle non le separano.
 

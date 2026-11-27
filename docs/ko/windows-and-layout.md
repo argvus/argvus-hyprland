@@ -79,8 +79,8 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 - [Appearance](/docs/user-guide/appearance/)
 - [Themes](/docs/user-guide/appearance/)
-- [Taskbar](/docs/argvus-panels/taskbar/)
-- [Control Panel](/docs/argvus-panels/)
+- [Taskbar](/docs/argvus-shell/taskbar/)
+- [Control Panel](/docs/argvus-shell/)
 
 ## 창 흔들림
 
@@ -121,7 +121,7 @@ Wobble은 기본적으로 비활성화되어 있습니다. 그 ARGVUS 기본값�
 세션은 `argvus-windows.service` 및 `argvus-window-bar.service`을 소유합니다. 후자는 Tile에서 Quickshell 하위 요소를 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에서 번들로 제공되며, x86_64에서 Hyprland >=0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오.
 명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 윈도우 주소는 목록에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 정보는 저널에 기록되며, 눈에 보이는 작업 실패는 번역된 알림으로 표시됩니다.
 
-작업 표시줄과 원격 측정 위젯은 `argvus-panels.service`가 관리하는 Quickshell 프로세스의 독립된 표면입니다. 각 표면은 `argvus-taskbar.service`와 `argvus-widget-telemetry.service`로 제어합니다.
+작업 표시줄과 원격 측정 위젯은 `argvus-shell.service`가 관리하는 Quickshell 프로세스의 독립된 표면입니다. 각 표면은 `argvus-taskbar.service`와 `argvus-widget-telemetry.service`로 제어합니다.
 
 **Spaced + Floating** 모드에서는 윈도우가 외부 간격과 두 바에서 예약된 영역을 존중합니다. 경계는 테두리와 제목을 포함하며, 제목은 같은 윈도우 테두리 안에 위치합니다. ARGVUS 컨트롤을 통해 최대화하면 이 영역이 여백과 함께 채워지고, 복원하면 서비스 재시작 후에도 이전 기하 구조를 복원합니다. 전체 화면 모드는 여전히 전체 출력 영역을 사용합니다. 플로팅 윈도우는 겹칠 수 있으며, 타일링 내부 간격은 윈도우를 분리하지 않습니다.
 

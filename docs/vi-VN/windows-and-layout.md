@@ -129,7 +129,7 @@ Việc thu gọn sử dụng không gian làm việc `special:argvus-minimized` 
 
 Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Quickshell của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland >=0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
 
-Thanh tác vụ và tiện ích đo từ xa là các bề mặt độc lập trong tiến trình Quickshell do `argvus-panels.service` quản lý. Dùng `argvus-taskbar.service` và `argvus-widget-telemetry.service` để điều khiển từng bề mặt.
+Thanh tác vụ và tiện ích đo từ xa là các bề mặt độc lập trong tiến trình Quickshell do `argvus-shell.service` quản lý. Dùng `argvus-taskbar.service` và `argvus-widget-telemetry.service` để điều khiển từng bề mặt.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, và `minimize|restore|activate|maximize|close ADDRESS`. Các địa chỉ cửa sổ được lấy từ danh sách. `position top --persist` lưu/truyền sở thích mà không cần khởi động lại thanh chính. Chi tiết cấu hình và lỗi thời gian chạy được ghi vào nhật ký; các thất bại hành động hiển thị cũng hiện thông báo đã được dịch.
 
@@ -143,8 +143,8 @@ Mỗi quy tắc có một không gian làm việc từ 1 đến 10 và một dan
 Các cửa sổ lát gạch được sắp xếp theo Hyprland trên không gian làm việc đang hoạt động. ARGVUS cũng hỗ trợ các cửa sổ tiện ích nổi; SUPER + SHIFT + Space chuyển đổi cửa sổ tập trung giữa bố cục xếp chồng và bố cục nổi. Chuyển động của không gian làm việc và tiêu điểm cửa sổ được kiểm soát bởi bảng kê khai liên kết phím đang hoạt động; xem [Phím tắt](/docs/argvus-hyprland/keyboard-shortcuts/).
 - [Bề ngoài](/docs/user-guide/appearance/)
 - [Chủ đề](/docs/user-guide/appearance/)
-- [Thanh tác vụ](/docs/argvus-panels/taskbar/)
-- [Bảng điều khiển](/docs/argvus-panels/)
+- [Thanh tác vụ](/docs/argvus-shell/taskbar/)
+- [Bảng điều khiển](/docs/argvus-shell/)
 cường độ tối đa theo[phát hành mã nguồn >=0.57.0](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):

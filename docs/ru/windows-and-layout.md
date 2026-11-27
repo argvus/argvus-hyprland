@@ -79,8 +79,8 @@ argvus config set hyprland.window_rules.browser.workspace 3
 
 - [Внешний вид](/docs/user-guide/appearance/)
 - [Темы](/docs/user-guide/appearance/)
-- [Панель задач](/docs/argvus-panels/taskbar/)
-- [Панель управления](/docs/argvus-panels/)
+- [Панель задач](/docs/argvus-shell/taskbar/)
+- [Панель управления](/docs/argvus-shell/)
 
 ## Колебание окна
 
@@ -120,7 +120,7 @@ argvus control-center hyprland animations windows
 
 Сеанс владеет `argvus-windows.service` и `argvus-window-bar.service`. Последнее удерживает своего дочернего Quickshell в спящем режиме в Tile. Плагин hyprbars включен `argvus-hyprland`, собран для ABI Hyprland >=0.57.0 на x86_64; он не компилируется в домашнем каталоге пользователя. Пересоберите плагин при обновлении ABI композитора. Команды: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` и `minimize|restore|activate|maximize|close ADDRESS`. Адреса окон берутся из списка. `position top --persist` сохраняет/применяет предпочтение без перезапуска основной панели. Детали конфигурации и ошибок во время выполнения записываются в журнал; видимые сбои действий также показывают переведённое уведомление.
 
-Панель задач и виджет телеметрии — независимые поверхности процесса Quickshell под управлением `argvus-panels.service`. Для управления ими используйте `argvus-taskbar.service` и `argvus-widget-telemetry.service`.
+Панель задач и виджет телеметрии — независимые поверхности процесса Quickshell под управлением `argvus-shell.service`. Для управления ими используйте `argvus-taskbar.service` и `argvus-widget-telemetry.service`.
 
 В **Spaced + Floating** окна учитывают внешние зазоры и зоны, зарезервированные обеими панелями. Границы включают рамку и заголовок, который находится внутри той же рамки окна. Максимизация через ARGVUS контролирует заполнение этой области с учётом отступов; восстановление возвращает предыдущую геометрию, включая после перезапуска службы. Режим полноэкранного просмотра по-прежнему использует весь вывод. Плавающие окна могут перекрывать друг друга; внутренние зазоры решётки не разделяют их.
 

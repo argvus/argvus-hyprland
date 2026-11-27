@@ -150,7 +150,7 @@ Commands:
 
 , `special:argvus-minimized`, and `argvus windows service`. The window addresses come from the list. `$XDG_RUNTIME_DIR/argvus` position top --persist  minimize|restore|activate|maximize|close ADDRESS  restore-all  position top|bottom  watch --json  argvus windows list --json  argvus-hyprland  argvus-window-bar.service  `argvus-windows.service`  stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
 
-ٹاسک بار اور ٹیلی میٹری ویجیٹ `argvus-panels.service` کے زیر انتظام Quickshell عمل کی الگ سطحیں ہیں۔ ہر سطح کو `argvus-taskbar.service` اور `argvus-widget-telemetry.service` سے کنٹرول کریں۔
+ٹاسک بار اور ٹیلی میٹری ویجیٹ `argvus-shell.service` کے زیر انتظام Quickshell عمل کی الگ سطحیں ہیں۔ ہر سطح کو `argvus-taskbar.service` اور `argvus-widget-telemetry.service` سے کنٹرول کریں۔
 
 In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭﮈﺭﺎﺑ ﻭﮉﻧﻭ ﯽﺳﺍ ﻮﺟ ،ﮟﯿﮨ ﻞﻣﺎﺷ ﻞﭩﺋﺎﭨ
 
@@ -164,8 +164,8 @@ In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭ�
 ٹائل شدہ کھڑکیوں کو Hyprland کے ذریعہ فعال ورک اسپیس پر ترتیب دیا گیا ہے۔ ARGVUS فلوٹنگ یوٹیلیٹی ونڈوز کو بھی سپورٹ کرتا ہے۔ SUPER + SHIFT + Space فوکسڈ ونڈو کو ٹائلڈ اور فلوٹنگ لے آؤٹ کے درمیان ٹوگل کرتا ہے۔ ورک اسپیس کی نقل و حرکت اور ونڈو فوکس کو فعال کی بائنڈنگ مینی فیسٹ کے ذریعے کنٹرول کیا جاتا ہے۔ دیکھیں [کی بورڈ شارٹ کٹس](/docs/argvus-hyprland/keyboard-shortcuts/)۔
 - [                                                                     ﻞﮑﺷ ﯼﺮﮨﺎﻇ](/docs/user-guide/appearance/)
 - [                                                                       ﺕﺎﻋﻮﺿﻮﻣ](/docs/user-guide/appearance/)
-- [                                                                      ﺭﺎﺑ ﮏﺳﺎﭨ](/docs/argvus-panels/taskbar/)
-- [                                                                   ﻞﻨﯿﭘ ﻝﻭﺮﭩﻨﮐ](/docs/argvus-panels/)
+- [                                                                      ﺭﺎﺑ ﮏﺳﺎﭨ](/docs/argvus-shell/taskbar/)
+- [                                                                   ﻞﻨﯿﭘ ﻝﻭﺮﭩﻨﮐ](/docs/argvus-shell/)
                                                      ﺪﻌﺑ ﮯﮐ ﮦﺩﺎﯾﺯ ﮯﺳ ﮦﺩﺎﯾﺯ ﺕﺪﺷ[                                                            ﺬﺧﺎﻣ >=0.57.0 ﯽﺗﺭﺍﺪﺻ](https://github.com/hyprwm/Hyprland/blob/v>=0.57.0/src/config/values/ConfigValues.cpp),
 
 `96-argvus-hyprland-reload.hook` (`PostTransaction`):
