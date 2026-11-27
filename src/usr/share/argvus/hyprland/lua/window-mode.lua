@@ -124,6 +124,12 @@ return function(initial_mode, controls)
     changing = true
     local ok, failure = pcall(function()
       reconcile()
+      -- Decoration changes can schedule property refreshes that alter layout.
+      -- Apply them before converting windows so the requested mode wins.
+      if controls then
+        controls(mode)
+        hl.exec_scheduled_prop_refresh_immediately()
+      end
       -- Snapshot every tiled member before a dispatcher can affect its group.
       if mode == "floating" then
         for _, window in ipairs(hl.get_windows()) do
@@ -157,13 +163,6 @@ return function(initial_mode, controls)
     end)
     changing = false
     last_error = ok and "" or tostring(failure)
-    if ok and controls then
-      local controls_ok, controls_error = pcall(controls, mode)
-      if not controls_ok then
-        last_error = tostring(controls_error)
-        print("ARGVUS: window controls: " .. last_error)
-      end
-    end
     applied = ok and mode or "pending"
     write_status()
     assert(ok, last_error)

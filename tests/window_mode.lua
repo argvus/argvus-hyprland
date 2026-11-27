@@ -113,6 +113,17 @@ callbacks["window.open"](seventh)
 assert(seventh.floating)
 api.apply("tile")
 assert(seventh.floating, "decoration refresh must not replace a native floating origin")
+-- Decoration updates can schedule a floating-state refresh during a switch.
+third.floating = false
+api = factory("tile", function(mode)
+  if mode == "tile" and third.floating then
+    third.pending_float = true
+  end
+end)
+api.apply("floating")
+api.apply("tile")
+hl.exec_scheduled_prop_refresh_immediately()
+assert(not third.floating, "decoration refresh must not undo tiling")
 -- Polling status must preserve an identical marker and recreate a lost one.
 local status_path = assert(os.getenv("XDG_RUNTIME_DIR"))
   .. "/argvus/window-mode-"
