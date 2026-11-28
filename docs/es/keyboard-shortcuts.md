@@ -222,3 +222,5 @@ El lanzador principal usa Quickshell/QML con un motor local en Rust. Busca aplic
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Portapapeles** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navegar) · `/` (Buscar) · `Enter` (Copiar) · `Delete` (Borrar historial) · `Esc` (Cerrar)
+
+**ARGVUS Dock** · **Super+Alt+D** · Mostrar y enfocar el Dock

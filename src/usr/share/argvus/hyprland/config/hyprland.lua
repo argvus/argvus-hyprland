@@ -1156,6 +1156,7 @@ hl.animation({ leaf = "global", enabled = _animations_enabled, speed = 10, bezie
 local _blur_layer_surfaces = {
   { namespace = "argvus-lifecycle" },
   { namespace = "argvus-taskbar-visual", surface = "taskbar" },
+  { namespace = "argvus-dock", surface = "taskbar" },
   -- SidebarWindow pins argvus-control-panel. Older builds fall back to the
   -- Quickshell default namespace, so keep matching that too.
   { namespace = "argvus-control-panel|quickshell", surface = "control-panel" },
@@ -1731,6 +1732,11 @@ _argvus_bind("session.reload", mod .. " + SHIFT + R", hl.dsp.exec_cmd("argvus se
 -- Bind arrow keys to move the taskbar; keep a single binding per direction
 _argvus_bind("widget.taskbar_top", mod .. " + ALT + up", hl.dsp.exec_cmd("argvus windows position top"))
 _argvus_bind("widget.taskbar_bottom", mod .. " + ALT + down", hl.dsp.exec_cmd("argvus windows position bottom"))
+_argvus_bind(
+  "widget.dock_focus",
+  mod .. " + ALT + D",
+  hl.dsp.exec_cmd("qs -p /usr/share/argvus/shell/qml/shell.qml ipc call dock focus")
+)
 
 -- User-created global shortcuts. Generated actions are data, never evaluated Lua.
 local _custom_shortcuts = _load_generated_table("hypr/custom-shortcuts.lua") or {}

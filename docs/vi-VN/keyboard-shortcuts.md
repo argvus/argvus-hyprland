@@ -231,3 +231,5 @@ Trình khởi chạy chính dùng Quickshell/QML và công cụ Rust cục bộ 
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Bảng tạm** · `argvus clipboard` · `Super + H` · `↑` `↓` (Điều hướng) · `/` (Tìm kiếm) · `Enter` (Sao chép) · `Delete` (Xóa lịch sử) · `Esc` (Đóng)
+
+**ARGVUS Dock** · **Super+Alt+D** · Hiện và chuyển tiêu điểm đến Dock

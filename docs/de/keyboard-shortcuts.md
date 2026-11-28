@@ -222,3 +222,5 @@ Der Hauptstarter verwendet Quickshell/QML mit einer lokalen Rust-Suche für Apps
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Zwischenablage** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigieren) · `/` (Suchen) · `Enter` (Kopieren) · `Delete` (Verlauf löschen) · `Esc` (Schließen)
+
+**ARGVUS Dock** · **Super+Alt+D** · Dock anzeigen und fokussieren

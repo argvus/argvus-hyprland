@@ -232,3 +232,5 @@ description: ARGVUS Hyprland.  ﻦﻳﻮﻜﺗ ﺔﻄﺳﺍﻮﺑ ﺔﻣﺪﻘ�
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS الحافظة** · `argvus clipboard` · `Super + H` · `↑` `↓` (التنقل) · `/` (بحث) · `Enter` (نسخ) · `Delete` (مسح السجل) · `Esc` (إغلاق)
+
+**ARGVUS Dock** · **Super+Alt+D** · إظهار شريط التطبيقات وتركيزه

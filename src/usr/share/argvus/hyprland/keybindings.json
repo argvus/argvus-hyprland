@@ -80,6 +80,7 @@
     {"id":"widget.taskbar_toggle","category":"widgets","description_key":"keybindings.action.taskbar_toggle","keys":"SUPER + BackSpace","action":"taskbar-toggle"},
     {"id":"widget.weather","category":"widgets","description_key":"keybindings.action.weather","keys":"SUPER + SHIFT + W","action":"argvus weather-location"},
     {"id":"widget.taskbar_top","category":"widgets","description_key":"keybindings.action.taskbar_top","keys":"SUPER + ALT + up","action":"taskbar-top"},
+    {"id":"widget.dock_focus","category":"widgets","description_key":"keybindings.action.dock_focus","keys":"SUPER + ALT + D","action":"qs -p /usr/share/argvus/shell/qml/shell.qml ipc call dock focus"},
     {"id":"widget.taskbar_bottom","category":"widgets","description_key":"keybindings.action.taskbar_bottom","keys":"SUPER + ALT + down","action":"taskbar-bottom"},
     {"id":"appearance.brightness","category":"appearance","description_key":"keybindings.action.brightness","keys":"SUPER + SHIFT + B","action":"brightness-switch"},
     {"id":"session.idle_timeout","category":"session","description_key":"keybindings.action.idle_timeout","keys":"SUPER + SHIFT + L","action":"argvus idle-timeout"},

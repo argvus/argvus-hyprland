@@ -222,3 +222,5 @@ description: Найдите сочетания клавиш, предостав�
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Буфер обмена** · `argvus clipboard` · `Super + H` · `↑` `↓` (Навигация) · `/` (Поиск) · `Enter` (Копировать) · `Delete` (Очистить историю) · `Esc` (Закрыть)
+
+**ARGVUS Dock** · **Super+Alt+D** · Показать док и перевести на него фокус

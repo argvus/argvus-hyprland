@@ -228,3 +228,5 @@ Ana başlatıcı Quickshell/QML ve yerel Rust arama motoruyla uygulama, pencere,
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Pano** · `argvus clipboard` · `Super + H` · `↑` `↓` (Gezin) · `/` (Ara) · `Enter` (Kopyala) · `Delete` (Geçmişi temizle) · `Esc` (Kapat)
+
+**ARGVUS Dock** · **Super+Alt+D** · Dock’u göster ve odakla

@@ -222,3 +222,5 @@ Packages では、`/` が最上部の **Search** バーにフォーカスしま�
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS クリップボード** · `argvus clipboard` · `Super + H` · `↑` `↓` (移動) · `/` (検索) · `Enter` (コピー) · `Delete` (履歴を消去) · `Esc` (閉じる)
+
+**ARGVUS Dock** · **Super+Alt+D** · Dock を表示してフォーカスする

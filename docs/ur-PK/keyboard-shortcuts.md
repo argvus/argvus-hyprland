@@ -230,3 +230,5 @@ Run  data/generated/hypr/custom-shortcuts.lua  $XDG_CONFIG_HOME/argvus/config/hy
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS کلپ بورڈ** · `argvus clipboard` · `Super + H` · `↑` `↓` (نیویگیٹ کریں) · `/` (تلاش کریں) · `Enter` (کاپی کریں) · `Delete` (تاریخ صاف کریں) · `Esc` (بند کریں)
+
+**ARGVUS Dock** · **Super+Alt+D** · ڈاک دکھائیں اور فوکس کریں

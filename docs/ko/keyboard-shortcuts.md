@@ -223,3 +223,5 @@ Packages에서는 `/`가 상단 **검색** 바에 포커스를 맞춥니다. `En
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS 클립보드** · `argvus clipboard` · `Super + H` · `↑` `↓` (이동) · `/` (검색) · `Enter` (복사) · `Delete` (기록 지우기) · `Esc` (닫기)
+
+**ARGVUS Dock** · **Super+Alt+D** · Dock 표시 및 포커스

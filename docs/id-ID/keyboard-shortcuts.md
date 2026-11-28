@@ -228,3 +228,5 @@ Peluncur utama memakai Quickshell/QML dan mesin Rust lokal untuk aplikasi, jende
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Papan klip** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigasi) · `/` (Cari) · `Enter` (Salin) · `Delete` (Hapus riwayat) · `Esc` (Tutup)
+
+**ARGVUS Dock** · **Super+Alt+D** · Tampilkan dan fokuskan Dock

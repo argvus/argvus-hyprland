@@ -222,3 +222,5 @@ description: 查找 ARGVUS Hyprland 配置提供的快捷键。
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS 剪贴板** · `argvus clipboard` · `Super + H` · `↑` `↓` (导航) · `/` (搜索) · `Enter` (复制) · `Delete` (清除历史记录) · `Esc` (关闭)
+
+**ARGVUS Dock** · **Super+Alt+D** · 显示并聚焦 Dock

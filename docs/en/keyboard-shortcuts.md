@@ -228,3 +228,5 @@ The main launcher uses Quickshell/QML with a local Rust search engine. It search
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS Clipboard** · `argvus clipboard` · `Super + H` · `↑` `↓` (Navigate) · `/` (Search) · `Enter` (Copy) · `Delete` (Clear history) · `Esc` (Close)
+
+**Super+Alt+D** reveals and focuses the ARGVUS Dock in Floating Windows.

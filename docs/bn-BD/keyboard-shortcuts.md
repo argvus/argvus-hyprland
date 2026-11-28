@@ -228,3 +228,5 @@ description: ARGVUS Hyprland কনফিগারেশন দ্বারা �
 `/default_apps/launcher`: `argvus` (ARGVUS), `rofi` (legacy ARGVUS), `<program> --show drun` (external).
 
 **ARGVUS ক্লিপবোর্ড** · `argvus clipboard` · `Super + H` · `↑` `↓` (নেভিগেট করুন) · `/` (খুঁজুন) · `Enter` (কপি করুন) · `Delete` (ইতিহাস মুছুন) · `Esc` (বন্ধ করুন)
+
+**ARGVUS Dock** · **Super+Alt+D** · ডক দেখান ও ফোকাস করুন
